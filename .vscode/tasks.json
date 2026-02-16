@@ -1,0 +1,85 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-G", "MinGW Makefiles",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-S", "${workspaceFolder}",
+                "-B", "${workspaceFolder}/build"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "CMake: Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${workspaceFolder}/build"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": []
+        },
+        {
+            "label": "CMake: Configure + Build",
+            "dependsOn": ["CMake: Configure", "CMake: Build"],
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "CMake: Clean",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${workspaceFolder}/build",
+                "--target", "clean"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe build active file",
+            "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}",
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+            "detail": "Single file build (for quick tests)"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Documents/Programming/C_Projects/QEngine/build/cmake_install.cmake",
+		"D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/cmake_install.cmake",
+		"D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
