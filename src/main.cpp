@@ -1,23 +1,31 @@
+#include "engine/core/window.h"
 #include <iostream>
 
-// Third-party libraries - verify they're found
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <entt/entt.hpp>
-
-int main()
+int main() 
 {
-	std::cout << "QEngine starting..." << std::endl;
+	Window window(1280, 720, "QEngine");
 
-	// quick test: create a GLM vector
-	glm::vec3 position(1.0f, 2.0f, 3.0f);
-	std::cout << "Position: " << position.x << ", " << position.y << ", " << position.z << std::endl;
+	float deltaTime = 0.0f;
+	float lastFrame = 0.0f;
 
-	// Quick test: create an Entt registry
-	entt::registry registry;
-	auto entity = registry.create();
-	std::cout << "Created entity: " << (uint32_t)entity << std::endl;
+	while (!window.shouldClose())
+	{
+		float currentFrame = (float)glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
 
-	std::cout << "All systems go!" << std::endl;
+		window.pollEvents();
+
+		if (glfwGetKey(window.getHandle(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		{
+			glfwSetWindowShouldClose(window.getHandle(), true);
+		}
+
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		window.swapBuffers();
+
+	}
 	return 0;
 }

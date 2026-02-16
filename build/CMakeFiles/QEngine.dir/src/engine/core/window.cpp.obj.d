@@ -1,6 +1,6 @@
-CMakeFiles/QEngine.dir/src/main.cpp.obj: \
- D:\Documents\Programming\C_Projects\QEngine\src\main.cpp \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/core/window.h \
+CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj: \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine\core\window.cpp \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/KHR/khrplatform.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
