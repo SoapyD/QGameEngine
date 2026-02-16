@@ -43,6 +43,7 @@ target_include_directories(stb INTERFACE extern/stb)
 # for now, just main.cpp. We'll add more files as we create them
 add_executable(QEngine
 	src/main.cpp
+	src/engine/core/window.cpp
 )
 
 target_include_directories(QEngine PRIVATE src)

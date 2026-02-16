@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.cpp" "CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/main.cpp" "CMakeFiles/QEngine.dir/src/main.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/main.cpp.obj.d"
   )
 

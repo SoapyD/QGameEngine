@@ -249,6 +249,30 @@ extern/glad/src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/extern/glad/src/glad.c.s
 .PHONY : extern/glad/src/glad.c.s
 
+src/engine/core/window.obj: src/engine/core/window.cpp.obj
+.PHONY : src/engine/core/window.obj
+
+# target to build an object file
+src/engine/core/window.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj
+.PHONY : src/engine/core/window.cpp.obj
+
+src/engine/core/window.i: src/engine/core/window.cpp.i
+.PHONY : src/engine/core/window.i
+
+# target to preprocess a source file
+src/engine/core/window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/window.cpp.i
+.PHONY : src/engine/core/window.cpp.i
+
+src/engine/core/window.s: src/engine/core/window.cpp.s
+.PHONY : src/engine/core/window.s
+
+# target to generate assembly for a file
+src/engine/core/window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/window.cpp.s
+.PHONY : src/engine/core/window.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -293,6 +317,9 @@ help:
 	@echo ... extern/glad/src/glad.obj
 	@echo ... extern/glad/src/glad.i
 	@echo ... extern/glad/src/glad.s
+	@echo ... src/engine/core/window.obj
+	@echo ... src/engine/core/window.i
+	@echo ... src/engine/core/window.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
