@@ -45,6 +45,8 @@ add_executable(QEngine
 	src/main.cpp
 	src/engine/core/window.cpp
 	src/engine/renderer/shader.cpp
+	src/engine/ecs/systems/movement_system.cpp
+	src/engine/ecs/systems/render_system.cpp
 )
 
 target_include_directories(QEngine PRIVATE src)

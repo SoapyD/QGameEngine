@@ -1,0 +1,164 @@
+[
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/glad.dir/includes_C.rsp  -o CMakeFiles\\glad.dir\\extern\\glad\\src\\glad.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glad\\src\\glad.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glad/src/glad.c",
+  "output": "CMakeFiles/glad.dir/extern/glad/src/glad.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\main.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\main.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/main.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\core\\window.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\core\\window.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\shader.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\shader.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\ecs\\systems\\movement_system.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\ecs\\systems\\movement_system.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\ecs\\systems\\render_system.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\ecs\\systems\\render_system.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\context.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\context.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/context.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/context.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\init.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\init.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/init.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/init.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\input.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\input.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/input.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/input.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\monitor.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\monitor.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/monitor.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\platform.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\platform.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/platform.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/platform.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\vulkan.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\vulkan.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/vulkan.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\window.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\window.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/window.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/window.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\egl_context.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\egl_context.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/egl_context.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\osmesa_context.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/osmesa_context.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_init.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\null_init.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/null_init.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_monitor.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\null_monitor.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/null_monitor.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_window.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\null_window.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/null_window.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_joystick.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\null_joystick.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/null_joystick.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_module.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\win32_module.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/win32_module.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_time.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\win32_time.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/win32_time.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_thread.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\win32_thread.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/win32_thread.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_init.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\win32_init.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/win32_init.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\win32_joystick.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/win32_joystick.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\win32_monitor.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/win32_monitor.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_window.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\win32_window.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/win32_window.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\wgl_context.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\wgl_context.c",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/wgl_context.c",
+  "output": "extern/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
+}
+]
