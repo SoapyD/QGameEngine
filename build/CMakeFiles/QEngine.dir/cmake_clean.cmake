@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj"
   "CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj.d"
+  "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
+  "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj.d"
   "CMakeFiles/QEngine.dir/src/main.cpp.obj"
   "CMakeFiles/QEngine.dir/src/main.cpp.obj.d"
   "QEngine.exe"

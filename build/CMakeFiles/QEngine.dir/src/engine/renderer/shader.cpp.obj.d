@@ -1,6 +1,6 @@
-CMakeFiles/QEngine.dir/src/main.cpp.obj: \
- D:\Documents\Programming\C_Projects\QEngine\src\main.cpp \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/core/window.h \
+CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj: \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine\renderer\shader.cpp \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/KHR/khrplatform.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
@@ -12,7 +12,6 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
  C:/msys64/ucrt64/include/stddef.h \
- D:/Documents/Programming/C_Projects/QEngine/extern/glfw/include/GLFW/glfw3.h \
  C:/msys64/ucrt64/include/c++/15.2.0/string \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -110,10 +109,8 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/renderer/shader.h \
- C:/msys64/ucrt64/include/c++/15.2.0/iostream \
- C:/msys64/ucrt64/include/c++/15.2.0/ostream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/fstream \
+ C:/msys64/ucrt64/include/c++/15.2.0/istream \
  C:/msys64/ucrt64/include/c++/15.2.0/ios \
  C:/msys64/ucrt64/include/c++/15.2.0/exception \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
@@ -153,6 +150,14 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/ostream \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/istream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++io.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/fstream.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/sstream \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/iostream
