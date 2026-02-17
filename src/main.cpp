@@ -1,5 +1,10 @@
 #include "engine/core/window.h"
 #include "engine/renderer/shader.h"
+#include "engine/ecs/components.h"
+#include "engine/ecs/systems/render_system.h"
+#include "engine/ecs/systems/movement_system.h"
+
+#include <entt/entt.hpp>
 #include <iostream>
 
 int main() 
@@ -61,6 +66,16 @@ int main()
 	// unbind (optional, for safety)
 	glBindVertexArray(0);
 
+	// ─── ECS: Create the world ───────────────────────────────────
+	entt::registry registry;
+
+	// create a triangle entity
+	auto triangle = registry.create();
+	registry.emplace<Position>(triangle, glm::vec3(0.0f, 0.0f, 0.0f));
+	registry.emplace<Velocity>(triangle, glm::vec3(0.2f, 0.0f, 0.0f));
+	registry.emplace<MeshRenderer>(triangle, VAO, 3u, basicShader.getId());
+
+	// ─── Game Loop ───────────────────────────────────────────────
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
 
@@ -77,13 +92,15 @@ int main()
 			glfwSetWindowShouldClose(window.getHandle(), true);
 		}
 
+		// ─── ECS Systems (tick order!) ───────────────────────────
+		movementSystem(registry, deltaTime); // update positions
+		// ... future systems go here ...
+
+		// ─── Render ──────────────────────────────────────────────		
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// draw the traignle
-		basicShader.use(); // activate our shader
-		glBindVertexArray(VAO); // bind our vertex data
-		glDrawArrays(GL_TRIANGLES, 0, 3); // draw 3 vertices as a triangle
+		renderSystem(registry); // draw everything
 
 		window.swapBuffers();
 

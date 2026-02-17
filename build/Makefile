@@ -273,6 +273,54 @@ src/engine/core/window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/window.cpp.s
 .PHONY : src/engine/core/window.cpp.s
 
+src/engine/ecs/systems/movement_system.obj: src/engine/ecs/systems/movement_system.cpp.obj
+.PHONY : src/engine/ecs/systems/movement_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/movement_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj
+.PHONY : src/engine/ecs/systems/movement_system.cpp.obj
+
+src/engine/ecs/systems/movement_system.i: src/engine/ecs/systems/movement_system.cpp.i
+.PHONY : src/engine/ecs/systems/movement_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/movement_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.i
+.PHONY : src/engine/ecs/systems/movement_system.cpp.i
+
+src/engine/ecs/systems/movement_system.s: src/engine/ecs/systems/movement_system.cpp.s
+.PHONY : src/engine/ecs/systems/movement_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/movement_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.s
+.PHONY : src/engine/ecs/systems/movement_system.cpp.s
+
+src/engine/ecs/systems/render_system.obj: src/engine/ecs/systems/render_system.cpp.obj
+.PHONY : src/engine/ecs/systems/render_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/render_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj
+.PHONY : src/engine/ecs/systems/render_system.cpp.obj
+
+src/engine/ecs/systems/render_system.i: src/engine/ecs/systems/render_system.cpp.i
+.PHONY : src/engine/ecs/systems/render_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/render_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.i
+.PHONY : src/engine/ecs/systems/render_system.cpp.i
+
+src/engine/ecs/systems/render_system.s: src/engine/ecs/systems/render_system.cpp.s
+.PHONY : src/engine/ecs/systems/render_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/render_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.s
+.PHONY : src/engine/ecs/systems/render_system.cpp.s
+
 src/engine/renderer/shader.obj: src/engine/renderer/shader.cpp.obj
 .PHONY : src/engine/renderer/shader.obj
 
@@ -344,6 +392,12 @@ help:
 	@echo ... src/engine/core/window.obj
 	@echo ... src/engine/core/window.i
 	@echo ... src/engine/core/window.s
+	@echo ... src/engine/ecs/systems/movement_system.obj
+	@echo ... src/engine/ecs/systems/movement_system.i
+	@echo ... src/engine/ecs/systems/movement_system.s
+	@echo ... src/engine/ecs/systems/render_system.obj
+	@echo ... src/engine/ecs/systems/render_system.i
+	@echo ... src/engine/ecs/systems/render_system.s
 	@echo ... src/engine/renderer/shader.obj
 	@echo ... src/engine/renderer/shader.i
 	@echo ... src/engine/renderer/shader.s
