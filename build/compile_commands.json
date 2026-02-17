@@ -19,12 +19,6 @@
 },
 {
   "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\shader.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\shader.cpp",
-  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.cpp",
-  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
-},
-{
-  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\ecs\\systems\\movement_system.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\ecs\\systems\\movement_system.cpp",
   "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.cpp",
   "output": "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj"
@@ -34,6 +28,18 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\ecs\\systems\\render_system.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\ecs\\systems\\render_system.cpp",
   "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.cpp",
   "output": "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\camera.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\camera.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\shader.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\shader.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
 },
 {
   "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",

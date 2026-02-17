@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj.d"
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj"
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj.d"
+  "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj"
+  "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj.d"
   "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
   "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj.d"
   "CMakeFiles/QEngine.dir/src/main.cpp.obj"
