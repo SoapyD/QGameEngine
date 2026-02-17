@@ -1,6 +1,8 @@
 #pragma once
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <string>
 
 class Shader
@@ -15,6 +17,12 @@ class Shader
 
 		// get the OpenGL program ID (needed for settings uniforms later)
 		unsigned int getId() const { return m_programId; }
+
+		// uniform setters
+		void setMat4(const std::string& name, const glm::mat4& value) const;
+		void setVec3(const std::string& name, const glm::vec3& value) const;
+		void setFloat(const std::string& name, float value) const;
+		void setInt(const std::string& name, int value) const;
 
 	private:
 		unsigned int m_programId;

@@ -1,5 +1,6 @@
 #include "engine/core/window.h"
 #include "engine/renderer/shader.h"
+#include "engine/renderer/camera.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/systems/render_system.h"
 #include "engine/ecs/systems/movement_system.h"
@@ -7,9 +8,38 @@
 #include <entt/entt.hpp>
 #include <iostream>
 
+// ─── Mouse state (temporary globals) ─────────────────────────────
+float lastMouseX = 640.0f;
+float lastMouseY = 360.0f;
+float mouseXOffset = 0.0f;
+float mouseYOffset = 0.0f;
+bool firstMouse = true;
+
+void mouseCallback(GLFWwindow* window, double xpos, double ypos)
+{
+	float x = static_cast<float>(xpos);
+	float y = static_cast<float>(ypos);
+
+	if (firstMouse)
+	{
+		lastMouseX = x;
+		lastMouseY = y;
+		firstMouse = false;
+	}
+
+	mouseXOffset = x - lastMouseX;
+	mouseYOffset = lastMouseY - y; // reversed: y goes bottom-to-top in OpenGL
+	lastMouseX = x;
+	lastMouseY = y;
+}
+
+
 int main() 
 {
 	Window window(1280, 720, "QEngine");
+
+	glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPosCallback(window.getHandle(), mouseCallback);
 
 	// ─── Shader ──────────────────────────────────────────────────
 	Shader basicShader(
@@ -66,18 +96,29 @@ int main()
 	// unbind (optional, for safety)
 	glBindVertexArray(0);
 
+	// ─── Camera ──────────────────────────────────────────────────
+	Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
 
 	// create a triangle entity
 	auto triangle = registry.create();
 	registry.emplace<Position>(triangle, glm::vec3(0.0f, 0.0f, 0.0f));
-	registry.emplace<Velocity>(triangle, glm::vec3(0.2f, 0.0f, 0.0f));
 	registry.emplace<MeshRenderer>(triangle, VAO, 3u, basicShader.getId());
+
+	// create a second triangle off to the right
+	auto triangle2 = registry.create();
+	registry.emplace<Position>(triangle2, glm::vec3(2.0f, 0.0f, -1.0f));
+	registry.emplace<Rotation>(triangle2, glm::vec3(0.0f, 45.0f, 0.0f));	
+	registry.emplace<MeshRenderer>(triangle2, VAO, 3u, basicShader.getId());
 
 	// ─── Game Loop ───────────────────────────────────────────────
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
+
+	// enable depth testing (so closer things draw in front of further things)
+	glEnable(GL_DEPTH_TEST);
 
 	while (!window.shouldClose())
 	{
@@ -87,10 +128,22 @@ int main()
 
 		window.pollEvents();
 
+		// ─── Input ───────────────────────────────────────────────
 		if (glfwGetKey(window.getHandle(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		{
 			glfwSetWindowShouldClose(window.getHandle(), true);
-		}
+
+		if (glfwGetKey(window.getHandle(), GLFW_KEY_W) == GLFW_PRESS)
+			camera.processKeyboard(Camera::FORWARD, deltaTime);
+		if (glfwGetKey(window.getHandle(), GLFW_KEY_S) == GLFW_PRESS)
+			camera.processKeyboard(Camera::BACKWARD, deltaTime);
+		if (glfwGetKey(window.getHandle(), GLFW_KEY_A) == GLFW_PRESS)
+			camera.processKeyboard(Camera::LEFT, deltaTime);
+		if (glfwGetKey(window.getHandle(), GLFW_KEY_D) == GLFW_PRESS)
+			camera.processKeyboard(Camera::RIGHT, deltaTime);
+
+		camera.processMouse(mouseXOffset, mouseYOffset);
+		mouseXOffset = 0.0f;
+		mouseYOffset = 0.0f;
 
 		// ─── ECS Systems (tick order!) ───────────────────────────
 		movementSystem(registry, deltaTime); // update positions
@@ -98,9 +151,10 @@ int main()
 
 		// ─── Render ──────────────────────────────────────────────		
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		renderSystem(registry); // draw everything
+		float aspectRatio = (float)window.getWidth() / (float)window.getHeight();
+		renderSystem(registry, camera, aspectRatio); // draw everything
 
 		window.swapBuffers();
 

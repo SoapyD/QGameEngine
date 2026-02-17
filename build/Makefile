@@ -321,6 +321,30 @@ src/engine/ecs/systems/render_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.s
 .PHONY : src/engine/ecs/systems/render_system.cpp.s
 
+src/engine/renderer/camera.obj: src/engine/renderer/camera.cpp.obj
+.PHONY : src/engine/renderer/camera.obj
+
+# target to build an object file
+src/engine/renderer/camera.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj
+.PHONY : src/engine/renderer/camera.cpp.obj
+
+src/engine/renderer/camera.i: src/engine/renderer/camera.cpp.i
+.PHONY : src/engine/renderer/camera.i
+
+# target to preprocess a source file
+src/engine/renderer/camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.i
+.PHONY : src/engine/renderer/camera.cpp.i
+
+src/engine/renderer/camera.s: src/engine/renderer/camera.cpp.s
+.PHONY : src/engine/renderer/camera.s
+
+# target to generate assembly for a file
+src/engine/renderer/camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.s
+.PHONY : src/engine/renderer/camera.cpp.s
+
 src/engine/renderer/shader.obj: src/engine/renderer/shader.cpp.obj
 .PHONY : src/engine/renderer/shader.obj
 
@@ -398,6 +422,9 @@ help:
 	@echo ... src/engine/ecs/systems/render_system.obj
 	@echo ... src/engine/ecs/systems/render_system.i
 	@echo ... src/engine/ecs/systems/render_system.s
+	@echo ... src/engine/renderer/camera.obj
+	@echo ... src/engine/renderer/camera.i
+	@echo ... src/engine/renderer/camera.s
 	@echo ... src/engine/renderer/shader.obj
 	@echo ... src/engine/renderer/shader.i
 	@echo ... src/engine/renderer/shader.s

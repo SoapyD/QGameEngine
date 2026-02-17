@@ -111,7 +111,6 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/renderer/shader.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/components.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
  C:/msys64/ucrt64/include/c++/15.2.0/cmath \
@@ -288,6 +287,60 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/type_ptr.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/quaternion.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/constants.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_constants.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_constants.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/constants.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/matrix_transform.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_projection.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_projection.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_clip_space.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_clip_space.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_transform.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_transform.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/matrix_transform.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_relational.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_relational.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_float.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_common.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_geometric.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_geometric.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_common.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_float.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_quat.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_relational.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_relational.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_quat.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_float_precision.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_double.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_double_precision.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_trigonometric.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_trigonometric.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_transform.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_transform.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/quaternion.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/epsilon.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/epsilon.inl \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/vec1.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool1.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool1_precision.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float1.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float1_precision.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double1.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double1_precision.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int1.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int1_sized.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint1.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint1_sized.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/cstring \
+ C:/msys64/ucrt64/include/string.h \
+ C:/msys64/ucrt64/include/sec_api/string_s.h \
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/type_ptr.inl \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/renderer/camera.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/components.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/render_system.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \

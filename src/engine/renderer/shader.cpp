@@ -34,6 +34,52 @@ void Shader::use() const
 	glUseProgram(m_programId);
 }
 
+void Shader::setMat4(const std::string& name, const glm::mat4& value) const
+{
+	glUniformMatrix4fv
+	(
+		glGetUniformLocation(m_programId, name.c_str()),
+		1,						// count: 1 matric
+		GL_FALSE,				// transpose: no
+		glm::value_ptr(value)	// pointer to the matrix data
+	);
+}
+
+void Shader::setVec3(const std::string& name, const glm::vec3& value) const
+{
+	glUniform3fv
+	(
+		glGetUniformLocation(m_programId, name.c_str()),
+		1,						// count: 1 matric
+		glm::value_ptr(value)	// pointer to the matrix data
+	);
+}
+
+void Shader::setFloat(const std::string& name, float value) const
+{
+	glUniform1f
+	(
+		glGetUniformLocation
+		(
+			m_programId,
+			name.c_str()
+		),
+		value
+	);
+}
+
+void Shader::setInt(const std::string& name, int value) const
+{
+	glUniform1i(
+		glGetUniformLocation
+		(
+			m_programId,
+			name.c_str()
+		),
+		value
+	);
+}
+
 std::string Shader::readFile(const std::string& path) const
 {
 	std::ifstream file(path);
