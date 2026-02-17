@@ -273,6 +273,30 @@ src/engine/core/window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/window.cpp.s
 .PHONY : src/engine/core/window.cpp.s
 
+src/engine/renderer/shader.obj: src/engine/renderer/shader.cpp.obj
+.PHONY : src/engine/renderer/shader.obj
+
+# target to build an object file
+src/engine/renderer/shader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj
+.PHONY : src/engine/renderer/shader.cpp.obj
+
+src/engine/renderer/shader.i: src/engine/renderer/shader.cpp.i
+.PHONY : src/engine/renderer/shader.i
+
+# target to preprocess a source file
+src/engine/renderer/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.i
+.PHONY : src/engine/renderer/shader.cpp.i
+
+src/engine/renderer/shader.s: src/engine/renderer/shader.cpp.s
+.PHONY : src/engine/renderer/shader.s
+
+# target to generate assembly for a file
+src/engine/renderer/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.s
+.PHONY : src/engine/renderer/shader.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -320,6 +344,9 @@ help:
 	@echo ... src/engine/core/window.obj
 	@echo ... src/engine/core/window.i
 	@echo ... src/engine/core/window.s
+	@echo ... src/engine/renderer/shader.obj
+	@echo ... src/engine/renderer/shader.i
+	@echo ... src/engine/renderer/shader.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
