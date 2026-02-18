@@ -42,6 +42,18 @@
   "output": "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
 },
 {
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\stb_image_impl.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\stb_image_impl.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/stb_image_impl.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\texture.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\texture.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj"
+},
+{
   "directory": "D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src",
   "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -std=c99 -Wall -o CMakeFiles\\glfw.dir\\context.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\extern\\glfw\\src\\context.c",
   "file": "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/src/context.c",

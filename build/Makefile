@@ -369,6 +369,54 @@ src/engine/renderer/shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.s
 .PHONY : src/engine/renderer/shader.cpp.s
 
+src/engine/renderer/stb_image_impl.obj: src/engine/renderer/stb_image_impl.cpp.obj
+.PHONY : src/engine/renderer/stb_image_impl.obj
+
+# target to build an object file
+src/engine/renderer/stb_image_impl.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj
+.PHONY : src/engine/renderer/stb_image_impl.cpp.obj
+
+src/engine/renderer/stb_image_impl.i: src/engine/renderer/stb_image_impl.cpp.i
+.PHONY : src/engine/renderer/stb_image_impl.i
+
+# target to preprocess a source file
+src/engine/renderer/stb_image_impl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.i
+.PHONY : src/engine/renderer/stb_image_impl.cpp.i
+
+src/engine/renderer/stb_image_impl.s: src/engine/renderer/stb_image_impl.cpp.s
+.PHONY : src/engine/renderer/stb_image_impl.s
+
+# target to generate assembly for a file
+src/engine/renderer/stb_image_impl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.s
+.PHONY : src/engine/renderer/stb_image_impl.cpp.s
+
+src/engine/renderer/texture.obj: src/engine/renderer/texture.cpp.obj
+.PHONY : src/engine/renderer/texture.obj
+
+# target to build an object file
+src/engine/renderer/texture.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj
+.PHONY : src/engine/renderer/texture.cpp.obj
+
+src/engine/renderer/texture.i: src/engine/renderer/texture.cpp.i
+.PHONY : src/engine/renderer/texture.i
+
+# target to preprocess a source file
+src/engine/renderer/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.i
+.PHONY : src/engine/renderer/texture.cpp.i
+
+src/engine/renderer/texture.s: src/engine/renderer/texture.cpp.s
+.PHONY : src/engine/renderer/texture.s
+
+# target to generate assembly for a file
+src/engine/renderer/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.s
+.PHONY : src/engine/renderer/texture.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -428,6 +476,12 @@ help:
 	@echo ... src/engine/renderer/shader.obj
 	@echo ... src/engine/renderer/shader.i
 	@echo ... src/engine/renderer/shader.s
+	@echo ... src/engine/renderer/stb_image_impl.obj
+	@echo ... src/engine/renderer/stb_image_impl.i
+	@echo ... src/engine/renderer/stb_image_impl.s
+	@echo ... src/engine/renderer/texture.obj
+	@echo ... src/engine/renderer/texture.i
+	@echo ... src/engine/renderer/texture.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

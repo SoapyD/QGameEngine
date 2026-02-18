@@ -3,7 +3,8 @@
 #include <glad/glad.h>
 #include <glm/gtc/matrix_transform.hpp>
 
-void renderSystem(entt::registry& registry, const Camera& camera, float aspectRatio)
+void renderSystem(entt::registry& registry, const Camera& camera, 
+	float aspectRatio)
 {
 	glm::mat4 view = camera.getViewMatrix();
 	glm::mat4 projection = camera.getProjectionMatrix(aspectRatio);
@@ -42,7 +43,23 @@ void renderSystem(entt::registry& registry, const Camera& camera, float aspectRa
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, &projection[0][0]);
 
+		// bind texture if present
+		if (mesh.textureId != 0)
+		{
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, mesh.textureId);
+			glUniform1i(glGetUniformLocation(mesh.shaderId, "textureSampler"), 0);
+		}
+
 		glBindVertexArray(mesh.vao);
-		glDrawArrays(GL_TRIANGLES, 0, mesh.vertexCount);
+
+		if (mesh.useIndices)
+		{
+			glDrawElements(GL_TRIANGLES, mesh.indexCount, GL_UNSIGNED_INT, 0);
+		}
+		else
+		{
+			glDrawArrays(GL_TRIANGLES, 0, mesh.vertexCount);
+		}
 	}
 };
