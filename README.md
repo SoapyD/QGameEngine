@@ -1,3 +1,3 @@
 
-git tag -a tutorial_03 -m "released tutorial 03"
-git push origin tutorial_03
+git tag -a tutorial_04 -m "released tutorial 04"
+git push origin tutorial_04

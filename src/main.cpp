@@ -1,9 +1,10 @@
 #include "engine/core/window.h"
-#include "engine/renderer/shader.h"
-#include "engine/renderer/camera.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/systems/render_system.h"
 #include "engine/ecs/systems/movement_system.h"
+#include "engine/renderer/camera.h"
+#include "engine/renderer/shader.h"
+#include "engine/renderer/texture.h"
 
 #include <entt/entt.hpp>
 #include <iostream>
@@ -41,11 +42,19 @@ int main()
 	glfwSetInputMode(window.getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPosCallback(window.getHandle(), mouseCallback);
 
-	// ─── Shader ──────────────────────────────────────────────────
+	// ─── Shaders ──────────────────────────────────────────────────
 	Shader basicShader(
 		"assets/shaders/basic.vert",
 		"assets/shaders/basic.frag"
 	);
+
+	Shader texturedShader(
+		"assets/shaders/textured.vert",
+		"assets/shaders/textured.frag"
+	);
+
+	// ─── Textures ────────────────────────────────────────────────
+	Texture wallTexture("assets/textures/wall.png");
 
 	// ─── Triangle vertex data ────────────────────────────────────
 	float vertices[] =
@@ -55,6 +64,18 @@ int main()
          0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // Bottom-right (green)
          0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // Top          (blue)
     };
+
+	// ─── Quad vertex data (textured) ─────────────────────────────
+	float quadVertices[] = {
+		// Positions          // UV coords
+		-0.5f, -0.5f, 0.0f,  0.0f, 0.0f,  // Bottom-left
+		0.5f, -0.5f, 0.0f,  1.0f, 0.0f,  // Bottom-right
+		0.5f,  0.5f, 0.0f,  1.0f, 1.0f,  // Top-right
+
+		-0.5f, -0.5f, 0.0f,  0.0f, 0.0f,  // Bottom-left
+		0.5f,  0.5f, 0.0f,  1.0f, 1.0f,  // Top-right
+		-0.5f,  0.5f, 0.0f,  0.0f, 1.0f   // Top-left
+	};
 
 	// ─── Create VAO and VBO ──────────────────────────────────────
 	unsigned int VAO, VBO;
@@ -96,6 +117,47 @@ int main()
 	// unbind (optional, for safety)
 	glBindVertexArray(0);
 
+
+	// ─── Create quad VAO and VBO ─────────────────────────────────
+	unsigned int quadVAO, quadVBO;
+
+	glGenVertexArrays(1, &quadVAO); // Generate 1 VAO
+	glGenBuffers(1, &quadVBO); // Generate 1 VBO
+
+	// bind the vao first = it will "record" subsequent VBO and attribute config
+	glBindVertexArray(quadVAO);
+
+	// Bind the VBO and upload vetex data to GPU
+	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
+
+	// tell openGL to interpret the vertex data:
+
+	// attribute 0: Position (3 floats, starting at offset 0)
+	glVertexAttribPointer(
+		0,                    // Attribute index (matches layout(location = 0) in shader)
+		3,                    // Number of components (vec3 = 3 floats)
+		GL_FLOAT,             // Data type
+		GL_FALSE,             // Normalise? No
+		5 * sizeof(float),    // Stride: bytes between consecutive vertices (5 floats total)
+		(void*)0              // Offset: where this attribute starts within each vertex
+	);
+	glEnableVertexAttribArray(0);
+
+	// attribute 1: colour (3 floats, starting at offset 3 floats in)
+    glVertexAttribPointer(
+		1, 
+		2, 
+		GL_FLOAT, 
+		GL_FALSE, 
+		5 * sizeof(float),
+        (void*)(3 * sizeof(float))
+	);
+	glEnableVertexAttribArray(1);
+
+	// unbind (optional, for safety)
+	glBindVertexArray(0);
+
 	// ─── Camera ──────────────────────────────────────────────────
 	Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
@@ -112,6 +174,12 @@ int main()
 	registry.emplace<Position>(triangle2, glm::vec3(2.0f, 0.0f, -1.0f));
 	registry.emplace<Rotation>(triangle2, glm::vec3(0.0f, 45.0f, 0.0f));	
 	registry.emplace<MeshRenderer>(triangle2, VAO, 3u, basicShader.getId());
+
+	// create a textured wall quad
+	auto wall = registry.create();
+	registry.emplace<Position>(wall, glm::vec3(0.0f, 0.0f, -2.0f));
+	registry.emplace<MeshRenderer>(wall, quadVAO, 6u, texturedShader.getId(),
+								wallTexture.getId(), false, 0u);
 
 	// ─── Game Loop ───────────────────────────────────────────────
 	float deltaTime = 0.0f;
@@ -162,5 +230,7 @@ int main()
 
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
+	glDeleteVertexArrays(1, &quadVAO);
+	glDeleteBuffers(1, &quadVBO);
 	return 0;
 }

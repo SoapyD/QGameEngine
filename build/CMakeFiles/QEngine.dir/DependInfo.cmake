@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.cpp" "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.cpp" "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.cpp" "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj.d"
+  "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/stb_image_impl.cpp" "CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj.d"
+  "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.cpp" "CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/main.cpp" "CMakeFiles/QEngine.dir/src/main.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/main.cpp.obj.d"
   )
 

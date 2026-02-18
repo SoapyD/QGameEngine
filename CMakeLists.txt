@@ -48,6 +48,8 @@ add_executable(QEngine
 	src/engine/ecs/systems/render_system.cpp
 	src/engine/renderer/camera.cpp	
 	src/engine/renderer/shader.cpp
+	src/engine/renderer/stb_image_impl.cpp
+	src/engine/renderer/texture.cpp
 )
 
 target_include_directories(QEngine PRIVATE src)

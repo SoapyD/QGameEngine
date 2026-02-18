@@ -26,6 +26,9 @@ struct MeshRenderer {
 	unsigned int vao = 0; // Vertex Array Object handle
 	unsigned int vertexCount = 0; // Number of vertices to draw
 	unsigned int shaderId = 0; // Shader program to use
+	unsigned int textureId = 0; // 0 means no texture
+	bool useIndices = false; //for index drawing
+	unsigned int indexCount = 0; // number of indices
 };
 
 struct Colour {
