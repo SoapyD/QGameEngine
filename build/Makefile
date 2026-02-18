@@ -249,6 +249,78 @@ extern/glad/src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/extern/glad/src/glad.c.s
 .PHONY : extern/glad/src/glad.c.s
 
+src/engine/core/input_manager.obj: src/engine/core/input_manager.cpp.obj
+.PHONY : src/engine/core/input_manager.obj
+
+# target to build an object file
+src/engine/core/input_manager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj
+.PHONY : src/engine/core/input_manager.cpp.obj
+
+src/engine/core/input_manager.i: src/engine/core/input_manager.cpp.i
+.PHONY : src/engine/core/input_manager.i
+
+# target to preprocess a source file
+src/engine/core/input_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.i
+.PHONY : src/engine/core/input_manager.cpp.i
+
+src/engine/core/input_manager.s: src/engine/core/input_manager.cpp.s
+.PHONY : src/engine/core/input_manager.s
+
+# target to generate assembly for a file
+src/engine/core/input_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.s
+.PHONY : src/engine/core/input_manager.cpp.s
+
+src/engine/core/mesh_factory.obj: src/engine/core/mesh_factory.cpp.obj
+.PHONY : src/engine/core/mesh_factory.obj
+
+# target to build an object file
+src/engine/core/mesh_factory.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj
+.PHONY : src/engine/core/mesh_factory.cpp.obj
+
+src/engine/core/mesh_factory.i: src/engine/core/mesh_factory.cpp.i
+.PHONY : src/engine/core/mesh_factory.i
+
+# target to preprocess a source file
+src/engine/core/mesh_factory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.i
+.PHONY : src/engine/core/mesh_factory.cpp.i
+
+src/engine/core/mesh_factory.s: src/engine/core/mesh_factory.cpp.s
+.PHONY : src/engine/core/mesh_factory.s
+
+# target to generate assembly for a file
+src/engine/core/mesh_factory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.s
+.PHONY : src/engine/core/mesh_factory.cpp.s
+
+src/engine/core/resource_manager.obj: src/engine/core/resource_manager.cpp.obj
+.PHONY : src/engine/core/resource_manager.obj
+
+# target to build an object file
+src/engine/core/resource_manager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj
+.PHONY : src/engine/core/resource_manager.cpp.obj
+
+src/engine/core/resource_manager.i: src/engine/core/resource_manager.cpp.i
+.PHONY : src/engine/core/resource_manager.i
+
+# target to preprocess a source file
+src/engine/core/resource_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.i
+.PHONY : src/engine/core/resource_manager.cpp.i
+
+src/engine/core/resource_manager.s: src/engine/core/resource_manager.cpp.s
+.PHONY : src/engine/core/resource_manager.s
+
+# target to generate assembly for a file
+src/engine/core/resource_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.s
+.PHONY : src/engine/core/resource_manager.cpp.s
+
 src/engine/core/window.obj: src/engine/core/window.cpp.obj
 .PHONY : src/engine/core/window.obj
 
@@ -272,6 +344,30 @@ src/engine/core/window.s: src/engine/core/window.cpp.s
 src/engine/core/window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/window.cpp.s
 .PHONY : src/engine/core/window.cpp.s
+
+src/engine/ecs/scene_setup.obj: src/engine/ecs/scene_setup.cpp.obj
+.PHONY : src/engine/ecs/scene_setup.obj
+
+# target to build an object file
+src/engine/ecs/scene_setup.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj
+.PHONY : src/engine/ecs/scene_setup.cpp.obj
+
+src/engine/ecs/scene_setup.i: src/engine/ecs/scene_setup.cpp.i
+.PHONY : src/engine/ecs/scene_setup.i
+
+# target to preprocess a source file
+src/engine/ecs/scene_setup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.i
+.PHONY : src/engine/ecs/scene_setup.cpp.i
+
+src/engine/ecs/scene_setup.s: src/engine/ecs/scene_setup.cpp.s
+.PHONY : src/engine/ecs/scene_setup.s
+
+# target to generate assembly for a file
+src/engine/ecs/scene_setup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.s
+.PHONY : src/engine/ecs/scene_setup.cpp.s
 
 src/engine/ecs/systems/movement_system.obj: src/engine/ecs/systems/movement_system.cpp.obj
 .PHONY : src/engine/ecs/systems/movement_system.obj
@@ -461,9 +557,21 @@ help:
 	@echo ... extern/glad/src/glad.obj
 	@echo ... extern/glad/src/glad.i
 	@echo ... extern/glad/src/glad.s
+	@echo ... src/engine/core/input_manager.obj
+	@echo ... src/engine/core/input_manager.i
+	@echo ... src/engine/core/input_manager.s
+	@echo ... src/engine/core/mesh_factory.obj
+	@echo ... src/engine/core/mesh_factory.i
+	@echo ... src/engine/core/mesh_factory.s
+	@echo ... src/engine/core/resource_manager.obj
+	@echo ... src/engine/core/resource_manager.i
+	@echo ... src/engine/core/resource_manager.s
 	@echo ... src/engine/core/window.obj
 	@echo ... src/engine/core/window.i
 	@echo ... src/engine/core/window.s
+	@echo ... src/engine/ecs/scene_setup.obj
+	@echo ... src/engine/ecs/scene_setup.i
+	@echo ... src/engine/ecs/scene_setup.s
 	@echo ... src/engine/ecs/systems/movement_system.obj
 	@echo ... src/engine/ecs/systems/movement_system.i
 	@echo ... src/engine/ecs/systems/movement_system.s

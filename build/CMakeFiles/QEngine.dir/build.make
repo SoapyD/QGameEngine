@@ -86,11 +86,56 @@ CMakeFiles/QEngine.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QEngine.dir/src/main.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\C_Projects\QEngine\src\main.cpp -o CMakeFiles\QEngine.dir\src\main.cpp.s
 
+CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj: CMakeFiles/QEngine.dir/flags.make
+CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
+CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/core/input_manager.cpp
+CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\core\input_manager.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\core\input_manager.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\core\input_manager.cpp
+
+CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\C_Projects\QEngine\src\engine\core\input_manager.cpp > CMakeFiles\QEngine.dir\src\engine\core\input_manager.cpp.i
+
+CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\C_Projects\QEngine\src\engine\core\input_manager.cpp -o CMakeFiles\QEngine.dir\src\engine\core\input_manager.cpp.s
+
+CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj: CMakeFiles/QEngine.dir/flags.make
+CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
+CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/core/mesh_factory.cpp
+CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\core\mesh_factory.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\core\mesh_factory.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\core\mesh_factory.cpp
+
+CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\C_Projects\QEngine\src\engine\core\mesh_factory.cpp > CMakeFiles\QEngine.dir\src\engine\core\mesh_factory.cpp.i
+
+CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\C_Projects\QEngine\src\engine\core\mesh_factory.cpp -o CMakeFiles\QEngine.dir\src\engine\core\mesh_factory.cpp.s
+
+CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: CMakeFiles/QEngine.dir/flags.make
+CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
+CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/core/resource_manager.cpp
+CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\core\resource_manager.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\core\resource_manager.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\core\resource_manager.cpp
+
+CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\C_Projects\QEngine\src\engine\core\resource_manager.cpp > CMakeFiles\QEngine.dir\src\engine\core\resource_manager.cpp.i
+
+CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\C_Projects\QEngine\src\engine\core\resource_manager.cpp -o CMakeFiles\QEngine.dir\src\engine\core\resource_manager.cpp.s
+
 CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj: CMakeFiles/QEngine.dir/flags.make
 CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
 CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.cpp
 CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\core\window.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\core\window.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\core\window.cpp
 
 CMakeFiles/QEngine.dir/src/engine/core/window.cpp.i: cmake_force
@@ -101,11 +146,26 @@ CMakeFiles/QEngine.dir/src/engine/core/window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QEngine.dir/src/engine/core/window.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\C_Projects\QEngine\src\engine\core\window.cpp -o CMakeFiles\QEngine.dir\src\engine\core\window.cpp.s
 
+CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: CMakeFiles/QEngine.dir/flags.make
+CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
+CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/scene_setup.cpp
+CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\ecs\scene_setup.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\ecs\scene_setup.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\ecs\scene_setup.cpp
+
+CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\Programming\C_Projects\QEngine\src\engine\ecs\scene_setup.cpp > CMakeFiles\QEngine.dir\src\engine\ecs\scene_setup.cpp.i
+
+CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\Programming\C_Projects\QEngine\src\engine\ecs\scene_setup.cpp -o CMakeFiles\QEngine.dir\src\engine\ecs\scene_setup.cpp.s
+
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj: CMakeFiles/QEngine.dir/flags.make
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.cpp
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\ecs\systems\movement_system.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\ecs\systems\movement_system.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\ecs\systems\movement_system.cpp
 
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.i: cmake_force
@@ -120,7 +180,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: CMakeFiles/
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.cpp
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\ecs\systems\render_system.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\ecs\systems\render_system.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\ecs\systems\render_system.cpp
 
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.i: cmake_force
@@ -135,7 +195,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj: CMakeFiles/QEngine.di
 CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
 CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.cpp
 CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\renderer\camera.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\renderer\camera.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\renderer\camera.cpp
 
 CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.i: cmake_force
@@ -150,7 +210,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj: CMakeFiles/QEngine.di
 CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
 CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.cpp
 CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\renderer\shader.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\renderer\shader.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\renderer\shader.cpp
 
 CMakeFiles/QEngine.dir/src/engine/renderer/shader.cpp.i: cmake_force
@@ -165,7 +225,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj: CMakeFiles/QE
 CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
 CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/stb_image_impl.cpp
 CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\renderer\stb_image_impl.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\renderer\stb_image_impl.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\renderer\stb_image_impl.cpp
 
 CMakeFiles/QEngine.dir/src/engine/renderer/stb_image_impl.cpp.i: cmake_force
@@ -180,7 +240,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj: CMakeFiles/QEngine.d
 CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj: CMakeFiles/QEngine.dir/includes_CXX.rsp
 CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.cpp
 CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj: CMakeFiles/QEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.obj -MF CMakeFiles\QEngine.dir\src\engine\renderer\texture.cpp.obj.d -o CMakeFiles\QEngine.dir\src\engine\renderer\texture.cpp.obj -c D:\Documents\Programming\C_Projects\QEngine\src\engine\renderer\texture.cpp
 
 CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.i: cmake_force
@@ -194,7 +254,11 @@ CMakeFiles/QEngine.dir/src/engine/renderer/texture.cpp.s: cmake_force
 # Object files for target QEngine
 QEngine_OBJECTS = \
 "CMakeFiles/QEngine.dir/src/main.cpp.obj" \
+"CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj" \
+"CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj" \
+"CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj" \
 "CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj" \
+"CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj" \
 "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj" \
 "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj" \
 "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj" \
@@ -206,7 +270,11 @@ QEngine_OBJECTS = \
 QEngine_EXTERNAL_OBJECTS =
 
 QEngine.exe: CMakeFiles/QEngine.dir/src/main.cpp.obj
+QEngine.exe: CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.obj
+QEngine.exe: CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj
+QEngine.exe: CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj
 QEngine.exe: CMakeFiles/QEngine.dir/src/engine/core/window.cpp.obj
+QEngine.exe: CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj
 QEngine.exe: CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj
 QEngine.exe: CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj
 QEngine.exe: CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj
@@ -219,7 +287,7 @@ QEngine.exe: libglad.a
 QEngine.exe: CMakeFiles/QEngine.dir/linkLibs.rsp
 QEngine.exe: CMakeFiles/QEngine.dir/objects1.rsp
 QEngine.exe: CMakeFiles/QEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable QEngine.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable QEngine.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\QEngine.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
