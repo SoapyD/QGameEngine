@@ -44,7 +44,7 @@ void setupScene
 	auto sun = registry.create();
 	registry.emplace<DirectionalLight>
 	(
-		sun, glm::vec3(3.0f, 2.0f, -1.0f), // direction (angled down)
+		sun, glm::vec3(-0.2f, -1.0f, -0.3f), // direction (angled down)
 		glm::vec3(1.0f, 0.95f, 0.8f), // warm white colour
 		0.1f // ambient strength
 	);

@@ -21,7 +21,7 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 	{
 		dirLightDir = light.direction;
 		dirLightColor = light.color;
-		dirAmbient = light.ambienStrength;
+		dirAmbient = light.ambientStrength;
 		hasDirLight = true;
 		break; // only use the first one
 	}
@@ -38,7 +38,7 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 	{
 		pointLightPos = pos.value;
 		pointLightColor = light.color;
-		pointAmbient = light.ambienStrength;
+		pointAmbient = light.ambientStrength;
 		hasPointLight = true;
 		break;
 	}
@@ -87,28 +87,29 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 		loc = glGetUniformLocation(mesh.shaderId, "shininess");
 		glUniform1f(loc, 32.0f);
 
-		// light uniforms (use directional light, or pointlight or both)
+		// Light uniforms — each light type has its own uniform names
+		loc = glGetUniformLocation(mesh.shaderId, "hasDirLight");
+		glUniform1i(loc, hasDirLight ? 1 : 0);
+		loc = glGetUniformLocation(mesh.shaderId, "hasPointLight");
+		glUniform1i(loc, hasPointLight ? 1 : 0);
+
 		if (hasDirLight)
 		{
-			loc = glGetUniformLocation(mesh.shaderId, "lightType");
-			glUniform1i(loc, 0);
-			loc = glGetUniformLocation(mesh.shaderId, "lightDir");
+			loc = glGetUniformLocation(mesh.shaderId, "dirLightDir");
 			glUniform3fv(loc, 1, &dirLightDir[0]);
-			loc = glGetUniformLocation(mesh.shaderId, "lightColor");
+			loc = glGetUniformLocation(mesh.shaderId, "dirLightColor");
 			glUniform3fv(loc, 1, &dirLightColor[0]);
-			loc = glGetUniformLocation(mesh.shaderId, "ambientStrength");
+			loc = glGetUniformLocation(mesh.shaderId, "dirLightAmbient");
 			glUniform1f(loc, dirAmbient);
 		}
 
 		if (hasPointLight)
 		{
-			loc = glGetUniformLocation(mesh.shaderId, "lightType");
-			glUniform1i(loc, 1);
-			loc = glGetUniformLocation(mesh.shaderId, "lightPos");
+			loc = glGetUniformLocation(mesh.shaderId, "pointLightPos");
 			glUniform3fv(loc, 1, &pointLightPos[0]);
-			loc = glGetUniformLocation(mesh.shaderId, "lightColor");
+			loc = glGetUniformLocation(mesh.shaderId, "pointLightColor");
 			glUniform3fv(loc, 1, &pointLightColor[0]);
-			loc = glGetUniformLocation(mesh.shaderId, "ambientStrength");
+			loc = glGetUniformLocation(mesh.shaderId, "pointLightAmbient");
 			glUniform1f(loc, pointAmbient);
 		}
 
