@@ -8,7 +8,7 @@ void setupScene
 )
 {
 	auto basicShader = resources.getShader("basic");
-	auto texturedShader = resources.getShader("textured");
+	auto litShader = resources.getShader("lit");
 	auto wallTexture = resources.getTexture("wall");
 	auto cubeMesh = resources.getMesh("cube");
 
@@ -34,9 +34,30 @@ void setupScene
 		wall, 
 		cubeMesh->getVAO(),
 		0u, 
-		texturedShader->getId(),
+		litShader->getId(),
 		wallTexture->getId(), 
 		true, 
 		cubeMesh->getIndexCount()
+	);
+
+	// SUN LIGHT
+	auto sun = registry.create();
+	registry.emplace<DirectionalLight>
+	(
+		sun, glm::vec3(3.0f, 2.0f, -1.0f), // direction (angled down)
+		glm::vec3(1.0f, 0.95f, 0.8f), // warm white colour
+		0.1f // ambient strength
+	);
+
+	// a torch in the level
+	auto torch = registry.create();
+	registry.emplace<Position>
+	(
+		torch, glm::vec3(3.0f, 2.0f, -10.f)
+	);
+	registry.emplace<PointLight>
+	(
+		torch, glm::vec3(1.0f, 0.7f, 0.3f), // warm orange
+		0.05f, 0.09f, 0.032f // ambient, linear, quadratic
 	);
 };

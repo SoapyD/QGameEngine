@@ -9,11 +9,45 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 	glm::mat4 view = camera.getViewMatrix();
 	glm::mat4 projection = camera.getProjectionMatrix(aspectRatio);
 
-	auto viewGroup = registry.view<Position, MeshRenderer>();
+	// ─── Find lights ─────────────────────────────────────────────
+	// directional light (use first one found)
+	glm::vec3 dirLightDir(0.0f);
+	glm::vec3 dirLightColor(0.0f);
+	float dirAmbient = 0.1f;
+	bool hasDirLight = false;
 
-	for (auto [entity, pos, mesh] : viewGroup.each())
+	auto dirView = registry.view<DirectionalLight>();
+	for (auto [entity, light] : dirView.each())
 	{
-		// build the model matrix from the entity's position (and rotation/scale if present)
+		dirLightDir = light.direction;
+		dirLightColor = light.color;
+		dirAmbient = light.ambienStrength;
+		hasDirLight = true;
+		break; // only use the first one
+	}
+
+	// point light (use first one found)
+	glm::vec3 pointLightPos(0.0f);
+	glm::vec3 pointLightColor(0.0f);
+	float pointAmbient = 0.05f;
+	bool hasPointLight = false;
+	
+	auto pointView = registry.view<Position, PointLight>();
+
+	for (auto [entity, pos, light] : pointView.each())
+	{
+		pointLightPos = pos.value;
+		pointLightColor = light.color;
+		pointAmbient = light.ambienStrength;
+		hasPointLight = true;
+		break;
+	}
+
+	// ─── Draw meshes ─────────────────────────────────────────────
+	auto meshView = registry.view<Position, MeshRenderer>();
+
+	for (auto [entity, pos, mesh] : meshView.each())
+	{
 		glm::mat4 model = glm::mat4(1.0f);
 		model = glm::translate(model, pos.value);
 
@@ -33,15 +67,50 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 
 		glUseProgram(mesh.shaderId);
 
+		// transform uniforms
+		GLint loc;
+		
 		// we need to set uniforms via the raw OpenGL calls here
 		// since we only have the shader ID, not the shader object
-		GLint modelLoc = glGetUniformLocation(mesh.shaderId, "model");
-		GLint viewLoc = glGetUniformLocation(mesh.shaderId, "view");
-		GLint projLoc = glGetUniformLocation(mesh.shaderId, "projection");
+		loc = glGetUniformLocation(mesh.shaderId, "model");
+		glUniformMatrix4fv(loc, 1, GL_FALSE, &model[0][0]);
+		loc = glGetUniformLocation(mesh.shaderId, "view");
+		glUniformMatrix4fv(loc, 1, GL_FALSE, &view[0][0]);
+		loc = glGetUniformLocation(mesh.shaderId, "projection");
+		glUniformMatrix4fv(loc, 1, GL_FALSE, &projection[0][0]);
 
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &model[0][0]);
-		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
-		glUniformMatrix4fv(projLoc, 1, GL_FALSE, &projection[0][0]);
+		// camera position (for specular)
+		loc = glGetUniformLocation(mesh.shaderId, "viewPos");
+		glUniform3fv(loc, 1, &camera.getPosition()[0]);
+
+		// Material
+		loc = glGetUniformLocation(mesh.shaderId, "shininess");
+		glUniform1f(loc, 32.0f);
+
+		// light uniforms (use directional light, or pointlight or both)
+		if (hasDirLight)
+		{
+			loc = glGetUniformLocation(mesh.shaderId, "lightType");
+			glUniform1i(loc, 0);
+			loc = glGetUniformLocation(mesh.shaderId, "lightDir");
+			glUniform3fv(loc, 1, &dirLightDir[0]);
+			loc = glGetUniformLocation(mesh.shaderId, "lightColor");
+			glUniform3fv(loc, 1, &dirLightColor[0]);
+			loc = glGetUniformLocation(mesh.shaderId, "ambientStrength");
+			glUniform1f(loc, dirAmbient);
+		}
+
+		if (hasPointLight)
+		{
+			loc = glGetUniformLocation(mesh.shaderId, "lightType");
+			glUniform1i(loc, 1);
+			loc = glGetUniformLocation(mesh.shaderId, "lightPos");
+			glUniform3fv(loc, 1, &pointLightPos[0]);
+			loc = glGetUniformLocation(mesh.shaderId, "lightColor");
+			glUniform3fv(loc, 1, &pointLightColor[0]);
+			loc = glGetUniformLocation(mesh.shaderId, "ambientStrength");
+			glUniform1f(loc, pointAmbient);
+		}
 
 		// bind texture if present
 		if (mesh.textureId != 0)

@@ -26,6 +26,21 @@ struct Vertex {
     glm::vec2 texCoords = glm::vec2(0.0f);
 };
 
+// ─── Lighting Components ─────────────────────────────────────────
+
+struct DirectionalLight {
+	glm::vec3 direction = glm::vec3(-0.2f, -1.0f, -0.3f);
+	glm::vec3 color = glm::vec3(1.0f);
+	float ambienStrength = 0.1f;
+};
+
+struct PointLight {
+	glm::vec3 color = glm::vec3(1.0f);
+	float ambienStrength = 0.05f;
+	float linear = 0.09f;
+	float quadratic = 0.032f;	
+};
+
 // ─── Rendering Components ────────────────────────────────────────
 
 struct MeshRenderer {
