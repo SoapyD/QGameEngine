@@ -30,6 +30,11 @@ int main()
 		"assets/shaders/textured.frag"
 	);
 
+	auto litShader = resources.getShader("lit",
+		"assets/shaders/lit.vert",
+		"assets/shaders/lit.frag"
+	);
+
 	auto wallTexture = resources.getTexture("wall", "assets/textures/wall.png");
 
 	// load the cube from the OBJ file we saved earlier
