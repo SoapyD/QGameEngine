@@ -273,30 +273,6 @@ src/engine/core/input_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/input_manager.cpp.s
 .PHONY : src/engine/core/input_manager.cpp.s
 
-src/engine/core/mesh_factory.obj: src/engine/core/mesh_factory.cpp.obj
-.PHONY : src/engine/core/mesh_factory.obj
-
-# target to build an object file
-src/engine/core/mesh_factory.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj
-.PHONY : src/engine/core/mesh_factory.cpp.obj
-
-src/engine/core/mesh_factory.i: src/engine/core/mesh_factory.cpp.i
-.PHONY : src/engine/core/mesh_factory.i
-
-# target to preprocess a source file
-src/engine/core/mesh_factory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.i
-.PHONY : src/engine/core/mesh_factory.cpp.i
-
-src/engine/core/mesh_factory.s: src/engine/core/mesh_factory.cpp.s
-.PHONY : src/engine/core/mesh_factory.s
-
-# target to generate assembly for a file
-src/engine/core/mesh_factory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.s
-.PHONY : src/engine/core/mesh_factory.cpp.s
-
 src/engine/core/resource_manager.obj: src/engine/core/resource_manager.cpp.obj
 .PHONY : src/engine/core/resource_manager.obj
 
@@ -441,6 +417,54 @@ src/engine/renderer/camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.s
 .PHONY : src/engine/renderer/camera.cpp.s
 
+src/engine/renderer/mesh.obj: src/engine/renderer/mesh.cpp.obj
+.PHONY : src/engine/renderer/mesh.obj
+
+# target to build an object file
+src/engine/renderer/mesh.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj
+.PHONY : src/engine/renderer/mesh.cpp.obj
+
+src/engine/renderer/mesh.i: src/engine/renderer/mesh.cpp.i
+.PHONY : src/engine/renderer/mesh.i
+
+# target to preprocess a source file
+src/engine/renderer/mesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.i
+.PHONY : src/engine/renderer/mesh.cpp.i
+
+src/engine/renderer/mesh.s: src/engine/renderer/mesh.cpp.s
+.PHONY : src/engine/renderer/mesh.s
+
+# target to generate assembly for a file
+src/engine/renderer/mesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.s
+.PHONY : src/engine/renderer/mesh.cpp.s
+
+src/engine/renderer/obj_loader.obj: src/engine/renderer/obj_loader.cpp.obj
+.PHONY : src/engine/renderer/obj_loader.obj
+
+# target to build an object file
+src/engine/renderer/obj_loader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj
+.PHONY : src/engine/renderer/obj_loader.cpp.obj
+
+src/engine/renderer/obj_loader.i: src/engine/renderer/obj_loader.cpp.i
+.PHONY : src/engine/renderer/obj_loader.i
+
+# target to preprocess a source file
+src/engine/renderer/obj_loader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.i
+.PHONY : src/engine/renderer/obj_loader.cpp.i
+
+src/engine/renderer/obj_loader.s: src/engine/renderer/obj_loader.cpp.s
+.PHONY : src/engine/renderer/obj_loader.s
+
+# target to generate assembly for a file
+src/engine/renderer/obj_loader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.s
+.PHONY : src/engine/renderer/obj_loader.cpp.s
+
 src/engine/renderer/shader.obj: src/engine/renderer/shader.cpp.obj
 .PHONY : src/engine/renderer/shader.obj
 
@@ -560,9 +584,6 @@ help:
 	@echo ... src/engine/core/input_manager.obj
 	@echo ... src/engine/core/input_manager.i
 	@echo ... src/engine/core/input_manager.s
-	@echo ... src/engine/core/mesh_factory.obj
-	@echo ... src/engine/core/mesh_factory.i
-	@echo ... src/engine/core/mesh_factory.s
 	@echo ... src/engine/core/resource_manager.obj
 	@echo ... src/engine/core/resource_manager.i
 	@echo ... src/engine/core/resource_manager.s
@@ -581,6 +602,12 @@ help:
 	@echo ... src/engine/renderer/camera.obj
 	@echo ... src/engine/renderer/camera.i
 	@echo ... src/engine/renderer/camera.s
+	@echo ... src/engine/renderer/mesh.obj
+	@echo ... src/engine/renderer/mesh.i
+	@echo ... src/engine/renderer/mesh.s
+	@echo ... src/engine/renderer/obj_loader.obj
+	@echo ... src/engine/renderer/obj_loader.i
+	@echo ... src/engine/renderer/obj_loader.s
 	@echo ... src/engine/renderer/shader.obj
 	@echo ... src/engine/renderer/shader.i
 	@echo ... src/engine/renderer/shader.s

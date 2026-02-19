@@ -416,10 +416,10 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/functional.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
- D:/Documents/Programming/C_Projects/QEngine/src/engine/core/mesh_factory.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/core/resource_manager.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/KHR/khrplatform.h \
- D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
@@ -613,4 +613,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: \
  C:/msys64/ucrt64/include/sec_api/string_s.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/type_ptr.inl \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h \
- D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/iostream \
+ C:/msys64/ucrt64/include/c++/15.2.0/istream \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc
