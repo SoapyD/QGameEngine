@@ -1,7 +1,6 @@
 #include "engine/core/window.h"
 #include "engine/core/input_manager.h"
 #include "engine/core/resource_manager.h"
-#include "engine/core/mesh_factory.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/scene_setup.h"
 #include "engine/ecs/systems/render_system.h"
@@ -33,17 +32,15 @@ int main()
 
 	auto wallTexture = resources.getTexture("wall", "assets/textures/wall.png");
 
-	// ─── Create meshes ───────────────────────────────────────
-	MeshData triangleMesh = MeshFactory::createTriangleMesh();
-	MeshData quadMesh = MeshFactory::createQuadMesh();
+	// load the cube from the OBJ file we saved earlier
+	auto cubeMesh = resources.getMesh("cube", "assets/models/cube.obj");
 
 	// ─── Camera ──────────────────────────────────────────────────
 	Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
-	setupScene(registry, triangleMesh, quadMesh,
-			basicShader, texturedShader, wallTexture);
+	setupScene(registry, resources);
 	
 	// ─── Game Loop ───────────────────────────────────────────────
 	float deltaTime = 0.0f;
@@ -91,8 +88,6 @@ int main()
 
 	}
 
-	triangleMesh.destroy();
-	quadMesh.destroy();
 	resources.clear();
 
 	return 0;

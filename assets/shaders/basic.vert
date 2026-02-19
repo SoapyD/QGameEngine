@@ -2,8 +2,8 @@
 
 // input: vertext position (location 0 matches out C++ vertex data layout)
 layout (location = 0) in vec3 aPos;
-// input: vertex colour (location 1)
-layout (location = 1) in vec3 aColor;
+// input: vertex normal (location 1)
+layout (location = 1) in vec3 aNormal;
 
 // output: pass colour to fragment shader
 out vec3 vertexColor;
@@ -19,6 +19,7 @@ void main()
 	// it's a vec4: x, y, z, w (w is for perspective division - 1.0 for now)
 	gl_Position = projection * view * model * vec4(aPos, 1.0);
 
-	// Pass the colour through to the fragment shader
-	vertexColor = aColor;
+	// Use the absolute normal as colour — each face gets a distinct colour
+	// +/-X = red, +/-Y = green, +/-Z = blue
+	vertexColor = abs(aNormal);
 }

@@ -44,13 +44,14 @@ target_include_directories(stb INTERFACE extern/stb)
 add_executable(QEngine
 	src/main.cpp
 	src/engine/core/input_manager.cpp
-	src/engine/core/mesh_factory.cpp
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
 	src/engine/ecs/scene_setup.cpp
 	src/engine/ecs/systems/movement_system.cpp
 	src/engine/ecs/systems/render_system.cpp
 	src/engine/renderer/camera.cpp	
+	src/engine/renderer/mesh.cpp	
+	src/engine/renderer/obj_loader.cpp
 	src/engine/renderer/shader.cpp
 	src/engine/renderer/stb_image_impl.cpp
 	src/engine/renderer/texture.cpp

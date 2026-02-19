@@ -342,6 +342,8 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/sec_api/string_s.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/type_ptr.inl \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
  C:/msys64/ucrt64/include/c++/15.2.0/memory \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
@@ -405,8 +407,6 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
  C:/msys64/ucrt64/include/c++/15.2.0/istream \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/core/mesh_factory.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/components.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/scene_setup.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \

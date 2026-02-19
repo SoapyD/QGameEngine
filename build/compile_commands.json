@@ -19,12 +19,6 @@
 },
 {
   "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\core\\mesh_factory.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\core\\mesh_factory.cpp",
-  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/core/mesh_factory.cpp",
-  "output": "CMakeFiles/QEngine.dir/src/engine/core/mesh_factory.cpp.obj"
-},
-{
-  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\core\\resource_manager.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\core\\resource_manager.cpp",
   "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/core/resource_manager.cpp",
   "output": "CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj"
@@ -58,6 +52,18 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\camera.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\camera.cpp",
   "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.cpp",
   "output": "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\mesh.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\mesh.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\renderer\\obj_loader.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\renderer\\obj_loader.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/obj_loader.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj"
 },
 {
   "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
