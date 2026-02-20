@@ -35,6 +35,10 @@ Window::Window(int width, int height, const std::string& title)
 		return;
 	}
 
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK); // cull back faces (default)
+	glFrontFace(GL_CCW); // counter-clockwise = front (default)
+
 	// set the viewport and register the resize callback
 	glViewport(0, 0, width, height);
 	glfwSetFramebufferSizeCallback(m_window, framebufferSizeCallback);

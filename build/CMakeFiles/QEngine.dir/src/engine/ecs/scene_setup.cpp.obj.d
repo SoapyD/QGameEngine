@@ -617,4 +617,6 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
  C:/msys64/ucrt64/include/c++/15.2.0/iostream \
  C:/msys64/ucrt64/include/c++/15.2.0/istream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.h

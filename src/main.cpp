@@ -41,11 +41,11 @@ int main()
 	auto cubeMesh = resources.getMesh("cube", "assets/models/cube.obj");
 
 	// ─── Camera ──────────────────────────────────────────────────
-	Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+	Camera camera(glm::vec3(0.0f, 1.7f, 3.0f));
 
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
-	setupScene(registry, resources);
+	Level level = setupScene(registry, resources);
 	
 	// ─── Game Loop ───────────────────────────────────────────────
 	float deltaTime = 0.0f;
