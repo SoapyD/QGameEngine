@@ -102,7 +102,7 @@ Level setupScene
 
 	// Keep the test cubes inside the room as visual references
 	auto cube = registry.create();
-	registry.emplace<Position>(cube, glm::vec3(-3.0f, 0.0f, -3.0f));
+	registry.emplace<Position>(cube, glm::vec3(-3.0f, 0.5f, -3.0f));
 	registry.emplace<MeshRenderer>
 	(
 		cube,
@@ -115,7 +115,7 @@ Level setupScene
 	);
 
 	auto wall = registry.create();
-	registry.emplace<Position>(wall, glm::vec3(2.0f, 0.0f, -3.0f));
+	registry.emplace<Position>(wall, glm::vec3(2.0f, 0.5f, -3.0f));
 	registry.emplace<MeshRenderer>
 	(
 		wall,
