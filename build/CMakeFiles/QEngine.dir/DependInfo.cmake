@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/scene_setup.cpp" "CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.cpp" "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.cpp" "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj.d"
+  "D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.cpp" "CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.cpp" "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.cpp" "CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj.d"
   "D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/obj_loader.cpp" "CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj" "gcc" "CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj.d"

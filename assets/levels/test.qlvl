@@ -1,0 +1,20 @@
+# QEngine Level Format
+# sector <id> <min_x> <min_y> <min_z> <max_x> <max_y> <max_z>
+# surface <sector_id> <type> <x1> <y1> <z1> <x2> <y2> <z2> <x3> <y3> <z3> <x4> <y4> <z4> <texture>
+# portal <sector_a> <sector_b> <x1> <y1> <z1> <x2> <y2> <z2> <x3> <y3> <z3> <x4> <y4> <z4>
+# entity <type> <x> <y> <z> [properties...]
+
+sector 0 -10 0 -10 10 4 0
+surface 0 floor -10 0 0 10 0 0 10 0 -10 -10 0 -10 floor_stone.png
+surface 0 ceil -10 4 -10 10 4 -10 10 4 0 -10 4 0 ceil_dark.png
+surface 0 wall -10 0 0 10 0 0 10 4 0 -10 4 0 wall_brick.png
+surface 0 wall -10 0 -10 -10 0 0 -10 4 0 -10 4 -10 wall_brick.png
+surface 0 wall 10 0 0 10 0 -10 10 4 -10 10 4 0 wall_brick.png
+surface 0 wall -10 0 -10 10 0 -10 10 4 -10 -10 4 -10 wall_brick.png
+
+sector 1 -10 0 0 10 4 10
+portal 0 1 -3 0 0 3 0 0 3 4 0 -3 4 0
+
+entity player_start 0 1 -5
+entity light 3 3 -5 color 1.0 0.8 0.4
+This

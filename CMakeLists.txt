@@ -49,6 +49,7 @@ add_executable(QEngine
 	src/engine/ecs/scene_setup.cpp
 	src/engine/ecs/systems/movement_system.cpp
 	src/engine/ecs/systems/render_system.cpp
+	src/engine/level/level_loader.cpp
 	src/engine/renderer/camera.cpp	
 	src/engine/renderer/mesh.cpp	
 	src/engine/renderer/obj_loader.cpp

@@ -393,6 +393,30 @@ src/engine/ecs/systems/render_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.s
 .PHONY : src/engine/ecs/systems/render_system.cpp.s
 
+src/engine/level/level_loader.obj: src/engine/level/level_loader.cpp.obj
+.PHONY : src/engine/level/level_loader.obj
+
+# target to build an object file
+src/engine/level/level_loader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj
+.PHONY : src/engine/level/level_loader.cpp.obj
+
+src/engine/level/level_loader.i: src/engine/level/level_loader.cpp.i
+.PHONY : src/engine/level/level_loader.i
+
+# target to preprocess a source file
+src/engine/level/level_loader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.i
+.PHONY : src/engine/level/level_loader.cpp.i
+
+src/engine/level/level_loader.s: src/engine/level/level_loader.cpp.s
+.PHONY : src/engine/level/level_loader.s
+
+# target to generate assembly for a file
+src/engine/level/level_loader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.s
+.PHONY : src/engine/level/level_loader.cpp.s
+
 src/engine/renderer/camera.obj: src/engine/renderer/camera.cpp.obj
 .PHONY : src/engine/renderer/camera.obj
 
@@ -599,6 +623,9 @@ help:
 	@echo ... src/engine/ecs/systems/render_system.obj
 	@echo ... src/engine/ecs/systems/render_system.i
 	@echo ... src/engine/ecs/systems/render_system.s
+	@echo ... src/engine/level/level_loader.obj
+	@echo ... src/engine/level/level_loader.i
+	@echo ... src/engine/level/level_loader.s
 	@echo ... src/engine/renderer/camera.obj
 	@echo ... src/engine/renderer/camera.i
 	@echo ... src/engine/renderer/camera.s
