@@ -345,6 +345,30 @@ src/engine/ecs/scene_setup.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.s
 .PHONY : src/engine/ecs/scene_setup.cpp.s
 
+src/engine/ecs/systems/collision_system.obj: src/engine/ecs/systems/collision_system.cpp.obj
+.PHONY : src/engine/ecs/systems/collision_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/collision_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.obj
+.PHONY : src/engine/ecs/systems/collision_system.cpp.obj
+
+src/engine/ecs/systems/collision_system.i: src/engine/ecs/systems/collision_system.cpp.i
+.PHONY : src/engine/ecs/systems/collision_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/collision_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.i
+.PHONY : src/engine/ecs/systems/collision_system.cpp.i
+
+src/engine/ecs/systems/collision_system.s: src/engine/ecs/systems/collision_system.cpp.s
+.PHONY : src/engine/ecs/systems/collision_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/collision_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.s
+.PHONY : src/engine/ecs/systems/collision_system.cpp.s
+
 src/engine/ecs/systems/movement_system.obj: src/engine/ecs/systems/movement_system.cpp.obj
 .PHONY : src/engine/ecs/systems/movement_system.obj
 
@@ -416,6 +440,78 @@ src/engine/level/level_loader.s: src/engine/level/level_loader.cpp.s
 src/engine/level/level_loader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.s
 .PHONY : src/engine/level/level_loader.cpp.s
+
+src/engine/physics/collision.obj: src/engine/physics/collision.cpp.obj
+.PHONY : src/engine/physics/collision.obj
+
+# target to build an object file
+src/engine/physics/collision.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.obj
+.PHONY : src/engine/physics/collision.cpp.obj
+
+src/engine/physics/collision.i: src/engine/physics/collision.cpp.i
+.PHONY : src/engine/physics/collision.i
+
+# target to preprocess a source file
+src/engine/physics/collision.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.i
+.PHONY : src/engine/physics/collision.cpp.i
+
+src/engine/physics/collision.s: src/engine/physics/collision.cpp.s
+.PHONY : src/engine/physics/collision.s
+
+# target to generate assembly for a file
+src/engine/physics/collision.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.s
+.PHONY : src/engine/physics/collision.cpp.s
+
+src/engine/physics/raycast.obj: src/engine/physics/raycast.cpp.obj
+.PHONY : src/engine/physics/raycast.obj
+
+# target to build an object file
+src/engine/physics/raycast.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/raycast.cpp.obj
+.PHONY : src/engine/physics/raycast.cpp.obj
+
+src/engine/physics/raycast.i: src/engine/physics/raycast.cpp.i
+.PHONY : src/engine/physics/raycast.i
+
+# target to preprocess a source file
+src/engine/physics/raycast.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/raycast.cpp.i
+.PHONY : src/engine/physics/raycast.cpp.i
+
+src/engine/physics/raycast.s: src/engine/physics/raycast.cpp.s
+.PHONY : src/engine/physics/raycast.s
+
+# target to generate assembly for a file
+src/engine/physics/raycast.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/raycast.cpp.s
+.PHONY : src/engine/physics/raycast.cpp.s
+
+src/engine/physics/spatial_hash.obj: src/engine/physics/spatial_hash.cpp.obj
+.PHONY : src/engine/physics/spatial_hash.obj
+
+# target to build an object file
+src/engine/physics/spatial_hash.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/spatial_hash.cpp.obj
+.PHONY : src/engine/physics/spatial_hash.cpp.obj
+
+src/engine/physics/spatial_hash.i: src/engine/physics/spatial_hash.cpp.i
+.PHONY : src/engine/physics/spatial_hash.i
+
+# target to preprocess a source file
+src/engine/physics/spatial_hash.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/spatial_hash.cpp.i
+.PHONY : src/engine/physics/spatial_hash.cpp.i
+
+src/engine/physics/spatial_hash.s: src/engine/physics/spatial_hash.cpp.s
+.PHONY : src/engine/physics/spatial_hash.s
+
+# target to generate assembly for a file
+src/engine/physics/spatial_hash.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/physics/spatial_hash.cpp.s
+.PHONY : src/engine/physics/spatial_hash.cpp.s
 
 src/engine/renderer/camera.obj: src/engine/renderer/camera.cpp.obj
 .PHONY : src/engine/renderer/camera.obj
@@ -617,6 +713,9 @@ help:
 	@echo ... src/engine/ecs/scene_setup.obj
 	@echo ... src/engine/ecs/scene_setup.i
 	@echo ... src/engine/ecs/scene_setup.s
+	@echo ... src/engine/ecs/systems/collision_system.obj
+	@echo ... src/engine/ecs/systems/collision_system.i
+	@echo ... src/engine/ecs/systems/collision_system.s
 	@echo ... src/engine/ecs/systems/movement_system.obj
 	@echo ... src/engine/ecs/systems/movement_system.i
 	@echo ... src/engine/ecs/systems/movement_system.s
@@ -626,6 +725,15 @@ help:
 	@echo ... src/engine/level/level_loader.obj
 	@echo ... src/engine/level/level_loader.i
 	@echo ... src/engine/level/level_loader.s
+	@echo ... src/engine/physics/collision.obj
+	@echo ... src/engine/physics/collision.i
+	@echo ... src/engine/physics/collision.s
+	@echo ... src/engine/physics/raycast.obj
+	@echo ... src/engine/physics/raycast.i
+	@echo ... src/engine/physics/raycast.s
+	@echo ... src/engine/physics/spatial_hash.obj
+	@echo ... src/engine/physics/spatial_hash.i
+	@echo ... src/engine/physics/spatial_hash.s
 	@echo ... src/engine/renderer/camera.obj
 	@echo ... src/engine/renderer/camera.i
 	@echo ... src/engine/renderer/camera.s
