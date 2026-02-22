@@ -624,4 +624,6 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/render_system.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/collision_system.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/movement_system.h

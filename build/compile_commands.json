@@ -37,6 +37,12 @@
 },
 {
   "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\ecs\\systems\\collision_system.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\ecs\\systems\\collision_system.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/collision_system.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\ecs\\systems\\movement_system.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\ecs\\systems\\movement_system.cpp",
   "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.cpp",
   "output": "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj"
@@ -52,6 +58,24 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\level\\level_loader.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\level\\level_loader.cpp",
   "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.cpp",
   "output": "CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\physics\\collision.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\physics\\collision.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\physics\\raycast.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\physics\\raycast.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/raycast.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/physics/raycast.cpp.obj"
+},
+{
+  "directory": "D:/Documents/Programming/C_Projects/QEngine/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/QEngine.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\QEngine.dir\\src\\engine\\physics\\spatial_hash.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\src\\engine\\physics\\spatial_hash.cpp",
+  "file": "D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.cpp",
+  "output": "CMakeFiles/QEngine.dir/src/engine/physics/spatial_hash.cpp.obj"
 },
 {
   "directory": "D:/Documents/Programming/C_Projects/QEngine/build",

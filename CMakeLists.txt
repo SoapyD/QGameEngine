@@ -47,9 +47,13 @@ add_executable(QEngine
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
 	src/engine/ecs/scene_setup.cpp
+	src/engine/ecs/systems/collision_system.cpp
 	src/engine/ecs/systems/movement_system.cpp
 	src/engine/ecs/systems/render_system.cpp
 	src/engine/level/level_loader.cpp
+	src/engine/physics/collision.cpp
+	src/engine/physics/raycast.cpp
+	src/engine/physics/spatial_hash.cpp
 	src/engine/renderer/camera.cpp	
 	src/engine/renderer/mesh.cpp	
 	src/engine/renderer/obj_loader.cpp

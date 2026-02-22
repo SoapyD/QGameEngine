@@ -4,7 +4,9 @@
 #include "engine/ecs/components.h"
 #include "engine/ecs/scene_setup.h"
 #include "engine/ecs/systems/render_system.h"
+#include "engine/ecs/systems/collision_system.h"
 #include "engine/ecs/systems/movement_system.h"
+#include "engine/physics/spatial_hash.h"
 #include "engine/renderer/camera.h"
 
 #include <entt/entt.hpp>
@@ -46,7 +48,8 @@ int main()
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
 	Level level = setupScene(registry, resources);
-	
+	SpatialHash spatialHash(4.0f);
+
 	// ─── Game Loop ───────────────────────────────────────────────
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
@@ -79,8 +82,8 @@ int main()
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
 		// ─── ECS Systems (tick order!) ───────────────────────────
-		movementSystem(registry, deltaTime); // update positions
-		// ... future systems go here ...
+		collisionSystem(registry, spatialHash, level, deltaTime); // adjust velocities
+		movementSystem(registry, deltaTime); // apply velocities to positions
 
 		// ─── Render ──────────────────────────────────────────────		
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);

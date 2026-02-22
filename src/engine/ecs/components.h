@@ -26,6 +26,13 @@ struct Vertex {
     glm::vec2 texCoords = glm::vec2(0.0f);
 };
 
+// ─── Physics Components ──────────────────────────────────────────
+struct AABBCollider
+{
+	glm::vec3 halfExtents = glm::vec3(0.5f);
+	bool isTrigger = false; // triggers detect overlap but don't block
+};
+
 // ─── Lighting Components ─────────────────────────────────────────
 
 struct DirectionalLight {

@@ -103,6 +103,8 @@ Level setupScene
 	// Keep the test cubes inside the room as visual references
 	auto cube = registry.create();
 	registry.emplace<Position>(cube, glm::vec3(-3.0f, 0.5f, -3.0f));
+	registry.emplace<Velocity>(cube, glm::vec3(0.5f, 0.0f, 0.0f));  // slides along +X
+	registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);    // 1m cube collider
 	registry.emplace<MeshRenderer>
 	(
 		cube,
