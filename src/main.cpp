@@ -42,9 +42,11 @@ int main()
 	);
 
 	auto wallTexture = resources.getTexture("wall", "assets/textures/wall.png");
-	auto gridOrange = resources.getTexture("grid_orange", "assets/textures/grid_orange.png");
 	auto gridGrey   = resources.getTexture("grid_grey",   "assets/textures/grid_grey.png");
+	auto gridOrange = resources.getTexture("grid_orange", "assets/textures/grid_orange.png");
 	auto gridBlue   = resources.getTexture("grid_blue",   "assets/textures/grid_blue.png");
+	auto gridGreen = resources.getTexture("grid_green", "assets/textures/grid_green.png");
+	auto gridRed   = resources.getTexture("grid_red",   "assets/textures/grid_red.png");
 
 	// load the cube from the OBJ file we saved earlier
 	auto cubeMesh = resources.getMesh("cube", "assets/models/cube.obj");

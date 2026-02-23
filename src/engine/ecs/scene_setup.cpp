@@ -13,7 +13,7 @@ static Level createShowcaseLevel()
     //   Origin: (0, 0, 0) to (20, 4, 12)
     //   Doorways:
     //     - Left wall (x=0): opening from z=4 to z=8 (to Light Room)
-    //     - Front wall (z=12): opening from x=12 to x=16 (to Physics Lab)
+    //     - Front wall (z=12): opening from x=4 to x=8 (to Physics Lab)
     // ═══════════════════════════════════════════════════════════
     {
         Sector hall;
@@ -25,14 +25,14 @@ static Level createShowcaseLevel()
         hall.surfaces.push_back({
             {glm::vec3(0,0,12), glm::vec3(20,0,12), glm::vec3(20,0,0), glm::vec3(0,0,0)},
             glm::vec3(0, 1, 0),
-            "grid_grey.png", 0
+            "grid_orange.png", 0
         });
 
         // Ceiling
         hall.surfaces.push_back({
             {glm::vec3(0,4,0), glm::vec3(20,4,0), glm::vec3(20,4,12), glm::vec3(0,4,12)},
             glm::vec3(0, -1, 0),
-            "grid_grey.png", 0
+            "grid_orange.png", 0
         });
 
         // Back wall (z=0, full width, normal +z)
@@ -109,14 +109,14 @@ static Level createShowcaseLevel()
         lightRoom.surfaces.push_back({
             {glm::vec3(-8,0,10), glm::vec3(0,0,10), glm::vec3(0,0,2), glm::vec3(-8,0,2)},
             glm::vec3(0, 1, 0),
-            "grid_grey.png", 1
+            "grid_blue.png", 1
         });
 
         // Ceiling
         lightRoom.surfaces.push_back({
             {glm::vec3(-8,4,2), glm::vec3(0,4,2), glm::vec3(0,4,10), glm::vec3(-8,4,10)},
             glm::vec3(0, -1, 0),
-            "grid_grey.png", 1
+            "grid_blue.png", 1
         });
 
         // Back wall (z=2, normal +z)
@@ -144,19 +144,19 @@ static Level createShowcaseLevel()
         // Doorway from z=4 to z=8 (matching the hall's left wall opening)
         // Bottom section: z=2 to z=4
         lightRoom.surfaces.push_back({
-            {glm::vec3(0,4,2), glm::vec3(0,4,4), glm::vec3(0,0,4), glm::vec3(0,0,2)},
+            {glm::vec3(0,4,4), glm::vec3(0,4,2), glm::vec3(0,0,2), glm::vec3(0,0,4)},
             glm::vec3(-1, 0, 0),
             "grid_blue.png", 1
         });
         // Top section: z=8 to z=10
         lightRoom.surfaces.push_back({
-            {glm::vec3(0,4,8), glm::vec3(0,4,10), glm::vec3(0,0,10), glm::vec3(0,0,8)},
+            {glm::vec3(0,4,10), glm::vec3(0,4,8), glm::vec3(0,0,8), glm::vec3(0,0,10)},
             glm::vec3(-1, 0, 0),
             "grid_blue.png", 1
         });
         // Above doorway: z=4 to z=8, y=3 to y=4
         lightRoom.surfaces.push_back({
-            {glm::vec3(0,4,4), glm::vec3(0,4,8), glm::vec3(0,3,8), glm::vec3(0,3,4)},
+            {glm::vec3(0,4,8), glm::vec3(0,4,4), glm::vec3(0,3,4), glm::vec3(0,3,8)},
             glm::vec3(-1, 0, 0),
             "grid_blue.png", 1
         });
@@ -166,7 +166,7 @@ static Level createShowcaseLevel()
 
     // ═══════════════════════════════════════════════════════════
     // Sector 2: PHYSICS LAB (10 x 10 x 4)
-    //   Position: x = 12 to 22, z = 12 to 22, y = 0 to 4
+    //   Bounds: (12, 0, 12) to (22, 4, 22)
     //   Doorway: back wall (z=12) from x=12 to x=16, matching hall
     // ═══════════════════════════════════════════════════════════
     {
@@ -195,34 +195,34 @@ static Level createShowcaseLevel()
         physLab.surfaces.push_back({
             {glm::vec3(22,4,12), glm::vec3(16,4,12), glm::vec3(16,0,12), glm::vec3(22,0,12)},
             glm::vec3(0, 0, 1),
-            "grid_orange.png", 2
+            "grid_grey.png", 2
         });
         // Above doorway: x=12 to x=16, y=3 to y=4
         physLab.surfaces.push_back({
             {glm::vec3(16,4,12), glm::vec3(12,4,12), glm::vec3(12,3,12), glm::vec3(16,3,12)},
             glm::vec3(0, 0, 1),
-            "grid_orange.png", 2
+            "grid_grey.png", 2
         });
 
         // Front wall (z=22, normal -z)
         physLab.surfaces.push_back({
             {glm::vec3(12,4,22), glm::vec3(22,4,22), glm::vec3(22,0,22), glm::vec3(12,0,22)},
             glm::vec3(0, 0, -1),
-            "grid_orange.png", 2
+            "grid_grey.png", 2
         });
 
         // Left wall (x=12, normal +x)
         physLab.surfaces.push_back({
             {glm::vec3(12,4,12), glm::vec3(12,4,22), glm::vec3(12,0,22), glm::vec3(12,0,12)},
             glm::vec3(1, 0, 0),
-            "grid_orange.png", 2
+            "grid_grey.png", 2
         });
 
         // Right wall (x=22, normal -x)
         physLab.surfaces.push_back({
             {glm::vec3(22,4,22), glm::vec3(22,4,12), glm::vec3(22,0,12), glm::vec3(22,0,22)},
             glm::vec3(-1, 0, 0),
-            "grid_orange.png", 2
+            "grid_grey.png", 2
         });
 
         // ── Shelf: a raised platform to drop cubes from ──
@@ -237,14 +237,14 @@ static Level createShowcaseLevel()
         physLab.surfaces.push_back({
             {glm::vec3(18,2,18), glm::vec3(22,2,18), glm::vec3(22,0,18), glm::vec3(18,0,18)},
             glm::vec3(0, 0, -1),
-            "grid_orange.png", 2
+            "grid_grey.png", 2
         });
 
         // Shelf left face (x=18, y=0 to y=2, z=18 to z=22)
         physLab.surfaces.push_back({
-            {glm::vec3(18,2,18), glm::vec3(18,2,22), glm::vec3(18,0,22), glm::vec3(18,0,18)},
+            {glm::vec3(18,2,22), glm::vec3(18,2,18), glm::vec3(18,0,18), glm::vec3(18,0,22)},
             glm::vec3(-1, 0, 0),
-            "grid_orange.png", 2
+            "grid_grey.png", 2
         });
 
         level.sectors.push_back(std::move(physLab));
@@ -262,9 +262,11 @@ Level setupScene
 )
 {
     auto litShader   = resources.getShader("lit");
-    auto gridOrange  = resources.getTexture("grid_orange");
     auto gridGrey    = resources.getTexture("grid_grey");
+    auto gridOrange  = resources.getTexture("grid_orange");
     auto gridBlue    = resources.getTexture("grid_blue");
+    auto gridGreen  = resources.getTexture("grid_green");
+    auto gridRed  = resources.getTexture("grid_red");
     auto cubeMesh    = resources.getMesh("cube");
 
     // ─── Create the showcase level ──────────────────────────────
@@ -277,9 +279,11 @@ Level setupScene
         auto sectorEntity = registry.create();
         registry.emplace<Position>(sectorEntity, glm::vec3(0.0f));
 
-        // Pick texture based on sector id
-        unsigned int texId = gridOrange->getId(); // default
-        if (sector.id == 1) texId = gridBlue->getId();  // light room
+        // One texture per sector — the renderer does not support
+        // per-surface textures, so each room gets a single colour.
+        unsigned int texId = gridOrange->getId(); // sector 0: main hall
+        if (sector.id == 1) texId = gridGrey->getId();  // light room
+        if (sector.id == 2) texId = gridBlue->getId();   // physics lab
 
         registry.emplace<MeshRenderer>
         (
@@ -303,7 +307,7 @@ Level setupScene
     (
         sun,
         glm::vec3(-0.2f, -1.0f, -0.3f),   // direction
-        glm::vec3(1.0f, 0.95f, 0.8f),      // warm white
+        glm::vec3(1.0f, 1.0f, 1.0f),        // pure white (debug)
         0.08f                                // low ambient
     );
 
@@ -313,19 +317,31 @@ Level setupScene
     registry.emplace<PointLight>
     (
         hallLight1,
-        glm::vec3(2.0f, 1.4f, 0.6f),   // warm orange
-        0.05f, 0.045f, 0.0075f
+        glm::vec3(1.5f, 1.5f, 1.5f),   // white
+        0.01f, 0.7f, 1.8f              // tight range, lights only nearby
     );
+    { // debug cube for hallLight1
+        auto e = registry.create();
+        registry.emplace<Position>(e, glm::vec3(4.0f, 2.5f, 6.0f));
+        registry.emplace<Scale>(e, glm::vec3(0.2f));
+        registry.emplace<MeshRenderer>(e, cubeMesh->getVAO(), 0u, litShader->getId(), gridGrey->getId(), true, cubeMesh->getIndexCount());
+    }
 
-    // Point light 2: cool blue near right side
+    // Point light 2: white near right side
     auto hallLight2 = registry.create();
     registry.emplace<Position>(hallLight2, glm::vec3(16.0f, 2.5f, 6.0f));
     registry.emplace<PointLight>
     (
         hallLight2,
-        glm::vec3(0.4f, 0.6f, 2.0f),   // cool blue
-        0.05f, 0.045f, 0.0075f
+        glm::vec3(0.75f, 0.75f, 0.75f),   // dim white
+        0.01f, 0.7f, 1.8f              // tight range
     );
+    { // debug cube for hallLight2
+        auto e = registry.create();
+        registry.emplace<Position>(e, glm::vec3(16.0f, 2.5f, 6.0f));
+        registry.emplace<Scale>(e, glm::vec3(0.2f));
+        registry.emplace<MeshRenderer>(e, cubeMesh->getVAO(), 0u, litShader->getId(), gridGrey->getId(), true, cubeMesh->getIndexCount());
+    }
 
     // A static cube in the main hall (reference object for scale/collision)
     auto hallCube = registry.create();
@@ -349,46 +365,53 @@ Level setupScene
     // visible against the blue grid walls.
     // ═══════════════════════════════════════════════════════════
 
-    // Red light — back-left corner
+    // Red torch — back-left corner
     auto redLight = registry.create();
     registry.emplace<Position>(redLight, glm::vec3(-6.0f, 2.0f, 4.0f));
     registry.emplace<PointLight>
     (
         redLight,
         glm::vec3(3.0f, 0.2f, 0.2f),   // bright red
-        0.02f, 0.09f, 0.032f
+        0.01f, 0.35f, 0.44f             // tight pool
     );
+    { // debug cube for redLight
+        auto e = registry.create();
+        registry.emplace<Position>(e, glm::vec3(-6.0f, 2.0f, 4.0f));
+        registry.emplace<Scale>(e, glm::vec3(0.2f));
+        registry.emplace<MeshRenderer>(e, cubeMesh->getVAO(), 0u, litShader->getId(), gridRed->getId(), true, cubeMesh->getIndexCount());
+    }
 
-    // Green light — back-right area
+    // Green torch — back-right area
     auto greenLight = registry.create();
     registry.emplace<Position>(greenLight, glm::vec3(-2.0f, 2.0f, 4.0f));
     registry.emplace<PointLight>
     (
         greenLight,
         glm::vec3(0.2f, 3.0f, 0.2f),   // bright green
-        0.02f, 0.09f, 0.032f
+        0.01f, 0.35f, 0.44f             // tight pool
     );
+    { // debug cube for greenLight
+        auto e = registry.create();
+        registry.emplace<Position>(e, glm::vec3(-2.0f, 2.0f, 4.0f));
+        registry.emplace<Scale>(e, glm::vec3(0.2f));
+        registry.emplace<MeshRenderer>(e, cubeMesh->getVAO(), 0u, litShader->getId(), gridGreen->getId(), true, cubeMesh->getIndexCount());
+    }
 
-    // Blue light — front-centre
+    // Blue torch — front-centre
     auto blueLight = registry.create();
     registry.emplace<Position>(blueLight, glm::vec3(-4.0f, 2.0f, 8.0f));
     registry.emplace<PointLight>
     (
         blueLight,
         glm::vec3(0.2f, 0.2f, 3.0f),   // bright blue
-        0.02f, 0.09f, 0.032f
+        0.01f, 0.35f, 0.44f             // tight pool
     );
-
-    // White accent light — centre of room, shows how all three
-    // blend together and provides a neutral reference
-    auto whiteLight = registry.create();
-    registry.emplace<Position>(whiteLight, glm::vec3(-4.0f, 3.0f, 6.0f));
-    registry.emplace<PointLight>
-    (
-        whiteLight,
-        glm::vec3(1.0f, 1.0f, 1.0f),   // neutral white
-        0.02f, 0.14f, 0.07f             // shorter range (tighter pool)
-    );
+    { // debug cube for blueLight
+        auto e = registry.create();
+        registry.emplace<Position>(e, glm::vec3(-4.0f, 2.0f, 8.0f));
+        registry.emplace<Scale>(e, glm::vec3(0.2f));
+        registry.emplace<MeshRenderer>(e, cubeMesh->getVAO(), 0u, litShader->getId(), gridBlue->getId(), true, cubeMesh->getIndexCount());
+    }
 
     // ═══════════════════════════════════════════════════════════
     // PHYSICS LAB — Gravity, collision, and friction demos
@@ -467,9 +490,15 @@ Level setupScene
     registry.emplace<PointLight>
     (
         labLight,
-        glm::vec3(1.5f, 1.5f, 1.5f),   // bright white
-        0.1f, 0.045f, 0.0075f
+        glm::vec3(0.75f, 0.75f, 0.75f),   // dim white
+        0.01f, 0.7f, 1.8f              // tight range
     );
+    { // debug cube for labLight
+        auto e = registry.create();
+        registry.emplace<Position>(e, glm::vec3(17.0f, 3.0f, 17.0f));
+        registry.emplace<Scale>(e, glm::vec3(0.2f));
+        registry.emplace<MeshRenderer>(e, cubeMesh->getVAO(), 0u, litShader->getId(), gridGrey->getId(), true, cubeMesh->getIndexCount());
+    }
 
     return level;
 };
