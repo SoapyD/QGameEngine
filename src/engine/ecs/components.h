@@ -89,6 +89,16 @@ struct Colour {
 	glm::vec4 value = glm::vec4(1.0f); // RGBA
 };
 
+// ─── Showcase Components ─────────────────────────────────────────
+struct DemoReset
+{
+	glm::vec3 startPosition;
+	glm::vec3 startVelocity = glm::vec3(0.0f);
+	float interval = 5.0f; // seconds between resets
+	float timer = 0.0f; // counts up each ticket
+};
+
+
 // ─── Tags ────────────────────────────────────────────────────────
 // Tags are empty structs — they mark entities without adding data
 

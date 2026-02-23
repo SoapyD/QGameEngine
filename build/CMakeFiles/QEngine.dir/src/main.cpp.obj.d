@@ -624,6 +624,7 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/demo_reset_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/render_system.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/collision_system.h \
