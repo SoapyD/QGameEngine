@@ -1,10 +1,13 @@
 #include "engine/ecs/systems/physics_system.h"
 #include "engine/ecs/components.h"
+#include "engine/physics/physics_config.h"
 #include "engine/physics/raycast.h"
 #include "engine/level/level.h"
 
-void physicsSystem(entt::registry& registry, float dt)
+void physicsSystem(entt::registry& registry)
 {
+	const auto& config = registry.ctx().get<PhysicsConfig>();
+
 	// ─── Apply gravity ───────────────────────────────────────────
 	auto gravityView = registry.view<Velocity, Gravity, OnGround>();
 	
@@ -12,13 +15,13 @@ void physicsSystem(entt::registry& registry, float dt)
 	{
 		if (!ground.value)
 		{
-			vel.value.y -= grav.strength * dt;
+			vel.value.y -= grav.strength * config.fixedDeltaTime;
 		}
 
 		// terminal velocity (cap fall speed)
-		if (vel.value.y < -50.0f)
+		if (vel.value.y < config.terminalVelocity)
 		{
-			vel.value.y = -50.0f;
+			vel.value.y = config.terminalVelocity;
 		}
 	}
 
@@ -45,7 +48,7 @@ void physicsSystem(entt::registry& registry, float dt)
 		}
 
 		// friction reduces speed
-		float drop = speed * friction * dt;
+		float drop = speed * friction * config.fixedDeltaTime;
 		float newSpeed = std::max(speed - drop, 0.0f);
 		float scale = newSpeed / speed;
 

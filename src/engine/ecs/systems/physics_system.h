@@ -4,5 +4,5 @@
 
 struct Level;  // forward declaration (defined in engine/level/level.h)
 
-void physicsSystem(entt::registry& registry, float dt);
+void physicsSystem(entt::registry& registry);
 void groundDetectionSystem(entt::registry& registry, const Level& level);

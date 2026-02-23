@@ -2,4 +2,4 @@
 
 #include <entt/entt.hpp>
 
-void movementSystem(entt::registry& registry, float dt);
+void movementSystem(entt::registry& registry);

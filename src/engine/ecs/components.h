@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glm/glm.hpp>
+#include "engine/physics/collision_layers.h"
 
 // ─── Spatial Components ──────────────────────────────────────────
 
@@ -31,6 +32,8 @@ struct AABBCollider
 {
 	glm::vec3 halfExtents = glm::vec3(0.5f);
 	bool isTrigger = false; // triggers detect overlap but don't block
+	uint32_t layer = CollisionLayers::World; //what layer am I on?
+	uint32_t mask = CollisionLayers::All; // what layers do I collide with
 };
 
 struct Gravity

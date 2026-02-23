@@ -556,4 +556,6 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
- D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl
+ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h

@@ -8,6 +8,5 @@ void collisionSystem
 (
 	entt::registry& registry,
 	SpatialHash& spatialHash,
-	const Level& level,
-	float dt
+	const Level& level
 );

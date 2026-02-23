@@ -423,6 +423,7 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp
  D:/Documents/Programming/C_Projects/QEngine/src/engine/core/resource_manager.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/obj_loader.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h
@@ -1106,6 +1107,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/scene_setup.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h
@@ -1571,6 +1573,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
 
@@ -2030,6 +2034,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
 
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.cpp
@@ -2491,6 +2497,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/raycast.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
 
@@ -3003,6 +3011,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h
 
@@ -3368,6 +3377,7 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
 
 CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.obj
@@ -5121,6 +5131,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
 
 CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj
@@ -5464,6 +5475,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/obj_loader.h
 
@@ -6626,11 +6638,13 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/core/fixed_timestep.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/core/input_manager.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/core/resource_manager.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.h
@@ -6639,4 +6653,5 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.h
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
 
