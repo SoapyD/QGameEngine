@@ -393,6 +393,30 @@ src/engine/ecs/systems/movement_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.s
 .PHONY : src/engine/ecs/systems/movement_system.cpp.s
 
+src/engine/ecs/systems/physics_system.obj: src/engine/ecs/systems/physics_system.cpp.obj
+.PHONY : src/engine/ecs/systems/physics_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/physics_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.obj
+.PHONY : src/engine/ecs/systems/physics_system.cpp.obj
+
+src/engine/ecs/systems/physics_system.i: src/engine/ecs/systems/physics_system.cpp.i
+.PHONY : src/engine/ecs/systems/physics_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/physics_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.i
+.PHONY : src/engine/ecs/systems/physics_system.cpp.i
+
+src/engine/ecs/systems/physics_system.s: src/engine/ecs/systems/physics_system.cpp.s
+.PHONY : src/engine/ecs/systems/physics_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/physics_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.s
+.PHONY : src/engine/ecs/systems/physics_system.cpp.s
+
 src/engine/ecs/systems/render_system.obj: src/engine/ecs/systems/render_system.cpp.obj
 .PHONY : src/engine/ecs/systems/render_system.obj
 
@@ -719,6 +743,9 @@ help:
 	@echo ... src/engine/ecs/systems/movement_system.obj
 	@echo ... src/engine/ecs/systems/movement_system.i
 	@echo ... src/engine/ecs/systems/movement_system.s
+	@echo ... src/engine/ecs/systems/physics_system.obj
+	@echo ... src/engine/ecs/systems/physics_system.i
+	@echo ... src/engine/ecs/systems/physics_system.s
 	@echo ... src/engine/ecs/systems/render_system.obj
 	@echo ... src/engine/ecs/systems/render_system.i
 	@echo ... src/engine/ecs/systems/render_system.s

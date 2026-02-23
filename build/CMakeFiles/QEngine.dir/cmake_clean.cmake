@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.obj.d"
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj"
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj.d"
+  "CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.obj"
+  "CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.obj.d"
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj"
   "CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj.d"
   "CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj"
