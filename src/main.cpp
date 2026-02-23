@@ -1,6 +1,7 @@
 #include "engine/core/window.h"
 #include "engine/core/input_manager.h"
 #include "engine/core/resource_manager.h"
+#include "engine/core/fixed_timestep.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/scene_setup.h"
 #include "engine/ecs/systems/render_system.h"
@@ -8,6 +9,7 @@
 #include "engine/ecs/systems/movement_system.h"
 #include "engine/ecs/systems/physics_system.h"
 #include "engine/physics/spatial_hash.h"
+#include "engine/physics/physics_config.h"
 #include "engine/renderer/camera.h"
 
 #include <entt/entt.hpp>
@@ -48,27 +50,21 @@ int main()
 
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
+
+	auto& physicsConfig = registry.ctx().emplace<PhysicsConfig>();
 	Level level = setupScene(registry, resources);
 	SpatialHash spatialHash(4.0f);
 
 	// ─── Game Loop ───────────────────────────────────────────────
-	constexpr float FIXED_TIMESTEP = 1.0f / 60.0f; // 60 physics ticks per second
-	float accumulator = 0.0f;
-	float lastFrame = 0.0f;
+	FixedTimestep fixedTimestep(physicsConfig.fixedDeltaTime);
 
 	// enable depth testing (so closer things draw in front of further things)
 	glEnable(GL_DEPTH_TEST);
 
 	while (!window.shouldClose())
 	{
-		float currentFrame = (float)glfwGetTime();
-		float frameTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
-
-		// cap frame time to prevent spiral of dath
-		if (frameTime > 0.25f) frameTime = 0.25f;
-
-		accumulator += frameTime;
+		fixedTimestep.accumulate((float)glfwGetTime());
+		float frameTime = fixedTimestep.getFrameTime();
 
 		input.update();
 		window.pollEvents();
@@ -89,14 +85,12 @@ int main()
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
 		// ─── ECS Systems (tick order!) ───────────────────────────
-		while (accumulator >= FIXED_TIMESTEP)
+		while (fixedTimestep.step())
 		{
-			physicsSystem(registry, FIXED_TIMESTEP);
-			collisionSystem(registry, spatialHash, level, FIXED_TIMESTEP); // adjust velocities
-			movementSystem(registry, FIXED_TIMESTEP); // apply velocities to positions
+			physicsSystem(registry);
+			collisionSystem(registry, spatialHash, level); // adjust velocities
+			movementSystem(registry); // apply velocities to positions
 			groundDetectionSystem(registry, level);    // update OnGround for next frame
-
-			accumulator -= FIXED_TIMESTEP;
 		}
 
 		// ─── Render ──────────────────────────────────────────────		
@@ -111,6 +105,5 @@ int main()
 	}
 
 	resources.clear();
-
 	return 0;
 }

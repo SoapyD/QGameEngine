@@ -560,7 +560,9 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/KHR/khrplatform.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h \
- D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.h
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h

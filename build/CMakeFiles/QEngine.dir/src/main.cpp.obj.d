@@ -344,6 +344,7 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
  C:/msys64/ucrt64/include/c++/15.2.0/memory \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
@@ -407,6 +408,7 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
  C:/msys64/ucrt64/include/c++/15.2.0/istream \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/core/fixed_timestep.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/scene_setup.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
@@ -627,4 +629,5 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/collision_system.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/movement_system.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/physics_system.h
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/physics_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/physics/physics_config.h

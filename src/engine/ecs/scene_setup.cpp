@@ -100,39 +100,6 @@ Level setupScene
 		);
 	}
 
-	// Keep the test cubes inside the room as visual references
-	auto cube = registry.create();
-	registry.emplace<Position>(cube, glm::vec3(-3.0f, 0.5f, -3.0f));
-	registry.emplace<Velocity>(cube, glm::vec3(0.5f, 0.0f, 0.0f));  // slides along +X
-	registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);    // 1m cube collider
-	registry.emplace<MeshRenderer>
-	(
-		cube,
-		cubeMesh->getVAO(),
-		0u,
-		litShader->getId(),
-		wallTexture->getId(),
-		true,
-		cubeMesh->getIndexCount()
-	);
-
-	auto cube2 = registry.create();
-	registry.emplace<Position>(cube2, glm::vec3(2.0f, 4.0f, 0.0f));   // raised up
-	registry.emplace<Velocity>(cube2);
-	registry.emplace<AABBCollider>(cube2, glm::vec3(0.5f), false);       // 1m cube collider
-	registry.emplace<Gravity>(cube2);                                     // falls under gravity
-	registry.emplace<OnGround>(cube2);                                    // ground detection target
-	registry.emplace<MeshRenderer>
-	(
-		cube2,
-		cubeMesh->getVAO(),
-		0u,
-		litShader->getId(),
-		wallTexture->getId(),
-		true,
-		cubeMesh->getIndexCount()
-	);
-
 	// Sun light
 	auto sun = registry.create();
 	registry.emplace<DirectionalLight>

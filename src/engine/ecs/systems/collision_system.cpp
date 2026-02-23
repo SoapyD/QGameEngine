@@ -2,15 +2,16 @@
 #include "engine/ecs/components.h"
 #include "engine/physics/aabb.h"
 #include "engine/physics/collision.h"
+#include "engine/physics/physics_config.h"
 
 void collisionSystem
 (
 	entt::registry& registry,
 	SpatialHash& spatialHash,
-	const Level& level,
-	float dt
+	const Level& level
 )
 {
+	const auto& config = registry.ctx().get<PhysicsConfig>();
 	// rebuild the spatial hash each frame
 	spatialHash.clear();
 
@@ -25,7 +26,7 @@ void collisionSystem
 
 	for (auto [entity, pos, vel, col] : movers.each())
 	{
-		glm::vec3 movement = vel.value * dt;
+		glm::vec3 movement = vel.value * config.fixedDeltaTime;
 
 		if (glm::length(movement) < 1e-6f) continue; // not moving
 
@@ -92,6 +93,11 @@ void collisionSystem
 					}
 					continue;
 				}
+
+				bool shouldCollide = (col.layer & otherCol.mask) != 0 &&
+								(otherCol.layer & col.mask) != 0;
+
+				if (!shouldCollide) continue;
 
 				SweepResult hit = sweepAABB(entityBox, movement, otherBox);
 				if (hit.hit)

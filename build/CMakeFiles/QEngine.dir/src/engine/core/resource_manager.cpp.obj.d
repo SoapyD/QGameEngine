@@ -341,6 +341,7 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
  C:/msys64/ucrt64/include/c++/15.2.0/memory \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \

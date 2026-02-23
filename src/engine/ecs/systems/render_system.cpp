@@ -26,21 +26,34 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 		break; // only use the first one
 	}
 
-	// point light (use first one found)
-	glm::vec3 pointLightPos(0.0f);
-	glm::vec3 pointLightColor(0.0f);
-	float pointAmbient = 0.05f;
-	bool hasPointLight = false;
+	// ─── Collect point lights ────────────────────────────────────
+	struct PointLightGPU
+	{
+		glm::vec3 position;
+		glm::vec3 color;
+		float ambient;
+		float linear;
+		float quadratic;
+	};
+
+	constexpr int MAX_POINT_LIGHTS = 8;
+	PointLightGPU pointLightsData[MAX_POINT_LIGHTS];
+	int numPointLights = 0;
 	
 	auto pointView = registry.view<Position, PointLight>();
-
 	for (auto [entity, pos, light] : pointView.each())
 	{
-		pointLightPos = pos.value;
-		pointLightColor = light.color;
-		pointAmbient = light.ambientStrength;
-		hasPointLight = true;
-		break;
+		if (numPointLights >= MAX_POINT_LIGHTS) break;
+
+		pointLightsData[numPointLights] =
+		{
+			pos.value,
+			light.color,
+			light.ambientStrength,
+			light.linear,
+			light.quadratic
+		};
+		numPointLights++;
 	}
 
 	// ─── Draw meshes ─────────────────────────────────────────────
@@ -90,9 +103,6 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 		// Light uniforms — each light type has its own uniform names
 		loc = glGetUniformLocation(mesh.shaderId, "hasDirLight");
 		glUniform1i(loc, hasDirLight ? 1 : 0);
-		loc = glGetUniformLocation(mesh.shaderId, "hasPointLight");
-		glUniform1i(loc, hasPointLight ? 1 : 0);
-
 		if (hasDirLight)
 		{
 			loc = glGetUniformLocation(mesh.shaderId, "dirLightDir");
@@ -103,14 +113,26 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 			glUniform1f(loc, dirAmbient);
 		}
 
-		if (hasPointLight)
+		loc = glGetUniformLocation(mesh.shaderId, "numPointLights");
+		glUniform1i(loc, numPointLights);
+
+		for (int i = 0; i < numPointLights; i++)
 		{
-			loc = glGetUniformLocation(mesh.shaderId, "pointLightPos");
-			glUniform3fv(loc, 1, &pointLightPos[0]);
-			loc = glGetUniformLocation(mesh.shaderId, "pointLightColor");
-			glUniform3fv(loc, 1, &pointLightColor[0]);
-			loc = glGetUniformLocation(mesh.shaderId, "pointLightAmbient");
-			glUniform1f(loc, pointAmbient);
+			std::string prefix = "pointLights[" +std::to_string(i) + "].";
+			loc = glGetUniformLocation(mesh.shaderId, (prefix + "position").c_str());
+			glUniform3fv(loc, 1, &pointLightsData[i].position[0]);
+		
+			loc = glGetUniformLocation(mesh.shaderId, (prefix + "color").c_str());
+			glUniform3fv(loc, 1, &pointLightsData[i].color[0]);
+
+			loc = glGetUniformLocation(mesh.shaderId, (prefix + "ambient").c_str());
+			glUniform1f(loc, pointLightsData[i].ambient);
+
+			loc = glGetUniformLocation(mesh.shaderId, (prefix + "linear").c_str());
+			glUniform1f(loc, pointLightsData[i].linear);
+
+			loc = glGetUniformLocation(mesh.shaderId, (prefix + "quadratic").c_str());
+			glUniform1f(loc, pointLightsData[i].quadratic);
 		}
 
 		// bind texture if present
