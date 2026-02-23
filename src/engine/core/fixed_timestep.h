@@ -23,7 +23,7 @@ class FixedTimestep
 			m_lastTime = currentTime;
 
 			// clamp to prevent spiral of death
-			if (m_timestep > m_maxFrameTime)
+			if (m_frameTime > m_maxFrameTime)
 			{
 				m_frameTime = m_maxFrameTime;
 			}
@@ -38,7 +38,8 @@ class FixedTimestep
 		{
 			if (m_accumulator >= m_timestep)
 			{
-				m_accumulator -= m_timestep;	
+				m_accumulator -= m_timestep;
+				return true;	
 			}
 			return false;
 		}

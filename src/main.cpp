@@ -63,7 +63,7 @@ int main()
 
 	while (!window.shouldClose())
 	{
-		float currentFrame = (float)glfwGetTime();
+		fixedTimestep.accumulate((float)glfwGetTime());
 		float frameTime = fixedTimestep.getFrameTime();
 
 		input.update();

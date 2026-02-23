@@ -16,13 +16,14 @@ void physicsSystem(entt::registry& registry)
 		if (!ground.value)
 		{
 			vel.value.y -= grav.strength * config.fixedDeltaTime;
+
+			// terminal velocity (cap fall speed)
+			if (vel.value.y < -config.terminalVelocity)
+			{
+				vel.value.y = -config.terminalVelocity;
+			}
 		}
 
-		// terminal velocity (cap fall speed)
-		if (vel.value.y < config.terminalVelocity)
-		{
-			vel.value.y = config.terminalVelocity;
-		}
 	}
 
 	// ─── Apply friction ──────────────────────────────────────────

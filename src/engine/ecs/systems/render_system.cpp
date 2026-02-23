@@ -53,25 +53,8 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 			light.linear,
 			light.quadratic
 		};
-		numPointLights;
+		numPointLights++;
 	}
-
-	// point light (use first one found)
-	// glm::vec3 pointLightPos(0.0f);
-	// glm::vec3 pointLightColor(0.0f);
-	// float pointAmbient = 0.05f;
-	// bool hasPointLight = false;
-	
-	// auto pointView = registry.view<Position, PointLight>();
-
-	// for (auto [entity, pos, light] : pointView.each())
-	// {
-	// 	pointLightPos = pos.value;
-	// 	pointLightColor = light.color;
-	// 	pointAmbient = light.ambientStrength;
-	// 	hasPointLight = true;
-	// 	break;
-	// }
 
 	// ─── Draw meshes ─────────────────────────────────────────────
 	auto meshView = registry.view<Position, MeshRenderer>();
