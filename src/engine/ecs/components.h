@@ -33,6 +33,29 @@ struct AABBCollider
 	bool isTrigger = false; // triggers detect overlap but don't block
 };
 
+struct Gravity
+{
+	float strength = 20.0f; // quake uses ~800 units/s² (our scale is smaller)
+};
+
+struct OnGround
+{
+	bool value = false;
+};
+
+struct CharacterPhysics
+{
+	float groundFriction = 6.0f;
+	float airFriction = 0.1f;
+	float maxGroundSpeed = 7.0f;
+	float maxAirSpeed = 1.0f; // Quake's air speed cap (enables bunny hopping!)
+	float groundAcceleration = 10.0f;
+	float airAcceleration = 10.0f;
+	float jumpForce = 8.0f;
+	float stepHeight = 0.5f; // Max height of a step the player can walk up
+};
+
+
 // ─── Lighting Components ─────────────────────────────────────────
 
 struct DirectionalLight {

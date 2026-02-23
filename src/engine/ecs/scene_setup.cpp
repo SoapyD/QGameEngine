@@ -116,11 +116,15 @@ Level setupScene
 		cubeMesh->getIndexCount()
 	);
 
-	auto wall = registry.create();
-	registry.emplace<Position>(wall, glm::vec3(2.0f, 0.5f, -3.0f));
+	auto cube2 = registry.create();
+	registry.emplace<Position>(cube2, glm::vec3(2.0f, 4.0f, 0.0f));   // raised up
+	registry.emplace<Velocity>(cube2);
+	registry.emplace<AABBCollider>(cube2, glm::vec3(0.5f), false);       // 1m cube collider
+	registry.emplace<Gravity>(cube2);                                     // falls under gravity
+	registry.emplace<OnGround>(cube2);                                    // ground detection target
 	registry.emplace<MeshRenderer>
 	(
-		wall,
+		cube2,
 		cubeMesh->getVAO(),
 		0u,
 		litShader->getId(),

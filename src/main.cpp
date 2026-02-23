@@ -6,6 +6,7 @@
 #include "engine/ecs/systems/render_system.h"
 #include "engine/ecs/systems/collision_system.h"
 #include "engine/ecs/systems/movement_system.h"
+#include "engine/ecs/systems/physics_system.h"
 #include "engine/physics/spatial_hash.h"
 #include "engine/renderer/camera.h"
 
@@ -51,7 +52,8 @@ int main()
 	SpatialHash spatialHash(4.0f);
 
 	// ─── Game Loop ───────────────────────────────────────────────
-	float deltaTime = 0.0f;
+	constexpr float FIXED_TIMESTEP = 1.0f / 60.0f; // 60 physics ticks per second
+	float accumulator = 0.0f;
 	float lastFrame = 0.0f;
 
 	// enable depth testing (so closer things draw in front of further things)
@@ -60,8 +62,13 @@ int main()
 	while (!window.shouldClose())
 	{
 		float currentFrame = (float)glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
+		float frameTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
+
+		// cap frame time to prevent spiral of dath
+		if (frameTime > 0.25f) frameTime = 0.25f;
+
+		accumulator += frameTime;
 
 		input.update();
 		window.pollEvents();
@@ -71,19 +78,26 @@ int main()
 			glfwSetWindowShouldClose(window.getHandle(), true);
 
 		if (input.isKeyPressed(GLFW_KEY_W))
-			camera.processKeyboard(Camera::FORWARD, deltaTime);
+			camera.processKeyboard(Camera::FORWARD, frameTime);
 		if (input.isKeyPressed(GLFW_KEY_S))
-			camera.processKeyboard(Camera::BACKWARD, deltaTime);
+			camera.processKeyboard(Camera::BACKWARD, frameTime);
 		if (input.isKeyPressed(GLFW_KEY_A))
-			camera.processKeyboard(Camera::LEFT, deltaTime);
+			camera.processKeyboard(Camera::LEFT, frameTime);
 		if (input.isKeyPressed(GLFW_KEY_D))
-			camera.processKeyboard(Camera::RIGHT, deltaTime);
+			camera.processKeyboard(Camera::RIGHT, frameTime);
 
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
 		// ─── ECS Systems (tick order!) ───────────────────────────
-		collisionSystem(registry, spatialHash, level, deltaTime); // adjust velocities
-		movementSystem(registry, deltaTime); // apply velocities to positions
+		while (accumulator >= FIXED_TIMESTEP)
+		{
+			physicsSystem(registry, FIXED_TIMESTEP);
+			collisionSystem(registry, spatialHash, level, FIXED_TIMESTEP); // adjust velocities
+			movementSystem(registry, FIXED_TIMESTEP); // apply velocities to positions
+			groundDetectionSystem(registry, level);    // update OnGround for next frame
+
+			accumulator -= FIXED_TIMESTEP;
+		}
 
 		// ─── Render ──────────────────────────────────────────────		
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
