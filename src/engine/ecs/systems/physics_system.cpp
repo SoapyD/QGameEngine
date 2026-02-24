@@ -82,6 +82,12 @@ void groundDetectionSystem(entt::registry& registry, const Level& level)
 				// Only check roughly horizontal surfaces (floors)
 				if (surface.normal.y < 0.7f) continue;
 
+				// The actual surface Y (before slab inflation)
+				float surfaceY = std::max({
+					surface.vertices[0].y, surface.vertices[1].y,
+					surface.vertices[2].y, surface.vertices[3].y
+				});
+
 				// Build a thin AABB for the surface
 				AABB surfBox;
 				surfBox.min = glm::min(
@@ -96,11 +102,56 @@ void groundDetectionSystem(entt::registry& registry, const Level& level)
 				auto hit = rayIntersectionsAABB(downRay, surfBox);
 				if (hit.has_value() && hit.value() <= probeDistance)
 				{
+					// Snap to sit exactly on the surface
+					pos.value.y = surfaceY + col.halfExtents.y;
 					ground.value = true;
 					break;
 				}
 			}
 			if (ground.value) break;
+		}
+
+		// Check against entity colliders (e.g. shelves, platforms)
+		// Uses proximity + overlap instead of raycasting, because a
+		// downward ray fails when the origin is exactly on or slightly
+		// inside the other AABB (common with stacked objects).
+		if (!ground.value)
+		{
+			AABB entityBox = AABB::fromCentreSize(pos.value, col.halfExtents);
+			float feetY = entityBox.min.y;
+
+			auto colliders = registry.view<Position, AABBCollider>();
+			for (auto [other, otherPos, otherCol] : colliders.each())
+			{
+				if (other == entity) continue;
+				if (otherCol.isTrigger) continue;
+
+				AABB otherBox = AABB::fromCentreSize(otherPos.value, otherCol.halfExtents);
+				float otherTopY = otherBox.max.y;
+
+				// Feet within probeDistance of the other entity's top face,
+				// and horizontally overlapping
+				if (feetY >= otherTopY - probeDistance &&
+					feetY <= otherTopY + probeDistance &&
+					entityBox.max.x > otherBox.min.x &&
+					entityBox.min.x < otherBox.max.x &&
+					entityBox.max.z > otherBox.min.z &&
+					entityBox.min.z < otherBox.max.z)
+				{
+					// Snap to sit exactly on top — prevents slow drift
+					pos.value.y = otherTopY + col.halfExtents.y;
+					ground.value = true;
+					break;
+				}
+			}
+		}
+
+		// Kill downward velocity when grounded — prevents gravity
+		// from fighting the position snap on the next frame
+		if (ground.value && registry.all_of<Velocity>(entity))
+		{
+			auto& vel = registry.get<Velocity>(entity);
+			if (vel.value.y < 0.0f) vel.value.y = 0.0f;
 		}
 	}
 }

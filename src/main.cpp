@@ -9,6 +9,8 @@
 #include "engine/ecs/systems/collision_system.h"
 #include "engine/ecs/systems/movement_system.h"
 #include "engine/ecs/systems/physics_system.h"
+#include "engine/ecs/systems/trigger_system.h"
+#include "engine/ecs/systems/mover_system.h"
 #include "engine/physics/spatial_hash.h"
 #include "engine/physics/physics_config.h"
 #include "engine/renderer/camera.h"
@@ -52,7 +54,7 @@ int main()
 	auto cubeMesh = resources.getMesh("cube", "assets/models/cube.obj");
 
 	// ─── Camera ──────────────────────────────────────────────────
-	Camera camera(glm::vec3(10.0f, 1.7f, 3.0f));
+	Camera camera(glm::vec3(15.0f, 1.7f, 15.0f));
 
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
@@ -90,17 +92,32 @@ int main()
 
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
+		// Sync player entity position to camera
+		auto playerView = registry.view<Position, TagPlayer>();
+		for (auto [entity, pos] : playerView.each()) {
+			pos.value = camera.getPosition();
+		}
+
 		// ─── ECS Systems (tick order!) ───────────────────────────
 		while (fixedTimestep.step())
 		{
 			physicsSystem(registry);
+			moverSystem(registry);                         // update doors, lifts
 			collisionSystem(registry, spatialHash, level); // adjust velocities
 			movementSystem(registry); // apply velocities to positions
 			groundDetectionSystem(registry, level);    // update OnGround for next frame
+			triggerSystem(registry);                       // detect trigger overlaps (after final position)
 			demoResetSystem(registry);
 		}
 
-		// ─── Render ──────────────────────────────────────────────		
+		// Sync player position back to camera (handles teleportation)
+		for (auto [entity, pos] : playerView.each()) {
+			if (pos.value != camera.getPosition()) {
+				camera.setPosition(pos.value);
+			}
+		}
+
+		// ─── Render ──────────────────────────────────────────────
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

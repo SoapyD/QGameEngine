@@ -30,6 +30,7 @@ struct PointLightData
 
 uniform int numPointLights;
 uniform PointLightData pointLights[MAX_POINT_LIGHTS];
+uniform vec4 colorOverride;
 
 // Camera
 uniform vec3 viewPos;             // Camera position (for specular)
@@ -91,5 +92,8 @@ void main() {
 		result += calcPointLight(pointLights[i], norm, FragPos, viewDir, texColor);
 	}
 
-    FragColor = vec4(result, 1.0);
+	if (colorOverride.a > 0.0)
+		FragColor = colorOverride;
+	else
+		FragColor = vec4(result, 1.0);
 }
