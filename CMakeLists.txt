@@ -48,6 +48,7 @@ add_executable(QEngine
 	src/engine/core/window.cpp
 	src/engine/ecs/scene_setup.cpp
 	src/engine/ecs/systems/collision_system.cpp
+	src/engine/ecs/systems/demo_reset_system.cpp
 	src/engine/ecs/systems/movement_system.cpp
 	src/engine/ecs/systems/physics_system.cpp
 	src/engine/ecs/systems/render_system.cpp

@@ -182,7 +182,7 @@ glm::vec3 LevelLoader::computeNormal
 )
 {
 	glm::vec3 edge1 = v1 - v0;
-	glm::vec3 edge2 = v1 - v0;
+	glm::vec3 edge2 = v2 - v0;
 	return glm::normalize(glm::cross(edge1, edge2));
 }
 

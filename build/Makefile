@@ -369,6 +369,30 @@ src/engine/ecs/systems/collision_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.s
 .PHONY : src/engine/ecs/systems/collision_system.cpp.s
 
+src/engine/ecs/systems/demo_reset_system.obj: src/engine/ecs/systems/demo_reset_system.cpp.obj
+.PHONY : src/engine/ecs/systems/demo_reset_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/demo_reset_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj
+.PHONY : src/engine/ecs/systems/demo_reset_system.cpp.obj
+
+src/engine/ecs/systems/demo_reset_system.i: src/engine/ecs/systems/demo_reset_system.cpp.i
+.PHONY : src/engine/ecs/systems/demo_reset_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/demo_reset_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.i
+.PHONY : src/engine/ecs/systems/demo_reset_system.cpp.i
+
+src/engine/ecs/systems/demo_reset_system.s: src/engine/ecs/systems/demo_reset_system.cpp.s
+.PHONY : src/engine/ecs/systems/demo_reset_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/demo_reset_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.s
+.PHONY : src/engine/ecs/systems/demo_reset_system.cpp.s
+
 src/engine/ecs/systems/movement_system.obj: src/engine/ecs/systems/movement_system.cpp.obj
 .PHONY : src/engine/ecs/systems/movement_system.obj
 
@@ -740,6 +764,9 @@ help:
 	@echo ... src/engine/ecs/systems/collision_system.obj
 	@echo ... src/engine/ecs/systems/collision_system.i
 	@echo ... src/engine/ecs/systems/collision_system.s
+	@echo ... src/engine/ecs/systems/demo_reset_system.obj
+	@echo ... src/engine/ecs/systems/demo_reset_system.i
+	@echo ... src/engine/ecs/systems/demo_reset_system.s
 	@echo ... src/engine/ecs/systems/movement_system.obj
 	@echo ... src/engine/ecs/systems/movement_system.i
 	@echo ... src/engine/ecs/systems/movement_system.s

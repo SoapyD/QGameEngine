@@ -4,6 +4,7 @@
 #include "engine/core/fixed_timestep.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/scene_setup.h"
+#include "engine/ecs/systems/demo_reset_system.h"
 #include "engine/ecs/systems/render_system.h"
 #include "engine/ecs/systems/collision_system.h"
 #include "engine/ecs/systems/movement_system.h"
@@ -41,12 +42,17 @@ int main()
 	);
 
 	auto wallTexture = resources.getTexture("wall", "assets/textures/wall.png");
+	auto gridGrey   = resources.getTexture("grid_grey",   "assets/textures/grid_grey.png");
+	auto gridOrange = resources.getTexture("grid_orange", "assets/textures/grid_orange.png");
+	auto gridBlue   = resources.getTexture("grid_blue",   "assets/textures/grid_blue.png");
+	auto gridGreen = resources.getTexture("grid_green", "assets/textures/grid_green.png");
+	auto gridRed   = resources.getTexture("grid_red",   "assets/textures/grid_red.png");
 
 	// load the cube from the OBJ file we saved earlier
 	auto cubeMesh = resources.getMesh("cube", "assets/models/cube.obj");
 
 	// ─── Camera ──────────────────────────────────────────────────
-	Camera camera(glm::vec3(0.0f, 1.7f, 3.0f));
+	Camera camera(glm::vec3(10.0f, 1.7f, 3.0f));
 
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
@@ -91,6 +97,7 @@ int main()
 			collisionSystem(registry, spatialHash, level); // adjust velocities
 			movementSystem(registry); // apply velocities to positions
 			groundDetectionSystem(registry, level);    // update OnGround for next frame
+			demoResetSystem(registry);
 		}
 
 		// ─── Render ──────────────────────────────────────────────		
