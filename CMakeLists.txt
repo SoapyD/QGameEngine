@@ -50,8 +50,10 @@ add_executable(QEngine
 	src/engine/ecs/systems/collision_system.cpp
 	src/engine/ecs/systems/demo_reset_system.cpp
 	src/engine/ecs/systems/movement_system.cpp
+	src/engine/ecs/systems/mover_system.cpp
 	src/engine/ecs/systems/physics_system.cpp
 	src/engine/ecs/systems/render_system.cpp
+	src/engine/ecs/systems/trigger_system.cpp
 	src/engine/level/level_loader.cpp
 	src/engine/physics/collision.cpp
 	src/engine/physics/raycast.cpp

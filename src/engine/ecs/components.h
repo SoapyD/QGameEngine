@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glm/glm.hpp>
+#include <entt/entt.hpp>
 #include "engine/physics/collision_layers.h"
 
 // ─── Spatial Components ──────────────────────────────────────────
@@ -58,6 +59,54 @@ struct CharacterPhysics
 	float stepHeight = 0.5f; // Max height of a step the player can walk up
 };
 
+// ─── State Components ────────────────────────────────────────────
+
+struct Health
+{
+	float current;
+	float max;
+};
+
+enum class MoverState
+{
+	Idle, // at start position
+	Moving, // moving to end position
+	Waiting, // at end position, waiting before returning
+	Returning // moving back to start position
+};
+
+struct Mover {
+	glm::vec3 startPos; // where it starts (closed position)
+	glm::vec3 endPos; // where it ends (open position)
+	float speed = 2.0f; // units per second
+	float waitTime = 3.0f; // seconds to stay open
+	float timer = 0.0f; // current time
+	float progress = 0.0f; //0.0 = start, 1.0 = end
+	MoverState state = MoverState::Idle;
+	bool requiresTrigger = true; // must be triggered to start
+};
+
+enum class TriggerAction
+{
+    ActivateMover,     // Open a door, start a lift
+    Teleport,          // Move the player somewhere
+    Damage,            // Hurt the player (lava, spikes)
+    Heal,              // Heal zone
+    ChangeLevel,       // Load next level
+    Message            // Display text to the player
+};
+
+struct TriggerVolume {
+    TriggerAction action = TriggerAction::ActivateMover;
+    entt::entity target = entt::null;  // Entity to activate (for ActivateMover)
+    glm::vec3 destination;              // For teleport
+    float value = 0.0f;                 // Damage/heal amount
+    std::string message;                // For Message action
+    bool onlyOnce = false;              // Fire once then disable
+    bool triggered = false;             // Has been triggered (for onlyOnce)
+    float cooldown = 0.0f;             // Minimum time between triggers
+    float cooldownTimer = 0.0f;
+};
 
 // ─── Lighting Components ─────────────────────────────────────────
 
@@ -103,3 +152,4 @@ struct DemoReset
 // Tags are empty structs — they mark entities without adding data
 
 struct TagPlayer {};
+struct TagDebugWireframe {};

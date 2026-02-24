@@ -344,18 +344,18 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
- D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
- C:/msys64/ucrt64/include/c++/15.2.0/memory \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
- C:/msys64/ucrt64/include/c++/15.2.0/ios \
- C:/msys64/ucrt64/include/c++/15.2.0/exception \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
+ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
+ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
+ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/version \
+ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
+ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
+ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/iterator \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
  C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
@@ -378,14 +378,23 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/system_error \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
  C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
- C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
+ C:/msys64/ucrt64/include/c++/15.2.0/exception \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/memory \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/ios \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
  C:/msys64/ucrt64/include/wctype.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
@@ -403,23 +412,6 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
  C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
- C:/msys64/ucrt64/include/c++/15.2.0/iostream \
- C:/msys64/ucrt64/include/c++/15.2.0/ostream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/istream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/core/fixed_timestep.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/scene_setup.h \
- D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
- D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
- D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
- D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
- C:/msys64/ucrt64/include/c++/15.2.0/version \
- D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
- D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
- D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/iterator \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
  C:/msys64/ucrt64/include/c++/15.2.0/utility \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
@@ -528,6 +520,8 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/view.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/ostream \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/flow.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/locator/locator.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
@@ -623,6 +617,12 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/functional.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/iostream \
+ C:/msys64/ucrt64/include/c++/15.2.0/istream \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/core/fixed_timestep.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/scene_setup.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/demo_reset_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/render_system.h \
@@ -631,4 +631,6 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/movement_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/physics_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/trigger_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/mover_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/physics/physics_config.h

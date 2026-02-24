@@ -9,6 +9,8 @@
 #include "engine/ecs/systems/collision_system.h"
 #include "engine/ecs/systems/movement_system.h"
 #include "engine/ecs/systems/physics_system.h"
+#include "engine/ecs/systems/trigger_system.h"
+#include "engine/ecs/systems/mover_system.h"
 #include "engine/physics/spatial_hash.h"
 #include "engine/physics/physics_config.h"
 #include "engine/renderer/camera.h"
@@ -90,17 +92,25 @@ int main()
 
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
+		// Sync player entity position to camera
+		auto playerView = registry.view<Position, TagPlayer>();
+		for (auto [entity, pos] : playerView.each()) {
+			pos.value = camera.getPosition();
+		}
+
 		// ─── ECS Systems (tick order!) ───────────────────────────
 		while (fixedTimestep.step())
 		{
 			physicsSystem(registry);
+			moverSystem(registry);                         // update doors, lifts
 			collisionSystem(registry, spatialHash, level); // adjust velocities
 			movementSystem(registry); // apply velocities to positions
 			groundDetectionSystem(registry, level);    // update OnGround for next frame
+			triggerSystem(registry);                       // detect trigger overlaps (after final position)
 			demoResetSystem(registry);
 		}
 
-		// ─── Render ──────────────────────────────────────────────		
+		// ─── Render ──────────────────────────────────────────────
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

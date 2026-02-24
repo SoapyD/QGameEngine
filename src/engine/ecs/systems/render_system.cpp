@@ -143,6 +143,17 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 			glUniform1i(glGetUniformLocation(mesh.shaderId, "textureSampler"), 0);
 		}
 
+		// Flat colour override for debug wireframes
+		loc = glGetUniformLocation(mesh.shaderId, "colorOverride");
+		if (registry.all_of<TagDebugWireframe>(entity))
+			glUniform4f(loc, 0.0f, 1.0f, 0.0f, 1.0f);  // bright green
+		else
+			glUniform4f(loc, 0.0f, 0.0f, 0.0f, 0.0f);   // disabled (normal lighting)
+
+		// Switch to wireframe if this is a debug entity
+		bool wireframe = registry.all_of<TagDebugWireframe>(entity);
+		if (wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 		glBindVertexArray(mesh.vao);
 
 		if (mesh.useIndices)
@@ -153,5 +164,8 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 		{
 			glDrawArrays(GL_TRIANGLES, 0, mesh.vertexCount);
 		}
+
+		// Switch back to filled rendering for the next entity
+		if (wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 };

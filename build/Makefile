@@ -417,6 +417,30 @@ src/engine/ecs/systems/movement_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.s
 .PHONY : src/engine/ecs/systems/movement_system.cpp.s
 
+src/engine/ecs/systems/mover_system.obj: src/engine/ecs/systems/mover_system.cpp.obj
+.PHONY : src/engine/ecs/systems/mover_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/mover_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj
+.PHONY : src/engine/ecs/systems/mover_system.cpp.obj
+
+src/engine/ecs/systems/mover_system.i: src/engine/ecs/systems/mover_system.cpp.i
+.PHONY : src/engine/ecs/systems/mover_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/mover_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.i
+.PHONY : src/engine/ecs/systems/mover_system.cpp.i
+
+src/engine/ecs/systems/mover_system.s: src/engine/ecs/systems/mover_system.cpp.s
+.PHONY : src/engine/ecs/systems/mover_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/mover_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.s
+.PHONY : src/engine/ecs/systems/mover_system.cpp.s
+
 src/engine/ecs/systems/physics_system.obj: src/engine/ecs/systems/physics_system.cpp.obj
 .PHONY : src/engine/ecs/systems/physics_system.obj
 
@@ -464,6 +488,30 @@ src/engine/ecs/systems/render_system.s: src/engine/ecs/systems/render_system.cpp
 src/engine/ecs/systems/render_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.s
 .PHONY : src/engine/ecs/systems/render_system.cpp.s
+
+src/engine/ecs/systems/trigger_system.obj: src/engine/ecs/systems/trigger_system.cpp.obj
+.PHONY : src/engine/ecs/systems/trigger_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/trigger_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj
+.PHONY : src/engine/ecs/systems/trigger_system.cpp.obj
+
+src/engine/ecs/systems/trigger_system.i: src/engine/ecs/systems/trigger_system.cpp.i
+.PHONY : src/engine/ecs/systems/trigger_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/trigger_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.i
+.PHONY : src/engine/ecs/systems/trigger_system.cpp.i
+
+src/engine/ecs/systems/trigger_system.s: src/engine/ecs/systems/trigger_system.cpp.s
+.PHONY : src/engine/ecs/systems/trigger_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/trigger_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.s
+.PHONY : src/engine/ecs/systems/trigger_system.cpp.s
 
 src/engine/level/level_loader.obj: src/engine/level/level_loader.cpp.obj
 .PHONY : src/engine/level/level_loader.obj
@@ -770,12 +818,18 @@ help:
 	@echo ... src/engine/ecs/systems/movement_system.obj
 	@echo ... src/engine/ecs/systems/movement_system.i
 	@echo ... src/engine/ecs/systems/movement_system.s
+	@echo ... src/engine/ecs/systems/mover_system.obj
+	@echo ... src/engine/ecs/systems/mover_system.i
+	@echo ... src/engine/ecs/systems/mover_system.s
 	@echo ... src/engine/ecs/systems/physics_system.obj
 	@echo ... src/engine/ecs/systems/physics_system.i
 	@echo ... src/engine/ecs/systems/physics_system.s
 	@echo ... src/engine/ecs/systems/render_system.obj
 	@echo ... src/engine/ecs/systems/render_system.i
 	@echo ... src/engine/ecs/systems/render_system.s
+	@echo ... src/engine/ecs/systems/trigger_system.obj
+	@echo ... src/engine/ecs/systems/trigger_system.i
+	@echo ... src/engine/ecs/systems/trigger_system.s
 	@echo ... src/engine/level/level_loader.obj
 	@echo ... src/engine/level/level_loader.i
 	@echo ... src/engine/level/level_loader.s

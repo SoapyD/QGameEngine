@@ -13,7 +13,7 @@ static Level createShowcaseLevel()
     //   Origin: (0, 0, 0) to (20, 4, 12)
     //   Doorways:
     //     - Left wall (x=0): opening from z=4 to z=8 (to Light Room)
-    //     - Front wall (z=12): opening from x=4 to x=8 (to Physics Lab)
+    //     - Front wall (z=12): opening from x=12 to x=16 (to Physics Lab)
     // ═══════════════════════════════════════════════════════════
     {
         Sector hall;
@@ -297,6 +297,12 @@ Level setupScene
         );
     }
 
+    // ─── Player entity ────────────────────────────────────────
+    auto player = registry.create();
+    registry.emplace<Position>(player, glm::vec3(10.0f, 1.7f, 3.0f));
+    registry.emplace<AABBCollider>(player, glm::vec3(0.3f, 0.85f, 0.3f), false);
+    registry.emplace<TagPlayer>(player);
+
     // ═══════════════════════════════════════════════════════════
     // MAIN HALL — Sunlight + point light contrast
     // ═══════════════════════════════════════════════════════════
@@ -351,7 +357,7 @@ Level setupScene
     (
         hallCube,
         cubeMesh->getVAO(), 0u,
-        litShader->getId(), gridOrange->getId(),
+        litShader->getId(), gridBlue->getId(),
         true, cubeMesh->getIndexCount()
     );
 
@@ -483,6 +489,125 @@ Level setupScene
             true, cubeMesh->getIndexCount()
         );
     }
+
+	// ─── Door: Main Hall → Physics Lab ──────────────────────────
+	// Doorway is at z=12, x=12..16, y=0..3 (lintel at y=3..4)
+	// Door is a cube scaled to fill the opening: 4 wide, 3 tall, 0.2 deep
+	auto door = registry.create();
+	glm::vec3 closedPos(14.0f, 1.5f, 12.0f); // centred in the doorway
+	glm::vec3 openPos(14.0f, 4.5f, 12.0f);   // slides up behind the lintel
+
+	registry.emplace<Position>(door, closedPos);
+	registry.emplace<Scale>(door, glm::vec3(4.0f, 3.0f, 0.2f));
+	registry.emplace<MeshRenderer>(door, cubeMesh->getVAO(), 0u,
+									litShader->getId(), gridGrey->getId(),
+									true, cubeMesh->getIndexCount());
+	registry.emplace<Mover>(door, closedPos, openPos, 3.0f, 4.0f, 0.0f, 0.0f,
+							MoverState::Idle, true);
+	registry.emplace<AABBCollider>(door, glm::vec3(2.0f, 1.5f, 0.1f), false);
+
+	// Trigger zone in front of the door (hall side)
+	auto doorTrigger = registry.create();
+	registry.emplace<Position>(doorTrigger, glm::vec3(14.0f, 1.5f, 12.0f));
+	registry.emplace<AABBCollider>(doorTrigger, glm::vec3(2.5f, 1.5f, 2.0f), true);
+	registry.emplace<TriggerVolume>(doorTrigger,
+		TriggerAction::ActivateMover,
+		door,                      // target: the door entity
+		glm::vec3(0.0f),           // destination (unused for mover)
+		0.0f,                      // value (unused)
+		"",                        // message (unused)
+		false,                     // not once-only
+		false,                     // not yet triggered
+		1.0f,                      // 1 second cooldown between triggers
+		0.0f                       // cooldown timer starts at 0
+	);
+	auto debugTrig = registry.create();
+	registry.emplace<Position>(debugTrig, glm::vec3(14.0f, 1.5f, 12.0f));
+	registry.emplace<Scale>(debugTrig, glm::vec3(5.0f, 3.0f, 4.0f)); // halfExtents * 2
+	registry.emplace<MeshRenderer>(debugTrig, cubeMesh->getVAO(), 0u,
+									litShader->getId(), gridGrey->getId(),
+									true, cubeMesh->getIndexCount());
+	registry.emplace<TagDebugWireframe>(debugTrig);
+
+	// ─── Lift: Main Hall → Physics Lab ──────────────────────────
+	auto lift = registry.create();
+	glm::vec3 bottomPos(0.0f, 0.0f, -8.0f);
+	glm::vec3 topPos(0.0f, 6.0f, -8.0f);
+
+	registry.emplace<Position>(lift, bottomPos);
+	registry.emplace<Scale>(lift, glm::vec3(3.0f, 0.2f, 3.0f));
+	registry.emplace<MeshRenderer>(lift, cubeMesh->getVAO(), 0u,
+									litShader->getId(), gridGrey->getId(),
+									true, cubeMesh->getIndexCount());
+	registry.emplace<Mover>(lift, bottomPos, topPos, 2.0f, 2.0f, 0.0f, 0.0f,
+							MoverState::Idle, true);
+	registry.emplace<AABBCollider>(lift, glm::vec3(1.5f, 0.1f, 1.5f), false);
+
+	// Trigger on the lift platform itself (step on it to activate)
+	auto liftTrigger = registry.create();
+	registry.emplace<Position>(liftTrigger, glm::vec3(0.0f, 0.3f, -8.0f));
+	registry.emplace<AABBCollider>(liftTrigger, glm::vec3(1.5f, 0.3f, 1.5f), true);
+	registry.emplace<TriggerVolume>(liftTrigger,
+		TriggerAction::ActivateMover, lift,
+		glm::vec3(0.0f), 0.0f, "", false, false, 0.5f, 0.0f);
+
+	// Debug wireframe cube showing the lift trigger zone
+	auto debugLift = registry.create();
+	registry.emplace<Position>(debugLift, glm::vec3(0.0f, 0.3f, -8.0f));
+	registry.emplace<Scale>(debugLift, glm::vec3(3.0f, 0.6f, 3.0f));
+	registry.emplace<MeshRenderer>(debugLift, cubeMesh->getVAO(), 0u,
+									litShader->getId(), gridGreen->getId(),
+									true, cubeMesh->getIndexCount());
+	registry.emplace<TagDebugWireframe>(debugLift);
+
+	// Teleporter ──────────────────────────
+	auto teleportTrigger = registry.create();
+	registry.emplace<Position>(teleportTrigger, glm::vec3(8.0f, 0.5f, 3.0f));
+	registry.emplace<AABBCollider>(teleportTrigger, glm::vec3(1.0f, 1.5f, 1.0f), true);
+	registry.emplace<TriggerVolume>(teleportTrigger,
+		TriggerAction::Teleport,
+		entt::null,                         // no target entity
+		glm::vec3(-8.0f, 1.0f, -3.0f),    // destination
+		0.0f, "", false, false, 1.0f, 0.0f);
+
+	// Debug wireframe cube showing the teleporter trigger zone
+	auto debugTeleport = registry.create();
+	registry.emplace<Position>(debugTeleport, glm::vec3(8.0f, 0.5f, 3.0f));
+	registry.emplace<Scale>(debugTeleport, glm::vec3(2.0f, 3.0f, 2.0f));
+	registry.emplace<MeshRenderer>(debugTeleport, cubeMesh->getVAO(), 0u,
+									litShader->getId(), gridGreen->getId(),
+									true, cubeMesh->getIndexCount());
+	registry.emplace<TagDebugWireframe>(debugTeleport);
+
+
+	// Lava Pool ──────────────────────────
+	// Visible lava surface — a flat red cube
+	auto lavaSurface = registry.create();
+	registry.emplace<Position>(lavaSurface, glm::vec3(0.0f, 0.0f, 10.0f));
+	registry.emplace<Scale>(lavaSurface, glm::vec3(10.0f, 0.2f, 10.0f));
+	registry.emplace<MeshRenderer>(lavaSurface, cubeMesh->getVAO(), 0u,
+									litShader->getId(), gridRed->getId(),
+									true, cubeMesh->getIndexCount());
+
+	// Damage trigger — same position, slightly taller so it catches the player above the surface
+	// auto lava = registry.create();
+	// registry.emplace<Position>(lava, glm::vec3(0.0f, 0.0f, 10.0f));
+	// registry.emplace<AABBCollider>(lava, glm::vec3(5.0f, 0.5f, 5.0f), true);
+	// registry.emplace<TriggerVolume>(lava,
+	// 	TriggerAction::Damage,
+	// 	entt::null,
+	// 	glm::vec3(0.0f),
+	// 	25.0f,      // 25 damage per second
+	// 	"", false, false, 0.0f, 0.0f);  // No cooldown — continuous damage
+
+	// // Debug wireframe cube showing the damage zone (red to signal danger)
+	// auto debugLava = registry.create();
+	// registry.emplace<Position>(debugLava, glm::vec3(0.0f, -0.5f, 10.0f));
+	// registry.emplace<Scale>(debugLava, glm::vec3(10.0f, 1.0f, 10.0f));
+	// registry.emplace<MeshRenderer>(debugLava, cubeMesh->getVAO(), 0u,
+	// 								litShader->getId(), gridRed->getId(),
+	// 								true, cubeMesh->getIndexCount());
+	// registry.emplace<TagDebugWireframe>(debugLava);
 
     // Point light in physics lab for visibility
     auto labLight = registry.create();
