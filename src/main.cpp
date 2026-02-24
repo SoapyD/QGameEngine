@@ -54,7 +54,7 @@ int main()
 	auto cubeMesh = resources.getMesh("cube", "assets/models/cube.obj");
 
 	// ─── Camera ──────────────────────────────────────────────────
-	Camera camera(glm::vec3(10.0f, 1.7f, 3.0f));
+	Camera camera(glm::vec3(15.0f, 1.7f, 15.0f));
 
 	// ─── ECS: Create the world ───────────────────────────────────
 	entt::registry registry;
@@ -108,6 +108,13 @@ int main()
 			groundDetectionSystem(registry, level);    // update OnGround for next frame
 			triggerSystem(registry);                       // detect trigger overlaps (after final position)
 			demoResetSystem(registry);
+		}
+
+		// Sync player position back to camera (handles teleportation)
+		for (auto [entity, pos] : playerView.each()) {
+			if (pos.value != camera.getPosition()) {
+				camera.setPosition(pos.value);
+			}
 		}
 
 		// ─── Render ──────────────────────────────────────────────
