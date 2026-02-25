@@ -624,13 +624,16 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/core/fixed_timestep.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/scene_setup.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/demo_reset_system.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/render_system.h \
- D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/collision_system.h \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/combat_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/demo_reset_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/lifetime_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/movement_system.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/physics_system.h \
- D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/trigger_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/mover_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/physics_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/render_system.h \
+ D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/trigger_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/weapon_switch_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/physics/physics_config.h

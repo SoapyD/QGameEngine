@@ -1,5 +1,6 @@
-#include "engine/ecs/scene_setup.h"
 #include "engine/ecs/components.h"
+#include "engine/ecs/scene_setup.h"
+#include "engine/ecs/weapon_definitions.h"
 #include "engine/level/level.h"
 #include "engine/level/level_loader.h"
 
@@ -104,10 +105,21 @@ Level setupScene
     }
 
     // ─── Player entity ────────────────────────────────────────
-    auto player = registry.create();
-    registry.emplace<Position>(player, glm::vec3(15.0f, 1.7f, 15.0f));
-    registry.emplace<AABBCollider>(player, glm::vec3(0.3f, 0.85f, 0.3f), false);
-    registry.emplace<TagPlayer>(player);
+	auto player = registry.create();
+	registry.emplace<Position>(player, glm::vec3(15.0f, 1.7f, 15.0f));
+	registry.emplace<AABBCollider>(player, glm::vec3(0.3f, 0.85f, 0.3f), false);
+	registry.emplace<Health>(player, 100.0f, 100.0f);
+	registry.emplace<PlayerInput>(player);
+	registry.emplace<TagPlayer>(player);
+
+	// Give the player two weapons: one hitscan, one projectile
+	WeaponInventory inv;
+	inv.weapons.push_back(createWeapon(WeaponType::Shotgun));
+	inv.weapons.push_back(createWeapon(WeaponType::RocketLauncher));
+	inv.currentWeapon = 0;  // Start with shotgun
+	registry.emplace<WeaponInventory>(player, std::move(inv));
+
+	registry.emplace<Ammo>(player, 25, 0, 5, 0);  // 25 shells, 5 rockets
 
     // ═══════════════════════════════════════════════════════════
     // LIGHTING
@@ -423,6 +435,14 @@ Level setupScene
                                     litShader->getId(), gridRed->getId(),
                                     true, cubeMesh->getIndexCount());
     registry.emplace<TagDebugWireframe>(debugLava);
+
+	// ─── Combat resources (stored in registry context) ───────
+	auto& combatRes = registry.ctx().emplace<CombatResources>();
+	combatRes.cubeVAO = cubeMesh->getVAO();
+	combatRes.cubeIndexCount = cubeMesh->getIndexCount();
+	combatRes.shaderId = litShader->getId();
+	combatRes.projectileTextureId = gridRed->getId();    // Red cubes for rockets
+	combatRes.tracerTextureId = gridOrange->getId();      // Orange lines for hitscan
 
     return level;
 };
