@@ -4,13 +4,16 @@
 #include "engine/core/fixed_timestep.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/scene_setup.h"
-#include "engine/ecs/systems/demo_reset_system.h"
-#include "engine/ecs/systems/render_system.h"
 #include "engine/ecs/systems/collision_system.h"
+#include "engine/ecs/systems/combat_system.h"
+#include "engine/ecs/systems/demo_reset_system.h"
+#include "engine/ecs/systems/lifetime_system.h"
 #include "engine/ecs/systems/movement_system.h"
-#include "engine/ecs/systems/physics_system.h"
-#include "engine/ecs/systems/trigger_system.h"
 #include "engine/ecs/systems/mover_system.h"
+#include "engine/ecs/systems/physics_system.h"
+#include "engine/ecs/systems/render_system.h"
+#include "engine/ecs/systems/trigger_system.h"
+#include "engine/ecs/systems/weapon_switch_system.h"
 #include "engine/physics/spatial_hash.h"
 #include "engine/physics/physics_config.h"
 #include "engine/renderer/camera.h"
@@ -98,14 +101,30 @@ int main()
 			pos.value = camera.getPosition();
 		}
 
+		// ─── Write camera direction into registry context ────── NEW
+		registry.ctx().insert_or_assign<glm::vec3>(camera.getFront());
+
+		// ─── Populate PlayerInput from GLFW ─────────────────── NEW
+		auto inputView = registry.view<PlayerInput>();
+		for (auto [entity, playerInput] : inputView.each()) {
+			playerInput.fire = (glfwGetMouseButton(window.getHandle(),
+				GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS);
+			playerInput.weaponSwitch = -1;
+			if (input.isKeyPressed(GLFW_KEY_1)) playerInput.weaponSwitch = 0;
+			if (input.isKeyPressed(GLFW_KEY_2)) playerInput.weaponSwitch = 1;
+		}
+
 		// ─── ECS Systems (tick order!) ───────────────────────────
 		while (fixedTimestep.step())
 		{
+			weaponSwitchSystem(registry);
 			physicsSystem(registry);
 			moverSystem(registry);                         // update doors, lifts
 			collisionSystem(registry, spatialHash, level); // adjust velocities
 			movementSystem(registry); // apply velocities to positions
 			groundDetectionSystem(registry, level);    // update OnGround for next frame
+			combatSystem(registry, level);
+			lifetimeSystem(registry);
 			triggerSystem(registry);                       // detect trigger overlaps (after final position)
 			demoResetSystem(registry);
 		}
