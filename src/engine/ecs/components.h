@@ -4,6 +4,23 @@
 #include <entt/entt.hpp>
 #include "engine/physics/collision_layers.h"
 
+
+// Config for the debug HUD overlay (stored in registry context)
+struct HudConfig
+{
+	unsigned int shaderId = 0;
+};
+
+// Input state for the player — set each frame from InputManager
+struct PlayerInput
+{
+	bool fire = false;
+	int weaponSwitch = -1; // -1 = no switch, 0+ = weapon slot
+	// movement
+	glm::vec3 wishDir = glm::vec3(0.0f);  // desired move direction (normalised)
+	bool jump = false;
+};
+
 // ─── Spatial Components ──────────────────────────────────────────
 
 struct Position {
@@ -180,13 +197,6 @@ struct TriggerVolume {
 struct Lifetime
 {
 	float remaining = 5.0f;
-};
-
-// Input state for the player — set each frame from InputManager
-struct PlayerInput
-{
-	bool fire = false;
-	int weaponSwitch = -1;  // -1 = no switch, 0+ = weapon slot
 };
 
 // ─── Lighting Components ─────────────────────────────────────────

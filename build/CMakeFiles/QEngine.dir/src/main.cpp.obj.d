@@ -628,7 +628,9 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: \
  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/combat_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/demo_reset_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/debug_hud_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/lifetime_system.h \
+ D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/player_movement_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/movement_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/mover_system.h \
  D:\Documents\Programming\C_Projects\QEngine\src\engine/ecs/systems/physics_system.h \

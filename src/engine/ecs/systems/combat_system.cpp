@@ -130,6 +130,7 @@ void applySplashDamage
 		float scale = 1.0f - (distance / radius);
 		float damage = maxDamage * scale;
 		health.current -= damage;
+		if (health.current < 0.0f) health.current = 0.0f;
 
 		// knockback - push entity away from explosion
 		if (registry.all_of<Velocity>(entity))
@@ -198,7 +199,9 @@ void fireHitscan
 			// apply damage
 			if (registry.all_of<Health>(entityHit->entity))
 			{
-				registry.get<Health>(entityHit->entity).current -= weapon.damage;
+				auto& health = registry.get<Health>(entityHit->entity);
+				health.current -= weapon.damage;
+				if (health.current < 0.0f) health.current = 0.0f;  // NEW
 			}
 		}
 		else
@@ -303,8 +306,16 @@ void combatSystem
         // The camera direction is written into the registry context each frame
 		const auto& cameraDir = registry.ctx().get<glm::vec3>();
 
-		glm::vec3 fireOrigin = pos.value; // Already at eye height (synced from camera)
-
+		// Fire from eye height — position is at body centre, offset upward
+		
+		// glm::vec3 fireOrigin = pos.value; // Already at eye height (synced from camera)
+		float eyeOffset = 0.0f;
+		if (registry.all_of<AABBCollider>(entity))
+		{
+			eyeOffset = registry.get<AABBCollider>(entity).halfExtents.y * 0.7f;
+		}
+		glm::vec3 fireOrigin = pos.value + glm::vec3(0.0f, eyeOffset, 0.0f);
+		
 		if (weapon.fireMode == FireMode::Hitscan)
 		{
 			// std::cout << "Hitscan fired" << std::endl;
@@ -357,7 +368,9 @@ void combatSystem
 				// apply damage if the target has Health
 				if (registry.all_of<Health>(target))
 				{
-					registry.get<Health>(target).current -= proj.damage;
+					auto& health = registry.get<Health>(target);
+					health.current -= proj.damage;
+					if (health.current < 0.0f) health.current = 0.0f;  // NEW
 				}
 
 				// splash damage — hurt nearby entities too

@@ -393,6 +393,30 @@ src/engine/ecs/systems/combat_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/combat_system.cpp.s
 .PHONY : src/engine/ecs/systems/combat_system.cpp.s
 
+src/engine/ecs/systems/debug_hud_system.obj: src/engine/ecs/systems/debug_hud_system.cpp.obj
+.PHONY : src/engine/ecs/systems/debug_hud_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/debug_hud_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj
+.PHONY : src/engine/ecs/systems/debug_hud_system.cpp.obj
+
+src/engine/ecs/systems/debug_hud_system.i: src/engine/ecs/systems/debug_hud_system.cpp.i
+.PHONY : src/engine/ecs/systems/debug_hud_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/debug_hud_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.i
+.PHONY : src/engine/ecs/systems/debug_hud_system.cpp.i
+
+src/engine/ecs/systems/debug_hud_system.s: src/engine/ecs/systems/debug_hud_system.cpp.s
+.PHONY : src/engine/ecs/systems/debug_hud_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/debug_hud_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.s
+.PHONY : src/engine/ecs/systems/debug_hud_system.cpp.s
+
 src/engine/ecs/systems/demo_reset_system.obj: src/engine/ecs/systems/demo_reset_system.cpp.obj
 .PHONY : src/engine/ecs/systems/demo_reset_system.obj
 
@@ -512,6 +536,30 @@ src/engine/ecs/systems/physics_system.s: src/engine/ecs/systems/physics_system.c
 src/engine/ecs/systems/physics_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.s
 .PHONY : src/engine/ecs/systems/physics_system.cpp.s
+
+src/engine/ecs/systems/player_movement_system.obj: src/engine/ecs/systems/player_movement_system.cpp.obj
+.PHONY : src/engine/ecs/systems/player_movement_system.obj
+
+# target to build an object file
+src/engine/ecs/systems/player_movement_system.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj
+.PHONY : src/engine/ecs/systems/player_movement_system.cpp.obj
+
+src/engine/ecs/systems/player_movement_system.i: src/engine/ecs/systems/player_movement_system.cpp.i
+.PHONY : src/engine/ecs/systems/player_movement_system.i
+
+# target to preprocess a source file
+src/engine/ecs/systems/player_movement_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.i
+.PHONY : src/engine/ecs/systems/player_movement_system.cpp.i
+
+src/engine/ecs/systems/player_movement_system.s: src/engine/ecs/systems/player_movement_system.cpp.s
+.PHONY : src/engine/ecs/systems/player_movement_system.s
+
+# target to generate assembly for a file
+src/engine/ecs/systems/player_movement_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.s
+.PHONY : src/engine/ecs/systems/player_movement_system.cpp.s
 
 src/engine/ecs/systems/render_system.obj: src/engine/ecs/systems/render_system.cpp.obj
 .PHONY : src/engine/ecs/systems/render_system.obj
@@ -863,6 +911,9 @@ help:
 	@echo ... src/engine/ecs/systems/combat_system.obj
 	@echo ... src/engine/ecs/systems/combat_system.i
 	@echo ... src/engine/ecs/systems/combat_system.s
+	@echo ... src/engine/ecs/systems/debug_hud_system.obj
+	@echo ... src/engine/ecs/systems/debug_hud_system.i
+	@echo ... src/engine/ecs/systems/debug_hud_system.s
 	@echo ... src/engine/ecs/systems/demo_reset_system.obj
 	@echo ... src/engine/ecs/systems/demo_reset_system.i
 	@echo ... src/engine/ecs/systems/demo_reset_system.s
@@ -878,6 +929,9 @@ help:
 	@echo ... src/engine/ecs/systems/physics_system.obj
 	@echo ... src/engine/ecs/systems/physics_system.i
 	@echo ... src/engine/ecs/systems/physics_system.s
+	@echo ... src/engine/ecs/systems/player_movement_system.obj
+	@echo ... src/engine/ecs/systems/player_movement_system.i
+	@echo ... src/engine/ecs/systems/player_movement_system.s
 	@echo ... src/engine/ecs/systems/render_system.obj
 	@echo ... src/engine/ecs/systems/render_system.i
 	@echo ... src/engine/ecs/systems/render_system.s

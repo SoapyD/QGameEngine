@@ -33,6 +33,7 @@ void moverSystem(entt::registry& registry)
 
 				// Interpolate position
 				pos.value = glm::mix(mover.startPos, mover.endPos, mover.progress);
+				
 				break;
 			}
 
