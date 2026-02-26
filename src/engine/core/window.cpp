@@ -27,6 +27,7 @@ Window::Window(int width, int height, const std::string& title)
 
 	// make this window's OpenGL context current
 	glfwMakeContextCurrent(m_window);
+	glfwSwapInterval(1); // enable vsync
 
 	// ─── Load OpenGL function pointers with GLAD ─────────────────
 	if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))

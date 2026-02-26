@@ -7,7 +7,9 @@
 #include "engine/ecs/systems/collision_system.h"
 #include "engine/ecs/systems/combat_system.h"
 #include "engine/ecs/systems/demo_reset_system.h"
+#include "engine/ecs/systems/debug_hud_system.h"
 #include "engine/ecs/systems/lifetime_system.h"
+#include "engine/ecs/systems/player_movement_system.h"
 #include "engine/ecs/systems/movement_system.h"
 #include "engine/ecs/systems/mover_system.h"
 #include "engine/ecs/systems/physics_system.h"
@@ -34,6 +36,11 @@ int main()
 	auto basicShader = resources.getShader("basic",
 		"assets/shaders/basic.vert",
 		"assets/shaders/basic.frag"
+	);
+
+	auto hudShader = resources.getShader("hud",
+		"assets/shaders/hud.vert",
+		"assets/shaders/hud.frag"
 	);
 
 	auto texturedShader = resources.getShader("textured",
@@ -69,59 +76,89 @@ int main()
 	// ─── Game Loop ───────────────────────────────────────────────
 	FixedTimestep fixedTimestep(physicsConfig.fixedDeltaTime);
 
+	auto& HudeConfig = registry.ctx().emplace<HudConfig>();
+	HudeConfig.shaderId = hudShader->getId();
+
 	// enable depth testing (so closer things draw in front of further things)
 	glEnable(GL_DEPTH_TEST);
+
+	float fpsTimer = 0.0f;
+	int frameCount = 0;
+	float currentFps = 0.0f;
 
 	while (!window.shouldClose())
 	{
 		fixedTimestep.accumulate((float)glfwGetTime());
 		float frameTime = fixedTimestep.getFrameTime();
-
+		
 		input.update();
 		window.pollEvents();
+
+		// ─── FPS counter ─────────────────────────────────────────
+		frameCount++;
+		fpsTimer += frameTime;
+		if (fpsTimer >= 1.0f)
+		{
+			currentFps = (float)frameCount / fpsTimer;
+			frameCount = 0;
+			fpsTimer = 0.0f;
+		}
 
 		// ─── Input ───────────────────────────────────────────────
 		if (input.isKeyPressed(GLFW_KEY_ESCAPE))
 			glfwSetWindowShouldClose(window.getHandle(), true);
 
-		if (input.isKeyPressed(GLFW_KEY_W))
-			camera.processKeyboard(Camera::FORWARD, frameTime);
-		if (input.isKeyPressed(GLFW_KEY_S))
-			camera.processKeyboard(Camera::BACKWARD, frameTime);
-		if (input.isKeyPressed(GLFW_KEY_A))
-			camera.processKeyboard(Camera::LEFT, frameTime);
-		if (input.isKeyPressed(GLFW_KEY_D))
-			camera.processKeyboard(Camera::RIGHT, frameTime);
-
+		// mouse look - camera still handles this directly
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
-		// Sync player entity position to camera
-		auto playerView = registry.view<Position, TagPlayer>();
-		for (auto [entity, pos] : playerView.each()) {
-			pos.value = camera.getPosition();
-		}
+		glm::vec3 front =camera.getFront();
+		glm::vec3 right = glm::normalize(glm::cross(front, glm::vec3(0, 1, 0)));
 
-		// ─── Write camera direction into registry context ────── NEW
-		registry.ctx().insert_or_assign<glm::vec3>(camera.getFront());
+		// flatten to horizontal plane (don't fly when looking up/down)
+		front.y = 0.0f;
+		front = glm::normalize(front);
+		right.y = 0.0f;
+		right = glm::normalize(right);
 
-		// ─── Populate PlayerInput from GLFW ─────────────────── NEW
+		glm::vec3 wishDir(0.0f);
+		if (input.isKeyPressed(GLFW_KEY_W)) wishDir += front;
+		if (input.isKeyPressed(GLFW_KEY_S)) wishDir -= front;
+		if (input.isKeyPressed(GLFW_KEY_A)) wishDir -= right;
+		if (input.isKeyPressed(GLFW_KEY_D)) wishDir += right;
+
+		// normalise to prevent faster diagonal movement
+		if (glm::length(wishDir) > 0.0f)
+			wishDir = glm::normalize(wishDir);
+
+		// ─── Populate PlayerInput from GLFW ──────────────────────
 		auto inputView = registry.view<PlayerInput>();
 		for (auto [entity, playerInput] : inputView.each()) {
-			playerInput.fire = (glfwGetMouseButton(window.getHandle(),
-				GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS);
+			playerInput.wishDir = wishDir;
+			playerInput.jump = input.isKeyPressed(GLFW_KEY_SPACE);
+			playerInput.fire = 
+			(
+				glfwGetMouseButton(window.getHandle(),
+				GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS
+			);
 			playerInput.weaponSwitch = -1;
 			if (input.isKeyPressed(GLFW_KEY_1)) playerInput.weaponSwitch = 0;
 			if (input.isKeyPressed(GLFW_KEY_2)) playerInput.weaponSwitch = 1;
 		}
 
+		// ─── Write camera direction into registry context ────── NEW
+		registry.ctx().insert_or_assign<glm::vec3>(camera.getFront());
+
 		// ─── ECS Systems (tick order!) ───────────────────────────
 		while (fixedTimestep.step())
 		{
 			weaponSwitchSystem(registry);
+			playerMovementSystem(registry);
+			// velocity  
 			physicsSystem(registry);
 			moverSystem(registry);                         // update doors, lifts
 			collisionSystem(registry, spatialHash, level); // adjust velocities
 			movementSystem(registry); // apply velocities to positions
+			// positions
 			groundDetectionSystem(registry, level);    // update OnGround for next frame
 			combatSystem(registry, level);
 			lifetimeSystem(registry);
@@ -129,12 +166,18 @@ int main()
 			demoResetSystem(registry);
 		}
 
-		// Sync player position back to camera (handles teleportation)
-		for (auto [entity, pos] : playerView.each()) {
-			if (pos.value != camera.getPosition()) {
-				camera.setPosition(pos.value);
-			}
+		// ─── Camera follows player body ──────────────────────────
+		auto playerView = registry.view<Position, AABBCollider, TagPlayer>();
+		for (auto [entity, pos, col] : playerView.each())
+		{
+			// Camera sits near the top of the collider (eye height)
+			glm::vec3 eyePos = pos.value;
+			eyePos.y += col.halfExtents.y * 0.7f;  // 70% up from centre
+			camera.setPosition(eyePos);
 		}
+
+		// Write camera direction and position into registry context
+		registry.ctx().insert_or_assign<glm::vec3>(camera.getFront());
 
 		// ─── Render ──────────────────────────────────────────────
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -142,6 +185,11 @@ int main()
 
 		float aspectRatio = (float)window.getWidth() / (float)window.getHeight();
 		renderSystem(registry, camera, aspectRatio); // draw everything
+		debugHudSystem
+		(
+			registry, window.getWidth(), 
+			window.getHeight(), currentFps
+		);
 
 		window.swapBuffers();
 

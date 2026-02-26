@@ -102,6 +102,17 @@ void collisionSystem
 				SweepResult hit = sweepAABB(entityBox, movement, otherBox);
 				if (hit.hit)
 				{
+					// stair-step check if the obstacle is short enough, walk over it
+					float stepHeight = 0.3f;
+					float playerBottom = pos.value.y - col.halfExtents.y;
+					float obstacleTop = otherPos.value.y + otherCol.halfExtents.y;
+
+					if (hit.normal.y == 0.0f && (obstacleTop - playerBottom) <= stepHeight)
+					{
+						// lower obstacle - skip the collision, let the player walk over
+						continue;
+					}
+
 					float dot = glm::dot(vel.value, hit.normal);
 					if (dot < 0.0f)
 					{

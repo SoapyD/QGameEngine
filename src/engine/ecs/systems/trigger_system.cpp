@@ -67,7 +67,10 @@ void triggerSystem(entt::registry& registry)
 				{
 					if (registry.all_of<Health>(entity))
 					{
-						registry.get<Health>(entity).current -= trigger.value * dt;	
+						auto& health = registry.get<Health>(entity);
+						health.current -= trigger.value * dt;
+						if (health.current < 0.0f) health.current = 0.0f;
+
 					}
 					break;
 				}

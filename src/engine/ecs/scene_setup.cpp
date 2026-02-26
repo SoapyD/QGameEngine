@@ -107,7 +107,11 @@ Level setupScene
     // ─── Player entity ────────────────────────────────────────
 	auto player = registry.create();
 	registry.emplace<Position>(player, glm::vec3(15.0f, 1.7f, 15.0f));
+	registry.emplace<Velocity>(player);                        // NEW
 	registry.emplace<AABBCollider>(player, glm::vec3(0.3f, 0.85f, 0.3f), false);
+	registry.emplace<Gravity>(player);                         // NEW
+	registry.emplace<OnGround>(player);                        // NEW
+	registry.emplace<CharacterPhysics>(player);                // NEW
 	registry.emplace<Health>(player, 100.0f, 100.0f);
 	registry.emplace<PlayerInput>(player);
 	registry.emplace<TagPlayer>(player);
@@ -218,18 +222,6 @@ Level setupScene
     // ═══════════════════════════════════════════════════════════
     // PHYSICS DEMOS
     // ═══════════════════════════════════════════════════════════
-
-    // A static cube (reference object for scale/collision)
-    auto hallCube = registry.create();
-    registry.emplace<Position>(hallCube, glm::vec3(15.0f, 0.5f, 15.0f));
-    registry.emplace<AABBCollider>(hallCube, glm::vec3(0.5f), false);
-    registry.emplace<MeshRenderer>
-    (
-        hallCube,
-        cubeMesh->getVAO(), 0u,
-        litShader->getId(), gridBlue->getId(),
-        true, cubeMesh->getIndexCount()
-    );
 
     // Shelf: a raised platform to slide cubes off
     // 4 wide, 2 tall, 4 deep — top surface at y=2
