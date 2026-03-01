@@ -20,12 +20,23 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported/CMakeLists-C.txt.in"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported/CMakeLists-CXX.txt.in"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported/foo.c"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported/foo.cpp"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported/main.c"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported/main.cpp"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIncludeFile.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckLibraryExists.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-C.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/Compiler/GNU.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/ExternalProject/shared_internal_commands.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent/CMakeLists.cmake.in"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/FindGit.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/FindPackageMessage.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake"
@@ -56,6 +67,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/4.2.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.2.3/CMakeRCCompiler.cmake"
   "CMakeFiles/4.2.3/CMakeSystem.cmake"
+  "_deps/joltphysics-src/Build/CMakeLists.txt"
+  "_deps/joltphysics-src/Jolt/Jolt.cmake"
   "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/CMake/cmake_uninstall.cmake.in"
   "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/CMake/glfw3.pc.in"
   "D:/Documents/Programming/C_Projects/QEngine/extern/glfw/CMake/glfw3Config.cmake.in"
@@ -71,6 +84,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "_deps/joltphysics-subbuild/CMakeLists.txt"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "extern/glfw/src/glfw3Config.cmake"
   "extern/glfw/src/glfw3ConfigVersion.cmake"
@@ -78,6 +92,13 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "extern/glfw/CMakeFiles/CMakeDirectoryInformation.cmake"
   "extern/glfw/src/glfw3.pc"
   "extern/glfw/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt"
+  "_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/src/foo.cpp"
+  "_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/src/main.cpp"
+  "_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/src/CMakeLists.txt"
+  "_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/src/foo.c"
+  "_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/src/main.c"
+  "_deps/joltphysics-build/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -87,4 +108,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "extern/glfw/CMakeFiles/uninstall.dir/DependInfo.cmake"
   "extern/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   "extern/glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
+  "_deps/joltphysics-build/CMakeFiles/Jolt.dir/DependInfo.cmake"
   )

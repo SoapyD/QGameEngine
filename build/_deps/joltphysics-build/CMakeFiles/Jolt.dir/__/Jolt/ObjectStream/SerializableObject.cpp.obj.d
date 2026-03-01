@@ -1,0 +1,19 @@
+_deps/joltphysics-build/CMakeFiles/Jolt.dir/__/Jolt/ObjectStream/SerializableObject.cpp.obj: \
+ D:\Documents\Programming\C_Projects\QEngine\build\_deps\joltphysics-src\Jolt\ObjectStream\SerializableObject.cpp \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/Reference.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/Atomics.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/atomic \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/new \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
+ C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/RTTI.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/NonCopyable.h

@@ -65,23 +65,46 @@ CMAKE_BINARY_DIR = D:\Documents\Programming\C_Projects\QEngine\build
 all: CMakeFiles/glad.dir/all
 all: CMakeFiles/QEngine.dir/all
 all: extern/glfw/all
+all: _deps/joltphysics-build/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/glad.dir/codegen
 codegen: CMakeFiles/QEngine.dir/codegen
 codegen: extern/glfw/codegen
+codegen: _deps/joltphysics-build/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: extern/glfw/preinstall
+preinstall: _deps/joltphysics-build/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/glad.dir/clean
 clean: CMakeFiles/QEngine.dir/clean
 clean: extern/glfw/clean
+clean: _deps/joltphysics-build/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory _deps/joltphysics-build
+
+# Recursive "all" directory target.
+_deps/joltphysics-build/all: _deps/joltphysics-build/CMakeFiles/Jolt.dir/all
+.PHONY : _deps/joltphysics-build/all
+
+# Recursive "codegen" directory target.
+_deps/joltphysics-build/codegen: _deps/joltphysics-build/CMakeFiles/Jolt.dir/codegen
+.PHONY : _deps/joltphysics-build/codegen
+
+# Recursive "preinstall" directory target.
+_deps/joltphysics-build/preinstall:
+.PHONY : _deps/joltphysics-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/joltphysics-build/clean: _deps/joltphysics-build/CMakeFiles/Jolt.dir/clean
+.PHONY : _deps/joltphysics-build/clean
 
 #=============================================================================
 # Directory level rules for directory extern/glfw
@@ -130,12 +153,12 @@ extern/glfw/src/clean: extern/glfw/src/CMakeFiles/update_mappings.dir/clean
 CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=28,29 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=87 "Built target glad"
 .PHONY : CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/glad.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/glad.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 0
 .PHONY : CMakeFiles/glad.dir/rule
@@ -147,7 +170,7 @@ glad: CMakeFiles/glad.dir/rule
 # codegen rule for target.
 CMakeFiles/glad.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=28,29 "Finished codegen for target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=87 "Finished codegen for target glad"
 .PHONY : CMakeFiles/glad.dir/codegen
 
 # clean rule for target.
@@ -161,14 +184,15 @@ CMakeFiles/glad.dir/clean:
 # All Build rule for target.
 CMakeFiles/QEngine.dir/all: CMakeFiles/glad.dir/all
 CMakeFiles/QEngine.dir/all: extern/glfw/src/CMakeFiles/glfw.dir/all
+CMakeFiles/QEngine.dir/all: _deps/joltphysics-build/CMakeFiles/Jolt.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27 "Built target QEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=75,76,77,78,79,80,81,82,83,84,85,86 "Built target QEngine"
 .PHONY : CMakeFiles/QEngine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/QEngine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 99
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/QEngine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 0
 .PHONY : CMakeFiles/QEngine.dir/rule
@@ -180,7 +204,7 @@ QEngine: CMakeFiles/QEngine.dir/rule
 # codegen rule for target.
 CMakeFiles/QEngine.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QEngine.dir\build.make CMakeFiles/QEngine.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27 "Finished codegen for target QEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=75,76,77,78,79,80,81,82,83,84,85,86 "Finished codegen for target QEngine"
 .PHONY : CMakeFiles/QEngine.dir/codegen
 
 # clean rule for target.
@@ -227,12 +251,12 @@ extern/glfw/CMakeFiles/uninstall.dir/clean:
 extern/glfw/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f extern\glfw\src\CMakeFiles\glfw.dir\build.make extern/glfw/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern\glfw\src\CMakeFiles\glfw.dir\build.make extern/glfw/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=88,89,90,91,92,93,94,95,96,97,98,99 "Built target glfw"
 .PHONY : extern/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
 extern/glfw/src/CMakeFiles/glfw.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 22
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/glfw/src/CMakeFiles/glfw.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 0
 .PHONY : extern/glfw/src/CMakeFiles/glfw.dir/rule
@@ -244,7 +268,7 @@ glfw: extern/glfw/src/CMakeFiles/glfw.dir/rule
 # codegen rule for target.
 extern/glfw/src/CMakeFiles/glfw.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f extern\glfw\src\CMakeFiles\glfw.dir\build.make extern/glfw/src/CMakeFiles/glfw.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51 "Finished codegen for target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=88,89,90,91,92,93,94,95,96,97,98,99 "Finished codegen for target glfw"
 .PHONY : extern/glfw/src/CMakeFiles/glfw.dir/codegen
 
 # clean rule for target.
@@ -259,7 +283,7 @@ extern/glfw/src/CMakeFiles/glfw.dir/clean:
 extern/glfw/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f extern\glfw\src\CMakeFiles\update_mappings.dir\build.make extern/glfw/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern\glfw\src\CMakeFiles\update_mappings.dir\build.make extern/glfw/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=52 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=100 "Built target update_mappings"
 .PHONY : extern/glfw/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
@@ -276,13 +300,45 @@ update_mappings: extern/glfw/src/CMakeFiles/update_mappings.dir/rule
 # codegen rule for target.
 extern/glfw/src/CMakeFiles/update_mappings.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f extern\glfw\src\CMakeFiles\update_mappings.dir\build.make extern/glfw/src/CMakeFiles/update_mappings.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=52 "Finished codegen for target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=100 "Finished codegen for target update_mappings"
 .PHONY : extern/glfw/src/CMakeFiles/update_mappings.dir/codegen
 
 # clean rule for target.
 extern/glfw/src/CMakeFiles/update_mappings.dir/clean:
 	$(MAKE) $(MAKESILENT) -f extern\glfw\src\CMakeFiles\update_mappings.dir\build.make extern/glfw/src/CMakeFiles/update_mappings.dir/clean
 .PHONY : extern/glfw/src/CMakeFiles/update_mappings.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/joltphysics-build/CMakeFiles/Jolt.dir
+
+# All Build rule for target.
+_deps/joltphysics-build/CMakeFiles/Jolt.dir/all:
+	$(MAKE) $(MAKESILENT) -f _deps\joltphysics-build\CMakeFiles\Jolt.dir\build.make _deps/joltphysics-build/CMakeFiles/Jolt.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps\joltphysics-build\CMakeFiles\Jolt.dir\build.make _deps/joltphysics-build/CMakeFiles/Jolt.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74 "Built target Jolt"
+.PHONY : _deps/joltphysics-build/CMakeFiles/Jolt.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/joltphysics-build/CMakeFiles/Jolt.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 74
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/joltphysics-build/CMakeFiles/Jolt.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles 0
+.PHONY : _deps/joltphysics-build/CMakeFiles/Jolt.dir/rule
+
+# Convenience name for target.
+Jolt: _deps/joltphysics-build/CMakeFiles/Jolt.dir/rule
+.PHONY : Jolt
+
+# codegen rule for target.
+_deps/joltphysics-build/CMakeFiles/Jolt.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f _deps\joltphysics-build\CMakeFiles\Jolt.dir\build.make _deps/joltphysics-build/CMakeFiles/Jolt.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Documents\Programming\C_Projects\QEngine\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74 "Finished codegen for target Jolt"
+.PHONY : _deps/joltphysics-build/CMakeFiles/Jolt.dir/codegen
+
+# clean rule for target.
+_deps/joltphysics-build/CMakeFiles/Jolt.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps\joltphysics-build\CMakeFiles\Jolt.dir\build.make _deps/joltphysics-build/CMakeFiles/Jolt.dir/clean
+.PHONY : _deps/joltphysics-build/CMakeFiles/Jolt.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

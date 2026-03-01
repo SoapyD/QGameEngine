@@ -1,0 +1,31 @@
+_deps/joltphysics-build/CMakeFiles/Jolt.dir/__/Jolt/Physics/Vehicle/VehicleAntiRollBar.cpp.obj: \
+ D:\Documents\Programming\C_Projects\QEngine\build\_deps\joltphysics-src\Jolt\Physics\Vehicle\VehicleAntiRollBar.cpp \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Physics/Vehicle/VehicleAntiRollBar.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/Reference.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/Atomics.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/atomic \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/new \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
+ C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/RTTI.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/NonCopyable.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/StreamIn.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/StreamOut.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/TypeDeclarations.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Core/Color.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Geometry/AABox.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Geometry/Triangle.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Geometry/IndexedTriangle.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/Geometry/Plane.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/SerializableAttributeTyped.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/GetPrimitiveTypeOfType.h \
+ D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Jolt/ObjectStream/SerializableAttributeEnum.h

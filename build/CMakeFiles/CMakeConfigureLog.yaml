@@ -7685,3 +7685,797 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindGit.cmake:111 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent.cmake:1884 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent.cmake:1619 (__FetchContent_populateSubbuild)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2155:EVAL:2 (__FetchContent_doPopulation)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2155 (cmake_language)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2394 (__FetchContent_Populate)"
+      - "CMakeLists.txt:55 (FetchContent_MakeAvailable)"
+    mode: "program"
+    variable: "GIT_EXECUTABLE"
+    description: "Git command line client"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git.cmd"
+      - "git"
+    candidate_directories:
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/usr/bin/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Python312/Scripts/"
+      - "C:/Python312/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
+      - "C:/Program Files/Razer/ChromaBroadcast/bin/"
+      - "C:/Program Files/Oculus/Support/oculus-runtime/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Windows/System32/config/systemprofile/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/Scripts/"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/Scripts/"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/Consultancy+/seimens-mas-transformation/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Tesseract-OCR/"
+      - "C:/Program Files/Graphviz/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/PuTTY/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/bin/"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/shims/"
+      - "C:/Users/tom_b/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/tom_b/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/tom_b/AppData/Roaming/npm/"
+      - "C:/Users/tom_b/AppData/Local/Android/Sdk/platform-tools/"
+      - "C:/Users/tom_b/.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9/bin/"
+      - "C:/Users/tom_b/AppData/Local/Programs/Ollama/"
+      - "C:/Users/tom_b/.vscode/extensions/vscjava.vscode-java-debug-0.58.5/bundled/scripts/noConfigScriptsc/"
+      - "/Users/tom_b/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/QEngine/bin/"
+      - "C:/Program Files (x86)/QEngine/sbin/"
+      - "C:/Program Files (x86)/QEngine/"
+      - "C:/Users/tom_b/AppData/Local/Atlassian/SourceTree/git_local/bin/"
+    searched_directories:
+      - "C:/msys64/ucrt64/bin/git.cmd.com"
+      - "C:/msys64/ucrt64/bin/git.cmd.exe"
+      - "C:/msys64/ucrt64/bin/git.cmd"
+      - "C:/msys64/usr/bin/git.cmd.com"
+      - "C:/msys64/usr/bin/git.cmd.exe"
+      - "C:/msys64/usr/bin/git.cmd"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd"
+      - "C:/Python312/Scripts/git.cmd.com"
+      - "C:/Python312/Scripts/git.cmd.exe"
+      - "C:/Python312/Scripts/git.cmd"
+      - "C:/Python312/git.cmd.com"
+      - "C:/Python312/git.cmd.exe"
+      - "C:/Python312/git.cmd"
+      - "C:/Python310/Scripts/git.cmd.com"
+      - "C:/Python310/Scripts/git.cmd.exe"
+      - "C:/Python310/Scripts/git.cmd"
+      - "C:/Python310/git.cmd.com"
+      - "C:/Python310/git.cmd.exe"
+      - "C:/Python310/git.cmd"
+      - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/git.cmd.com"
+      - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/git.cmd"
+      - "C:/Program Files/Razer/ChromaBroadcast/bin/git.cmd.com"
+      - "C:/Program Files/Razer/ChromaBroadcast/bin/git.cmd.exe"
+      - "C:/Program Files/Razer/ChromaBroadcast/bin/git.cmd"
+      - "C:/Program Files/Oculus/Support/oculus-runtime/git.cmd.com"
+      - "C:/Program Files/Oculus/Support/oculus-runtime/git.cmd.exe"
+      - "C:/Program Files/Oculus/Support/oculus-runtime/git.cmd"
+      - "C:/Windows/System32/git.cmd.com"
+      - "C:/Windows/System32/git.cmd.exe"
+      - "C:/Windows/System32/git.cmd"
+      - "C:/Windows/git.cmd.com"
+      - "C:/Windows/git.cmd.exe"
+      - "C:/Windows/git.cmd"
+      - "C:/Windows/System32/wbem/git.cmd.com"
+      - "C:/Windows/System32/wbem/git.cmd.exe"
+      - "C:/Windows/System32/wbem/git.cmd"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd"
+      - "C:/Windows/System32/OpenSSH/git.cmd.com"
+      - "C:/Windows/System32/OpenSSH/git.cmd.exe"
+      - "C:/Windows/System32/OpenSSH/git.cmd"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.cmd.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.cmd.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.cmd"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/git.cmd.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/git.cmd.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/git.cmd"
+      - "C:/ProgramData/chocolatey/bin/git.cmd.com"
+      - "C:/ProgramData/chocolatey/bin/git.cmd.exe"
+      - "C:/ProgramData/chocolatey/bin/git.cmd"
+      - "C:/Program Files/Git/cmd/git.cmd.com"
+      - "C:/Program Files/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/Git/cmd/git.cmd"
+      - "C:/Windows/System32/config/systemprofile/AppData/Local/Microsoft/WindowsApps/git.cmd.com"
+      - "C:/Windows/System32/config/systemprofile/AppData/Local/Microsoft/WindowsApps/git.cmd.exe"
+      - "C:/Windows/System32/config/systemprofile/AppData/Local/Microsoft/WindowsApps/git.cmd"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/git.cmd.com"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/git.cmd.exe"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/git.cmd"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/Scripts/git.cmd.com"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/Scripts/git.cmd.exe"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.8.10/Scripts/git.cmd"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/git.cmd.com"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/git.cmd.exe"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/git.cmd"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/Scripts/git.cmd.com"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/Scripts/git.cmd.exe"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/versions/3.10.11/Scripts/git.cmd"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/git.cmd.com"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/git.cmd.exe"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/git.cmd"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/Consultancy+/seimens-mas-transformation/git.cmd.com"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/Consultancy+/seimens-mas-transformation/git.cmd.exe"
+      - "C:/Users/tom_b/OneDrive/Documents/_Programming/Python/Consultancy+/seimens-mas-transformation/git.cmd"
+      - "C:/Program Files/dotnet/git.cmd.com"
+      - "C:/Program Files/dotnet/git.cmd.exe"
+      - "C:/Program Files/dotnet/git.cmd"
+      - "C:/Program Files/Tesseract-OCR/git.cmd.com"
+      - "C:/Program Files/Tesseract-OCR/git.cmd.exe"
+      - "C:/Program Files/Tesseract-OCR/git.cmd"
+      - "C:/Program Files/Graphviz/bin/git.cmd.com"
+      - "C:/Program Files/Graphviz/bin/git.cmd.exe"
+      - "C:/Program Files/Graphviz/bin/git.cmd"
+      - "C:/Program Files/nodejs/git.cmd.com"
+      - "C:/Program Files/nodejs/git.cmd.exe"
+      - "C:/Program Files/nodejs/git.cmd"
+      - "C:/Program Files/PuTTY/git.cmd.com"
+      - "C:/Program Files/PuTTY/git.cmd.exe"
+      - "C:/Program Files/PuTTY/git.cmd"
+      - "C:/Program Files/CMake/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/git.cmd"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/bin/git.cmd.com"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/bin/git.cmd.exe"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/bin/git.cmd"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/shims/git.cmd.com"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/shims/git.cmd.exe"
+      - "C:/Users/tom_b/.pyenv/pyenv-win/shims/git.cmd"
+      - "C:/Users/tom_b/AppData/Local/Microsoft/WindowsApps/git.cmd.com"
+      - "C:/Users/tom_b/AppData/Local/Microsoft/WindowsApps/git.cmd.exe"
+      - "C:/Users/tom_b/AppData/Local/Microsoft/WindowsApps/git.cmd"
+      - "C:/Users/tom_b/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd.com"
+      - "C:/Users/tom_b/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd.exe"
+      - "C:/Users/tom_b/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd"
+      - "C:/Users/tom_b/AppData/Roaming/npm/git.cmd.com"
+      - "C:/Users/tom_b/AppData/Roaming/npm/git.cmd.exe"
+      - "C:/Users/tom_b/AppData/Roaming/npm/git.cmd"
+      - "C:/Users/tom_b/AppData/Local/Android/Sdk/platform-tools/git.cmd.com"
+      - "C:/Users/tom_b/AppData/Local/Android/Sdk/platform-tools/git.cmd.exe"
+      - "C:/Users/tom_b/AppData/Local/Android/Sdk/platform-tools/git.cmd"
+      - "C:/Users/tom_b/.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9/bin/git.cmd.com"
+      - "C:/Users/tom_b/.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9/bin/git.cmd.exe"
+      - "C:/Users/tom_b/.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9/bin/git.cmd"
+      - "C:/Users/tom_b/AppData/Local/Programs/Ollama/git.cmd.com"
+      - "C:/Users/tom_b/AppData/Local/Programs/Ollama/git.cmd.exe"
+      - "C:/Users/tom_b/AppData/Local/Programs/Ollama/git.cmd"
+      - "C:/Users/tom_b/.vscode/extensions/vscjava.vscode-java-debug-0.58.5/bundled/scripts/noConfigScriptsc/git.cmd.com"
+      - "C:/Users/tom_b/.vscode/extensions/vscjava.vscode-java-debug-0.58.5/bundled/scripts/noConfigScriptsc/git.cmd.exe"
+      - "C:/Users/tom_b/.vscode/extensions/vscjava.vscode-java-debug-0.58.5/bundled/scripts/noConfigScriptsc/git.cmd"
+      - "/Users/tom_b/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/git.cmd.com"
+      - "/Users/tom_b/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/git.cmd.exe"
+      - "/Users/tom_b/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/git.cmd"
+      - "C:/Program Files/bin/git.cmd.com"
+      - "C:/Program Files/bin/git.cmd.exe"
+      - "C:/Program Files/bin/git.cmd"
+      - "C:/Program Files/sbin/git.cmd.com"
+      - "C:/Program Files/sbin/git.cmd.exe"
+      - "C:/Program Files/sbin/git.cmd"
+      - "C:/Program Files/git.cmd.com"
+      - "C:/Program Files/git.cmd.exe"
+      - "C:/Program Files/git.cmd"
+      - "C:/Program Files (x86)/bin/git.cmd.com"
+      - "C:/Program Files (x86)/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/bin/git.cmd"
+      - "C:/Program Files (x86)/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/sbin/git.cmd"
+      - "C:/Program Files (x86)/git.cmd.com"
+      - "C:/Program Files (x86)/git.cmd.exe"
+      - "C:/Program Files (x86)/git.cmd"
+      - "C:/Program Files/CMake/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/git.cmd"
+      - "C:/Program Files/CMake/sbin/git.cmd.com"
+      - "C:/Program Files/CMake/sbin/git.cmd.exe"
+      - "C:/Program Files/CMake/sbin/git.cmd"
+      - "C:/Program Files/CMake/git.cmd.com"
+      - "C:/Program Files/CMake/git.cmd.exe"
+      - "C:/Program Files/CMake/git.cmd"
+      - "C:/Program Files (x86)/QEngine/bin/git.cmd.com"
+      - "C:/Program Files (x86)/QEngine/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/QEngine/bin/git.cmd"
+      - "C:/Program Files (x86)/QEngine/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/QEngine/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/QEngine/sbin/git.cmd"
+      - "C:/Program Files (x86)/QEngine/git.cmd.com"
+      - "C:/Program Files (x86)/QEngine/git.cmd.exe"
+      - "C:/Program Files (x86)/QEngine/git.cmd"
+      - "C:/Users/tom_b/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd.com"
+      - "C:/Users/tom_b/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd.exe"
+      - "C:/Users/tom_b/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd"
+      - "C:/msys64/ucrt64/bin/git.com"
+      - "C:/msys64/ucrt64/bin/git.exe"
+      - "C:/msys64/ucrt64/bin/git"
+      - "C:/msys64/usr/bin/git.com"
+      - "C:/msys64/usr/bin/git.exe"
+      - "C:/msys64/usr/bin/git"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git"
+      - "C:/Python312/Scripts/git.com"
+      - "C:/Python312/Scripts/git.exe"
+      - "C:/Python312/Scripts/git"
+      - "C:/Python312/git.com"
+      - "C:/Python312/git.exe"
+      - "C:/Python312/git"
+      - "C:/Python310/Scripts/git.com"
+      - "C:/Python310/Scripts/git.exe"
+      - "C:/Python310/Scripts/git"
+      - "C:/Python310/git.com"
+      - "C:/Python310/git.exe"
+      - "C:/Python310/git"
+      - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/git.com"
+      - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/git.exe"
+      - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/git"
+      - "C:/Program Files/Razer/ChromaBroadcast/bin/git.com"
+      - "C:/Program Files/Razer/ChromaBroadcast/bin/git.exe"
+      - "C:/Program Files/Razer/ChromaBroadcast/bin/git"
+      - "C:/Program Files/Oculus/Support/oculus-runtime/git.com"
+      - "C:/Program Files/Oculus/Support/oculus-runtime/git.exe"
+      - "C:/Program Files/Oculus/Support/oculus-runtime/git"
+      - "C:/Windows/System32/git.com"
+      - "C:/Windows/System32/git.exe"
+      - "C:/Windows/System32/git"
+      - "C:/Windows/git.com"
+      - "C:/Windows/git.exe"
+      - "C:/Windows/git"
+      - "C:/Windows/System32/wbem/git.com"
+      - "C:/Windows/System32/wbem/git.exe"
+      - "C:/Windows/System32/wbem/git"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git"
+      - "C:/Windows/System32/OpenSSH/git.com"
+      - "C:/Windows/System32/OpenSSH/git.exe"
+      - "C:/Windows/System32/OpenSSH/git"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/git.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/git.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/git"
+      - "C:/ProgramData/chocolatey/bin/git.com"
+      - "C:/ProgramData/chocolatey/bin/git.exe"
+      - "C:/ProgramData/chocolatey/bin/git"
+      - "C:/Program Files/Git/cmd/git.com"
+    found: "C:/Program Files/Git/cmd/git.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\usr\\bin"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Python312\\Scripts\\"
+        - "C:\\Python312\\"
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
+        - "C:\\Program Files\\Razer\\ChromaBroadcast\\bin"
+        - "C:\\Program Files\\Oculus\\Support\\oculus-runtime"
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Users\\tom_b\\.pyenv\\pyenv-win\\versions\\3.8.10\\"
+        - "C:\\Users\\tom_b\\.pyenv\\pyenv-win\\versions\\3.8.10\\Scripts\\"
+        - "C:\\Users\\tom_b\\.pyenv\\pyenv-win\\versions\\3.10.11\\"
+        - "C:\\Users\\tom_b\\.pyenv\\pyenv-win\\versions\\3.10.11\\Scripts\\"
+        - "C:\\Users\\tom_b\\OneDrive\\Documents\\_Programming\\Python"
+        - "C:\\Users\\tom_b\\OneDrive\\Documents\\_Programming\\Python\\Consultancy+\\seimens-mas-transformation"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Tesseract-OCR\\"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\tom_b\\.pyenv\\pyenv-win\\bin"
+        - "C:\\Users\\tom_b\\.pyenv\\pyenv-win\\shims"
+        - "C:\\Users\\tom_b\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\tom_b\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\tom_b\\AppData\\Roaming\\npm"
+        - "C:\\Users\\tom_b\\AppData\\Local\\Android\\Sdk\\platform-tools"
+        - "C:\\Users\\tom_b\\.gradle\\wrapper\\dists\\gradle-8.9-bin\\90cnw93cvbtalezasaz0blq0a\\gradle-8.9\\bin"
+        - "C:\\Users\\tom_b\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\tom_b\\AppData\\Local\\Programs\\Ollama"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "c:\\Users\\tom_b\\.vscode\\extensions\\vscjava.vscode-java-debug-0.58.5\\bundled\\scripts\\noConfigScriptsc"
+        - "\\Users\\tom_b\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/QEngine"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/QEngine"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:197 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:264 (check_ipo_supported)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:274 (SET_INTERPROCEDURAL_OPTIMIZATION)"
+    directories:
+      source: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/src"
+      binary: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin"
+    buildResult:
+      variable: "_IPO_LANGUAGE_CHECK_RESULT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile
+        mingw32-make[1]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -SD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src -BD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin --check-build-system CMakeFiles\\Makefile.cmake 0
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\\\CMakeFiles\\progress.marks
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\Makefile2 all
+        mingw32-make[2]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake foo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Scanning dependencies of target foo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 25%] Building CXX object CMakeFiles/foo.dir/foo.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\foo.dir\\foo.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp
+        [ 50%] Linking CXX static library libfoo.a
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -P CMakeFiles\\foo.dir\\cmake_clean_target.cmake
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\foo.dir\\link.txt --verbose=1
+        "C:/msys64/ucrt64/bin/gcc-ar.exe" qc libfoo.a CMakeFiles/foo.dir/foo.cpp.obj
+        "C:/msys64/ucrt64/bin/gcc-ranlib.exe" libfoo.a
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 50%] Built target foo
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake boo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir/depend.internal".
+        Scanning dependencies of target boo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 75%] Building CXX object CMakeFiles/boo.dir/main.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\boo.dir\\main.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp
+        [100%] Linking CXX executable boo.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\boo.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\boo.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\boo.dir/objects.a @CMakeFiles\\boo.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\g++.exe -flto=auto -fno-fat-lto-objects -Wl,--whole-archive CMakeFiles\\boo.dir/objects.a -Wl,--no-whole-archive -o boo.exe -Wl,--out-implib,libboo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\boo.dir\\linkLibs.rsp
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [100%] Built target boo
+        mingw32-make[2]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles 0
+        mingw32-make[1]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:197 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:264 (check_ipo_supported)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:274 (SET_INTERPROCEDURAL_OPTIMIZATION)"
+    directories:
+      source: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/src"
+      binary: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin"
+    buildResult:
+      variable: "_IPO_LANGUAGE_CHECK_RESULT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile
+        mingw32-make[1]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -SD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src -BD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin --check-build-system CMakeFiles\\Makefile.cmake 0
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\\\CMakeFiles\\progress.marks
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\Makefile2 all
+        mingw32-make[2]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake foo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir/depend.internal".
+        Scanning dependencies of target foo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 25%] Building C object CMakeFiles/foo.dir/foo.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\foo.dir\\foo.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src\\foo.c
+        [ 50%] Linking C static library libfoo.a
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -P CMakeFiles\\foo.dir\\cmake_clean_target.cmake
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\foo.dir\\link.txt --verbose=1
+        "C:/msys64/ucrt64/bin/gcc-ar.exe" qc libfoo.a CMakeFiles/foo.dir/foo.c.obj
+        "C:/msys64/ucrt64/bin/gcc-ranlib.exe" libfoo.a
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 50%] Built target foo
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake boo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir/depend.internal".
+        Scanning dependencies of target boo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 75%] Building C object CMakeFiles/boo.dir/main.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\boo.dir\\main.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src\\main.c
+        [100%] Linking C executable boo.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\boo.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\boo.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\boo.dir/objects.a @CMakeFiles\\boo.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\gcc.exe -flto=auto -fno-fat-lto-objects -Wl,--whole-archive CMakeFiles\\boo.dir/objects.a -Wl,--no-whole-archive -o boo.exe -Wl,--out-implib,libboo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\boo.dir\\linkLibs.rsp
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [100%] Built target boo
+        mingw32-make[2]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles 0
+        mingw32-make[1]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:197 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:264 (check_ipo_supported)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:274 (SET_INTERPROCEDURAL_OPTIMIZATION)"
+    directories:
+      source: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/src"
+      binary: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin"
+    buildResult:
+      variable: "_IPO_LANGUAGE_CHECK_RESULT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile
+        mingw32-make[1]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -SD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src -BD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin --check-build-system CMakeFiles\\Makefile.cmake 0
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\\\CMakeFiles\\progress.marks
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\Makefile2 all
+        mingw32-make[2]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake foo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Scanning dependencies of target foo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 25%] Building CXX object CMakeFiles/foo.dir/foo.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\foo.dir\\foo.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp
+        [ 50%] Linking CXX static library libfoo.a
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -P CMakeFiles\\foo.dir\\cmake_clean_target.cmake
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\foo.dir\\link.txt --verbose=1
+        "C:/msys64/ucrt64/bin/gcc-ar.exe" qc libfoo.a CMakeFiles/foo.dir/foo.cpp.obj
+        "C:/msys64/ucrt64/bin/gcc-ranlib.exe" libfoo.a
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 50%] Built target foo
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake boo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir/depend.internal".
+        Scanning dependencies of target boo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 75%] Building CXX object CMakeFiles/boo.dir/main.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\boo.dir\\main.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp
+        [100%] Linking CXX executable boo.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\boo.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\boo.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\boo.dir/objects.a @CMakeFiles\\boo.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\g++.exe -flto=auto -fno-fat-lto-objects -Wl,--whole-archive CMakeFiles\\boo.dir/objects.a -Wl,--no-whole-archive -o boo.exe -Wl,--out-implib,libboo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\boo.dir\\linkLibs.rsp
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [100%] Built target boo
+        mingw32-make[2]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles 0
+        mingw32-make[1]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:197 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:264 (check_ipo_supported)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:274 (SET_INTERPROCEDURAL_OPTIMIZATION)"
+    directories:
+      source: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/src"
+      binary: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin"
+    buildResult:
+      variable: "_IPO_LANGUAGE_CHECK_RESULT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile
+        mingw32-make[1]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -SD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src -BD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin --check-build-system CMakeFiles\\Makefile.cmake 0
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\\\CMakeFiles\\progress.marks
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\Makefile2 all
+        mingw32-make[2]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake foo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir/depend.internal".
+        Scanning dependencies of target foo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 25%] Building C object CMakeFiles/foo.dir/foo.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\foo.dir\\foo.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src\\foo.c
+        [ 50%] Linking C static library libfoo.a
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -P CMakeFiles\\foo.dir\\cmake_clean_target.cmake
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\foo.dir\\link.txt --verbose=1
+        "C:/msys64/ucrt64/bin/gcc-ar.exe" qc libfoo.a CMakeFiles/foo.dir/foo.c.obj
+        "C:/msys64/ucrt64/bin/gcc-ranlib.exe" libfoo.a
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 50%] Built target foo
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake boo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir/depend.internal".
+        Scanning dependencies of target boo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 75%] Building C object CMakeFiles/boo.dir/main.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\boo.dir\\main.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src\\main.c
+        [100%] Linking C executable boo.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\boo.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\boo.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\boo.dir/objects.a @CMakeFiles\\boo.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\gcc.exe -flto=auto -fno-fat-lto-objects -Wl,--whole-archive CMakeFiles\\boo.dir/objects.a -Wl,--no-whole-archive -o boo.exe -Wl,--out-implib,libboo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\boo.dir\\linkLibs.rsp
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [100%] Built target boo
+        mingw32-make[2]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles 0
+        mingw32-make[1]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:197 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:264 (check_ipo_supported)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:274 (SET_INTERPROCEDURAL_OPTIMIZATION)"
+    directories:
+      source: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/src"
+      binary: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin"
+    buildResult:
+      variable: "_IPO_LANGUAGE_CHECK_RESULT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile
+        mingw32-make[1]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -SD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src -BD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin --check-build-system CMakeFiles\\Makefile.cmake 0
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\\\CMakeFiles\\progress.marks
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\Makefile2 all
+        mingw32-make[2]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake foo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Scanning dependencies of target foo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 25%] Building CXX object CMakeFiles/foo.dir/foo.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\foo.dir\\foo.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp
+        mingw32-make[3]: *** [CMakeFiles\\foo.dir\\build.make:80: CMakeFiles/foo.dir/foo.cpp.obj] Error 1
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        mingw32-make[2]: *** [CMakeFiles\\Makefile2:92: CMakeFiles/foo.dir/all] Error 2
+        mingw32-make[2]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        mingw32-make[1]: *** [Makefile:93: all] Error 2
+        mingw32-make[1]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:197 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:264 (check_ipo_supported)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:274 (SET_INTERPROCEDURAL_OPTIMIZATION)"
+    directories:
+      source: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/src"
+      binary: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin"
+    buildResult:
+      variable: "_IPO_LANGUAGE_CHECK_RESULT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile
+        mingw32-make[1]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -SD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src -BD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin --check-build-system CMakeFiles\\Makefile.cmake 0
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\\\CMakeFiles\\progress.marks
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\Makefile2 all
+        mingw32-make[2]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake foo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir/depend.internal".
+        Scanning dependencies of target foo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 25%] Building CXX object CMakeFiles/foo.dir/foo.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\foo.dir\\foo.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp
+        [ 50%] Linking CXX static library libfoo.a
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -P CMakeFiles\\foo.dir\\cmake_clean_target.cmake
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\foo.dir\\link.txt --verbose=1
+        "C:/msys64/ucrt64/bin/gcc-ar.exe" qc libfoo.a CMakeFiles/foo.dir/foo.cpp.obj
+        "C:/msys64/ucrt64/bin/gcc-ranlib.exe" libfoo.a
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 50%] Built target foo
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake boo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir/depend.internal".
+        Scanning dependencies of target boo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [ 75%] Building CXX object CMakeFiles/boo.dir/main.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\boo.dir\\main.cpp.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp
+        [100%] Linking CXX executable boo.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\boo.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\boo.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\boo.dir/objects.a @CMakeFiles\\boo.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\g++.exe -flto=auto -fno-fat-lto-objects -Wl,--whole-archive CMakeFiles\\boo.dir/objects.a -Wl,--no-whole-archive -o boo.exe -Wl,--out-implib,libboo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\boo.dir\\linkLibs.rsp
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        [100%] Built target boo
+        mingw32-make[2]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\CMakeFiles 0
+        mingw32-make[1]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:197 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:264 (check_ipo_supported)"
+      - "build/_deps/joltphysics-src/Build/CMakeLists.txt:274 (SET_INTERPROCEDURAL_OPTIMIZATION)"
+    directories:
+      source: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/src"
+      binary: "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin"
+    buildResult:
+      variable: "_IPO_LANGUAGE_CHECK_RESULT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile
+        mingw32-make[1]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -SD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src -BD:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin --check-build-system CMakeFiles\\Makefile.cmake 0
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\\\CMakeFiles\\progress.marks
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\Makefile2 all
+        mingw32-make[2]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake foo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\foo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir/depend.internal".
+        Scanning dependencies of target foo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\foo.dir\\build.make CMakeFiles/foo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 25%] Building C object CMakeFiles/foo.dir/foo.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\foo.dir\\foo.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src\\foo.c
+        [ 50%] Linking C static library libfoo.a
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -P CMakeFiles\\foo.dir\\cmake_clean_target.cmake
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\foo.dir\\link.txt --verbose=1
+        "C:/msys64/ucrt64/bin/gcc-ar.exe" qc libfoo.a CMakeFiles/foo.dir/foo.c.obj
+        "C:/msys64/ucrt64/bin/gcc-ranlib.exe" libfoo.a
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 50%] Built target foo
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/depend
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_depends "MinGW Makefiles" D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake boo
+        Dependee "D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles\\boo.dir\\DependInfo.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir/depend.internal".
+        Dependee "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir/depend.internal".
+        Scanning dependencies of target boo
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\boo.dir\\build.make CMakeFiles/boo.dir/build
+        mingw32-make[3]: Entering directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [ 75%] Building C object CMakeFiles/boo.dir/main.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe   -flto=auto -fno-fat-lto-objects -o CMakeFiles\\boo.dir\\main.c.obj -c D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\src\\main.c
+        [100%] Linking C executable boo.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\boo.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\boo.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\boo.dir/objects.a @CMakeFiles\\boo.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\gcc.exe -flto=auto -fno-fat-lto-objects -Wl,--whole-archive CMakeFiles\\boo.dir/objects.a -Wl,--no-whole-archive -o boo.exe -Wl,--out-implib,libboo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\boo.dir\\linkLibs.rsp
+        mingw32-make[3]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        [100%] Built target boo
+        mingw32-make[2]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_progress_start D:\\Documents\\Programming\\C_Projects\\QEngine\\build\\_deps\\joltphysics-build\\CMakeFiles\\_CMakeLTOTest-C\\bin\\CMakeFiles 0
+        mingw32-make[1]: Leaving directory 'D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/_CMakeLTOTest-C/bin'
+        
+      exitCode: 0
+...

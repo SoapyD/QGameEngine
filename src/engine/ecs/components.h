@@ -2,6 +2,9 @@
 
 #include <glm/glm.hpp>
 #include <entt/entt.hpp>
+#include <Jolt/Jolt.h>
+#include <Jolt/Physics/Body/BodyID.h>
+
 #include "engine/physics/collision_layers.h"
 
 
@@ -46,6 +49,11 @@ struct Vertex {
 };
 
 // ─── Physics Components ──────────────────────────────────────────
+struct JoltBody
+{
+    JPH::BodyID id;
+};
+
 struct AABBCollider
 {
 	glm::vec3 halfExtents = glm::vec3(0.5f);

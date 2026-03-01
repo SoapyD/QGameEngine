@@ -82,6 +82,8 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: D:/Documents/Pr
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -95,6 +97,7 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: D:/Documents/Pr
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -112,6 +115,7 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: D:/Documents/Pr
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -174,15 +178,19 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: D:/Documents/Pr
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -219,6 +227,7 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: D:/Documents/Pr
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -259,12 +268,157 @@ CMakeFiles/QEngine.dir/src/engine/core/resource_manager.cpp.obj: D:/Documents/Pr
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -702,10 +856,12 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/_mingw_off_t.h \
   C:/msys64/ucrt64/include/_mingw_secapi.h \
   C:/msys64/ucrt64/include/_mingw_stat64.h \
+  C:/msys64/ucrt64/include/_mingw_stdarg.h \
   C:/msys64/ucrt64/include/_timeval.h \
   C:/msys64/ucrt64/include/assert.h \
   C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
   C:/msys64/ucrt64/include/c++/15.2.0/array \
+  C:/msys64/ucrt64/include/c++/15.2.0/atomic \
   C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bit \
@@ -716,6 +872,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_timed_wait.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
@@ -723,6 +880,9 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono_io.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
@@ -733,6 +893,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/formatfwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
@@ -745,12 +906,16 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_conv.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/monostate.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
@@ -758,9 +923,13 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/quoted_string.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -770,13 +939,16 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/semaphore_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -791,6 +963,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -804,7 +977,11 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode-data.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
@@ -817,16 +994,21 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/cctype \
   C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
   C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
+  C:/msys64/ucrt64/include/c++/15.2.0/charconv \
+  C:/msys64/ucrt64/include/c++/15.2.0/chrono \
   C:/msys64/ucrt64/include/c++/15.2.0/climits \
   C:/msys64/ucrt64/include/c++/15.2.0/clocale \
   C:/msys64/ucrt64/include/c++/15.2.0/cmath \
   C:/msys64/ucrt64/include/c++/15.2.0/compare \
   C:/msys64/ucrt64/include/c++/15.2.0/concepts \
+  C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdarg \
   C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
   C:/msys64/ucrt64/include/c++/15.2.0/cstring \
+  C:/msys64/ucrt64/include/c++/15.2.0/ctime \
   C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
   C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
   C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
@@ -840,8 +1022,10 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/format \
   C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
+  C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
   C:/msys64/ucrt64/include/c++/15.2.0/iostream \
@@ -849,25 +1033,36 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
+  C:/msys64/ucrt64/include/c++/15.2.0/locale \
   C:/msys64/ucrt64/include/c++/15.2.0/map \
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
+  C:/msys64/ucrt64/include/c++/15.2.0/mutex \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
+  C:/msys64/ucrt64/include/c++/15.2.0/ratio \
+  C:/msys64/ucrt64/include/c++/15.2.0/semaphore \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
+  C:/msys64/ucrt64/include/c++/15.2.0/shared_mutex \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/stop_token \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
   C:/msys64/ucrt64/include/c++/15.2.0/string \
   C:/msys64/ucrt64/include/c++/15.2.0/string_view \
   C:/msys64/ucrt64/include/c++/15.2.0/system_error \
+  C:/msys64/ucrt64/include/c++/15.2.0/thread \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
@@ -898,7 +1093,10 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
   C:/msys64/ucrt64/include/corecrt_stdio_config.h \
@@ -908,11 +1106,13 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/ctype.h \
   C:/msys64/ucrt64/include/errno.h \
   C:/msys64/ucrt64/include/float.h \
+  C:/msys64/ucrt64/include/intrin.h \
   C:/msys64/ucrt64/include/limits.h \
   C:/msys64/ucrt64/include/locale.h \
   C:/msys64/ucrt64/include/malloc.h \
   C:/msys64/ucrt64/include/math.h \
   C:/msys64/ucrt64/include/process.h \
+  C:/msys64/ucrt64/include/psdk_inc/intrin-impl.h \
   C:/msys64/ucrt64/include/pthread.h \
   C:/msys64/ucrt64/include/pthread_compat.h \
   C:/msys64/ucrt64/include/pthread_signal.h \
@@ -925,7 +1125,10 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
+  C:/msys64/ucrt64/include/semaphore.h \
+  C:/msys64/ucrt64/include/setjmp.h \
   C:/msys64/ucrt64/include/signal.h \
+  C:/msys64/ucrt64/include/stdarg.h \
   C:/msys64/ucrt64/include/stddef.h \
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
@@ -938,12 +1141,261 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ammintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cpuid.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fma4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm3dnow.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xopintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Atomics.h \
+  _deps/joltphysics-src/Jolt/Core/Color.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/Factory.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.inl \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.inl \
+  _deps/joltphysics-src/Jolt/Core/JobSystemThreadPool.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystemWithBarrier.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.inl \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/Mutex.h \
+  _deps/joltphysics-src/Jolt/Core/MutexArray.h \
+  _deps/joltphysics-src/Jolt/Core/NonCopyable.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.inl \
+  _deps/joltphysics-src/Jolt/Core/RTTI.h \
+  _deps/joltphysics-src/Jolt/Core/Reference.h \
+  _deps/joltphysics-src/Jolt/Core/Result.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/STLTempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/Semaphore.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Core/StreamIn.h \
+  _deps/joltphysics-src/Jolt/Core/StreamOut.h \
+  _deps/joltphysics-src/Jolt/Core/StreamUtils.h \
+  _deps/joltphysics-src/Jolt/Core/StringTools.h \
+  _deps/joltphysics-src/Jolt/Core/TempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/TickCounter.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedMap.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedSet.h \
+  _deps/joltphysics-src/Jolt/Geometry/AABox.h \
+  _deps/joltphysics-src/Jolt/Geometry/IndexedTriangle.h \
+  _deps/joltphysics-src/Jolt/Geometry/Plane.h \
+  _deps/joltphysics-src/Jolt/Geometry/Sphere.h \
+  _deps/joltphysics-src/Jolt/Geometry/Triangle.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/GaussianElimination.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Matrix.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vector.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/AllowedDOFs.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyAccess.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyActivationListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyCreationSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLock.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLockInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyType.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MassProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionQuality.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionType.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BackFaceMode.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhase.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionCollector.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionGroup.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ContactListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/GroupFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/NarrowPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ObjectLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/PhysicsMaterial.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/BoxShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/CapsuleShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/ConvexShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/Shape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeID.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeIDPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ShapeFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/TransformedShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/Constraint.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ContactConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/SpringSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/DeterminismLog.h \
+  _deps/joltphysics-src/Jolt/Physics/EActivation.h \
+  _deps/joltphysics-src/Jolt/Physics/EPhysicsUpdateError.h \
+  _deps/joltphysics-src/Jolt/Physics/IslandBuilder.h \
+  _deps/joltphysics-src/Jolt/Physics/LargeIslandSplitter.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsLock.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSystem.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsUpdateContext.h \
+  _deps/joltphysics-src/Jolt/Physics/StateRecorder.h \
+  _deps/joltphysics-src/Jolt/RegisterTypes.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -1212,474 +1664,11 @@ CMakeFiles/QEngine.dir/src/engine/ecs/scene_setup.cpp.obj: D:/Documents/Programm
   D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_setup.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h
-
-CMakeFiles/QEngine.dir/src/engine/ecs/systems/collision_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/collision_system.cpp \
-  C:/msys64/ucrt64/include/_mingw.h \
-  C:/msys64/ucrt64/include/_mingw_mac.h \
-  C:/msys64/ucrt64/include/_mingw_off_t.h \
-  C:/msys64/ucrt64/include/_mingw_secapi.h \
-  C:/msys64/ucrt64/include/_mingw_stat64.h \
-  C:/msys64/ucrt64/include/_timeval.h \
-  C:/msys64/ucrt64/include/assert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
-  C:/msys64/ucrt64/include/c++/15.2.0/array \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bit \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_cmp.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_construct.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_list.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/cassert \
-  C:/msys64/ucrt64/include/c++/15.2.0/cctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
-  C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
-  C:/msys64/ucrt64/include/c++/15.2.0/climits \
-  C:/msys64/ucrt64/include/c++/15.2.0/clocale \
-  C:/msys64/ucrt64/include/c++/15.2.0/cmath \
-  C:/msys64/ucrt64/include/c++/15.2.0/compare \
-  C:/msys64/ucrt64/include/c++/15.2.0/concepts \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/debug.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/deque \
-  C:/msys64/ucrt64/include/c++/15.2.0/exception \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/functional \
-  C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
-  C:/msys64/ucrt64/include/c++/15.2.0/ios \
-  C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
-  C:/msys64/ucrt64/include/c++/15.2.0/iterator \
-  C:/msys64/ucrt64/include/c++/15.2.0/limits \
-  C:/msys64/ucrt64/include/c++/15.2.0/list \
-  C:/msys64/ucrt64/include/c++/15.2.0/map \
-  C:/msys64/ucrt64/include/c++/15.2.0/memory \
-  C:/msys64/ucrt64/include/c++/15.2.0/new \
-  C:/msys64/ucrt64/include/c++/15.2.0/numbers \
-  C:/msys64/ucrt64/include/c++/15.2.0/optional \
-  C:/msys64/ucrt64/include/c++/15.2.0/ostream \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ranges \
-  C:/msys64/ucrt64/include/c++/15.2.0/set \
-  C:/msys64/ucrt64/include/c++/15.2.0/span \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
-  C:/msys64/ucrt64/include/c++/15.2.0/string \
-  C:/msys64/ucrt64/include/c++/15.2.0/string_view \
-  C:/msys64/ucrt64/include/c++/15.2.0/system_error \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/gamma.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/special_function_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
-  C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
-  C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
-  C:/msys64/ucrt64/include/c++/15.2.0/utility \
-  C:/msys64/ucrt64/include/c++/15.2.0/vector \
-  C:/msys64/ucrt64/include/c++/15.2.0/version \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
-  C:/msys64/ucrt64/include/corecrt.h \
-  C:/msys64/ucrt64/include/corecrt_startup.h \
-  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
-  C:/msys64/ucrt64/include/corecrt_wctype.h \
-  C:/msys64/ucrt64/include/corecrt_wstdlib.h \
-  C:/msys64/ucrt64/include/crtdefs.h \
-  C:/msys64/ucrt64/include/ctype.h \
-  C:/msys64/ucrt64/include/errno.h \
-  C:/msys64/ucrt64/include/float.h \
-  C:/msys64/ucrt64/include/limits.h \
-  C:/msys64/ucrt64/include/locale.h \
-  C:/msys64/ucrt64/include/malloc.h \
-  C:/msys64/ucrt64/include/math.h \
-  C:/msys64/ucrt64/include/process.h \
-  C:/msys64/ucrt64/include/pthread.h \
-  C:/msys64/ucrt64/include/pthread_compat.h \
-  C:/msys64/ucrt64/include/pthread_signal.h \
-  C:/msys64/ucrt64/include/pthread_time.h \
-  C:/msys64/ucrt64/include/pthread_unistd.h \
-  C:/msys64/ucrt64/include/sched.h \
-  C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
-  C:/msys64/ucrt64/include/sec_api/stdio_s.h \
-  C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
-  C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
-  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
-  C:/msys64/ucrt64/include/signal.h \
-  C:/msys64/ucrt64/include/stddef.h \
-  C:/msys64/ucrt64/include/stdint.h \
-  C:/msys64/ucrt64/include/stdio.h \
-  C:/msys64/ucrt64/include/stdlib.h \
-  C:/msys64/ucrt64/include/swprintf.inl \
-  C:/msys64/ucrt64/include/sys/timeb.h \
-  C:/msys64/ucrt64/include/sys/types.h \
-  C:/msys64/ucrt64/include/time.h \
-  C:/msys64/ucrt64/include/vadefs.h \
-  C:/msys64/ucrt64/include/wchar.h \
-  C:/msys64/ucrt64/include/wctype.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/table.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/algorithm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/any.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/bit.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/compressed_pair.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/concepts.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/enum.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/family.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/hashed_string.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ident.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/monostate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/tuple.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_info.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/component.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/entity.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/group.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/handle.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/helper.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/mixin.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/organizer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/registry.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/runtime_view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/snapshot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/sparse_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/storage.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/flow.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/locator/locator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/adl_pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/container.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/context.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/factory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/meta.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/node.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/policy.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/range.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/resolve.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/template.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/poly.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/process.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/scheduler.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/cache.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/loader.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/resource.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/delegate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/dispatcher.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/emitter.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/sigh.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/functional.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/KHR/khrplatform.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_vectorize.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_decl.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_common.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_exponential.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_matrix.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_packing.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_trigonometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_vector_relational.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/qualifier.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/exponential.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/geometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/packing.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/simd/platform.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/trigonometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/collision_system.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
 
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/combat_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/combat_system.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
@@ -1761,6 +1750,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/combat_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -1852,6 +1842,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/combat_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -1913,6 +1904,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/combat_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -1920,6 +1912,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/combat_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -1927,17 +1920,157 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/combat_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -2204,6 +2337,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
@@ -2224,6 +2358,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -2237,6 +2373,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -2254,6 +2391,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -2306,6 +2444,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
@@ -2314,15 +2453,19 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -2359,6 +2502,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -2383,6 +2527,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -2390,6 +2535,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -2397,12 +2543,157 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/debug_hud_system.cpp.obj: D:/Docum
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -2639,10 +2930,12 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/_mingw_off_t.h \
   C:/msys64/ucrt64/include/_mingw_secapi.h \
   C:/msys64/ucrt64/include/_mingw_stat64.h \
+  C:/msys64/ucrt64/include/_mingw_stdarg.h \
   C:/msys64/ucrt64/include/_timeval.h \
   C:/msys64/ucrt64/include/assert.h \
   C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
   C:/msys64/ucrt64/include/c++/15.2.0/array \
+  C:/msys64/ucrt64/include/c++/15.2.0/atomic \
   C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bit \
@@ -2653,6 +2946,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_timed_wait.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
@@ -2660,6 +2954,9 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono_io.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
@@ -2670,6 +2967,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/formatfwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
@@ -2677,16 +2975,21 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_conv.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/monostate.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
@@ -2694,9 +2997,13 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/quoted_string.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -2706,13 +3013,16 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/semaphore_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -2727,6 +3037,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -2740,7 +3051,11 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode-data.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
@@ -2753,15 +3068,20 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/cctype \
   C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
   C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
+  C:/msys64/ucrt64/include/c++/15.2.0/charconv \
+  C:/msys64/ucrt64/include/c++/15.2.0/chrono \
   C:/msys64/ucrt64/include/c++/15.2.0/climits \
   C:/msys64/ucrt64/include/c++/15.2.0/clocale \
   C:/msys64/ucrt64/include/c++/15.2.0/cmath \
   C:/msys64/ucrt64/include/c++/15.2.0/compare \
   C:/msys64/ucrt64/include/c++/15.2.0/concepts \
+  C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdarg \
   C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
+  C:/msys64/ucrt64/include/c++/15.2.0/ctime \
   C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
   C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
   C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
@@ -2775,32 +3095,47 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/format \
   C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
+  C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/iostream \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
+  C:/msys64/ucrt64/include/c++/15.2.0/locale \
   C:/msys64/ucrt64/include/c++/15.2.0/map \
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
+  C:/msys64/ucrt64/include/c++/15.2.0/mutex \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
+  C:/msys64/ucrt64/include/c++/15.2.0/ratio \
+  C:/msys64/ucrt64/include/c++/15.2.0/semaphore \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
+  C:/msys64/ucrt64/include/c++/15.2.0/shared_mutex \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/stop_token \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
   C:/msys64/ucrt64/include/c++/15.2.0/string \
   C:/msys64/ucrt64/include/c++/15.2.0/string_view \
   C:/msys64/ucrt64/include/c++/15.2.0/system_error \
+  C:/msys64/ucrt64/include/c++/15.2.0/thread \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
@@ -2831,7 +3166,10 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
   C:/msys64/ucrt64/include/corecrt_stdio_config.h \
@@ -2841,11 +3179,13 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/ctype.h \
   C:/msys64/ucrt64/include/errno.h \
   C:/msys64/ucrt64/include/float.h \
+  C:/msys64/ucrt64/include/intrin.h \
   C:/msys64/ucrt64/include/limits.h \
   C:/msys64/ucrt64/include/locale.h \
   C:/msys64/ucrt64/include/malloc.h \
   C:/msys64/ucrt64/include/math.h \
   C:/msys64/ucrt64/include/process.h \
+  C:/msys64/ucrt64/include/psdk_inc/intrin-impl.h \
   C:/msys64/ucrt64/include/pthread.h \
   C:/msys64/ucrt64/include/pthread_compat.h \
   C:/msys64/ucrt64/include/pthread_signal.h \
@@ -2855,13 +3195,18 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
+  C:/msys64/ucrt64/include/semaphore.h \
+  C:/msys64/ucrt64/include/setjmp.h \
   C:/msys64/ucrt64/include/signal.h \
+  C:/msys64/ucrt64/include/stdarg.h \
   C:/msys64/ucrt64/include/stddef.h \
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -2869,12 +3214,261 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ammintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cpuid.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fma4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm3dnow.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xopintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Atomics.h \
+  _deps/joltphysics-src/Jolt/Core/Color.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/Factory.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.inl \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.inl \
+  _deps/joltphysics-src/Jolt/Core/JobSystemThreadPool.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystemWithBarrier.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.inl \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/Mutex.h \
+  _deps/joltphysics-src/Jolt/Core/MutexArray.h \
+  _deps/joltphysics-src/Jolt/Core/NonCopyable.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.inl \
+  _deps/joltphysics-src/Jolt/Core/RTTI.h \
+  _deps/joltphysics-src/Jolt/Core/Reference.h \
+  _deps/joltphysics-src/Jolt/Core/Result.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/STLTempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/Semaphore.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Core/StreamIn.h \
+  _deps/joltphysics-src/Jolt/Core/StreamOut.h \
+  _deps/joltphysics-src/Jolt/Core/StreamUtils.h \
+  _deps/joltphysics-src/Jolt/Core/StringTools.h \
+  _deps/joltphysics-src/Jolt/Core/TempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/TickCounter.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedMap.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedSet.h \
+  _deps/joltphysics-src/Jolt/Geometry/AABox.h \
+  _deps/joltphysics-src/Jolt/Geometry/IndexedTriangle.h \
+  _deps/joltphysics-src/Jolt/Geometry/Plane.h \
+  _deps/joltphysics-src/Jolt/Geometry/Sphere.h \
+  _deps/joltphysics-src/Jolt/Geometry/Triangle.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/GaussianElimination.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Matrix.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vector.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/AllowedDOFs.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyAccess.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyActivationListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyCreationSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLock.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLockInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyType.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MassProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionQuality.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionType.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BackFaceMode.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhase.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionCollector.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionGroup.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ContactListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/GroupFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/NarrowPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ObjectLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/PhysicsMaterial.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/BoxShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/CapsuleShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/ConvexShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/Shape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeID.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeIDPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ShapeFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/TransformedShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/Constraint.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ContactConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/SpringSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/DeterminismLog.h \
+  _deps/joltphysics-src/Jolt/Physics/EActivation.h \
+  _deps/joltphysics-src/Jolt/Physics/EPhysicsUpdateError.h \
+  _deps/joltphysics-src/Jolt/Physics/IslandBuilder.h \
+  _deps/joltphysics-src/Jolt/Physics/LargeIslandSplitter.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsLock.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSystem.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsUpdateContext.h \
+  _deps/joltphysics-src/Jolt/Physics/StateRecorder.h \
+  _deps/joltphysics-src/Jolt/RegisterTypes.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -3089,7 +3683,771 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/demo_reset_system.cpp.obj: D:/Docu
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/demo_reset_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_setup.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
+
+CMakeFiles/QEngine.dir/src/engine/ecs/systems/jolt_sync_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/jolt_sync_system.cpp \
+  C:/msys64/ucrt64/include/_mingw.h \
+  C:/msys64/ucrt64/include/_mingw_mac.h \
+  C:/msys64/ucrt64/include/_mingw_off_t.h \
+  C:/msys64/ucrt64/include/_mingw_secapi.h \
+  C:/msys64/ucrt64/include/_mingw_stat64.h \
+  C:/msys64/ucrt64/include/_mingw_stdarg.h \
+  C:/msys64/ucrt64/include/_timeval.h \
+  C:/msys64/ucrt64/include/assert.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
+  C:/msys64/ucrt64/include/c++/15.2.0/array \
+  C:/msys64/ucrt64/include/c++/15.2.0/atomic \
+  C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bit \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_timed_wait.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono_io.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/formatfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_conv.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/monostate.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/quoted_string.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_cmp.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_uninitialized.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/semaphore_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_construct.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_function.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_list.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_set.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode-data.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/cassert \
+  C:/msys64/ucrt64/include/c++/15.2.0/cctype \
+  C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
+  C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
+  C:/msys64/ucrt64/include/c++/15.2.0/charconv \
+  C:/msys64/ucrt64/include/c++/15.2.0/chrono \
+  C:/msys64/ucrt64/include/c++/15.2.0/climits \
+  C:/msys64/ucrt64/include/c++/15.2.0/clocale \
+  C:/msys64/ucrt64/include/c++/15.2.0/cmath \
+  C:/msys64/ucrt64/include/c++/15.2.0/compare \
+  C:/msys64/ucrt64/include/c++/15.2.0/concepts \
+  C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdarg \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
+  C:/msys64/ucrt64/include/c++/15.2.0/ctime \
+  C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
+  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
+  C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/debug/debug.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/deque \
+  C:/msys64/ucrt64/include/c++/15.2.0/exception \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/alloc_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/format \
+  C:/msys64/ucrt64/include/c++/15.2.0/functional \
+  C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
+  C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
+  C:/msys64/ucrt64/include/c++/15.2.0/ios \
+  C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/iostream \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
+  C:/msys64/ucrt64/include/c++/15.2.0/iterator \
+  C:/msys64/ucrt64/include/c++/15.2.0/limits \
+  C:/msys64/ucrt64/include/c++/15.2.0/list \
+  C:/msys64/ucrt64/include/c++/15.2.0/locale \
+  C:/msys64/ucrt64/include/c++/15.2.0/map \
+  C:/msys64/ucrt64/include/c++/15.2.0/memory \
+  C:/msys64/ucrt64/include/c++/15.2.0/mutex \
+  C:/msys64/ucrt64/include/c++/15.2.0/new \
+  C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
+  C:/msys64/ucrt64/include/c++/15.2.0/optional \
+  C:/msys64/ucrt64/include/c++/15.2.0/ostream \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
+  C:/msys64/ucrt64/include/c++/15.2.0/ranges \
+  C:/msys64/ucrt64/include/c++/15.2.0/ratio \
+  C:/msys64/ucrt64/include/c++/15.2.0/semaphore \
+  C:/msys64/ucrt64/include/c++/15.2.0/set \
+  C:/msys64/ucrt64/include/c++/15.2.0/shared_mutex \
+  C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
+  C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
+  C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/stop_token \
+  C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
+  C:/msys64/ucrt64/include/c++/15.2.0/string \
+  C:/msys64/ucrt64/include/c++/15.2.0/string_view \
+  C:/msys64/ucrt64/include/c++/15.2.0/system_error \
+  C:/msys64/ucrt64/include/c++/15.2.0/thread \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/gamma.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/tr1/special_function_util.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
+  C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
+  C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
+  C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
+  C:/msys64/ucrt64/include/c++/15.2.0/utility \
+  C:/msys64/ucrt64/include/c++/15.2.0/vector \
+  C:/msys64/ucrt64/include/c++/15.2.0/version \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/msys64/ucrt64/include/corecrt.h \
+  C:/msys64/ucrt64/include/corecrt_startup.h \
+  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
+  C:/msys64/ucrt64/include/corecrt_wctype.h \
+  C:/msys64/ucrt64/include/corecrt_wstdlib.h \
+  C:/msys64/ucrt64/include/crtdefs.h \
+  C:/msys64/ucrt64/include/ctype.h \
+  C:/msys64/ucrt64/include/errno.h \
+  C:/msys64/ucrt64/include/float.h \
+  C:/msys64/ucrt64/include/intrin.h \
+  C:/msys64/ucrt64/include/limits.h \
+  C:/msys64/ucrt64/include/locale.h \
+  C:/msys64/ucrt64/include/malloc.h \
+  C:/msys64/ucrt64/include/math.h \
+  C:/msys64/ucrt64/include/process.h \
+  C:/msys64/ucrt64/include/psdk_inc/intrin-impl.h \
+  C:/msys64/ucrt64/include/pthread.h \
+  C:/msys64/ucrt64/include/pthread_compat.h \
+  C:/msys64/ucrt64/include/pthread_signal.h \
+  C:/msys64/ucrt64/include/pthread_time.h \
+  C:/msys64/ucrt64/include/pthread_unistd.h \
+  C:/msys64/ucrt64/include/sched.h \
+  C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
+  C:/msys64/ucrt64/include/sec_api/stdio_s.h \
+  C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
+  C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
+  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
+  C:/msys64/ucrt64/include/semaphore.h \
+  C:/msys64/ucrt64/include/setjmp.h \
+  C:/msys64/ucrt64/include/signal.h \
+  C:/msys64/ucrt64/include/stdarg.h \
+  C:/msys64/ucrt64/include/stddef.h \
+  C:/msys64/ucrt64/include/stdint.h \
+  C:/msys64/ucrt64/include/stdio.h \
+  C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
+  C:/msys64/ucrt64/include/swprintf.inl \
+  C:/msys64/ucrt64/include/sys/timeb.h \
+  C:/msys64/ucrt64/include/sys/types.h \
+  C:/msys64/ucrt64/include/time.h \
+  C:/msys64/ucrt64/include/vadefs.h \
+  C:/msys64/ucrt64/include/wchar.h \
+  C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ammintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cpuid.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fma4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm3dnow.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xopintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Atomics.h \
+  _deps/joltphysics-src/Jolt/Core/Color.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/Factory.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.inl \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.inl \
+  _deps/joltphysics-src/Jolt/Core/JobSystemThreadPool.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystemWithBarrier.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.inl \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/Mutex.h \
+  _deps/joltphysics-src/Jolt/Core/MutexArray.h \
+  _deps/joltphysics-src/Jolt/Core/NonCopyable.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.inl \
+  _deps/joltphysics-src/Jolt/Core/RTTI.h \
+  _deps/joltphysics-src/Jolt/Core/Reference.h \
+  _deps/joltphysics-src/Jolt/Core/Result.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/STLTempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/Semaphore.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Core/StreamIn.h \
+  _deps/joltphysics-src/Jolt/Core/StreamOut.h \
+  _deps/joltphysics-src/Jolt/Core/StreamUtils.h \
+  _deps/joltphysics-src/Jolt/Core/StringTools.h \
+  _deps/joltphysics-src/Jolt/Core/TempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/TickCounter.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedMap.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedSet.h \
+  _deps/joltphysics-src/Jolt/Geometry/AABox.h \
+  _deps/joltphysics-src/Jolt/Geometry/IndexedTriangle.h \
+  _deps/joltphysics-src/Jolt/Geometry/Plane.h \
+  _deps/joltphysics-src/Jolt/Geometry/Sphere.h \
+  _deps/joltphysics-src/Jolt/Geometry/Triangle.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/GaussianElimination.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Matrix.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vector.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/AllowedDOFs.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyAccess.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyActivationListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyCreationSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLock.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLockInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyType.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MassProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionQuality.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionType.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BackFaceMode.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhase.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionCollector.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionGroup.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ContactListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/GroupFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/NarrowPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ObjectLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/PhysicsMaterial.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/BoxShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/CapsuleShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/ConvexShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/Shape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeID.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeIDPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ShapeFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/TransformedShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/Constraint.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ContactConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/SpringSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/DeterminismLog.h \
+  _deps/joltphysics-src/Jolt/Physics/EActivation.h \
+  _deps/joltphysics-src/Jolt/Physics/EPhysicsUpdateError.h \
+  _deps/joltphysics-src/Jolt/Physics/IslandBuilder.h \
+  _deps/joltphysics-src/Jolt/Physics/LargeIslandSplitter.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsLock.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSystem.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsUpdateContext.h \
+  _deps/joltphysics-src/Jolt/Physics/StateRecorder.h \
+  _deps/joltphysics-src/Jolt/RegisterTypes.h \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_set.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/table.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/algorithm.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/any.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/bit.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/compressed_pair.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/concepts.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/enum.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/family.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/hashed_string.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ident.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/iterator.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/memory.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/monostate.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ranges.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/tuple.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_info.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_traits.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/utility.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/component.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/entity.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/group.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/handle.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/helper.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/mixin.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/organizer.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/ranges.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/registry.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/runtime_view.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/snapshot.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/sparse_set.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/storage.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/view.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/flow.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/locator/locator.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/adl_pointer.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/container.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/context.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/factory.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/meta.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/node.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/pointer.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/policy.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/range.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/resolve.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/template.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/type_traits.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/utility.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/poly.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/process.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/scheduler.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/cache.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/loader.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/resource.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/delegate.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/dispatcher.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/emitter.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/sigh.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/functional.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/common.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_vectorize.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_common.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_decl.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_relational.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_common.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_exponential.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_matrix.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_packing.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_trigonometric.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_vector_relational.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/qualifier.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/exponential.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4_sized.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/geometric.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/packing.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/simd/platform.h \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/trigonometric.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec2.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/jolt_sync_system.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_setup.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.h
 
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/lifetime_system.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
@@ -3135,6 +4493,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
@@ -3155,6 +4514,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -3168,6 +4529,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -3185,6 +4547,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -3237,6 +4600,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
@@ -3244,15 +4608,19 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -3289,6 +4657,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -3313,6 +4682,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -3320,6 +4690,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -3327,12 +4698,157 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -3549,464 +5065,6 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/lifetime_system.cpp.obj: D:/Docume
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
 
-CMakeFiles/QEngine.dir/src/engine/ecs/systems/movement_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.cpp \
-  C:/msys64/ucrt64/include/_mingw.h \
-  C:/msys64/ucrt64/include/_mingw_mac.h \
-  C:/msys64/ucrt64/include/_mingw_off_t.h \
-  C:/msys64/ucrt64/include/_mingw_secapi.h \
-  C:/msys64/ucrt64/include/_mingw_stat64.h \
-  C:/msys64/ucrt64/include/_timeval.h \
-  C:/msys64/ucrt64/include/assert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
-  C:/msys64/ucrt64/include/c++/15.2.0/array \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bit \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_cmp.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_construct.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_list.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/cassert \
-  C:/msys64/ucrt64/include/c++/15.2.0/cctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
-  C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
-  C:/msys64/ucrt64/include/c++/15.2.0/climits \
-  C:/msys64/ucrt64/include/c++/15.2.0/clocale \
-  C:/msys64/ucrt64/include/c++/15.2.0/cmath \
-  C:/msys64/ucrt64/include/c++/15.2.0/compare \
-  C:/msys64/ucrt64/include/c++/15.2.0/concepts \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/debug.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/deque \
-  C:/msys64/ucrt64/include/c++/15.2.0/exception \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/functional \
-  C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
-  C:/msys64/ucrt64/include/c++/15.2.0/ios \
-  C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
-  C:/msys64/ucrt64/include/c++/15.2.0/iterator \
-  C:/msys64/ucrt64/include/c++/15.2.0/limits \
-  C:/msys64/ucrt64/include/c++/15.2.0/list \
-  C:/msys64/ucrt64/include/c++/15.2.0/map \
-  C:/msys64/ucrt64/include/c++/15.2.0/memory \
-  C:/msys64/ucrt64/include/c++/15.2.0/new \
-  C:/msys64/ucrt64/include/c++/15.2.0/numbers \
-  C:/msys64/ucrt64/include/c++/15.2.0/optional \
-  C:/msys64/ucrt64/include/c++/15.2.0/ostream \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ranges \
-  C:/msys64/ucrt64/include/c++/15.2.0/set \
-  C:/msys64/ucrt64/include/c++/15.2.0/span \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
-  C:/msys64/ucrt64/include/c++/15.2.0/string \
-  C:/msys64/ucrt64/include/c++/15.2.0/string_view \
-  C:/msys64/ucrt64/include/c++/15.2.0/system_error \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/gamma.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/special_function_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
-  C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
-  C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
-  C:/msys64/ucrt64/include/c++/15.2.0/utility \
-  C:/msys64/ucrt64/include/c++/15.2.0/vector \
-  C:/msys64/ucrt64/include/c++/15.2.0/version \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
-  C:/msys64/ucrt64/include/corecrt.h \
-  C:/msys64/ucrt64/include/corecrt_startup.h \
-  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
-  C:/msys64/ucrt64/include/corecrt_wctype.h \
-  C:/msys64/ucrt64/include/corecrt_wstdlib.h \
-  C:/msys64/ucrt64/include/crtdefs.h \
-  C:/msys64/ucrt64/include/ctype.h \
-  C:/msys64/ucrt64/include/errno.h \
-  C:/msys64/ucrt64/include/float.h \
-  C:/msys64/ucrt64/include/limits.h \
-  C:/msys64/ucrt64/include/locale.h \
-  C:/msys64/ucrt64/include/malloc.h \
-  C:/msys64/ucrt64/include/math.h \
-  C:/msys64/ucrt64/include/process.h \
-  C:/msys64/ucrt64/include/pthread.h \
-  C:/msys64/ucrt64/include/pthread_compat.h \
-  C:/msys64/ucrt64/include/pthread_signal.h \
-  C:/msys64/ucrt64/include/pthread_time.h \
-  C:/msys64/ucrt64/include/pthread_unistd.h \
-  C:/msys64/ucrt64/include/sched.h \
-  C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
-  C:/msys64/ucrt64/include/sec_api/stdio_s.h \
-  C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
-  C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
-  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
-  C:/msys64/ucrt64/include/signal.h \
-  C:/msys64/ucrt64/include/stddef.h \
-  C:/msys64/ucrt64/include/stdint.h \
-  C:/msys64/ucrt64/include/stdio.h \
-  C:/msys64/ucrt64/include/stdlib.h \
-  C:/msys64/ucrt64/include/swprintf.inl \
-  C:/msys64/ucrt64/include/sys/timeb.h \
-  C:/msys64/ucrt64/include/sys/types.h \
-  C:/msys64/ucrt64/include/time.h \
-  C:/msys64/ucrt64/include/vadefs.h \
-  C:/msys64/ucrt64/include/wchar.h \
-  C:/msys64/ucrt64/include/wctype.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/table.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/algorithm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/any.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/bit.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/compressed_pair.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/concepts.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/enum.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/family.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/hashed_string.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ident.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/monostate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/tuple.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_info.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/component.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/entity.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/group.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/handle.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/helper.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/mixin.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/organizer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/registry.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/runtime_view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/snapshot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/sparse_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/storage.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/flow.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/locator/locator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/adl_pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/container.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/context.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/factory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/meta.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/node.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/policy.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/range.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/resolve.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/template.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/poly.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/process.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/scheduler.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/cache.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/loader.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/resource.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/delegate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/dispatcher.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/emitter.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/sigh.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/functional.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_vectorize.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_decl.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_common.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_exponential.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_matrix.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_packing.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_trigonometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_vector_relational.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/qualifier.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/exponential.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/geometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/packing.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/simd/platform.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/trigonometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
-
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/mover_system.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
@@ -4051,6 +5109,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
@@ -4071,6 +5130,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -4084,6 +5145,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -4101,6 +5163,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -4153,6 +5216,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
@@ -4160,15 +5224,19 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -4205,6 +5273,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -4229,6 +5298,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -4236,6 +5306,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -4243,12 +5314,157 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -4464,470 +5680,6 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/mover_system.cpp.obj: D:/Documents
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
-
-CMakeFiles/QEngine.dir/src/engine/ecs/systems/physics_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.cpp \
-  C:/msys64/ucrt64/include/_mingw.h \
-  C:/msys64/ucrt64/include/_mingw_mac.h \
-  C:/msys64/ucrt64/include/_mingw_off_t.h \
-  C:/msys64/ucrt64/include/_mingw_secapi.h \
-  C:/msys64/ucrt64/include/_mingw_stat64.h \
-  C:/msys64/ucrt64/include/_timeval.h \
-  C:/msys64/ucrt64/include/assert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
-  C:/msys64/ucrt64/include/c++/15.2.0/array \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bit \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_cmp.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_construct.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_list.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/cassert \
-  C:/msys64/ucrt64/include/c++/15.2.0/cctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
-  C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
-  C:/msys64/ucrt64/include/c++/15.2.0/climits \
-  C:/msys64/ucrt64/include/c++/15.2.0/clocale \
-  C:/msys64/ucrt64/include/c++/15.2.0/cmath \
-  C:/msys64/ucrt64/include/c++/15.2.0/compare \
-  C:/msys64/ucrt64/include/c++/15.2.0/concepts \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/debug.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/deque \
-  C:/msys64/ucrt64/include/c++/15.2.0/exception \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/functional \
-  C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
-  C:/msys64/ucrt64/include/c++/15.2.0/ios \
-  C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
-  C:/msys64/ucrt64/include/c++/15.2.0/iterator \
-  C:/msys64/ucrt64/include/c++/15.2.0/limits \
-  C:/msys64/ucrt64/include/c++/15.2.0/list \
-  C:/msys64/ucrt64/include/c++/15.2.0/map \
-  C:/msys64/ucrt64/include/c++/15.2.0/memory \
-  C:/msys64/ucrt64/include/c++/15.2.0/new \
-  C:/msys64/ucrt64/include/c++/15.2.0/numbers \
-  C:/msys64/ucrt64/include/c++/15.2.0/optional \
-  C:/msys64/ucrt64/include/c++/15.2.0/ostream \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ranges \
-  C:/msys64/ucrt64/include/c++/15.2.0/set \
-  C:/msys64/ucrt64/include/c++/15.2.0/span \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
-  C:/msys64/ucrt64/include/c++/15.2.0/string \
-  C:/msys64/ucrt64/include/c++/15.2.0/string_view \
-  C:/msys64/ucrt64/include/c++/15.2.0/system_error \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/gamma.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/special_function_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
-  C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
-  C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
-  C:/msys64/ucrt64/include/c++/15.2.0/utility \
-  C:/msys64/ucrt64/include/c++/15.2.0/vector \
-  C:/msys64/ucrt64/include/c++/15.2.0/version \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
-  C:/msys64/ucrt64/include/corecrt.h \
-  C:/msys64/ucrt64/include/corecrt_startup.h \
-  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
-  C:/msys64/ucrt64/include/corecrt_wctype.h \
-  C:/msys64/ucrt64/include/corecrt_wstdlib.h \
-  C:/msys64/ucrt64/include/crtdefs.h \
-  C:/msys64/ucrt64/include/ctype.h \
-  C:/msys64/ucrt64/include/errno.h \
-  C:/msys64/ucrt64/include/float.h \
-  C:/msys64/ucrt64/include/limits.h \
-  C:/msys64/ucrt64/include/locale.h \
-  C:/msys64/ucrt64/include/malloc.h \
-  C:/msys64/ucrt64/include/math.h \
-  C:/msys64/ucrt64/include/process.h \
-  C:/msys64/ucrt64/include/pthread.h \
-  C:/msys64/ucrt64/include/pthread_compat.h \
-  C:/msys64/ucrt64/include/pthread_signal.h \
-  C:/msys64/ucrt64/include/pthread_time.h \
-  C:/msys64/ucrt64/include/pthread_unistd.h \
-  C:/msys64/ucrt64/include/sched.h \
-  C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
-  C:/msys64/ucrt64/include/sec_api/stdio_s.h \
-  C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
-  C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
-  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
-  C:/msys64/ucrt64/include/signal.h \
-  C:/msys64/ucrt64/include/stddef.h \
-  C:/msys64/ucrt64/include/stdint.h \
-  C:/msys64/ucrt64/include/stdio.h \
-  C:/msys64/ucrt64/include/stdlib.h \
-  C:/msys64/ucrt64/include/swprintf.inl \
-  C:/msys64/ucrt64/include/sys/timeb.h \
-  C:/msys64/ucrt64/include/sys/types.h \
-  C:/msys64/ucrt64/include/time.h \
-  C:/msys64/ucrt64/include/vadefs.h \
-  C:/msys64/ucrt64/include/wchar.h \
-  C:/msys64/ucrt64/include/wctype.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/table.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/algorithm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/any.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/bit.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/compressed_pair.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/concepts.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/enum.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/family.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/hashed_string.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ident.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/monostate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/tuple.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_info.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/component.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/entity.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/group.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/handle.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/helper.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/mixin.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/organizer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/registry.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/runtime_view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/snapshot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/sparse_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/storage.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/flow.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/locator/locator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/adl_pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/container.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/context.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/factory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/meta.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/node.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/policy.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/range.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/resolve.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/template.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/poly.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/process.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/scheduler.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/cache.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/loader.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/resource.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/delegate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/dispatcher.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/emitter.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/sigh.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/functional.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/KHR/khrplatform.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_vectorize.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_decl.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_common.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_exponential.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_matrix.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_packing.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_trigonometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_vector_relational.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/qualifier.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/exponential.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/geometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/packing.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/simd/platform.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/trigonometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/raycast.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
 
 CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/player_movement_system.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
@@ -4973,6 +5725,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
@@ -4993,6 +5746,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -5006,6 +5761,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -5023,6 +5779,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -5075,6 +5832,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
@@ -5082,15 +5840,19 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -5127,6 +5889,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -5151,6 +5914,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -5158,6 +5922,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -5165,12 +5930,157 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/player_movement_system.cpp.obj: D:
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -5435,6 +6345,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
@@ -5455,6 +6366,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -5468,6 +6381,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -5485,6 +6399,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -5538,6 +6453,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
@@ -5545,15 +6461,19 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -5590,6 +6510,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -5630,12 +6551,157 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/render_system.cpp.obj: D:/Document
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -5947,6 +7013,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
@@ -5967,6 +7034,8 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -5980,6 +7049,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -5997,6 +7067,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -6049,6 +7120,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
@@ -6056,15 +7128,19 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -6101,6 +7177,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -6125,6 +7202,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -6132,6 +7210,7 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -6139,12 +7218,157 @@ CMakeFiles/QEngine.dir/src/engine/ecs/systems/trigger_system.cpp.obj: D:/Documen
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -6429,6 +7653,8 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -6460,6 +7686,7 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -6522,12 +7749,15 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
@@ -6570,6 +7800,7 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -6594,6 +7825,7 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -6601,6 +7833,7 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -6608,12 +7841,157 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -6833,53 +8211,102 @@ CMakeFiles/QEngine.dir/src/engine/level/level_loader.cpp.obj: D:/Documents/Progr
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h
 
-CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.cpp \
+CMakeFiles/QEngine.dir/src/engine/physics/jolt_world.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
+  C:/msys64/ucrt64/include/_mingw_off_t.h \
   C:/msys64/ucrt64/include/_mingw_secapi.h \
-  C:/msys64/ucrt64/include/assert.h \
+  C:/msys64/ucrt64/include/_mingw_stat64.h \
+  C:/msys64/ucrt64/include/_mingw_stdarg.h \
+  C:/msys64/ucrt64/include/_timeval.h \
   C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
   C:/msys64/ucrt64/include/c++/15.2.0/array \
+  C:/msys64/ucrt64/include/c++/15.2.0/atomic \
+  C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bit \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_timed_wait.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono_io.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/formatfwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_conv.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/monostate.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/quoted_string.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_cmp.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_uninitialized.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/semaphore_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -6889,43 +8316,93 @@ CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.obj: D:/Documents/Progra
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode-data.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/cassert \
-  C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
-  C:/msys64/ucrt64/include/c++/15.2.0/climits \
+  C:/msys64/ucrt64/include/c++/15.2.0/cctype \
+  C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
+  C:/msys64/ucrt64/include/c++/15.2.0/charconv \
+  C:/msys64/ucrt64/include/c++/15.2.0/chrono \
+  C:/msys64/ucrt64/include/c++/15.2.0/clocale \
   C:/msys64/ucrt64/include/c++/15.2.0/cmath \
   C:/msys64/ucrt64/include/c++/15.2.0/compare \
   C:/msys64/ucrt64/include/c++/15.2.0/concepts \
+  C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdarg \
   C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
+  C:/msys64/ucrt64/include/c++/15.2.0/ctime \
+  C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
+  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
   C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
   C:/msys64/ucrt64/include/c++/15.2.0/debug/debug.h \
   C:/msys64/ucrt64/include/c++/15.2.0/exception \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/alloc_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/format \
   C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
+  C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
+  C:/msys64/ucrt64/include/c++/15.2.0/ios \
+  C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/iostream \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
+  C:/msys64/ucrt64/include/c++/15.2.0/locale \
+  C:/msys64/ucrt64/include/c++/15.2.0/memory \
+  C:/msys64/ucrt64/include/c++/15.2.0/mutex \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
+  C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
+  C:/msys64/ucrt64/include/c++/15.2.0/ratio \
+  C:/msys64/ucrt64/include/c++/15.2.0/semaphore \
+  C:/msys64/ucrt64/include/c++/15.2.0/shared_mutex \
+  C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
+  C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/stop_token \
+  C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
+  C:/msys64/ucrt64/include/c++/15.2.0/string \
+  C:/msys64/ucrt64/include/c++/15.2.0/string_view \
+  C:/msys64/ucrt64/include/c++/15.2.0/system_error \
+  C:/msys64/ucrt64/include/c++/15.2.0/thread \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
@@ -6942,167 +8419,324 @@ CMakeFiles/QEngine.dir/src/engine/physics/collision.cpp.obj: D:/Documents/Progra
   C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
   C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
   C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
+  C:/msys64/ucrt64/include/c++/15.2.0/utility \
   C:/msys64/ucrt64/include/c++/15.2.0/vector \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h \
   C:/msys64/ucrt64/include/corecrt.h \
+  C:/msys64/ucrt64/include/corecrt_startup.h \
+  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
+  C:/msys64/ucrt64/include/corecrt_wctype.h \
   C:/msys64/ucrt64/include/corecrt_wstdlib.h \
   C:/msys64/ucrt64/include/crtdefs.h \
+  C:/msys64/ucrt64/include/ctype.h \
   C:/msys64/ucrt64/include/errno.h \
   C:/msys64/ucrt64/include/float.h \
+  C:/msys64/ucrt64/include/intrin.h \
   C:/msys64/ucrt64/include/limits.h \
+  C:/msys64/ucrt64/include/locale.h \
   C:/msys64/ucrt64/include/malloc.h \
   C:/msys64/ucrt64/include/math.h \
+  C:/msys64/ucrt64/include/process.h \
+  C:/msys64/ucrt64/include/psdk_inc/intrin-impl.h \
+  C:/msys64/ucrt64/include/pthread.h \
+  C:/msys64/ucrt64/include/pthread_compat.h \
+  C:/msys64/ucrt64/include/pthread_signal.h \
+  C:/msys64/ucrt64/include/pthread_time.h \
+  C:/msys64/ucrt64/include/pthread_unistd.h \
+  C:/msys64/ucrt64/include/sched.h \
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
+  C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
+  C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
+  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
+  C:/msys64/ucrt64/include/semaphore.h \
+  C:/msys64/ucrt64/include/setjmp.h \
+  C:/msys64/ucrt64/include/signal.h \
+  C:/msys64/ucrt64/include/stdarg.h \
   C:/msys64/ucrt64/include/stddef.h \
   C:/msys64/ucrt64/include/stdint.h \
+  C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
+  C:/msys64/ucrt64/include/swprintf.inl \
+  C:/msys64/ucrt64/include/sys/timeb.h \
+  C:/msys64/ucrt64/include/sys/types.h \
+  C:/msys64/ucrt64/include/time.h \
   C:/msys64/ucrt64/include/vadefs.h \
+  C:/msys64/ucrt64/include/wchar.h \
+  C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ammintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cpuid.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fma4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm3dnow.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_vectorize.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_decl.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_common.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_exponential.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_matrix.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_packing.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_trigonometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_vector_relational.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/qualifier.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/exponential.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/geometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/packing.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/simd/platform.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/trigonometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.h
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xopintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Atomics.h \
+  _deps/joltphysics-src/Jolt/Core/Color.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/Factory.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.inl \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.inl \
+  _deps/joltphysics-src/Jolt/Core/JobSystemThreadPool.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystemWithBarrier.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.inl \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/Mutex.h \
+  _deps/joltphysics-src/Jolt/Core/MutexArray.h \
+  _deps/joltphysics-src/Jolt/Core/NonCopyable.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.inl \
+  _deps/joltphysics-src/Jolt/Core/RTTI.h \
+  _deps/joltphysics-src/Jolt/Core/Reference.h \
+  _deps/joltphysics-src/Jolt/Core/Result.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/STLTempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/Semaphore.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Core/StreamIn.h \
+  _deps/joltphysics-src/Jolt/Core/StreamOut.h \
+  _deps/joltphysics-src/Jolt/Core/StreamUtils.h \
+  _deps/joltphysics-src/Jolt/Core/StringTools.h \
+  _deps/joltphysics-src/Jolt/Core/TempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/TickCounter.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedMap.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedSet.h \
+  _deps/joltphysics-src/Jolt/Geometry/AABox.h \
+  _deps/joltphysics-src/Jolt/Geometry/IndexedTriangle.h \
+  _deps/joltphysics-src/Jolt/Geometry/Plane.h \
+  _deps/joltphysics-src/Jolt/Geometry/Sphere.h \
+  _deps/joltphysics-src/Jolt/Geometry/Triangle.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/GaussianElimination.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Matrix.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vector.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/AllowedDOFs.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyAccess.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyActivationListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyCreationSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLock.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLockInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyType.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MassProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionQuality.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionType.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BackFaceMode.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhase.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionCollector.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionGroup.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ContactListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/GroupFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/NarrowPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ObjectLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/PhysicsMaterial.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/BoxShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/CapsuleShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/ConvexShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/Shape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeID.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeIDPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ShapeFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/TransformedShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/Constraint.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ContactConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/SpringSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/DeterminismLog.h \
+  _deps/joltphysics-src/Jolt/Physics/EActivation.h \
+  _deps/joltphysics-src/Jolt/Physics/EPhysicsUpdateError.h \
+  _deps/joltphysics-src/Jolt/Physics/IslandBuilder.h \
+  _deps/joltphysics-src/Jolt/Physics/LargeIslandSplitter.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsLock.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSystem.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsUpdateContext.h \
+  _deps/joltphysics-src/Jolt/Physics/StateRecorder.h \
+  _deps/joltphysics-src/Jolt/RegisterTypes.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_setup.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.h
 
 CMakeFiles/QEngine.dir/src/engine/physics/raycast.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/raycast.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
@@ -7560,461 +9194,6 @@ CMakeFiles/QEngine.dir/src/engine/physics/raycast.cpp.obj: D:/Documents/Programm
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/raycast.h
 
-CMakeFiles/QEngine.dir/src/engine/physics/spatial_hash.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.cpp \
-  C:/msys64/ucrt64/include/_mingw.h \
-  C:/msys64/ucrt64/include/_mingw_mac.h \
-  C:/msys64/ucrt64/include/_mingw_off_t.h \
-  C:/msys64/ucrt64/include/_mingw_secapi.h \
-  C:/msys64/ucrt64/include/_mingw_stat64.h \
-  C:/msys64/ucrt64/include/_timeval.h \
-  C:/msys64/ucrt64/include/assert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
-  C:/msys64/ucrt64/include/c++/15.2.0/array \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bit \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_cmp.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_construct.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_function.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_list.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/cassert \
-  C:/msys64/ucrt64/include/c++/15.2.0/cctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
-  C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
-  C:/msys64/ucrt64/include/c++/15.2.0/climits \
-  C:/msys64/ucrt64/include/c++/15.2.0/clocale \
-  C:/msys64/ucrt64/include/c++/15.2.0/cmath \
-  C:/msys64/ucrt64/include/c++/15.2.0/compare \
-  C:/msys64/ucrt64/include/c++/15.2.0/concepts \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
-  C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
-  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/debug/debug.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/deque \
-  C:/msys64/ucrt64/include/c++/15.2.0/exception \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/functional \
-  C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
-  C:/msys64/ucrt64/include/c++/15.2.0/ios \
-  C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
-  C:/msys64/ucrt64/include/c++/15.2.0/iterator \
-  C:/msys64/ucrt64/include/c++/15.2.0/limits \
-  C:/msys64/ucrt64/include/c++/15.2.0/list \
-  C:/msys64/ucrt64/include/c++/15.2.0/map \
-  C:/msys64/ucrt64/include/c++/15.2.0/memory \
-  C:/msys64/ucrt64/include/c++/15.2.0/new \
-  C:/msys64/ucrt64/include/c++/15.2.0/numbers \
-  C:/msys64/ucrt64/include/c++/15.2.0/optional \
-  C:/msys64/ucrt64/include/c++/15.2.0/ostream \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/ranges \
-  C:/msys64/ucrt64/include/c++/15.2.0/set \
-  C:/msys64/ucrt64/include/c++/15.2.0/span \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
-  C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
-  C:/msys64/ucrt64/include/c++/15.2.0/string \
-  C:/msys64/ucrt64/include/c++/15.2.0/string_view \
-  C:/msys64/ucrt64/include/c++/15.2.0/system_error \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/gamma.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc \
-  C:/msys64/ucrt64/include/c++/15.2.0/tr1/special_function_util.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
-  C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
-  C:/msys64/ucrt64/include/c++/15.2.0/typeinfo \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
-  C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
-  C:/msys64/ucrt64/include/c++/15.2.0/utility \
-  C:/msys64/ucrt64/include/c++/15.2.0/vector \
-  C:/msys64/ucrt64/include/c++/15.2.0/version \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
-  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
-  C:/msys64/ucrt64/include/corecrt.h \
-  C:/msys64/ucrt64/include/corecrt_startup.h \
-  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
-  C:/msys64/ucrt64/include/corecrt_wctype.h \
-  C:/msys64/ucrt64/include/corecrt_wstdlib.h \
-  C:/msys64/ucrt64/include/crtdefs.h \
-  C:/msys64/ucrt64/include/ctype.h \
-  C:/msys64/ucrt64/include/errno.h \
-  C:/msys64/ucrt64/include/float.h \
-  C:/msys64/ucrt64/include/limits.h \
-  C:/msys64/ucrt64/include/locale.h \
-  C:/msys64/ucrt64/include/malloc.h \
-  C:/msys64/ucrt64/include/math.h \
-  C:/msys64/ucrt64/include/process.h \
-  C:/msys64/ucrt64/include/pthread.h \
-  C:/msys64/ucrt64/include/pthread_compat.h \
-  C:/msys64/ucrt64/include/pthread_signal.h \
-  C:/msys64/ucrt64/include/pthread_time.h \
-  C:/msys64/ucrt64/include/pthread_unistd.h \
-  C:/msys64/ucrt64/include/sched.h \
-  C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
-  C:/msys64/ucrt64/include/sec_api/stdio_s.h \
-  C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
-  C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
-  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
-  C:/msys64/ucrt64/include/signal.h \
-  C:/msys64/ucrt64/include/stddef.h \
-  C:/msys64/ucrt64/include/stdint.h \
-  C:/msys64/ucrt64/include/stdio.h \
-  C:/msys64/ucrt64/include/stdlib.h \
-  C:/msys64/ucrt64/include/swprintf.inl \
-  C:/msys64/ucrt64/include/sys/timeb.h \
-  C:/msys64/ucrt64/include/sys/types.h \
-  C:/msys64/ucrt64/include/time.h \
-  C:/msys64/ucrt64/include/vadefs.h \
-  C:/msys64/ucrt64/include/wchar.h \
-  C:/msys64/ucrt64/include/wctype.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/table.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/algorithm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/any.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/bit.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/compressed_pair.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/concepts.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/enum.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/family.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/hashed_string.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ident.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/monostate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/tuple.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_info.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/component.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/entity.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/group.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/handle.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/helper.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/mixin.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/organizer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/ranges.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/registry.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/runtime_view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/snapshot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/sparse_set.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/storage.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/view.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/flow.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/locator/locator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/adl_pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/container.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/context.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/factory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/meta.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/node.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/pointer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/policy.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/range.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/resolve.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/template.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/type_traits.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/utility.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/poly.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/process.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/scheduler.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/cache.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/loader.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/resource.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/delegate.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/dispatcher.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/emitter.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/sigh.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/functional.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_fixes.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_vectorize.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_common.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_decl.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_common.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_exponential.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_matrix.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_packing.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_trigonometric.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_vector_relational.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/qualifier.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/exponential.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4_sized.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/geometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/packing.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/simd/platform.h \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/trigonometric.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec2.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h
-
 CMakeFiles/QEngine.dir/src/engine/renderer/camera.cpp.obj: D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.cpp \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
@@ -8336,6 +9515,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
@@ -8356,6 +9536,8 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -8369,6 +9551,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
@@ -8386,6 +9569,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -8438,6 +9622,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.2.0/istream \
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
@@ -8445,15 +9630,19 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
@@ -8490,6 +9679,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -8514,6 +9704,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -8521,6 +9712,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -8528,12 +9720,157 @@ CMakeFiles/QEngine.dir/src/engine/renderer/mesh.cpp.obj: D:/Documents/Programmin
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -8818,6 +10155,8 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj: D:/Documents/Prog
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -8849,6 +10188,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj: D:/Documents/Prog
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -8911,12 +10251,15 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj: D:/Documents/Prog
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
@@ -8959,6 +10302,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj: D:/Documents/Prog
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
@@ -8983,6 +10327,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj: D:/Documents/Prog
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+  C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/signal.h \
@@ -8990,6 +10335,7 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj: D:/Documents/Prog
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
+  C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
@@ -8997,12 +10343,157 @@ CMakeFiles/QEngine.dir/src/engine/renderer/obj_loader.cpp.obj: D:/Documents/Prog
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -9870,10 +11361,12 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/_mingw_off_t.h \
   C:/msys64/ucrt64/include/_mingw_secapi.h \
   C:/msys64/ucrt64/include/_mingw_stat64.h \
+  C:/msys64/ucrt64/include/_mingw_stdarg.h \
   C:/msys64/ucrt64/include/_timeval.h \
   C:/msys64/ucrt64/include/assert.h \
   C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
   C:/msys64/ucrt64/include/c++/15.2.0/array \
+  C:/msys64/ucrt64/include/c++/15.2.0/atomic \
   C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bit \
@@ -9884,6 +11377,7 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_timed_wait.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
@@ -9891,6 +11385,9 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono_io.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h \
@@ -9901,6 +11398,7 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/formatfwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h \
@@ -9913,12 +11411,16 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_conv.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memory_resource.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/monostate.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/nested_exception.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
@@ -9926,9 +11428,13 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/quoted_string.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
@@ -9938,13 +11444,16 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/semaphore_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
@@ -9959,6 +11468,7 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
@@ -9972,7 +11482,11 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode-data.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_ptr.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
   C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
@@ -9985,16 +11499,21 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/cctype \
   C:/msys64/ucrt64/include/c++/15.2.0/cerrno \
   C:/msys64/ucrt64/include/c++/15.2.0/cfloat \
+  C:/msys64/ucrt64/include/c++/15.2.0/charconv \
+  C:/msys64/ucrt64/include/c++/15.2.0/chrono \
   C:/msys64/ucrt64/include/c++/15.2.0/climits \
   C:/msys64/ucrt64/include/c++/15.2.0/clocale \
   C:/msys64/ucrt64/include/c++/15.2.0/cmath \
   C:/msys64/ucrt64/include/c++/15.2.0/compare \
   C:/msys64/ucrt64/include/c++/15.2.0/concepts \
+  C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+  C:/msys64/ucrt64/include/c++/15.2.0/cstdarg \
   C:/msys64/ucrt64/include/c++/15.2.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdio \
   C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
   C:/msys64/ucrt64/include/c++/15.2.0/cstring \
+  C:/msys64/ucrt64/include/c++/15.2.0/ctime \
   C:/msys64/ucrt64/include/c++/15.2.0/cwchar \
   C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
   C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
@@ -10008,8 +11527,10 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h \
   C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/format \
   C:/msys64/ucrt64/include/c++/15.2.0/functional \
   C:/msys64/ucrt64/include/c++/15.2.0/initializer_list \
+  C:/msys64/ucrt64/include/c++/15.2.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.2.0/ios \
   C:/msys64/ucrt64/include/c++/15.2.0/iosfwd \
   C:/msys64/ucrt64/include/c++/15.2.0/iostream \
@@ -10017,25 +11538,36 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/iterator \
   C:/msys64/ucrt64/include/c++/15.2.0/limits \
   C:/msys64/ucrt64/include/c++/15.2.0/list \
+  C:/msys64/ucrt64/include/c++/15.2.0/locale \
   C:/msys64/ucrt64/include/c++/15.2.0/map \
   C:/msys64/ucrt64/include/c++/15.2.0/memory \
+  C:/msys64/ucrt64/include/c++/15.2.0/mutex \
   C:/msys64/ucrt64/include/c++/15.2.0/new \
   C:/msys64/ucrt64/include/c++/15.2.0/numbers \
+  C:/msys64/ucrt64/include/c++/15.2.0/numeric \
   C:/msys64/ucrt64/include/c++/15.2.0/optional \
   C:/msys64/ucrt64/include/c++/15.2.0/ostream \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/random \
   C:/msys64/ucrt64/include/c++/15.2.0/ranges \
+  C:/msys64/ucrt64/include/c++/15.2.0/ratio \
+  C:/msys64/ucrt64/include/c++/15.2.0/semaphore \
   C:/msys64/ucrt64/include/c++/15.2.0/set \
+  C:/msys64/ucrt64/include/c++/15.2.0/shared_mutex \
   C:/msys64/ucrt64/include/c++/15.2.0/span \
+  C:/msys64/ucrt64/include/c++/15.2.0/sstream \
   C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/15.2.0/stdlib.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/stop_token \
   C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
   C:/msys64/ucrt64/include/c++/15.2.0/string \
   C:/msys64/ucrt64/include/c++/15.2.0/string_view \
   C:/msys64/ucrt64/include/c++/15.2.0/system_error \
+  C:/msys64/ucrt64/include/c++/15.2.0/thread \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
   C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
@@ -10066,7 +11598,10 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_startup.h \
   C:/msys64/ucrt64/include/corecrt_stdio_config.h \
@@ -10076,11 +11611,13 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/ctype.h \
   C:/msys64/ucrt64/include/errno.h \
   C:/msys64/ucrt64/include/float.h \
+  C:/msys64/ucrt64/include/intrin.h \
   C:/msys64/ucrt64/include/limits.h \
   C:/msys64/ucrt64/include/locale.h \
   C:/msys64/ucrt64/include/malloc.h \
   C:/msys64/ucrt64/include/math.h \
   C:/msys64/ucrt64/include/process.h \
+  C:/msys64/ucrt64/include/psdk_inc/intrin-impl.h \
   C:/msys64/ucrt64/include/pthread.h \
   C:/msys64/ucrt64/include/pthread_compat.h \
   C:/msys64/ucrt64/include/pthread_signal.h \
@@ -10093,7 +11630,10 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
+  C:/msys64/ucrt64/include/semaphore.h \
+  C:/msys64/ucrt64/include/setjmp.h \
   C:/msys64/ucrt64/include/signal.h \
+  C:/msys64/ucrt64/include/stdarg.h \
   C:/msys64/ucrt64/include/stddef.h \
   C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
@@ -10106,12 +11646,261 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
+  C:/msys64/ucrt64/include/winapifamily.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ammintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cpuid.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fma4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm3dnow.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xopintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h \
+  _deps/joltphysics-src/Jolt/Core/ARMNeon.h \
+  _deps/joltphysics-src/Jolt/Core/Array.h \
+  _deps/joltphysics-src/Jolt/Core/Atomics.h \
+  _deps/joltphysics-src/Jolt/Core/Color.h \
+  _deps/joltphysics-src/Jolt/Core/Core.h \
+  _deps/joltphysics-src/Jolt/Core/Factory.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.h \
+  _deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.inl \
+  _deps/joltphysics-src/Jolt/Core/HashCombine.h \
+  _deps/joltphysics-src/Jolt/Core/IssueReporting.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystem.inl \
+  _deps/joltphysics-src/Jolt/Core/JobSystemThreadPool.h \
+  _deps/joltphysics-src/Jolt/Core/JobSystemWithBarrier.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.h \
+  _deps/joltphysics-src/Jolt/Core/LockFreeHashMap.inl \
+  _deps/joltphysics-src/Jolt/Core/Memory.h \
+  _deps/joltphysics-src/Jolt/Core/Mutex.h \
+  _deps/joltphysics-src/Jolt/Core/MutexArray.h \
+  _deps/joltphysics-src/Jolt/Core/NonCopyable.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.h \
+  _deps/joltphysics-src/Jolt/Core/Profiler.inl \
+  _deps/joltphysics-src/Jolt/Core/RTTI.h \
+  _deps/joltphysics-src/Jolt/Core/Reference.h \
+  _deps/joltphysics-src/Jolt/Core/Result.h \
+  _deps/joltphysics-src/Jolt/Core/STLAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/STLTempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/Semaphore.h \
+  _deps/joltphysics-src/Jolt/Core/StaticArray.h \
+  _deps/joltphysics-src/Jolt/Core/StreamIn.h \
+  _deps/joltphysics-src/Jolt/Core/StreamOut.h \
+  _deps/joltphysics-src/Jolt/Core/StreamUtils.h \
+  _deps/joltphysics-src/Jolt/Core/StringTools.h \
+  _deps/joltphysics-src/Jolt/Core/TempAllocator.h \
+  _deps/joltphysics-src/Jolt/Core/TickCounter.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedMap.h \
+  _deps/joltphysics-src/Jolt/Core/UnorderedSet.h \
+  _deps/joltphysics-src/Jolt/Geometry/AABox.h \
+  _deps/joltphysics-src/Jolt/Geometry/IndexedTriangle.h \
+  _deps/joltphysics-src/Jolt/Geometry/Plane.h \
+  _deps/joltphysics-src/Jolt/Geometry/Sphere.h \
+  _deps/joltphysics-src/Jolt/Geometry/Triangle.h \
+  _deps/joltphysics-src/Jolt/Jolt.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.h \
+  _deps/joltphysics-src/Jolt/Math/DMat44.inl \
+  _deps/joltphysics-src/Jolt/Math/DVec3.h \
+  _deps/joltphysics-src/Jolt/Math/DVec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Double3.h \
+  _deps/joltphysics-src/Jolt/Math/Float3.h \
+  _deps/joltphysics-src/Jolt/Math/Float4.h \
+  _deps/joltphysics-src/Jolt/Math/GaussianElimination.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.h \
+  _deps/joltphysics-src/Jolt/Math/Mat44.inl \
+  _deps/joltphysics-src/Jolt/Math/Math.h \
+  _deps/joltphysics-src/Jolt/Math/MathTypes.h \
+  _deps/joltphysics-src/Jolt/Math/Matrix.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.h \
+  _deps/joltphysics-src/Jolt/Math/Quat.inl \
+  _deps/joltphysics-src/Jolt/Math/Real.h \
+  _deps/joltphysics-src/Jolt/Math/Swizzle.h \
+  _deps/joltphysics-src/Jolt/Math/Trigonometry.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.h \
+  _deps/joltphysics-src/Jolt/Math/UVec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec3.h \
+  _deps/joltphysics-src/Jolt/Math/Vec3.inl \
+  _deps/joltphysics-src/Jolt/Math/Vec4.h \
+  _deps/joltphysics-src/Jolt/Math/Vec4.inl \
+  _deps/joltphysics-src/Jolt/Math/Vector.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h \
+  _deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/AllowedDOFs.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/Body.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyAccess.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyActivationListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyCreationSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyID.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLock.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyLockInterface.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/BodyType.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MassProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.inl \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionQuality.h \
+  _deps/joltphysics-src/Jolt/Physics/Body/MotionType.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BackFaceMode.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhase.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionCollector.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/CollisionGroup.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ContactListener.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/GroupFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/NarrowPhaseQuery.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ObjectLayer.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/PhysicsMaterial.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/BoxShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/CapsuleShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/ConvexShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/Shape.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeID.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeIDPair.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/ShapeFilter.h \
+  _deps/joltphysics-src/Jolt/Physics/Collision/TransformedShape.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/Constraint.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/ContactConstraintManager.h \
+  _deps/joltphysics-src/Jolt/Physics/Constraints/SpringSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/DeterminismLog.h \
+  _deps/joltphysics-src/Jolt/Physics/EActivation.h \
+  _deps/joltphysics-src/Jolt/Physics/EPhysicsUpdateError.h \
+  _deps/joltphysics-src/Jolt/Physics/IslandBuilder.h \
+  _deps/joltphysics-src/Jolt/Physics/LargeIslandSplitter.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsLock.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSettings.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsSystem.h \
+  _deps/joltphysics-src/Jolt/Physics/PhysicsUpdateContext.h \
+  _deps/joltphysics-src/Jolt/Physics/StateRecorder.h \
+  _deps/joltphysics-src/Jolt/RegisterTypes.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/config.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h \
   D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h \
@@ -10377,7 +12166,7 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision_layers.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_setup.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h \
@@ -10387,18 +12176,17 @@ CMakeFiles/QEngine.dir/src/main.cpp.obj: D:/Documents/Programming/C_Projects/QEn
   D:/Documents/Programming/C_Projects/QEngine/src/engine/core/resource_manager.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/scene_setup.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/collision_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/combat_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/debug_hud_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/demo_reset_system.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/jolt_sync_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/lifetime_system.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/mover_system.h \
-  D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/player_movement_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/trigger_system.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/weapon_switch_system.h \
+  D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.h \
   D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h
 
 
@@ -10413,6 +12201,8 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h:
 C:/msys64/ucrt64/include/c++/15.2.0/bits/exception.h:
 
 C:/msys64/ucrt64/include/GL/gl.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h:
 
@@ -10434,31 +12224,39 @@ C:/msys64/ucrt64/include/_mingw_secapi.h:
 
 C:/msys64/ucrt64/include/sdks/_mingw_ddk.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2convertintrin.h:
+
+_deps/joltphysics-src/Jolt/Math/Vector.h:
+
 C:/msys64/ucrt64/include/_mingw.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h:
-
 D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xmmintrin.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clflushoptintrin.h:
+
 C:/msys64/ucrt64/include/_mingw_mac.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/formatfwd.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_double_precision.hpp:
 
 C:/msys64/ucrt64/include/corecrt.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_double_precision.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_constants.inl:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/list.tcc:
 
 C:/msys64/ucrt64/include/stdlib.h:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_constants.inl:
 
 C:/msys64/ucrt64/include/corecrt_wstdlib.h:
 
@@ -10476,19 +12274,13 @@ C:/msys64/ucrt64/include/c++/15.2.0/ext/string_conversions.h:
 
 C:/msys64/ucrt64/include/stdint.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_constants.hpp:
-
 C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_forced.h:
-
-C:/msys64/ucrt64/include/vadefs.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_common.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp:
+C:/msys64/ucrt64/include/vadefs.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glfw/include/GLFW/glfw3.h:
 
@@ -10498,9 +12290,13 @@ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/template.h
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/player_movement_system.h:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/core/input_manager.h:
+_deps/joltphysics-src/Jolt/Core/LockFreeHashMap.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2_precision.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/src/engine/core/input_manager.h:
+
+_deps/joltphysics-src/Jolt/Physics/PhysicsSystem.h:
 
 C:/msys64/ucrt64/include/_timeval.h:
 
@@ -10510,25 +12306,33 @@ C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/storage.hpp:
 
+C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmivlintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp:
+
 C:/msys64/ucrt64/include/c++/15.2.0/istream:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x3.hpp:
-
-C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp:
 
 C:/msys64/ucrt64/include/_mingw_stat64.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4_precision.hpp:
+C:/msys64/ucrt64/include/semaphore.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/immintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_ptr.h:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.cpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp:
+_deps/joltphysics-src/Jolt/Physics/Collision/Shape/CapsuleShape.h:
 
 C:/msys64/ucrt64/include/assert.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2mediaintrin.h:
+
+_deps/joltphysics-src/Jolt/Core/TempAllocator.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/components.h:
 
@@ -10544,35 +12348,39 @@ C:/msys64/ucrt64/include/c++/15.2.0/backward/auto_ptr.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_decl.hpp:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlbwintrin.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/context.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/mesh.cpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/quoted_string.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_geometric.inl:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bit:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/iterator_concepts.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4_precision.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp:
-
 C:/msys64/ucrt64/include/c++/15.2.0/bits/align.h:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/alloc_traits.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512minmaxintrin.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyCreationSettings.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/allocated_ptr.h:
 
@@ -10586,13 +12394,19 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_base.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_lockfree_defines.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h:
+_deps/joltphysics-src/Jolt/Core/Memory.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512convertintrin.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x4.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_wait.h:
+
+_deps/joltphysics-src/Jolt/Geometry/Triangle.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.h:
 
@@ -10600,19 +12414,17 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_uninitialized.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/cxxabi_init_exception.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp:
-
 C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_string.tcc:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm3intrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/charconv.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.inl:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h:
+C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.h:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/concept_check.h:
 
@@ -10630,8 +12442,6 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/ios:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl:
-
 C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h:
@@ -10644,11 +12454,9 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/hash_bytes.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl:
+_deps/joltphysics-src/Jolt/Geometry/Plane.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/invoke.h:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp:
 
 C:/msys64/ucrt64/include/stdarg.h:
 
@@ -10657,8 +12465,6 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc:
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/concepts.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/max_size_type.h:
 
@@ -10684,25 +12490,45 @@ C:/msys64/ucrt64/include/c++/15.2.0/cstring:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream_insert.h:
 
+_deps/joltphysics-src/Jolt/Core/STLTempAllocator.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/postypes.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/predefined_ops.h:
 
 C:/msys64/ucrt64/include/sys/timeb.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3_precision.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h:
 
+C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/iosfwd:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyID.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/typeinfo:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/range_access.h:
 
+_deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h:
+
+_deps/joltphysics-src/Jolt/Core/Array.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/scene_setup.cpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multiset.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlintrin.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.h:
 
@@ -10711,6 +12537,10 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h:
 C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_base.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_cmp.h:
+
+_deps/joltphysics-src/Jolt/Geometry/IndexedTriangle.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_util.h:
 
@@ -10722,15 +12552,23 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/refwrap.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/enqcmdintrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp:
+_deps/joltphysics-src/Jolt/ObjectStream/SerializableAttribute.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lzcntintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_atomic.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/shared_ptr_base.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/bit.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/std_abs.h:
 
@@ -10742,29 +12580,33 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/organizer.hpp:
 
+_deps/joltphysics-src/Jolt/Math/Matrix.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h:
-
-C:/msys64/ucrt64/include/c++/15.2.0/optional:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_projection.inl:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.inl:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_projection.inl:
+
+C:/msys64/ucrt64/include/c++/15.2.0/optional:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2satcvtintrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_construct.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_clip_space.hpp:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_set.h:
 
@@ -10778,11 +12620,13 @@ C:/msys64/ucrt64/include/c++/15.2.0/functional:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_funcs.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_traits.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3_precision.hpp:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2vlintrin.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/delegate.hpp:
 
@@ -10792,51 +12636,65 @@ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_list.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/streambuf:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_vector_relational.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3.hpp:
-
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_transform.hpp:
 
-C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmaintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_raw_storage_iter.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.inl:
+C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/opt_random.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_integer.inl:
 
+C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/f16cintrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h:
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/node.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/node.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/semaphore:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchiintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool4.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/string_view.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h:
 
+_deps/joltphysics-src/Jolt/Math/DMat44.inl:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bwintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h:
 
@@ -10846,9 +12704,13 @@ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++io.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h:
 
+_deps/joltphysics-src/Jolt/Math/Mat44.inl:
+
 C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ammintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h:
 
@@ -10857,6 +12719,8 @@ D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.h:
 C:/msys64/ucrt64/include/c++/15.2.0/cassert:
 
 C:/msys64/ucrt64/include/c++/15.2.0/cctype:
+
+_deps/joltphysics-src/Jolt/Core/StaticArray.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/cerrno:
 
@@ -10868,13 +12732,15 @@ C:/msys64/ucrt64/include/wctype.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/cmath:
 
+_deps/joltphysics-src/Jolt/Math/Real.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/compare:
 
 C:/msys64/ucrt64/include/c++/15.2.0/concepts:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp:
-
 C:/msys64/ucrt64/include/c++/15.2.0/cstddef:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/waitpkgintrin.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/family.hpp:
 
@@ -10882,15 +12748,21 @@ C:/msys64/ucrt64/include/c++/15.2.0/cstdint:
 
 C:/msys64/ucrt64/include/pthread_unistd.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/ia32intrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/cstdio:
+
+C:/msys64/ucrt64/include/c++/15.2.0/iomanip:
 
 C:/msys64/ucrt64/include/c++/15.2.0/cstdlib:
 
 C:/msys64/ucrt64/include/c++/15.2.0/cwchar:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_quat.inl:
-
 C:/msys64/ucrt64/include/c++/15.2.0/cwctype:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/ContactListener.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/adxintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/debug/debug.h:
 
@@ -10906,6 +12778,12 @@ C:/msys64/ucrt64/include/c++/15.2.0/ext/concurrence.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/any.hpp:
 
+C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxbf16intrin.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/messages_members.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/ext/alloc_traits.h:
@@ -10914,21 +12792,27 @@ C:/msys64/ucrt64/include/c++/15.2.0/ext/atomicity.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512satcvtintrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clwbintrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/initializer_list:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/random.h:
-
-C:/msys64/ucrt64/include/c++/15.2.0/iosfwd:
-
 C:/msys64/ucrt64/include/c++/15.2.0/iostream:
+
+_deps/joltphysics-src/Jolt/Physics/PhysicsLock.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/iterator:
 
 C:/msys64/ucrt64/include/c++/15.2.0/limits:
+
+C:/msys64/ucrt64/include/c++/15.2.0/thread:
 
 C:/msys64/ucrt64/include/c++/15.2.0/list:
 
@@ -10936,27 +12820,37 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h:
 
 C:/msys64/ucrt64/include/sched.h:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/collision_system.h:
-
 C:/msys64/ucrt64/include/c++/15.2.0/map:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode-data.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/memory:
 
 C:/msys64/ucrt64/include/c++/15.2.0/ostream:
 
+_deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.inl:
+
 C:/msys64/ucrt64/include/c++/15.2.0/new:
 
 C:/msys64/ucrt64/include/c++/15.2.0/numbers:
 
+_deps/joltphysics-src/Jolt/Physics/Body/Body.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/numeric:
+
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/algorithm.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x4.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/algorithm.hpp:
+
 C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/random:
 
 C:/msys64/ucrt64/include/c++/15.2.0/set:
 
@@ -10964,47 +12858,59 @@ C:/msys64/ucrt64/include/c++/15.2.0/span:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/stdexcept:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16intrin.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_trigonometric.inl:
 
+C:/msys64/ucrt64/include/c++/15.2.0/stdexcept:
+
 C:/msys64/ucrt64/include/c++/15.2.0/string_view:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/type_ptr.hpp:
+_deps/joltphysics-src/Jolt/Physics/PhysicsSettings.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/system_error:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitintrin.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/trigger_system.cpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/gamma.tcc:
 
-C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cldemoteintrin.h:
 
-C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc:
+C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/constants.inl:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/registry.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3_precision.hpp:
+
+_deps/joltphysics-src/Jolt/Math/Float3.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512bf16intrin.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/tr1/special_function_util.h:
 
+_deps/joltphysics-src/Jolt/Math/Swizzle.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/tuple:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/type_traits:
 
-C:/msys64/ucrt64/include/c++/15.2.0/typeinfo:
+_deps/joltphysics-src/Jolt/Physics/StateRecorder.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/unordered_map:
 
@@ -11012,13 +12918,15 @@ D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/aabb.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/unordered_set:
 
+_deps/joltphysics-src/Jolt/Math/Vec3.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/utility:
 
 C:/msys64/ucrt64/include/c++/15.2.0/vector:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/fwd.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/epsilon.inl:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/fwd.hpp:
 
 C:/msys64/ucrt64/include/c++/15.2.0/version:
 
@@ -11030,11 +12938,13 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/compute_common
 
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h:
 
+C:/msys64/ucrt64/include/c++/15.2.0/bits/monostate.h:
+
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h:
 
-C:/msys64/ucrt64/include/corecrt_stdio_config.h:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.hpp:
+
+C:/msys64/ucrt64/include/corecrt_stdio_config.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h:
 
@@ -11046,31 +12956,39 @@ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.h:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp:
+
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3_precision.hpp:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sm4intrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/gthr-default.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h:
 
-C:/msys64/ucrt64/include/corecrt_startup.h:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_common.inl:
 
-C:/msys64/ucrt64/include/corecrt_wctype.h:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_geometric.hpp:
+C:/msys64/ucrt64/include/corecrt_startup.h:
 
 C:/msys64/ucrt64/include/ctype.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp:
+_deps/joltphysics-src/Jolt/Core/Profiler.inl:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_geometric.hpp:
+
+C:/msys64/ucrt64/include/corecrt_wctype.h:
 
 C:/msys64/ucrt64/include/errno.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/fwd.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x3.hpp:
+
+_deps/joltphysics-src/Jolt/Math/Vec3.inl:
+
 C:/msys64/ucrt64/include/float.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/hresetintrin.h:
 
 C:/msys64/ucrt64/include/limits.h:
 
@@ -11080,23 +12998,27 @@ C:/msys64/ucrt64/include/malloc.h:
 
 C:/msys64/ucrt64/include/math.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.cpp:
+_deps/joltphysics-src/Jolt/Core/Semaphore.h:
 
 C:/msys64/ucrt64/include/process.h:
 
+_deps/joltphysics-src/Jolt/Math/Vec4.inl:
+
 C:/msys64/ucrt64/include/pthread.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp:
-
 C:/msys64/ucrt64/include/pthread_compat.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnniintrin.h:
+
+_deps/joltphysics-src/Jolt/Math/UVec4.h:
 
 C:/msys64/ucrt64/include/pthread_signal.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/utility.hpp:
 
 C:/msys64/ucrt64/include/pthread_time.h:
+
+_deps/joltphysics-src/Jolt/Math/DMat44.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.h:
 
@@ -11106,15 +13028,25 @@ C:/msys64/ucrt64/include/sec_api/stdio_s.h:
 
 C:/msys64/ucrt64/include/sec_api/stdlib_s.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp8intrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512cdintrin.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/Shape/BoxShape.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/chrono:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2minmaxintrin.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/sigh.hpp:
 
 C:/msys64/ucrt64/include/sec_api/string_s.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/physics_config.h:
 
-C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float1.hpp:
+
+C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h:
 
 C:/msys64/ucrt64/include/sec_api/wchar_s.h:
 
@@ -11124,19 +13056,15 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.hpp:
 
 C:/msys64/ucrt64/include/stdio.h:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/debug_hud_system.cpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_clip_space.inl:
-
 C:/msys64/ucrt64/include/string.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/uintrintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp:
 
 C:/msys64/ucrt64/include/swprintf.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/compressed_pair.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_trigonometric.hpp:
 
 C:/msys64/ucrt64/include/sys/types.h:
 
@@ -11146,57 +13074,293 @@ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/group.hp
 
 C:/msys64/ucrt64/include/wchar.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/quaternion.hpp:
+C:/msys64/ucrt64/include/winapifamily.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxavx512intrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/container.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxcomplexintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pkuintrin.h:
+
+_deps/joltphysics-src/Jolt/Math/Double3.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxfp16intrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/dispatcher.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxint8intrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxmovrsintrin.h:
+
+_deps/joltphysics-src/Jolt/Core/Reference.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/atomic:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_float.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtf32intrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtileintrin.h:
+
+_deps/joltphysics-src/Jolt/Math/Float4.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/amxtransposeintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2-512mediaintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2bf16intrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx10_2copyintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx2intrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bf16vlintrin.h:
+
+_deps/joltphysics-src/Jolt/Core/UnorderedSet.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512bitalgvlintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512dqintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/sparse_set.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16vlintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512ifmavlintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cmpccxaddintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmi2intrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vbmiintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/tuple.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmi2intrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/stb_image_impl.cpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vldqintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vlintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vnnivlintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vp2intersectvlintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxifmaintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsaveoptintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxneconvertintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint16intrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avxvnniint8intrin.h:
+
+_deps/joltphysics-src/Jolt/Physics/Constraints/Constraint.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/bmiintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/clzerointrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fmaintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/resource.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/monostate.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fxsrintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/gfniintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/lwpintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/type_traits.hpp:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint1_sized.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movdirintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_set.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/movrsintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mwaitxintrin.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/stop_token:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pconfigintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/prfchwintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/raointintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rdseedintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/rtmintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/memory.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/serializeintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sgxintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/sha512intrin.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/shaintrin.h:
+
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_float.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tbmintrin.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/condition_variable:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tmmintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/fwd.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/src/main.cpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/tsxldtrkintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/usermsrintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h:
+
+_deps/joltphysics-src/Jolt/Math/Mat44.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vpclmulqdqintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wbnoinvdintrin.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/wmmintrin.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/AllowedDOFs.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86gprintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavecintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xsavesintrin.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h:
+
+_deps/joltphysics-src/Jolt/Core/ARMNeon.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp:
+
+_deps/joltphysics-src/Jolt/Core/Core.h:
+
+_deps/joltphysics-src/Jolt/Core/HashCombine.h:
+
+_deps/joltphysics-src/Jolt/Core/IssueReporting.h:
+
+_deps/joltphysics-src/Jolt/Core/STLAllocator.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ranges.hpp:
+
+_deps/joltphysics-src/Jolt/Core/Profiler.h:
+
+_deps/joltphysics-src/Jolt/Jolt.h:
+
+_deps/joltphysics-src/Jolt/Math/DVec3.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl:
+
+_deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h:
+
+_deps/joltphysics-src/Jolt/Math/DVec3.inl:
+
+_deps/joltphysics-src/Jolt/Math/Math.h:
+
+_deps/joltphysics-src/Jolt/Math/MathTypes.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp:
+
+_deps/joltphysics-src/Jolt/Math/Quat.h:
+
+_deps/joltphysics-src/Jolt/Math/Quat.inl:
+
+_deps/joltphysics-src/Jolt/Math/Trigonometry.h:
+
+_deps/joltphysics-src/Jolt/Math/UVec4.inl:
+
+_deps/joltphysics-src/Jolt/Math/Vec4.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/macro.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/config/version.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/format:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x2.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_set.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/dense_map.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/emitter.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/container/fwd.hpp:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/bit.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/fwd.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ident.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/iterator.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double3.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/memory.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/monostate.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/ranges.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/tuple.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_info.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4_precision.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/type_info.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/core/utility.hpp:
 
@@ -11204,9 +13368,13 @@ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/policy.hpp
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/KHR/khrplatform.h:
 
+_deps/joltphysics-src/Jolt/Core/JobSystem.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/component.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/fwd.hpp:
+
+_deps/joltphysics-src/Jolt/Physics/LargeIslandSplitter.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/helper.hpp:
 
@@ -11216,23 +13384,15 @@ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/mixin.hp
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/ranges.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/runtime_view.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/obj_loader.cpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/snapshot.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entity/sparse_set.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/entt.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2_sized.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/dot.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/adjacency_matrix.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/flow.hpp:
 
@@ -11240,23 +13400,25 @@ D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/fwd.hp
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/graph/fwd.hpp:
 
+_deps/joltphysics-src/Jolt/ObjectStream/SerializableObject.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/locator/locator.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/adl_pointer.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/container.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/factory.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_vector_relational.inl:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/x86intrin.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/fwd.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/range.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/meta/type_traits.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/poly/fwd.hpp:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/CollisionCollector.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/cache.hpp:
 
@@ -11266,23 +13428,19 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/qualifier.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/process.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/scheduler.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x4.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/process/scheduler.hpp:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/loader.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/resource/resource.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/signal/dispatcher.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/iterator.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/entt/src/entt/stl/memory.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_transform.inl:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glad/include/glad/glad.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/common.hpp:
 
@@ -11292,67 +13450,55 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/_vectorize.hpp
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_common.inl:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_geometric.inl:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_exponential.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/func_packing.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/setup.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int4_sized.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_float.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_half.inl:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x2.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_projection.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint2.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.inl:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x3.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat2x4.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x2.inl:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x3.inl:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/movement_system.cpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat3x4.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x3.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl:
+_deps/joltphysics-src/Jolt/Physics/IslandBuilder.h:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_mat4x4.inl:
 
 C:/msys64/ucrt64/include/c++/15.2.0/fstream:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_quat.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_quat.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_relational.inl:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.hpp:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec1.inl:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/atomic_timed_wait.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec2.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec3.inl:
 
@@ -11360,41 +13506,69 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/detail/type_vec4.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/exponential.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/debug_hud_system.cpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_clip_space.inl:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cpuid.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x2_precision.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x3_precision.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double2x4.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4_precision.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/combat_system.h:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x2_precision.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/charconv:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x3_precision.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4.hpp:
+
+_deps/joltphysics-src/Jolt/Core/Mutex.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double3x4_precision.hpp:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x2_precision.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/type_ptr.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3.hpp:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyFilter.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x3_precision.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4.hpp:
+D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_setup.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_double4x4_precision.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x2.hpp:
 
+_deps/joltphysics-src/Jolt/Core/StreamUtils.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x3.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4.hpp:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float2x4_precision.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2.hpp:
+
+_deps/joltphysics-src/Jolt/Core/Factory.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x2_precision.hpp:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/unicode.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3.hpp:
 
@@ -11404,19 +13578,23 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x3_p
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float3x4_precision.hpp:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_float4x2_precision.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_projection.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/matrix_transform.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_double.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_float.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_float_precision.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec3.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_geometric.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_relational.hpp:
 
@@ -11424,13 +13602,25 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_relati
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_transform.inl:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_int_sized.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/quaternion_trigonometric.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_constants.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/scalar_uint_sized.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool1.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool1_precision.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float1_precision.hpp:
+D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/combat_system.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool2_precision.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_bool3_precision.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double1.hpp:
 
@@ -11438,15 +13628,27 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double1_pr
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double2_precision.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_double4_precision.hpp:
+C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_conv.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float1_precision.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float2_precision.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float3.hpp:
 
+D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/jolt_sync_system.cpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_float4.hpp:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int1.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int1_sized.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int2_sized.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_int3_sized.hpp:
 
@@ -11456,23 +13658,31 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_relational
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint1.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint1_sized.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint3_sized.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/ext/vector_uint4_sized.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/fwd.hpp:
+
+_deps/joltphysics-src/Jolt/Core/JobSystem.inl:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/geometric.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/glm.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/constants.hpp:
+_deps/joltphysics-src/Jolt/Physics/Collision/ShapeFilter.h:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/spatial_hash.cpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/constants.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/epsilon.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/matrix_transform.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/matrix_transform.inl:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x2.hpp:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/quaternion.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/quaternion.inl:
 
@@ -11482,23 +13692,29 @@ D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/gtc/vec1.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/integer.hpp:
 
+_deps/joltphysics-src/Jolt/Physics/Collision/BackFaceMode.h:
+
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat2x2.hpp:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x3.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat3x4.hpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x2.hpp:
+D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/shader.cpp:
 
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/mat4x3.hpp:
+D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/matrix.hpp:
+
+_deps/joltphysics-src/Jolt/Physics/Constraints/ContactConstraintManager.h:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/packing.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/simd/platform.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fma4intrin.h:
+
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/trigonometric.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec2.hpp:
-
-D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vec4.hpp:
 
 D:/Documents/Programming/C_Projects/QEngine/extern/glm/glm/vector_relational.hpp:
 
@@ -11514,33 +13730,167 @@ D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/texture.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/core/window.cpp:
 
+C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono_io.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets_nonio.tcc:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/semaphore_base.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhase.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h:
+
+C:/msys64/ucrt64/include/c++/15.2.0/cstdarg:
+
+C:/msys64/ucrt64/include/c++/15.2.0/ctime:
+
+C:/msys64/ucrt64/include/c++/15.2.0/locale:
+
+C:/msys64/ucrt64/include/c++/15.2.0/mutex:
+
+C:/msys64/ucrt64/include/c++/15.2.0/ratio:
+
+C:/msys64/ucrt64/include/c++/15.2.0/shared_mutex:
+
+C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/time_members.h:
+
+_deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintManager.h:
+
+C:/msys64/ucrt64/include/intrin.h:
+
+_deps/joltphysics-src/Jolt/Core/StringTools.h:
+
+C:/msys64/ucrt64/include/psdk_inc/intrin-impl.h:
+
+_deps/joltphysics-src/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/Body.inl:
+
+C:/msys64/ucrt64/include/setjmp.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm3dnow.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xopintrin.h:
+
+_deps/joltphysics-src/Jolt/Core/Atomics.h:
+
+_deps/joltphysics-src/Jolt/Core/Color.h:
+
+_deps/joltphysics-src/Jolt/Core/FixedSizeFreeList.h:
+
+_deps/joltphysics-src/Jolt/Core/JobSystemThreadPool.h:
+
+_deps/joltphysics-src/Jolt/Core/JobSystemWithBarrier.h:
+
+_deps/joltphysics-src/Jolt/Core/LockFreeHashMap.inl:
+
+_deps/joltphysics-src/Jolt/Core/MutexArray.h:
+
+_deps/joltphysics-src/Jolt/Core/NonCopyable.h:
+
+_deps/joltphysics-src/Jolt/Physics/Constraints/SpringSettings.h:
+
+_deps/joltphysics-src/Jolt/Core/RTTI.h:
+
+_deps/joltphysics-src/Jolt/Core/Result.h:
+
+_deps/joltphysics-src/Jolt/Core/StreamIn.h:
+
+_deps/joltphysics-src/Jolt/Core/StreamOut.h:
+
+_deps/joltphysics-src/Jolt/Core/TickCounter.h:
+
+_deps/joltphysics-src/Jolt/Core/UnorderedMap.h:
+
+_deps/joltphysics-src/Jolt/Geometry/AABox.h:
+
+_deps/joltphysics-src/Jolt/Geometry/Sphere.h:
+
+_deps/joltphysics-src/Jolt/Math/GaussianElimination.h:
+
+_deps/joltphysics-src/Jolt/ObjectStream/ObjectStream.h:
+
+_deps/joltphysics-src/Jolt/ObjectStream/ObjectStreamTypes.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyAccess.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyActivationListener.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyInterface.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyLock.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyLockInterface.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyManager.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyPair.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/BodyType.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/Shape/Shape.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/MassProperties.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeIDPair.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/MotionProperties.inl:
+
+_deps/joltphysics-src/Jolt/Physics/Body/MotionQuality.h:
+
+_deps/joltphysics-src/Jolt/Physics/Body/MotionType.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/CollisionGroup.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/GroupFilter.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/ManifoldBetweenTwoFaces.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/NarrowPhaseQuery.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/ObjectLayer.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/PhysicsMaterial.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/Shape/ConvexShape.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/Shape/SubShapeID.h:
+
+_deps/joltphysics-src/Jolt/Physics/Collision/TransformedShape.h:
+
+_deps/joltphysics-src/Jolt/Physics/DeterminismLog.h:
+
+_deps/joltphysics-src/Jolt/Physics/EActivation.h:
+
+D:/Documents/Programming/C_Projects/QEngine/src/engine/core/fixed_timestep.h:
+
+_deps/joltphysics-src/Jolt/Physics/EPhysicsUpdateError.h:
+
+_deps/joltphysics-src/Jolt/Physics/PhysicsUpdateContext.h:
+
+_deps/joltphysics-src/Jolt/RegisterTypes.h:
+
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/scene_setup.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/weapon_definitions.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.h:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/collision_system.cpp:
-
-D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.h:
+D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/combat_system.cpp:
-
-C:/msys64/ucrt64/include/c++/15.2.0/bits/random.tcc:
-
-C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_numeric.h:
-
-C:/msys64/ucrt64/include/c++/15.2.0/numeric:
-
-C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_numeric_defs.h:
-
-C:/msys64/ucrt64/include/c++/15.2.0/random:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/emmintrin.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mmintrin.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/pmmintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.2.0/math.h:
 
@@ -11552,13 +13902,13 @@ D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/demo_reset_sy
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/demo_reset_system.h:
 
+D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/jolt_sync_system.h:
+
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/lifetime_system.cpp:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/lifetime_system.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/mover_system.cpp:
-
-D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/physics_system.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/render_system.cpp:
 
@@ -11566,24 +13916,14 @@ D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/trigger_syste
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/level/level_loader.cpp:
 
-C:/msys64/ucrt64/include/c++/15.2.0/bits/codecvt.h:
-
 C:/msys64/ucrt64/include/c++/15.2.0/bits/fstream.tcc:
 
 C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/basic_file.h:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/collision.cpp:
+D:/Documents/Programming/C_Projects/QEngine/src/engine/physics/jolt_world.cpp:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/camera.cpp:
 
-D:/Documents/Programming/C_Projects/QEngine/src/engine/renderer/stb_image_impl.cpp:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h:
-
 D:/Documents/Programming/C_Projects/QEngine/extern/stb/stb_image.h:
-
-D:/Documents/Programming/C_Projects/QEngine/src/main.cpp:
-
-D:/Documents/Programming/C_Projects/QEngine/src/engine/core/fixed_timestep.h:
 
 D:/Documents/Programming/C_Projects/QEngine/src/engine/ecs/systems/weapon_switch_system.h:

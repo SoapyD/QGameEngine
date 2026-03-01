@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/CMakeFiles/joltphysics-populate"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/CMakeFiles/joltphysics-populate.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/CMakeFiles/joltphysics-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-build.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-download.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-install.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-test.rule"
+		},
+		{
+			"file" : "D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-subbuild/joltphysics-populate-prefix/src/joltphysics-populate-stamp/joltphysics-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"joltphysics-populate"
+		],
+		"name" : "joltphysics-populate"
+	}
+}

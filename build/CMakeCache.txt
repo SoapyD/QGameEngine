@@ -14,7 +14,7 @@
 # EXTERNAL cache entries
 ########################
 
-//Build shared libraries
+//Compile Jolt as a shared library
 BUILD_SHARED_LIBS:BOOL=OFF
 
 //Path to a program.
@@ -314,6 +314,68 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Enable C++ exceptions
+CPP_EXCEPTIONS_ENABLED:BOOL=OFF
+
+//Enable C++ RTTI
+CPP_RTTI_ENABLED:BOOL=OFF
+
+//Cross compile to aarch64-linux-gnu
+CROSS_COMPILE_ARM:BOOL=OFF
+
+//Cross platform deterministic
+CROSS_PLATFORM_DETERMINISTIC:BOOL=OFF
+
+//Enable debug renderer in Debug and Release builds
+DEBUG_RENDERER_IN_DEBUG_AND_RELEASE:BOOL=ON
+
+//Enable debug renderer in all builds
+DEBUG_RENDERER_IN_DISTRIBUTION:BOOL=OFF
+
+//Disable support for a custom memory allocator
+DISABLE_CUSTOM_ALLOCATOR:BOOL=OFF
+
+//Use double precision math
+DOUBLE_PRECISION:BOOL=OFF
+
+//Enable all warnings and warnings as errors
+ENABLE_ALL_WARNINGS:BOOL=ON
+
+//Generate installation target
+ENABLE_INSTALL:BOOL=ON
+
+//Compile the ObjectStream class and RTTI attribute information
+ENABLE_OBJECT_STREAM:BOOL=ON
+
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=D:/Documents/Programming/C_Projects/QEngine/build/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for JoltPhysics
+FETCHCONTENT_SOURCE_DIR_JOLTPHYSICS:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of JoltPhysics
+FETCHCONTENT_UPDATES_DISCONNECTED_JOLTPHYSICS:BOOL=OFF
+
+//Enable floating point exceptions
+FLOATING_POINT_EXCEPTIONS_ENABLED:BOOL=ON
+
+//Generate debug symbols
+GENERATE_DEBUG_SYMBOLS:BOOL=ON
+
+//Git command line client
+GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
+
 //Value Computed by CMake
 GLFW_BINARY_DIR:STATIC=D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw
 
@@ -345,6 +407,33 @@ GLFW_SOURCE_DIR:STATIC=D:/Documents/Programming/C_Projects/QEngine/extern/glfw
 //Force use of high-performance GPU on hybrid systems
 GLFW_USE_HYBRID_HPG:BOOL=OFF
 
+//Enable interprocedural optimizations
+INTERPROCEDURAL_OPTIMIZATION:BOOL=ON
+
+//Which type of debug symbols to generate
+JPH_DEBUG_SYMBOL_FORMAT:STRING=
+
+//Value Computed by CMake
+JoltPhysics_BINARY_DIR:STATIC=D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build
+
+//Value Computed by CMake
+JoltPhysics_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+JoltPhysics_SOURCE_DIR:STATIC=D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-src/Build
+
+//Number of bits in ObjectLayer
+OBJECT_LAYER_BITS:BOOL=OFF
+
+//Override CMAKE_CXX_FLAGS_DEBUG/RELEASE
+OVERRIDE_CXX_FLAGS:BOOL=ON
+
+//Enable the profiler in Debug and Release builds
+PROFILER_IN_DEBUG_AND_RELEASE:BOOL=ON
+
+//Enable the profiler in all builds
+PROFILER_IN_DISTRIBUTION:BOOL=OFF
+
 //Value Computed by CMake
 QEngine_BINARY_DIR:STATIC=D:/Documents/Programming/C_Projects/QEngine/build
 
@@ -353,6 +442,48 @@ QEngine_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 QEngine_SOURCE_DIR:STATIC=D:/Documents/Programming/C_Projects/QEngine
+
+//Track Broadphase Stats
+TRACK_BROADPHASE_STATS:BOOL=OFF
+
+//Track Narrowphase Stats
+TRACK_NARROWPHASE_STATS:BOOL=OFF
+
+//Enable asserts
+USE_ASSERTS:BOOL=OFF
+
+//Enable AVX
+USE_AVX:BOOL=ON
+
+//Enable AVX2
+USE_AVX2:BOOL=ON
+
+//Enable AVX512
+USE_AVX512:BOOL=OFF
+
+//Enable F16C
+USE_F16C:BOOL=ON
+
+//Enable FMADD
+USE_FMADD:BOOL=ON
+
+//Enable LZCNT
+USE_LZCNT:BOOL=ON
+
+//Enable SSE4.1
+USE_SSE4_1:BOOL=ON
+
+//Enable SSE4.2
+USE_SSE4_2:BOOL=ON
+
+//Use std::vector instead of own Array class
+USE_STD_VECTOR:BOOL=OFF
+
+//Enable TZCNT
+USE_TZCNT:BOOL=ON
+
+//Enable SIMD for WASM
+USE_WASM_SIMD:BOOL=OFF
 
 
 ########################
@@ -497,7 +628,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -555,10 +686,14 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: GIT_EXECUTABLE
+GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //GLFW pkg-config Libs.private
 GLFW_PKG_CONFIG_LIBS_PRIVATE:INTERNAL=-lgdi32
 //GLFW pkg-config Requires.private
 GLFW_PKG_CONFIG_REQUIRES_PRIVATE:INTERNAL=
+//Use the static MSVC runtime library
+USE_STATIC_MSVC_RUNTIME_LIBRARY:INTERNAL=OFF
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/QEngine
 

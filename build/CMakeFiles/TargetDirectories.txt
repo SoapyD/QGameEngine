@@ -21,3 +21,10 @@ D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src/CMakeFiles/lis
 D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src/CMakeFiles/install.dir
 D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src/CMakeFiles/install/local.dir
 D:/Documents/Programming/C_Projects/QEngine/build/extern/glfw/src/CMakeFiles/install/strip.dir
+D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/Jolt.dir
+D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/edit_cache.dir
+D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/rebuild_cache.dir
+D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/list_install_components.dir
+D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/install.dir
+D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/install/local.dir
+D:/Documents/Programming/C_Projects/QEngine/build/_deps/joltphysics-build/CMakeFiles/install/strip.dir

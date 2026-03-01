@@ -26,6 +26,8 @@ void collisionSystem
 
 	for (auto [entity, pos, vel, col] : movers.each())
 	{
+		if (registry.all_of<JoltBody>(entity)) continue;  // Jolt handles this
+
 		glm::vec3 movement = vel.value * config.fixedDeltaTime;
 
 		if (glm::length(movement) < 1e-6f) continue; // not moving
