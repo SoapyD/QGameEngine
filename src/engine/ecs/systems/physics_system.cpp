@@ -13,6 +13,8 @@ void physicsSystem(entt::registry& registry)
 	
 	for (auto [entity, vel, grav, ground] : gravityView.each())
 	{
+		if (registry.all_of<JoltBody>(entity)) continue;  // Jolt handles this
+
 		if (!ground.value)
 		{
 			vel.value.y -= grav.strength * config.fixedDeltaTime;
@@ -31,6 +33,8 @@ void physicsSystem(entt::registry& registry)
 
 	for (auto [entity, vel, ground, phys] : frictionView.each())
 	{
+		if (registry.all_of<JoltBody>(entity)) continue;  // Jolt handles this
+
 		float friction = ground.value ? phys.groundFriction : phys.airFriction;
 
 		// only apply friction to horizontal movement (X and Z)

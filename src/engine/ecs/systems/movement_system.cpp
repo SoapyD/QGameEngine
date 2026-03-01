@@ -9,6 +9,8 @@ void movementSystem(entt::registry& registry)
 
 	for (auto [entity, pos, vel] : view.each())
 	{
+		if (registry.all_of<JoltBody>(entity)) continue;  // Jolt handles this
+
 		pos.value += vel.value * config.fixedDeltaTime;
 	}
 };

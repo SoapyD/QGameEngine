@@ -4,20 +4,18 @@
 #include "engine/core/fixed_timestep.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/scene_setup.h"
-#include "engine/ecs/systems/collision_system.h"
 #include "engine/ecs/systems/combat_system.h"
 #include "engine/ecs/systems/demo_reset_system.h"
 #include "engine/ecs/systems/debug_hud_system.h"
+#include "engine/ecs/systems/jolt_sync_system.h"
 #include "engine/ecs/systems/lifetime_system.h"
 #include "engine/ecs/systems/player_movement_system.h"
-#include "engine/ecs/systems/movement_system.h"
 #include "engine/ecs/systems/mover_system.h"
-#include "engine/ecs/systems/physics_system.h"
 #include "engine/ecs/systems/render_system.h"
 #include "engine/ecs/systems/trigger_system.h"
 #include "engine/ecs/systems/weapon_switch_system.h"
-#include "engine/physics/spatial_hash.h"
 #include "engine/physics/physics_config.h"
+#include "engine/physics/jolt_world.h"
 #include "engine/renderer/camera.h"
 
 #include <entt/entt.hpp>
@@ -70,11 +68,19 @@ int main()
 	entt::registry registry;
 
 	auto& physicsConfig = registry.ctx().emplace<PhysicsConfig>();
+	FixedTimestep fixedTimestep(physicsConfig.fixedDeltaTime);
+
+	auto& joltWorld = registry.ctx().emplace<JoltWorld>();
+	joltWorld.init();
+
 	Level level = setupScene(registry, resources);
-	SpatialHash spatialHash(4.0f);
+
+	// create jolt bodies from the level geometry
+	createLevelBodies(registry, level);
+
+	joltWorld.physicsSystem->OptimizeBroadPhase();
 
 	// ─── Game Loop ───────────────────────────────────────────────
-	FixedTimestep fixedTimestep(physicsConfig.fixedDeltaTime);
 
 	auto& HudeConfig = registry.ctx().emplace<HudConfig>();
 	HudeConfig.shaderId = hudShader->getId();
@@ -154,12 +160,10 @@ int main()
 			weaponSwitchSystem(registry);
 			playerMovementSystem(registry);
 			// velocity  
-			physicsSystem(registry);
 			moverSystem(registry);                         // update doors, lifts
-			collisionSystem(registry, spatialHash, level); // adjust velocities
-			movementSystem(registry); // apply velocities to positions
+			joltWorld.step(physicsConfig.fixedDeltaTime);
+			joltSyncSystem(registry);
 			// positions
-			groundDetectionSystem(registry, level);    // update OnGround for next frame
 			combatSystem(registry, level);
 			lifetimeSystem(registry);
 			triggerSystem(registry);                       // detect trigger overlaps (after final position)
@@ -195,6 +199,7 @@ int main()
 
 	}
 
+	joltWorld.shutdown();
 	resources.clear();
 	return 0;
 }
