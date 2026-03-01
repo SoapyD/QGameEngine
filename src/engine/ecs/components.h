@@ -4,6 +4,7 @@
 #include <entt/entt.hpp>
 #include <Jolt/Jolt.h>
 #include <Jolt/Physics/Body/BodyID.h>
+#include <Jolt/Physics/Character/CharacterVirtual.h>
 
 #include "engine/physics/collision_layers.h"
 
@@ -52,6 +53,11 @@ struct Vertex {
 struct JoltBody
 {
     JPH::BodyID id;
+};
+
+struct JoltCharacter
+{
+	JPH::Ref<JPH::CharacterVirtual> character;
 };
 
 struct AABBCollider
