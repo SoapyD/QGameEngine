@@ -504,7 +504,7 @@ Level setupScene
     registry.emplace<MeshRenderer>(door, cubeMesh->getVAO(), 0u,
                                     litShader->getId(), gridOrange->getId(),
                                     true, cubeMesh->getIndexCount());
-    registry.emplace<Mover>(door, closedPos, openPos, 3.0f, 4.0f, 0.0f, 0.0f,
+    registry.emplace<Mover>(door, closedPos, openPos, 3.0f, 4.0f, 0.0f, 0.0f, 0.0f,
                               MoverState::Idle, true);
     registry.emplace<AABBCollider>(door, glm::vec3(0.1f, 1.5f, 2.0f), false);
 
@@ -528,23 +528,23 @@ Level setupScene
     registry.emplace<TagDebugWireframe>(debugDoor);
 
     // ─── Lift: rises when player steps on it ────────────────
-    // Position y=0.1 so the top face (y=0.2) sits just above the floor
+    // Position y=0.2 so the bottom (y=0.1) clears the floor body
     auto lift = registry.create();
-    glm::vec3 bottomPos(10.0f, 0.1f, 25.0f);
-    glm::vec3 topPos(10.0f, 4.1f, 25.0f);
+    glm::vec3 bottomPos(10.0f, 0.2f, 25.0f);
+    glm::vec3 topPos(10.0f, 4.2f, 25.0f);
 
     registry.emplace<Position>(lift, bottomPos);
     registry.emplace<Scale>(lift, glm::vec3(3.0f, 0.2f, 3.0f));
     registry.emplace<MeshRenderer>(lift, cubeMesh->getVAO(), 0u,
                                     litShader->getId(), gridGreen->getId(),
                                     true, cubeMesh->getIndexCount());
-    registry.emplace<Mover>(lift, bottomPos, topPos, 2.0f, 2.0f, 0.0f, 0.0f,
+    registry.emplace<Mover>(lift, bottomPos, topPos, 2.0f, 2.0f, 2.0f, 0.0f, 0.0f,
                               MoverState::Idle, true);
     registry.emplace<AABBCollider>(lift, glm::vec3(1.5f, 0.1f, 1.5f), false);
 
     // Trigger on the lift platform
     auto liftTrigger = registry.create();
-    registry.emplace<Position>(liftTrigger, glm::vec3(10.0f, 0.4f, 25.0f));
+    registry.emplace<Position>(liftTrigger, glm::vec3(10.0f, 0.5f, 25.0f));
     registry.emplace<AABBCollider>(liftTrigger, glm::vec3(1.5f, 0.3f, 1.5f), true);
     registry.emplace<TriggerVolume>(liftTrigger,
         TriggerAction::ActivateMover, lift,
@@ -552,7 +552,7 @@ Level setupScene
 
     // Debug wireframe for lift trigger
     auto debugLift = registry.create();
-    registry.emplace<Position>(debugLift, glm::vec3(10.0f, 0.4f, 25.0f));
+    registry.emplace<Position>(debugLift, glm::vec3(10.0f, 0.5f, 25.0f));
     registry.emplace<Scale>(debugLift, glm::vec3(3.0f, 0.6f, 3.0f));
     registry.emplace<MeshRenderer>(debugLift, cubeMesh->getVAO(), 0u,
                                     litShader->getId(), gridGreen->getId(),
