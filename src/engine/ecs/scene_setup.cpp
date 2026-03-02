@@ -30,8 +30,8 @@ void createLevelBodies(entt::registry& registry, const Level& level)
             {
                 if (surfMax[i] - surfMin[i] < 0.01f)
                 {
-                    surfMin[i] -= 0.05f;
-                    surfMax[i] += 0.05f;
+                    surfMin[i] -= 0.1f;
+                    surfMax[i] += 0.1f;
                 }
             }
 

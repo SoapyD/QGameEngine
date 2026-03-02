@@ -78,6 +78,8 @@ int main()
 
 	// create jolt bodies from the level geometry
 	createLevelBodies(registry, level);
+	std::cout << "Level bodies created for " << level.sectors.size() << " sectors" << std::endl;
+	std::cout << "Total Jolt bodies: " << joltWorld.physicsSystem->GetNumBodies() << std::endl;
 
 	joltWorld.physicsSystem->OptimizeBroadPhase();
 
@@ -92,7 +94,6 @@ int main()
 	auto triggerView = registry.view<Position, AABBCollider, TriggerVolume>();
 	for (auto [entity, pos, col, trigger] : triggerView.each())
 	{
-		auto& col = registry.get<AABBCollider>(entity);
 		if (col.isTrigger)
 		{
 			createSensorBody(registry, entity);
@@ -104,6 +105,7 @@ int main()
 
 	// Re-optimise broad phase after adding more bodies
 	joltWorld.physicsSystem->OptimizeBroadPhase();
+	std::cout << "Total Jolt bodies after all init: " << joltWorld.physicsSystem->GetNumBodies() << std::endl;
 
 	// ─── Game Loop ───────────────────────────────────────────────
 
