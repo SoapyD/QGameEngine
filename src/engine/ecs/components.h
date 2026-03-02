@@ -87,7 +87,7 @@ struct CharacterPhysics
 	float groundAcceleration = 10.0f;
 	float airAcceleration = 10.0f;
 	float jumpForce = 8.0f;
-	float stepHeight = 0.5f; // Max height of a step the player can walk up
+	float stepHeight = 1.5f; // Max height of a step the player can walk up
 };
 
 // ─── Weapon Components ────────────────────────────────────────────
@@ -169,6 +169,7 @@ struct Health
 enum class MoverState
 {
 	Idle, // at start position
+	StartDelay, // triggered, waiting before moving
 	Moving, // moving to end position
 	Waiting, // at end position, waiting before returning
 	Returning // moving back to start position
@@ -179,6 +180,7 @@ struct Mover {
 	glm::vec3 endPos; // where it ends (open position)
 	float speed = 2.0f; // units per second
 	float waitTime = 3.0f; // seconds to stay open
+	float startDelay = 0.0f; // delay before movement begins
 	float timer = 0.0f; // current time
 	float progress = 0.0f; //0.0 = start, 1.0 = end
 	MoverState state = MoverState::Idle;

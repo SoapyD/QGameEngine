@@ -1,0 +1,368 @@
+# QEngine — ECS Components Reference
+
+All components are plain data structs. No methods, no inheritance, no behaviour. Components live in `src/engine/ecs/components.h`.
+
+---
+
+## Spatial Components
+
+### `Position`
+```cpp
+struct Position {
+    glm::vec3 value = glm::vec3(0.0f);
+};
+```
+World-space position. Nearly every entity has one. Written by `playerCharacterSystem`, `joltSyncSystem`, `moverSystem`, `demoResetSystem`, `triggerSystem` (teleport).
+
+### `Rotation`
+```cpp
+struct Rotation {
+    glm::vec3 euler = glm::vec3(0.0f); // pitch, yaw, roll in degrees
+};
+```
+Euler angles. Currently unused by systems — reserved for future entity rotation.
+
+### `Scale`
+```cpp
+struct Scale {
+    glm::vec3 value = glm::vec3(1.0f);
+};
+```
+Multiplied into the model matrix by `renderSystem`. Used to size entities visually (e.g. shelf is `4x2x4`, lights are `0.2x0.2x0.2`).
+
+### `Velocity`
+```cpp
+struct Velocity {
+    glm::vec3 value = glm::vec3(0.0f);
+};
+```
+Used for initial velocity of dynamic bodies (passed to Jolt at body creation). Also zeroed by `triggerSystem` on teleport. `demoResetSystem` resets it to `startVelocity`.
+
+### `Vertex`
+```cpp
+struct Vertex {
+    glm::vec3 position = glm::vec3(0.0f);
+    glm::vec3 normal = glm::vec3(0.0f);
+    glm::vec2 texCoords = glm::vec2(0.0f);
+};
+```
+Mesh vertex data. Not an ECS component — used by the mesh/renderer layer.
+
+---
+
+## Physics Components
+
+### `JoltBody`
+```cpp
+struct JoltBody {
+    JPH::BodyID id;
+};
+```
+Links an ECS entity to a Jolt rigid body. The `id` is used to query position, velocity, and apply forces via `BodyInterface`. Created by `createDynamicBody`, `createKinematicBody`, `createStaticBody`, `createSensorBody`.
+
+**Used by:** `joltSyncSystem` (read position), `moverSyncSystem` (MoveKinematic), `demoResetSystem` (teleport body).
+
+### `JoltCharacter`
+```cpp
+struct JoltCharacter {
+    JPH::Ref<JPH::CharacterVirtual> character;
+};
+```
+Links the player entity to a Jolt `CharacterVirtual` controller. Created by `initPlayerCharacter`. The `character` ref is used to set velocity, call `ExtendedUpdate`, read position, and check ground state.
+
+**Used by:** `playerCharacterSystem` only.
+
+### `AABBCollider`
+```cpp
+struct AABBCollider {
+    glm::vec3 halfExtents = glm::vec3(0.5f);
+    bool isTrigger = false;
+    uint32_t layer = CollisionLayers::World;
+    uint32_t mask = CollisionLayers::All;
+};
+```
+Axis-aligned bounding box. `halfExtents` defines the box size from centre. `isTrigger` marks volumes that detect overlap without blocking. `layer` and `mask` are legacy collision layer bits from the old system — Jolt uses its own `ObjectLayer` system instead.
+
+**Used by:** `triggerSystem` (AABB overlap), `playerCharacterSystem` (capsule shape dimensions), Jolt body creation functions (box shape dimensions), `renderSystem` (camera eye height).
+
+### `Gravity`
+```cpp
+struct Gravity {
+    float strength = 20.0f;
+};
+```
+Legacy component from the old physics system. The player's gravity is now handled inside `playerCharacterSystem` (hardcoded `-20.0f * dt`). Dynamic bodies use Jolt's world gravity (`-20 m/s^2`). This component exists for compatibility but is not actively read by any current system.
+
+### `OnGround`
+```cpp
+struct OnGround {
+    bool value = false;
+};
+```
+Whether the entity is touching ground. For the player, set by `playerCharacterSystem` from `CharacterVirtual::GetGroundState()`. For dynamic bodies, set by `joltSyncSystem` using a velocity heuristic. Reset to `false` by `demoResetSystem`.
+
+### `CharacterPhysics`
+```cpp
+struct CharacterPhysics {
+    float groundFriction = 6.0f;
+    float airFriction = 0.1f;
+    float maxGroundSpeed = 7.0f;
+    float maxAirSpeed = 1.0f;
+    float groundAcceleration = 10.0f;
+    float airAcceleration = 10.0f;
+    float jumpForce = 8.0f;
+    float stepHeight = 1.5f;
+};
+```
+Tuning values for Quake-style movement. All values are read by `playerCharacterSystem`.
+
+| Field | Effect |
+|-------|--------|
+| `groundFriction` | How quickly the player decelerates on ground (higher = snappier stops) |
+| `airFriction` | Not currently used by `playerCharacterSystem` (air has no friction in Quake movement) |
+| `maxGroundSpeed` | Maximum horizontal speed on ground (units/second) |
+| `maxAirSpeed` | Air speed cap — kept at 1.0 to enable bunny hopping |
+| `groundAcceleration` | How quickly the player reaches max speed |
+| `airAcceleration` | Air control responsiveness |
+| `jumpForce` | Vertical velocity applied on jump |
+| `stepHeight` | Maximum height for automatic stair stepping (Jolt `ExtendedUpdate`) |
+
+---
+
+## Weapon Components
+
+### `WeaponType` (enum)
+```cpp
+enum class WeaponType {
+    Shotgun, SuperShotgun, Nailgun, RocketLauncher,
+    GrenadeLauncher, LighteningGun, Railgun
+};
+```
+
+### `FireMode` (enum)
+```cpp
+enum class FireMode { Hitscan, Projectile };
+```
+
+### `Weapon`
+```cpp
+struct Weapon {
+    WeaponType type;
+    FireMode fireMode;
+    float damage = 10.0f;
+    float fireRate = 0.5f;
+    float cooldownRemaining = 0.0f;
+    float range = 1000.0f;
+    float spread = 0.0f;
+    int pelletCount = 1;
+    float projectileSpeed = 0.0f;
+    float splashRadius = 0.0f;
+    float splashDamage = 0.0f;
+    int ammoPerShot = 1;
+};
+```
+Weapon stats. Created by `createWeapon()` in `weapon_definitions.h`. Used by `combatSystem`.
+
+### `WeaponInventory`
+```cpp
+struct WeaponInventory {
+    std::vector<Weapon> weapons;
+    int currentWeapon = 0;
+};
+```
+**Used by:** `weaponSwitchSystem` (write `currentWeapon`), `combatSystem` (read current weapon stats), `debugHudSystem` (display).
+
+### `Ammo`
+```cpp
+struct Ammo {
+    int shells = 0;
+    int nails = 0;
+    int rockets = 0;
+    int cells = 0;
+};
+```
+**Used by:** `combatSystem` (decrement on fire), `debugHudSystem` (display).
+
+### `Projectile`
+```cpp
+struct Projectile {
+    float damage;
+    float splashRadius;
+    float splashDamage;
+    entt::entity owner = entt::null;
+};
+```
+Attached to projectile entities spawned by `combatSystem`. Used for hit detection and splash damage calculation.
+
+---
+
+## State Components
+
+### `Health`
+```cpp
+struct Health {
+    float current;
+    float max;
+};
+```
+**Used by:** `triggerSystem` (damage/heal), `combatSystem` (damage), `debugHudSystem` (display).
+
+### `MoverState` (enum)
+```cpp
+enum class MoverState {
+    Idle, StartDelay, Moving, Waiting, Returning
+};
+```
+
+### `Mover`
+```cpp
+struct Mover {
+    glm::vec3 startPos;
+    glm::vec3 endPos;
+    float speed = 2.0f;
+    float waitTime = 3.0f;
+    float startDelay = 0.0f;
+    float timer = 0.0f;
+    float progress = 0.0f;
+    MoverState state = MoverState::Idle;
+    bool requiresTrigger = true;
+};
+```
+Drives doors and lifts through a position interpolation state machine.
+
+| Field | Purpose |
+|-------|---------|
+| `startPos` / `endPos` | Start and end positions for the movement |
+| `speed` | Units per second |
+| `waitTime` | Seconds to stay at `endPos` before returning |
+| `startDelay` | Seconds to wait after trigger before starting to move |
+| `timer` | Shared countdown used by `StartDelay` and `Waiting` states |
+| `progress` | 0.0 (at start) to 1.0 (at end) — drives `glm::mix` |
+| `state` | Current state machine state |
+| `requiresTrigger` | If true, stays `Idle` until a `TriggerVolume` activates it |
+
+**Used by:** `moverSystem` (state machine), `moverSyncSystem` (view filter), `triggerSystem` (activate).
+
+### `TriggerAction` (enum)
+```cpp
+enum class TriggerAction {
+    ActivateMover, Teleport, Damage, Heal, ChangeLevel, Message
+};
+```
+
+### `TriggerVolume`
+```cpp
+struct TriggerVolume {
+    TriggerAction action = TriggerAction::ActivateMover;
+    entt::entity target = entt::null;
+    glm::vec3 destination;
+    float value = 0.0f;
+    std::string message;
+    bool onlyOnce = false;
+    bool triggered = false;
+    float cooldown = 0.0f;
+    float cooldownTimer = 0.0f;
+};
+```
+**Used by:** `triggerSystem` only.
+
+### `Lifetime`
+```cpp
+struct Lifetime {
+    float remaining = 5.0f;
+};
+```
+Auto-destroys the entity when `remaining` reaches 0. **Used by:** `lifetimeSystem`.
+
+### `DemoReset`
+```cpp
+struct DemoReset {
+    glm::vec3 startPosition;
+    glm::vec3 startVelocity = glm::vec3(0.0f);
+    float interval = 5.0f;
+    float timer = 0.0f;
+};
+```
+Periodically resets demo entities to their starting state. **Used by:** `demoResetSystem`.
+
+---
+
+## Rendering Components
+
+### `MeshRenderer`
+```cpp
+struct MeshRenderer {
+    unsigned int vao = 0;
+    unsigned int vertexCount = 0;
+    unsigned int shaderId = 0;
+    unsigned int textureId = 0;
+    bool useIndices = false;
+    unsigned int indexCount = 0;
+};
+```
+Everything `renderSystem` needs to draw an entity. Stores OpenGL handles (VAO, shader program ID, texture ID). Most entities use indexed drawing (`useIndices = true`).
+
+### `Colour`
+```cpp
+struct Colour {
+    glm::vec4 value = glm::vec4(1.0f);
+};
+```
+Optional RGBA tint. Read by `renderSystem` if present. Default white = no tint.
+
+---
+
+## Lighting Components
+
+### `DirectionalLight`
+```cpp
+struct DirectionalLight {
+    glm::vec3 direction = glm::vec3(-0.2f, -1.0f, -0.3f);
+    glm::vec3 color = glm::vec3(1.0f);
+    float ambientStrength = 0.1f;
+};
+```
+Global sun light. Read by `renderSystem`.
+
+### `PointLight`
+```cpp
+struct PointLight {
+    glm::vec3 color = glm::vec3(1.0f);
+    float ambientStrength = 0.05f;
+    float linear = 0.09f;
+    float quadratic = 0.032f;
+};
+```
+Positional light with attenuation. Paired with a `Position` component. Read by `renderSystem`. `linear` and `quadratic` control falloff.
+
+---
+
+## Tags
+
+Tags are empty structs that mark entities without adding data. Used as view filters.
+
+### `TagPlayer`
+```cpp
+struct TagPlayer {};
+```
+Marks the player entity. Used by `triggerSystem` (only check player overlap), `debugHudSystem` (display player stats), `renderSystem` (camera follow).
+
+### `TagDebugWireframe`
+```cpp
+struct TagDebugWireframe {};
+```
+Marks entities that should render in wireframe mode (`GL_LINE`). Used for trigger volume debug visualisation.
+
+---
+
+## Registry Context Objects
+
+These are singletons stored in `registry.ctx()`, not attached to entities.
+
+| Type | Purpose | Set by | Read by |
+|------|---------|--------|---------|
+| `PhysicsConfig` | `fixedDeltaTime`, `terminalVelocity` | `main.cpp` (init) | Most systems |
+| `JoltWorld` | Jolt `PhysicsSystem`, allocator, job system | `main.cpp` (init) | Physics systems |
+| `HudConfig` | HUD shader ID | `main.cpp` (init) | `debugHudSystem` |
+| `CombatResources` | VAO, shader, texture IDs for projectile/tracer spawning | `setupScene` | `combatSystem` |
+| `glm::vec3` | Camera front direction (for weapon firing) | `main.cpp` (each frame) | `combatSystem` |
