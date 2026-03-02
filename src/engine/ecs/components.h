@@ -87,7 +87,7 @@ struct CharacterPhysics
 	float groundAcceleration = 10.0f;
 	float airAcceleration = 10.0f;
 	float jumpForce = 8.0f;
-	float stepHeight = 0.5f; // Max height of a step the player can walk up
+	float stepHeight = 1.5f; // Max height of a step the player can walk up
 };
 
 // ─── Weapon Components ────────────────────────────────────────────
