@@ -9,7 +9,8 @@
 #include "engine/ecs/systems/debug_hud_system.h"
 #include "engine/ecs/systems/jolt_sync_system.h"
 #include "engine/ecs/systems/lifetime_system.h"
-#include "engine/ecs/systems/player_movement_system.h"
+#include "engine/ecs/systems/player_character_system.h"
+#include "engine/ecs/systems/mover_sync_system.h"
 #include "engine/ecs/systems/mover_system.h"
 #include "engine/ecs/systems/render_system.h"
 #include "engine/ecs/systems/trigger_system.h"
@@ -77,8 +78,34 @@ int main()
 
 	// create jolt bodies from the level geometry
 	createLevelBodies(registry, level);
+	std::cout << "Level bodies created for " << level.sectors.size() << " sectors" << std::endl;
+	std::cout << "Total Jolt bodies: " << joltWorld.physicsSystem->GetNumBodies() << std::endl;
 
 	joltWorld.physicsSystem->OptimizeBroadPhase();
+
+	// Create Jolt bodies for movers (lifts, doors)
+	auto moverView = registry.view<Position, AABBCollider, Mover>();
+	for (auto [entity, pos, col, mover] : moverView.each())
+	{
+		createKinematicBody(registry, entity);
+	}
+
+	// Create sensor bodies for triggers
+	auto triggerView = registry.view<Position, AABBCollider, TriggerVolume>();
+	for (auto [entity, pos, col, trigger] : triggerView.each())
+	{
+		if (col.isTrigger)
+		{
+			createSensorBody(registry, entity);
+		}
+	}
+
+	// Initialise the player's CharacterVirtual
+	initPlayerCharacter(registry);
+
+	// Re-optimise broad phase after adding more bodies
+	joltWorld.physicsSystem->OptimizeBroadPhase();
+	std::cout << "Total Jolt bodies after all init: " << joltWorld.physicsSystem->GetNumBodies() << std::endl;
 
 	// ─── Game Loop ───────────────────────────────────────────────
 
@@ -158,9 +185,10 @@ int main()
 		while (fixedTimestep.step())
 		{
 			weaponSwitchSystem(registry);
-			playerMovementSystem(registry);
+			playerCharacterSystem(registry);
 			// velocity  
 			moverSystem(registry);                         // update doors, lifts
+			moverSyncSystem(registry);
 			joltWorld.step(physicsConfig.fixedDeltaTime);
 			joltSyncSystem(registry);
 			// positions

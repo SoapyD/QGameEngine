@@ -17,6 +17,17 @@ void moverSystem(entt::registry& registry)
 			// sitting at start position, waiting to be triggered
 			break;
 
+			case MoverState::StartDelay:
+			{
+				// triggered, counting down before moving
+				mover.timer -= dt;
+				if (mover.timer <= 0.0f)
+				{
+					mover.state = MoverState::Moving;
+				}
+				break;
+			}
+
 			case MoverState::Moving:
 			{
 				// move toward end position

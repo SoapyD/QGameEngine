@@ -46,7 +46,15 @@ void triggerSystem(entt::registry& registry)
 						auto& mover = registry.get<Mover>(trigger.target);
 						if (mover.state == MoverState::Idle)
 						{
-							mover.state = MoverState::Moving;
+							if (mover.startDelay > 0.0f)
+							{
+								mover.state = MoverState::StartDelay;
+								mover.timer = mover.startDelay;
+							}
+							else
+							{
+								mover.state = MoverState::Moving;
+							}
 						}
 					}
 					break;

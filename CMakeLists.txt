@@ -70,7 +70,8 @@ add_executable(QEngine
 	src/engine/ecs/systems/demo_reset_system.cpp
 	src/engine/ecs/systems/lifetime_system.cpp
 	src/engine/ecs/systems/jolt_sync_system.cpp
-	src/engine/ecs/systems/player_movement_system.cpp
+	src/engine/ecs/systems/player_character_system.cpp
+	src/engine/ecs/systems/mover_sync_system.cpp
 	src/engine/ecs/systems/mover_system.cpp
 	src/engine/ecs/systems/render_system.cpp
 	src/engine/ecs/systems/trigger_system.cpp

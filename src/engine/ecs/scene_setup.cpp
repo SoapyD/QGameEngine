@@ -30,8 +30,8 @@ void createLevelBodies(entt::registry& registry, const Level& level)
             {
                 if (surfMax[i] - surfMin[i] < 0.01f)
                 {
-                    surfMin[i] -= 0.05f;
-                    surfMax[i] += 0.05f;
+                    surfMin[i] -= 0.1f;
+                    surfMax[i] += 0.1f;
                 }
             }
 
@@ -94,6 +94,94 @@ void createDynamicBody(entt::registry& registry, entt::entity entity)
 
     JPH::BodyID bodyId = bodyInterface.CreateAndAddBody(
         bodySettings, JPH::EActivation::Activate
+    );
+
+    registry.emplace<JoltBody>(entity, bodyId);
+}
+
+void createKinematicBody(entt::registry& registry, entt::entity entity)
+{
+    auto& jolt = registry.ctx().get<JoltWorld>();
+    auto& bodyInterface = jolt.getBodyInterface();
+    auto& pos = registry.get<Position>(entity);
+    auto& col = registry.get<AABBCollider>(entity);
+
+    JPH::BoxShapeSettings shapeSettings(
+        JPH::Vec3(col.halfExtents.x, col.halfExtents.y, col.halfExtents.z)
+    );
+    shapeSettings.SetEmbedded();
+
+    auto shapeResult = shapeSettings.Create();
+
+    JPH::BodyCreationSettings bodySettings(
+        shapeResult.Get(),
+        JPH::RVec3(pos.value.x, pos.value.y, pos.value.z),
+        JPH::Quat::sIdentity(),
+        JPH::EMotionType::Kinematic,
+        Layers::MOVING
+    );
+
+    JPH::BodyID bodyId = bodyInterface.CreateAndAddBody(
+        bodySettings, JPH::EActivation::Activate
+    );
+
+    registry.emplace<JoltBody>(entity, bodyId);
+}
+
+void createStaticBody(entt::registry& registry, entt::entity entity)
+{
+    auto& jolt = registry.ctx().get<JoltWorld>();
+    auto& bodyInterface = jolt.getBodyInterface();
+    auto& pos = registry.get<Position>(entity);
+    auto& col = registry.get<AABBCollider>(entity);
+
+    JPH::BoxShapeSettings shapeSettings(
+        JPH::Vec3(col.halfExtents.x, col.halfExtents.y, col.halfExtents.z)
+    );
+    shapeSettings.SetEmbedded();
+
+    auto shapeResult = shapeSettings.Create();
+
+    JPH::BodyCreationSettings bodySettings(
+        shapeResult.Get(),
+        JPH::RVec3(pos.value.x, pos.value.y, pos.value.z),
+        JPH::Quat::sIdentity(),
+        JPH::EMotionType::Static,
+        Layers::NON_MOVING
+    );
+
+    JPH::BodyID bodyId = bodyInterface.CreateAndAddBody(
+        bodySettings, JPH::EActivation::DontActivate
+    );
+
+    registry.emplace<JoltBody>(entity, bodyId);
+}
+
+void createSensorBody(entt::registry& registry, entt::entity entity)
+{
+    auto& jolt = registry.ctx().get<JoltWorld>();
+    auto& bodyInterface = jolt.getBodyInterface();
+    auto& pos = registry.get<Position>(entity);
+    auto& col = registry.get<AABBCollider>(entity);
+
+    JPH::BoxShapeSettings shapeSettings(
+        JPH::Vec3(col.halfExtents.x, col.halfExtents.y, col.halfExtents.z)
+    );
+    shapeSettings.SetEmbedded();
+
+    auto shapeResult = shapeSettings.Create();
+
+    JPH::BodyCreationSettings bodySettings(
+        shapeResult.Get(),
+        JPH::RVec3(pos.value.x, pos.value.y, pos.value.z),
+        JPH::Quat::sIdentity(),
+        JPH::EMotionType::Static,
+        Layers::SENSOR
+    );
+    bodySettings.mIsSensor = true;
+
+    JPH::BodyID bodyId = bodyInterface.CreateAndAddBody(
+        bodySettings, JPH::EActivation::DontActivate
     );
 
     registry.emplace<JoltBody>(entity, bodyId);
@@ -331,11 +419,12 @@ Level setupScene
         litShader->getId(), gridBlue->getId(),
         true, cubeMesh->getIndexCount()
     );
+    createStaticBody(registry, shelf);
 
     // Cube 1: on the shelf, nudged off the edge → falls to floor
     {
-        glm::vec3 startPos(20.0f, 2.5f, 5.0f);
-        glm::vec3 startVel(-0.5f, 0.0f, 0.0f);
+        glm::vec3 startPos(20.5f, 4.0f, 5.0f);
+        glm::vec3 startVel(-6.0f, 0.0f, 0.0f);
 
         auto cube = registry.create();
         registry.emplace<Position>(cube, startPos);
@@ -415,7 +504,7 @@ Level setupScene
     registry.emplace<MeshRenderer>(door, cubeMesh->getVAO(), 0u,
                                     litShader->getId(), gridOrange->getId(),
                                     true, cubeMesh->getIndexCount());
-    registry.emplace<Mover>(door, closedPos, openPos, 3.0f, 4.0f, 0.0f, 0.0f,
+    registry.emplace<Mover>(door, closedPos, openPos, 3.0f, 4.0f, 0.0f, 0.0f, 0.0f,
                               MoverState::Idle, true);
     registry.emplace<AABBCollider>(door, glm::vec3(0.1f, 1.5f, 2.0f), false);
 
@@ -439,23 +528,23 @@ Level setupScene
     registry.emplace<TagDebugWireframe>(debugDoor);
 
     // ─── Lift: rises when player steps on it ────────────────
-    // Position y=0.1 so the top face (y=0.2) sits just above the floor
+    // Position y=0.2 so the bottom (y=0.1) clears the floor body
     auto lift = registry.create();
-    glm::vec3 bottomPos(10.0f, 0.1f, 25.0f);
-    glm::vec3 topPos(10.0f, 4.1f, 25.0f);
+    glm::vec3 bottomPos(10.0f, 0.2f, 25.0f);
+    glm::vec3 topPos(10.0f, 4.2f, 25.0f);
 
     registry.emplace<Position>(lift, bottomPos);
     registry.emplace<Scale>(lift, glm::vec3(3.0f, 0.2f, 3.0f));
     registry.emplace<MeshRenderer>(lift, cubeMesh->getVAO(), 0u,
                                     litShader->getId(), gridGreen->getId(),
                                     true, cubeMesh->getIndexCount());
-    registry.emplace<Mover>(lift, bottomPos, topPos, 2.0f, 2.0f, 0.0f, 0.0f,
+    registry.emplace<Mover>(lift, bottomPos, topPos, 2.0f, 2.0f, 2.0f, 0.0f, 0.0f,
                               MoverState::Idle, true);
     registry.emplace<AABBCollider>(lift, glm::vec3(1.5f, 0.1f, 1.5f), false);
 
     // Trigger on the lift platform
     auto liftTrigger = registry.create();
-    registry.emplace<Position>(liftTrigger, glm::vec3(10.0f, 0.4f, 25.0f));
+    registry.emplace<Position>(liftTrigger, glm::vec3(10.0f, 0.5f, 25.0f));
     registry.emplace<AABBCollider>(liftTrigger, glm::vec3(1.5f, 0.3f, 1.5f), true);
     registry.emplace<TriggerVolume>(liftTrigger,
         TriggerAction::ActivateMover, lift,
@@ -463,7 +552,7 @@ Level setupScene
 
     // Debug wireframe for lift trigger
     auto debugLift = registry.create();
-    registry.emplace<Position>(debugLift, glm::vec3(10.0f, 0.4f, 25.0f));
+    registry.emplace<Position>(debugLift, glm::vec3(10.0f, 0.5f, 25.0f));
     registry.emplace<Scale>(debugLift, glm::vec3(3.0f, 0.6f, 3.0f));
     registry.emplace<MeshRenderer>(debugLift, cubeMesh->getVAO(), 0u,
                                     litShader->getId(), gridGreen->getId(),
