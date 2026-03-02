@@ -3,6 +3,7 @@
 #include "engine/core/resource_manager.h"
 #include "engine/core/fixed_timestep.h"
 #include "engine/ecs/components.h"
+#include "engine/ecs/jolt_body_helpers.h"
 #include "engine/ecs/scene_setup.h"
 #include "engine/ecs/systems/combat_system.h"
 #include "engine/ecs/systems/demo_reset_system.h"
@@ -78,8 +79,6 @@ int main()
 
 	// create jolt bodies from the level geometry
 	createLevelBodies(registry, level);
-	std::cout << "Level bodies created for " << level.sectors.size() << " sectors" << std::endl;
-	std::cout << "Total Jolt bodies: " << joltWorld.physicsSystem->GetNumBodies() << std::endl;
 
 	joltWorld.physicsSystem->OptimizeBroadPhase();
 
@@ -105,7 +104,6 @@ int main()
 
 	// Re-optimise broad phase after adding more bodies
 	joltWorld.physicsSystem->OptimizeBroadPhase();
-	std::cout << "Total Jolt bodies after all init: " << joltWorld.physicsSystem->GetNumBodies() << std::endl;
 
 	// ─── Game Loop ───────────────────────────────────────────────
 
