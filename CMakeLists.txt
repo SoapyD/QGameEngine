@@ -64,7 +64,9 @@ add_executable(QEngine
 	src/engine/core/input_manager.cpp
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
+	src/engine/ecs/jolt_body_helpers.cpp
 	src/engine/ecs/scene_setup.cpp
+	src/engine/ecs/showcase_level.cpp
 	src/engine/ecs/systems/combat_system.cpp
 	src/engine/ecs/systems/debug_hud_system.cpp
 	src/engine/ecs/systems/demo_reset_system.cpp

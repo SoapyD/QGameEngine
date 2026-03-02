@@ -13,8 +13,3 @@ Level setupScene
 	entt::registry& registry,
 	const ResourceManager& resources
 );
-
-void createLevelBodies(entt::registry& registry, const Level& level);
-void createDynamicBody(entt::registry& registry, entt::entity entity);
-void createKinematicBody(entt::registry& registry, entt::entity entity);
-void createSensorBody(entt::registry& registry, entt::entity entity);
