@@ -128,6 +128,35 @@ void createKinematicBody(entt::registry& registry, entt::entity entity)
     registry.emplace<JoltBody>(entity, bodyId);
 }
 
+void createStaticBody(entt::registry& registry, entt::entity entity)
+{
+    auto& jolt = registry.ctx().get<JoltWorld>();
+    auto& bodyInterface = jolt.getBodyInterface();
+    auto& pos = registry.get<Position>(entity);
+    auto& col = registry.get<AABBCollider>(entity);
+
+    JPH::BoxShapeSettings shapeSettings(
+        JPH::Vec3(col.halfExtents.x, col.halfExtents.y, col.halfExtents.z)
+    );
+    shapeSettings.SetEmbedded();
+
+    auto shapeResult = shapeSettings.Create();
+
+    JPH::BodyCreationSettings bodySettings(
+        shapeResult.Get(),
+        JPH::RVec3(pos.value.x, pos.value.y, pos.value.z),
+        JPH::Quat::sIdentity(),
+        JPH::EMotionType::Static,
+        Layers::NON_MOVING
+    );
+
+    JPH::BodyID bodyId = bodyInterface.CreateAndAddBody(
+        bodySettings, JPH::EActivation::DontActivate
+    );
+
+    registry.emplace<JoltBody>(entity, bodyId);
+}
+
 void createSensorBody(entt::registry& registry, entt::entity entity)
 {
     auto& jolt = registry.ctx().get<JoltWorld>();
@@ -390,11 +419,12 @@ Level setupScene
         litShader->getId(), gridBlue->getId(),
         true, cubeMesh->getIndexCount()
     );
+    createStaticBody(registry, shelf);
 
     // Cube 1: on the shelf, nudged off the edge → falls to floor
     {
-        glm::vec3 startPos(20.0f, 2.5f, 5.0f);
-        glm::vec3 startVel(-0.5f, 0.0f, 0.0f);
+        glm::vec3 startPos(20.5f, 4.0f, 5.0f);
+        glm::vec3 startVel(-6.0f, 0.0f, 0.0f);
 
         auto cube = registry.create();
         registry.emplace<Position>(cube, startPos);
