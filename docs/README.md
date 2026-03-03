@@ -13,13 +13,20 @@ Reference documentation for the QEngine codebase. Updated through Chapter 15d.
 | [JOLT_PHYSICS.md](JOLT_PHYSICS.md) | Jolt integration — body types, layers, CharacterVirtual, body helpers |
 | [SCENE_SETUP.md](SCENE_SETUP.md) | How the showcase scene is built — entities, lighting, physics demos, triggers |
 
+## Diagrams
+
+| File | Description |
+|------|-------------|
+| [ECS Architecture (PNG)](images/ecs_architecture.png) | Visual diagram of all systems, components, helpers, and data flow |
+| [ECS Architecture (SVG)](images/ecs_architecture.svg) | Same diagram, scalable vector format |
+| [ECS Architecture (DOT)](images/ecs_architecture.dot) | Graphviz source file |
+
 ## Roadmaps
 
 | Document | Description |
 |----------|-------------|
-| [ROADMAP.md](ROADMAP.md) | Master chapter plan (Phases 1-6) |
-| [ROADMAP_SHOWCASE.md](ROADMAP_SHOWCASE.md) | Showcase/test object chapters (16-20) |
-| [ROADMAP_TRENCHBROOM.md](ROADMAP_TRENCHBROOM.md) | TrenchBroom integration chapters (21-25) |
+| [ROADMAP.md](ROADMAP.md) | Master chapter plan (Phases 1-5, Chapters 0-20) |
+| [ROADMAP_TRENCHBROOM.md](ROADMAP_TRENCHBROOM.md) | TrenchBroom integration details (Chapters 17-20) |
 | [ROADMAP_CLEANUP.md](ROADMAP_CLEANUP.md) | Cleanup and polish tasks |
 | [ROADMAP_NICE_TO_HAVES.md](ROADMAP_NICE_TO_HAVES.md) | Optional future features |
 

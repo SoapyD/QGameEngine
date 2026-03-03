@@ -137,6 +137,17 @@ void playerCharacterSystem(entt::registry& registry)
 			desiredVel += JPH::Vec3(0.0f, -20.0f * dt, 0.0f);
 		}
 
+		// ─── Apply pending knockback ────────────────────────
+		if (registry.all_of<PendingKnockback>(entity))
+		{
+			auto& kb = registry.get<PendingKnockback>(entity);
+			if (kb.impulse.x != 0.0f || kb.impulse.y != 0.0f || kb.impulse.z != 0.0f)
+			{
+				desiredVel += JPH::Vec3(kb.impulse.x, kb.impulse.y, kb.impulse.z);
+				kb.impulse = glm::vec3(0.0f);  // consumed
+			}
+		}
+
 		character->SetLinearVelocity(desiredVel);
 
         // ─── Step the character ─────────────────────────────────

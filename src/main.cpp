@@ -11,6 +11,7 @@
 #include "engine/ecs/systems/jolt_sync_system.h"
 #include "engine/ecs/systems/lifetime_system.h"
 #include "engine/ecs/systems/player_character_system.h"
+#include "engine/ecs/systems/player_death_system.h"
 #include "engine/ecs/systems/mover_sync_system.h"
 #include "engine/ecs/systems/mover_system.h"
 #include "engine/ecs/systems/render_system.h"
@@ -193,6 +194,7 @@ int main()
 			combatSystem(registry, level);
 			lifetimeSystem(registry);
 			triggerSystem(registry);                       // detect trigger overlaps (after final position)
+			playerDeathSystem(registry);
 			demoResetSystem(registry);
 		}
 

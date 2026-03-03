@@ -53,13 +53,12 @@ Detailed technical documentation lives in [`docs/`](docs/README.md):
 
 ## Tutorial Series
 
-This engine is built incrementally across a tutorial series (Chapters 0-25). Tutorials live separately from the codebase. Current progress: Chapters 0-15d complete.
+This engine is built incrementally across a tutorial series (Chapters 0-20). Tutorials live separately from the codebase. Current progress: Chapters 0-15d complete.
 
 | Phase | Chapters | Focus |
 |-------|----------|-------|
-| 1. Foundation | 0-5 | Window, shaders, ECS, camera, textures |
-| 2. World Building | 6-8 | Mesh loading, lighting, level geometry |
-| 3. Physics | 9-10 | Collision detection, movement, game loop |
-| 4. Gameplay | 11-13 | Doors/lifts/triggers, weapons, player body |
-| 5. Jolt Physics | 14-15 | Physics engine integration, character controller |
-| 6. Content | 16-25 | Gameplay content, TrenchBroom integration |
+| 1. Foundation | 0-3 | Window, shaders, ECS |
+| 2. 3D Rendering | 4-7 | Camera, textures, mesh loading, lighting |
+| 3. Game World | 8-11 | Level geometry, collision, physics, triggers |
+| 4. Player & Gameplay | 12-15 | Weapons, player body, Jolt Physics integration |
+| 5. TrenchBroom | 16-20 | Gameplay polish, .map parser, entity mapping, brush collision, editor workflow |

@@ -76,8 +76,25 @@ void triggerSystem(entt::registry& registry)
 					if (registry.all_of<Health>(entity))
 					{
 						auto& health = registry.get<Health>(entity);
-						health.current -= trigger.value * dt;
-						if (health.current < 0.0f) health.current = 0.0f;
+						if (health.invulnerableTimer <= 0.0f)
+						{
+							float before = health.current;
+							health.current -= trigger.value * dt;
+							if (health.current < 0.0f) health.current = 0.0f;
+						
+							// trigger damage flash if health actually decreated
+							if (health.current < before && registry.all_of<DamageFlash>(entity))
+							{
+								auto& flash = registry.get<DamageFlash>(entity);
+								flash.timer = flash.duration;
+							}
+
+							// Knockback: push player upward out of lava
+							if (health.current < before && registry.all_of<PendingKnockback>(entity))
+							{
+								registry.get<PendingKnockback>(entity).impulse += glm::vec3(0.0f, 1.0f, 0.0f);
+							}
+						}
 
 					}
 					break;

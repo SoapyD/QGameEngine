@@ -4,8 +4,9 @@
 out vec4 FragColor;
 
 uniform vec3 textColor;
+uniform float alpha;
 
 void main()
 {
-	FragColor = vec4(textColor, 1.0); // RGC from vertex, alpha = 1.0 (opaque)
+	FragColor = vec4(textColor, alpha); // RGC from vertex, alpha = 1.0 (opaque)
 }

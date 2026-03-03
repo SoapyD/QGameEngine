@@ -3,6 +3,7 @@
 #include "engine/physics/raycast.h"
 #include "engine/physics/aabb.h"
 #include "engine/physics/physics_config.h"
+#include "engine/physics/jolt_world.h"
 #include <random>
 #include <iostream>
 
@@ -129,8 +130,19 @@ void applySplashDamage
 		// Linear falloff: full damage at center, zero at edge
 		float scale = 1.0f - (distance / radius);
 		float damage = maxDamage * scale;
-		health.current -= damage;
-		if (health.current < 0.0f) health.current = 0.0f;
+		if (health.invulnerableTimer <= 0.0f)
+		{
+			float before = health.current;
+			health.current -= damage;
+			if (health.current < 0.0f) health.current = 0.0f;
+
+			// trigger damage flash if health actually decreated
+			if (health.current < before && registry.all_of<DamageFlash>(entity))
+			{
+				auto& flash = registry.get<DamageFlash>(entity);
+				flash.timer = flash.duration;
+			}
+		}
 
 		// knockback - push entity away from explosion
 		if (registry.all_of<Velocity>(entity))
@@ -139,6 +151,29 @@ void applySplashDamage
 			float knockback = damage *  0.5f;
 			registry.get<Velocity>(entity).value += pushDir * knockback;
 		}
+	}
+
+	// push Jolt bodies away from explosion (even without Health)
+	auto joltView = registry.view<Position, JoltBody>();
+	for (auto [entity, pos, joltBody] : joltView.each())
+	{
+		if (entity == ignore) continue;
+
+		float distance = glm::length(pos.value - center);
+		if (distance > radius) continue;
+
+		float scale = 1.0f - (distance / radius);
+		glm::vec3 pushDir = (distance > 0.01f)
+			? glm::normalize(pos.value - center)
+			: glm::vec3(0.0f, 1.0f, 0.0f);
+		float knockback = maxDamage * scale * 2.0f;
+
+		auto& jolt = registry.ctx().get<JoltWorld>();
+		jolt.getBodyInterface().AddImpulse
+		(
+			joltBody.id,
+			JPH::Vec3(pushDir.x * knockback, pushDir.y * knockback, pushDir.z * knockback)
+		);
 	}
 }
 
@@ -200,8 +235,26 @@ void fireHitscan
 			if (registry.all_of<Health>(entityHit->entity))
 			{
 				auto& health = registry.get<Health>(entityHit->entity);
-				health.current -= weapon.damage;
-				if (health.current < 0.0f) health.current = 0.0f;  // NEW
+				if (health.invulnerableTimer <= 0.0f)
+				{
+					float before = health.current;
+					health.current -= weapon.damage;
+					if (health.current < 0.0f) health.current = 0.0f;  // NEW
+				
+					// trigger damage flash if health actually decreated
+					if (health.current < before && registry.all_of<DamageFlash>(entityHit->entity))
+					{
+						auto& flash = registry.get<DamageFlash>(entityHit->entity);
+						flash.timer = flash.duration;
+					}
+
+					// Knockback: push target in the direction of the shot
+					if (health.current < before && registry.all_of<PendingKnockback>(entityHit->entity))
+					{
+						glm::vec3 knockDir = glm::normalize(direction);
+						registry.get<PendingKnockback>(entityHit->entity).impulse += knockDir * 1.0f;
+					}
+				}
 			}
 		}
 		else
@@ -346,12 +399,15 @@ void combatSystem
 		weapon.cooldownRemaining = weapon.fireRate;
 	 }
 
-	// ─── Projectile collision ────────────────────────────────────
+	// ─── Projectile movement & collision ─────────────────────────
 	auto projView = registry.view<Position, Velocity, AABBCollider, Projectile>();
 	std::vector<entt::entity> toDestroy;
 
 	for (auto [projEntity, pos, vel, col, proj] : projView.each())
 	{
+		// move projectile (no Jolt body — simple velocity integration)
+		pos.value += vel.value * dt;
+
 		AABB projBox = AABB::fromCentreSize(pos.value, col.halfExtents);
 
 		// check against ALL colliders (not just entities with Health)
@@ -369,8 +425,40 @@ void combatSystem
 				if (registry.all_of<Health>(target))
 				{
 					auto& health = registry.get<Health>(target);
-					health.current -= proj.damage;
-					if (health.current < 0.0f) health.current = 0.0f;  // NEW
+					if (health.invulnerableTimer <= 0.0f)
+					{
+						float before = health.current;
+						health.current -= proj.damage;
+						if (health.current < 0.0f) health.current = 0.0f;  // NEW
+					
+						// trigger damage flash if health actually decreated
+						if (health.current < before && registry.all_of<DamageFlash>(target))
+						{
+							auto& flash = registry.get<DamageFlash>(target);
+							flash.timer = flash.duration;
+						}
+
+						// Knockback: push target away from projectile
+						if (health.current < before && registry.all_of<PendingKnockback>(target))
+						{
+							glm::vec3 knockDir = glm::normalize(vel.value);
+							registry.get<PendingKnockback>(target).impulse += knockDir * 1.6f;
+						}
+					}
+				}
+
+				// push Jolt bodies on impact
+				if (registry.all_of<JoltBody>(target))
+				{
+					auto& joltBody = registry.get<JoltBody>(target);
+					auto& jolt = registry.ctx().get<JoltWorld>();
+					glm::vec3 dir = glm::normalize(vel.value);
+					float impulseMag = proj.damage * 2.0f;
+					jolt.getBodyInterface().AddImpulse
+					(
+						joltBody.id,
+						JPH::Vec3(dir.x * impulseMag, dir.y * impulseMag, dir.z * impulseMag)
+					);
 				}
 
 				// splash damage — hurt nearby entities too

@@ -403,20 +403,21 @@ This is complex but the map still works without it — just less optimised.
 ## Phased Implementation Order
 
 ```
-Phase 1: .map parser + brush-to-mesh conversion
+Ch 16: Gameplay polish (crosshair, HUD, death/respawn, damage feedback)
+    → Core gameplay loop is complete
+
+Ch 17: .map parser + brush-to-mesh conversion  (Phase 1)
     → You can load and render a TrenchBroom map
 
-Phase 2: Entity mapping + FGD file
+Ch 18: Entity mapping + FGD file  (Phase 2)
     → Enemies, items, lights spawn from the map file
 
-Phase 3: Brush collision
+Ch 19: Brush collision  (Phase 3)
     → Player collides with brush geometry
 
-Phase 4: TrenchBroom game config
+Ch 20: TrenchBroom config + final level  (Phase 4)
     → TrenchBroom shows QEngine textures and entities natively
-
-Phase 5: Advanced (optional)
-    → Lightmaps, detail brushes, compilation
+    → Complete playable level authored in TrenchBroom
 ```
 
-Each phase is self-contained. After Phase 3, you have a fully playable game with TrenchBroom-authored levels. Phase 4 is quality-of-life. Phase 5 is optimisation.
+Each chapter is self-contained. After Ch 19, you have a fully playable game with TrenchBroom-authored levels. Ch 20 is quality-of-life and the final integration level. Phase 5 (lightmaps, detail brushes, compilation) is optional future work.
