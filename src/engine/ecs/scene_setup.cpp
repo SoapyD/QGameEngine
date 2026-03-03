@@ -50,9 +50,12 @@ Level setupScene
 	registry.emplace<Gravity>(player);                         // NEW
 	registry.emplace<OnGround>(player);                        // NEW
 	registry.emplace<CharacterPhysics>(player);                // NEW
-	registry.emplace<Health>(player, 100.0f, 100.0f);
 	registry.emplace<PlayerInput>(player);
 	registry.emplace<TagPlayer>(player);
+	registry.emplace<Health>(player, 100.0f, 100.0f, 0.0f);
+	registry.emplace<SpawnPoint>(player, glm::vec3(15.0f, 1.7f, 15.0f), 0.0f);
+	registry.emplace<DamageFlash>(player);
+	registry.emplace<PendingKnockback>(player);
 
 	// Give the player two weapons: one hitscan, one projectile
 	WeaponInventory inv;

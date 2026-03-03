@@ -1,0 +1,356 @@
+digraph QEngine {
+    // ─────────────────────────────────────────────
+    // QEngine ECS Architecture — Data Flow Diagram
+    // ─────────────────────────────────────────────
+
+    graph [
+        label=<<B>QEngine — ECS Architecture</B><BR/>Systems, Components &amp; Data Flow>
+        labelloc=t
+        fontsize=22
+        fontname="Segoe UI"
+        pad=0.4
+        nodesep=0.4
+        ranksep=0.7
+        bgcolor="#1a1a2e"
+        compound=true
+    ];
+    node [fontname="Segoe UI" fontsize=10];
+    edge [fontname="Segoe UI" fontsize=8];
+
+    // ═══════════════════════════════════════
+    // TICK ORDER — Vertical Spine
+    // ═══════════════════════════════════════
+
+    subgraph cluster_tick {
+        label=<<B>Fixed Tick (60 Hz)</B>>
+        style=rounded
+        color="#4a9eff"
+        fontcolor="#4a9eff"
+        fontsize=13
+        bgcolor="#16163a"
+        margin=16
+
+        node [shape=box style="filled,rounded" fillcolor="#2d5aa0" fontcolor=white color="#4a9eff" penwidth=1.5 width=2.5 height=0.45];
+
+        sys_weaponSwitch  [label="1  weaponSwitchSystem"];
+        sys_playerChar    [label="2  playerCharacterSystem"];
+        sys_mover         [label="3  moverSystem"];
+        sys_moverSync     [label="4  moverSyncSystem"];
+        sys_joltStep      [label="5  joltWorld.step()" fillcolor="#6a2d8e" color="#b06ee0"];
+        sys_joltSync      [label="6  joltSyncSystem"];
+        sys_combat        [label="7  combatSystem"];
+        sys_lifetime      [label="8  lifetimeSystem"];
+        sys_trigger       [label="9  triggerSystem"];
+        sys_demoReset     [label="10 demoResetSystem"];
+
+        sys_weaponSwitch -> sys_playerChar [color="#4a9eff55" penwidth=2];
+        sys_playerChar -> sys_mover [color="#4a9eff55" penwidth=2];
+        sys_mover -> sys_moverSync [color="#4a9eff55" penwidth=2];
+        sys_moverSync -> sys_joltStep [color="#4a9eff55" penwidth=2];
+        sys_joltStep -> sys_joltSync [color="#4a9eff55" penwidth=2];
+        sys_joltSync -> sys_combat [color="#4a9eff55" penwidth=2];
+        sys_combat -> sys_lifetime [color="#4a9eff55" penwidth=2];
+        sys_lifetime -> sys_trigger [color="#4a9eff55" penwidth=2];
+        sys_trigger -> sys_demoReset [color="#4a9eff55" penwidth=2];
+    }
+
+    subgraph cluster_render {
+        label=<<B>Render (Per Frame)</B>>
+        style=rounded
+        color="#e0a030"
+        fontcolor="#e0a030"
+        fontsize=13
+        bgcolor="#16163a"
+        margin=16
+
+        node [shape=box style="filled,rounded" fillcolor="#8a6b20" fontcolor=white color="#e0a030" penwidth=1.5 width=2.5 height=0.45];
+
+        sys_render    [label="11 renderSystem"];
+        sys_debugHud  [label="12 debugHudSystem"];
+
+        sys_render -> sys_debugHud [color="#e0a03055" penwidth=2];
+    }
+
+    // ═══════════════════════════════════════
+    // COMPONENTS
+    // ═══════════════════════════════════════
+
+    // --- Input ---
+    subgraph cluster_input {
+        label="Input"
+        style=rounded
+        color="#55cccc"
+        fontcolor="#55cccc"
+        bgcolor="#121e2a"
+
+        node [shape=ellipse style=filled fillcolor="#1a4a4a" fontcolor="#ccffff" color="#55cccc" height=0.35];
+
+        comp_playerInput [label="PlayerInput"];
+    }
+
+    // --- Spatial ---
+    subgraph cluster_spatial {
+        label="Spatial"
+        style=rounded
+        color="#44cc44"
+        fontcolor="#44cc44"
+        bgcolor="#122a12"
+
+        node [shape=ellipse style=filled fillcolor="#1a4a1a" fontcolor="#aaffaa" color="#44cc44" height=0.35];
+
+        comp_position [label="Position"];
+        comp_velocity [label="Velocity"];
+        comp_scale    [label="Scale"];
+    }
+
+    // --- Physics ---
+    subgraph cluster_physics {
+        label="Physics"
+        style=rounded
+        color="#ee5555"
+        fontcolor="#ee5555"
+        bgcolor="#2a1212"
+
+        node [shape=ellipse style=filled fillcolor="#4a1a1a" fontcolor="#ffaaaa" color="#ee5555" height=0.35];
+
+        comp_joltBody    [label="JoltBody"];
+        comp_joltChar    [label="JoltCharacter"];
+        comp_charPhysics [label="CharacterPhysics"];
+        comp_aabb        [label="AABBCollider"];
+        comp_onGround    [label="OnGround"];
+    }
+
+    // --- Weapons ---
+    subgraph cluster_weapons {
+        label="Weapons"
+        style=rounded
+        color="#dd55dd"
+        fontcolor="#dd55dd"
+        bgcolor="#2a122a"
+
+        node [shape=ellipse style=filled fillcolor="#4a1a4a" fontcolor="#ffaaff" color="#dd55dd" height=0.35];
+
+        comp_weaponInv [label="WeaponInventory"];
+        comp_ammo      [label="Ammo"];
+        comp_projectile [label="Projectile"];
+    }
+
+    // --- Gameplay ---
+    subgraph cluster_gameplay {
+        label="Gameplay"
+        style=rounded
+        color="#ddaa33"
+        fontcolor="#ddaa33"
+        bgcolor="#2a2212"
+
+        node [shape=ellipse style=filled fillcolor="#4a3a0a" fontcolor="#ffeeaa" color="#ddaa33" height=0.35];
+
+        comp_mover    [label="Mover"];
+        comp_trigger  [label="TriggerVolume"];
+        comp_health   [label="Health"];
+        comp_lifetime [label="Lifetime"];
+        comp_demoReset [label="DemoReset"];
+    }
+
+    // --- Rendering ---
+    subgraph cluster_rendercomp {
+        label="Rendering"
+        style=rounded
+        color="#e0a030"
+        fontcolor="#e0a030"
+        bgcolor="#2a2212"
+
+        node [shape=ellipse style=filled fillcolor="#3a2a0a" fontcolor="#ffddaa" color="#e0a030" height=0.35];
+
+        comp_meshRenderer [label="MeshRenderer"];
+        comp_colour       [label="Colour"];
+        comp_dirLight     [label="DirectionalLight"];
+        comp_pointLight   [label="PointLight"];
+    }
+
+    // --- Tags ---
+    tag_player    [shape=octagon style=filled fillcolor="#2a2a2a" fontcolor="#aaaaaa" color="#666666" label="TagPlayer" height=0.35];
+    tag_wireframe [shape=octagon style=filled fillcolor="#2a2a2a" fontcolor="#aaaaaa" color="#666666" label="TagDebugWireframe" height=0.35];
+
+    // ═══════════════════════════════════════
+    // CONTEXT (Singletons)
+    // ═══════════════════════════════════════
+
+    subgraph cluster_context {
+        label="Context Singletons"
+        style=rounded
+        color="#9999bb"
+        fontcolor="#9999bb"
+        bgcolor="#18182a"
+
+        node [shape=hexagon style=filled fillcolor="#2a2a4a" fontcolor="#bbbbdd" color="#9999bb" height=0.4 width=1.6];
+
+        ctx_physicsConfig [label="PhysicsConfig"];
+        ctx_joltWorld     [label="JoltWorld"];
+        ctx_hudConfig     [label="HudConfig"];
+        ctx_combatRes     [label="CombatResources"];
+        ctx_cameraFront   [label="CameraFront"];
+    }
+
+    // ═══════════════════════════════════════
+    // HELPERS
+    // ═══════════════════════════════════════
+
+    subgraph cluster_helpers {
+        label="Helpers & Factories (Init Only)"
+        style=rounded
+        color="#b06ee0"
+        fontcolor="#b06ee0"
+        bgcolor="#18142a"
+
+        node [shape=component style=filled fillcolor="#2a1a4a" fontcolor="#ddbbff" color="#b06ee0" height=0.4];
+
+        help_setup        [label="setupScene()"];
+        help_showcase     [label="createShowcaseLevel()"];
+        help_initPlayer   [label="initPlayerCharacter()"];
+        help_levelBodies  [label="createLevelBodies()"];
+        help_dynamicBody  [label="createDynamicBody()"];
+        help_kinBody      [label="createKinematicBody()"];
+        help_sensorBody   [label="createSensorBody()"];
+        help_staticBody   [label="createStaticBody()"];
+        help_weaponDef    [label="createWeapon()"];
+    }
+
+    // ═══════════════════════════════════════
+    // DATA FLOW EDGES
+    // ═══════════════════════════════════════
+
+    // --- weaponSwitchSystem ---
+    comp_playerInput -> sys_weaponSwitch [color="#55cccc88" style=dashed];
+    sys_weaponSwitch -> comp_weaponInv   [color="#dd55dd"];
+
+    // --- playerCharacterSystem ---
+    comp_playerInput -> sys_playerChar   [color="#55cccc88" style=dashed];
+    comp_charPhysics -> sys_playerChar   [color="#ee555588" style=dashed];
+    comp_joltChar    -> sys_playerChar   [color="#ee555588" style=dashed];
+    sys_playerChar   -> comp_position    [color="#44cc44"];
+    sys_playerChar   -> comp_onGround    [color="#ee5555"];
+
+    // --- moverSystem ---
+    sys_mover -> comp_position [color="#44cc44"];
+    comp_mover -> sys_mover    [color="#ddaa3388" style=dashed];
+    sys_mover -> comp_mover    [color="#ddaa33"];
+
+    // --- moverSyncSystem ---
+    comp_position -> sys_moverSync [color="#44cc4488" style=dashed];
+    comp_joltBody -> sys_moverSync [color="#ee555588" style=dashed];
+
+    // --- joltSyncSystem ---
+    comp_joltBody -> sys_joltSync [color="#ee555588" style=dashed];
+    sys_joltSync -> comp_position [color="#44cc44"];
+    sys_joltSync -> comp_onGround [color="#ee5555"];
+
+    // --- combatSystem ---
+    comp_playerInput -> sys_combat [color="#55cccc88" style=dashed];
+    comp_weaponInv   -> sys_combat [color="#dd55dd88" style=dashed];
+    comp_ammo        -> sys_combat [color="#dd55dd88" style=dashed];
+    comp_position    -> sys_combat [color="#44cc4488" style=dashed];
+    comp_aabb        -> sys_combat [color="#ee555588" style=dashed];
+    sys_combat       -> comp_health [color="#ddaa33"];
+
+    // --- lifetimeSystem ---
+    comp_lifetime -> sys_lifetime [color="#ddaa3388" style=dashed];
+    sys_lifetime  -> comp_lifetime [color="#ddaa33"];
+
+    // --- triggerSystem ---
+    comp_trigger -> sys_trigger  [color="#ddaa3388" style=dashed];
+    comp_aabb    -> sys_trigger  [color="#ee555588" style=dashed];
+    tag_player   -> sys_trigger  [color="#66666688" style=dashed];
+    sys_trigger  -> comp_mover   [color="#ddaa33"];
+    sys_trigger  -> comp_health  [color="#ddaa33"];
+    sys_trigger  -> comp_position [color="#44cc44"];
+    sys_trigger  -> comp_velocity [color="#44cc44"];
+
+    // --- demoResetSystem ---
+    comp_demoReset -> sys_demoReset [color="#ddaa3388" style=dashed];
+    comp_joltBody  -> sys_demoReset [color="#ee555588" style=dashed];
+    sys_demoReset  -> comp_position [color="#44cc44"];
+    sys_demoReset  -> comp_velocity [color="#44cc44"];
+    sys_demoReset  -> comp_onGround [color="#ee5555"];
+
+    // --- renderSystem ---
+    comp_position     -> sys_render [color="#44cc4488" style=dashed];
+    comp_scale        -> sys_render [color="#44cc4488" style=dashed];
+    comp_meshRenderer -> sys_render [color="#e0a03088" style=dashed];
+    comp_colour       -> sys_render [color="#e0a03088" style=dashed];
+    comp_dirLight     -> sys_render [color="#e0a03088" style=dashed];
+    comp_pointLight   -> sys_render [color="#e0a03088" style=dashed];
+    tag_wireframe     -> sys_render [color="#66666688" style=dashed];
+
+    // --- debugHudSystem ---
+    comp_health    -> sys_debugHud [color="#ddaa3388" style=dashed];
+    comp_weaponInv -> sys_debugHud [color="#dd55dd88" style=dashed];
+    comp_ammo      -> sys_debugHud [color="#dd55dd88" style=dashed];
+    comp_position  -> sys_debugHud [color="#44cc4488" style=dashed];
+    tag_player     -> sys_debugHud [color="#66666688" style=dashed];
+
+    // --- Context reads (only major ones to reduce clutter) ---
+    edge [color="#9999bb55" style=dotted arrowsize=0.5];
+    ctx_joltWorld     -> sys_playerChar;
+    ctx_joltWorld     -> sys_moverSync;
+    ctx_joltWorld     -> sys_joltStep;
+    ctx_joltWorld     -> sys_joltSync;
+    ctx_joltWorld     -> sys_demoReset;
+    ctx_combatRes     -> sys_combat;
+    ctx_cameraFront   -> sys_combat;
+    ctx_hudConfig     -> sys_debugHud;
+
+    // --- Helper outputs ---
+    edge [color="#b06ee088" arrowsize=0.6 style=solid];
+
+    help_showcase -> help_setup;
+    help_setup    -> comp_position;
+    help_setup    -> comp_mover;
+    help_setup    -> comp_trigger;
+    help_setup    -> comp_health;
+    help_setup    -> comp_meshRenderer;
+    help_setup    -> comp_weaponInv;
+
+    help_initPlayer -> comp_joltChar;
+
+    help_dynamicBody  -> comp_joltBody;
+    help_kinBody      -> comp_joltBody;
+    help_sensorBody   -> comp_joltBody;
+    help_staticBody   -> comp_joltBody;
+    help_levelBodies  -> comp_joltBody;
+
+    help_weaponDef -> help_setup;
+
+    // ═══════════════════════════════════════
+    // LEGEND
+    // ═══════════════════════════════════════
+
+    subgraph cluster_legend {
+        label="Legend"
+        style=rounded
+        color="#555577"
+        fontcolor="#8888aa"
+        bgcolor="#111122"
+        margin=12
+
+        node [fontsize=9 width=0.01 height=0.01];
+        edge [minlen=1];
+
+        leg_s [shape=box style="filled,rounded" fillcolor="#2d5aa0" fontcolor=white color="#4a9eff" label="System" width=1.2 height=0.3];
+        leg_c [shape=ellipse style=filled fillcolor="#1a4a1a" fontcolor="#aaffaa" color="#44cc44" label="Component" width=1.2 height=0.3];
+        leg_x [shape=hexagon style=filled fillcolor="#2a2a4a" fontcolor="#bbbbdd" color="#9999bb" label="Context" width=1.2 height=0.3];
+        leg_h [shape=component style=filled fillcolor="#2a1a4a" fontcolor="#ddbbff" color="#b06ee0" label="Helper" width=1.2 height=0.3];
+
+        l1a [shape=point width=0.01 height=0.01 color="#111122"];
+        l1b [shape=plaintext label="reads" fontcolor="#888888" fontsize=8];
+        l1a -> l1b [style=dashed color="#88888888"];
+
+        l2a [shape=point width=0.01 height=0.01 color="#111122"];
+        l2b [shape=plaintext label="writes" fontcolor="#888888" fontsize=8];
+        l2a -> l2b [style=solid color="#88888888"];
+
+        l3a [shape=point width=0.01 height=0.01 color="#111122"];
+        l3b [shape=plaintext label="context read" fontcolor="#888888" fontsize=8];
+        l3a -> l3b [style=dotted color="#9999bb55"];
+    }
+}

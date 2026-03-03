@@ -87,7 +87,14 @@ struct CharacterPhysics
 	float groundAcceleration = 10.0f;
 	float airAcceleration = 10.0f;
 	float jumpForce = 8.0f;
-	float stepHeight = 1.5f; // Max height of a step the player can walk up
+	float stepHeight = 0.7f; // Max height of a step the player can walk up
+};
+
+// ─── Spawn / Respawn ─────────────────────────────────────────
+struct SpawnPoint
+{
+	glm::vec3 position = glm::vec3(0.0f);
+	float yaw = 0.0f;  // facing direction on respawn (degrees)
 };
 
 // ─── Weapon Components ────────────────────────────────────────────
@@ -164,6 +171,18 @@ struct Health
 {
 	float current;
 	float max;
+	float invulnerableTimer = 0.0f; // seconds of remaining invulnerability
+};
+
+struct DamageFlash
+{
+	float timer = 0.0f; // remaining flash time
+	float duration = 0.3f; // total flash length (seconds)
+};
+
+struct PendingKnockback
+{
+	glm::vec3 impulse = glm::vec3(0.0f);
 };
 
 enum class MoverState
