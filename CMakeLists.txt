@@ -56,11 +56,12 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(JoltPhysics)
 
 # ──────────────────────────────────────────────
-# QEngine executable
+# qengine_lib — all engine code (everything except entry points)
 # ──────────────────────────────────────────────
-# for now, just main.cpp. We'll add more files as we create them
-add_executable(QEngine
-	src/main.cpp
+# Shared by the windowed game (QEngine) and the headless harness
+# (QEngineHeadless) so both run the exact same systems.
+add_library(qengine_lib STATIC
+	src/engine/app/simulation.cpp
 	src/engine/core/input_manager.cpp
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
@@ -81,23 +82,17 @@ add_executable(QEngine
 	src/engine/level/level_loader.cpp
 	src/engine/physics/jolt_world.cpp
 	src/engine/physics/raycast.cpp
-	src/engine/renderer/camera.cpp	
-	src/engine/renderer/mesh.cpp	
+	src/engine/renderer/camera.cpp
+	src/engine/renderer/mesh.cpp
 	src/engine/renderer/obj_loader.cpp
 	src/engine/renderer/shader.cpp
 	src/engine/renderer/stb_image_impl.cpp
 	src/engine/renderer/texture.cpp
 )
 
-# Static-link the C++ runtime so we don't depend on DLLs at all
-# (avoids UCRT64 / MINGW64 mismatch on MSYS2)
-if (MINGW)
-	target_link_options(QEngine PRIVATE -static-libgcc -static-libstdc++ -static)
-endif()
+target_include_directories(qengine_lib PUBLIC src)
 
-target_include_directories(QEngine PRIVATE src)
-
-target_link_libraries(QEngine PRIVATE
+target_link_libraries(qengine_lib PUBLIC
 	glfw
 	glad
 	glm
@@ -105,3 +100,25 @@ target_link_libraries(QEngine PRIVATE
 	stb
 	Jolt
 )
+
+# ──────────────────────────────────────────────
+# QEngine executable — windowed game entry point
+# ──────────────────────────────────────────────
+add_executable(QEngine src/main.cpp)
+target_link_libraries(QEngine PRIVATE qengine_lib)
+
+# Static-link the C++ runtime so we don't depend on DLLs at all
+# (avoids UCRT64 / MINGW64 mismatch on MSYS2)
+if (MINGW)
+	target_link_options(QEngine PRIVATE -static-libgcc -static-libstdc++ -static)
+endif()
+
+# ──────────────────────────────────────────────
+# QEngineHeadless — windowless harness / regression tests
+# ──────────────────────────────────────────────
+add_executable(QEngineHeadless src/harness/headless_main.cpp)
+target_link_libraries(QEngineHeadless PRIVATE qengine_lib)
+
+if (MINGW)
+	target_link_options(QEngineHeadless PRIVATE -static-libgcc -static-libstdc++ -static)
+endif()

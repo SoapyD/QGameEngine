@@ -118,6 +118,7 @@ void Shader::checkErrors(unsigned int shader, const std::string& type) const
 		{
 			glGetProgramInfoLog(shader, 1024, nullptr, infoLog);
 			std::cerr << "ERROR: Shader program linking failed\n" << infoLog << std::endl;
+			m_valid = false;
 		}
 	}
 	else
@@ -127,6 +128,7 @@ void Shader::checkErrors(unsigned int shader, const std::string& type) const
 		{
 			glGetShaderInfoLog(shader, 1024, nullptr, infoLog);
 			std::cerr << "ERROR: " << type << " shader compilation failed\n" << infoLog << std::endl;
+			m_valid = false;
 		}
 	}
 } 

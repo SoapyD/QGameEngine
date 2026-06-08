@@ -19,6 +19,7 @@ Texture::Texture(const std::string& path)
 	// determine format from channel count
 	GLenum format = GL_RGB;
 	if (m_channels == 1) format = GL_RED;
+	else if (m_channels == 2) format = GL_RG;
 	else if (m_channels == 3) format = GL_RGB;
 	else if (m_channels == 4) format = GL_RGBA;
 

@@ -1,7 +1,7 @@
 #include "engine/core/window.h"
 #include <iostream>
 
-Window::Window(int width, int height, const std::string& title)
+Window::Window(int width, int height, const std::string& title, bool visible)
 	: m_window(nullptr), m_width(width), m_height(height)
 {
 	// ─── Initialise GLFW ─────────────────────────────────────────
@@ -15,6 +15,7 @@ Window::Window(int width, int height, const std::string& title)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_VISIBLE, visible ? GLFW_TRUE : GLFW_FALSE);
 
 	// ─── Create the window ───────────────────────────────────────
 	m_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);

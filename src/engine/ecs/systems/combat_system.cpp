@@ -357,7 +357,7 @@ void combatSystem
 
         // Get firing direction from camera front vector
         // The camera direction is written into the registry context each frame
-		const auto& cameraDir = registry.ctx().get<glm::vec3>();
+		const auto& cameraDir = registry.ctx().get<CameraDirection>().value;
 
 		// Fire from eye height — position is at body centre, offset upward
 		
@@ -365,7 +365,7 @@ void combatSystem
 		float eyeOffset = 0.0f;
 		if (registry.all_of<AABBCollider>(entity))
 		{
-			eyeOffset = registry.get<AABBCollider>(entity).halfExtents.y * 0.7f;
+			eyeOffset = registry.get<AABBCollider>(entity).halfExtents.y * kEyeHeightFraction;
 		}
 		glm::vec3 fireOrigin = pos.value + glm::vec3(0.0f, eyeOffset, 0.0f);
 		
@@ -409,6 +409,40 @@ void combatSystem
 		pos.value += vel.value * dt;
 
 		AABB projBox = AABB::fromCentreSize(pos.value, col.halfExtents);
+
+		// ── Level geometry collision ────────────────────────────
+		// Walls/floors are not ECS entities, so the entity sweep below
+		// never sees them — without this, projectiles tunnel through the
+		// level (eval 07 §7.2). Mirror the hitscan surface test.
+		bool hitLevel = false;
+		for (const auto& sector : level.sectors)
+		{
+			for (const auto& surface : sector.surfaces)
+			{
+				AABB surfBox;
+				surfBox.min = glm::min(
+					glm::min(surface.vertices[0], surface.vertices[1]),
+					glm::min(surface.vertices[2], surface.vertices[3]));
+				surfBox.max = glm::max(
+					glm::max(surface.vertices[0], surface.vertices[1]),
+					glm::max(surface.vertices[2], surface.vertices[3]));
+				surfBox.min -= glm::vec3(0.05f);
+				surfBox.max += glm::vec3(0.05f);
+
+				if (projBox.intersects(surfBox)) { hitLevel = true; break; }
+			}
+			if (hitLevel) break;
+		}
+		if (hitLevel)
+		{
+			if (proj.splashRadius > 0.0f)
+			{
+				applySplashDamage(registry, pos.value,
+					proj.splashRadius, proj.splashDamage, proj.owner);
+			}
+			toDestroy.push_back(projEntity);
+			continue;  // projectile consumed by the wall/floor
+		}
 
 		// check against ALL colliders (not just entities with Health)
 		auto entityView = registry.view<Position, AABBCollider>();

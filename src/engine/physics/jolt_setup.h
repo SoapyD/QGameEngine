@@ -67,6 +67,7 @@ public:
         return mObjectToBroadPhase[inLayer];
     }
 
+#if defined(JPH_EXTERNAL_PROFILE) || defined(JPH_PROFILE_ENABLED)
     virtual const char* GetBroadPhaseLayerName(JPH::BroadPhaseLayer inLayer) const override
     {
         switch ((JPH::BroadPhaseLayer::Type)inLayer)
@@ -76,6 +77,7 @@ public:
         default:                                                        return "UNKNOWN";
         }
     }
+#endif
 
 private:
     JPH::BroadPhaseLayer mObjectToBroadPhase[Layers::NUM_LAYERS];

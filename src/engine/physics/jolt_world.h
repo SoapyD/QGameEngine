@@ -1,6 +1,7 @@
 #pragma once
 
 #include "engine/physics/jolt_setup.h"
+#include <Jolt/Core/JobSystemSingleThreaded.h>
 #include <memory>
 
 // Wraps Jolt's PhysicsSystem and its required infrastructure.
@@ -9,7 +10,7 @@ struct JoltWorld
 {
     // Jolt infrastructure — must outlive the PhysicsSystem
     std::unique_ptr<JPH::TempAllocatorImpl> tempAllocator;
-    std::unique_ptr<JPH::JobSystemThreadPool> jobSystem;
+    std::unique_ptr<JPH::JobSystem> jobSystem;
 
     // Layer interfaces
     BPLayerInterfaceImpl broadPhaseLayerInterface;
@@ -19,7 +20,9 @@ struct JoltWorld
     // The physics world itself
     std::unique_ptr<JPH::PhysicsSystem> physicsSystem;
 
-    void init()
+    // singleThreaded=true uses a deterministic single-threaded job system —
+    // required by the headless harness so simulation runs are reproducible.
+    void init(bool singleThreaded = false)
     {
         // Register Jolt allocator and install callbacks
         JPH::RegisterDefaultAllocator();
@@ -33,11 +36,19 @@ struct JoltWorld
         // Pre-allocate 10 MB for physics temp data
         tempAllocator = std::make_unique<JPH::TempAllocatorImpl>(10 * 1024 * 1024);
 
-        // Create a thread pool — use all available cores minus one
-        jobSystem = std::make_unique<JPH::JobSystemThreadPool>(
-            JPH::cMaxPhysicsJobs, JPH::cMaxPhysicsBarriers,
-            (int)std::thread::hardware_concurrency() - 1
-        );
+        // Job system: deterministic single-threaded for headless, otherwise a
+        // thread pool sized to all available cores minus one.
+        if (singleThreaded)
+        {
+            jobSystem = std::make_unique<JPH::JobSystemSingleThreaded>(JPH::cMaxPhysicsJobs);
+        }
+        else
+        {
+            jobSystem = std::make_unique<JPH::JobSystemThreadPool>(
+                JPH::cMaxPhysicsJobs, JPH::cMaxPhysicsBarriers,
+                (int)std::thread::hardware_concurrency() - 1
+            );
+        }
 
         // Create the physics system
         const uint maxBodies = 1024;

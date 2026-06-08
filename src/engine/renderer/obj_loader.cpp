@@ -82,31 +82,43 @@ Mesh loadOBJ(const std::string& path)
 					std::string part;
 					int posIdx = 0, texIdx = 0, normIdx = 0;
 
-					// position index (required)
-					std::getline(tokenStream, part, '/');
-					posIdx = std::stoi(part) - 1; // OBJ is 1-based
-
-					// texture coordinate index (optional)
-					if(std::getline(tokenStream, part, '/') && !part.empty())
+					// position index (required). Guard against malformed
+					// tokens so a bad OBJ logs and skips rather than crashing.
+					try
 					{
-						texIdx = std::stoi(part) - 1;
+						std::getline(tokenStream, part, '/');
+						posIdx = std::stoi(part) - 1; // OBJ is 1-based
+
+						// texture coordinate index (optional)
+						if(std::getline(tokenStream, part, '/') && !part.empty())
+							texIdx = std::stoi(part) - 1;
+
+						// normal index (optional)
+						if(std::getline(tokenStream, part, '/') && !part.empty())
+							normIdx = std::stoi(part) - 1;
+					}
+					catch (const std::exception&)
+					{
+						std::cerr << "WARN: malformed OBJ face token '" << tok
+								  << "' in " << path << std::endl;
+						continue;
 					}
 
-					// normal index (optional)
-					if(std::getline(tokenStream, part, '/') && !part.empty())
+					if (posIdx < 0 || posIdx >= static_cast<int>(tempPositions.size()))
 					{
-						normIdx = std::stoi(part) - 1;
+						std::cerr << "WARN: OBJ position index out of range in " << path << std::endl;
+						continue;
 					}
 
 					Vertex vertex{};
 					vertex.position = tempPositions[posIdx];
 
-					if (!tempTexCoords.empty() && texIdx >= 0)
+					if (texIdx >= 0 && texIdx < static_cast<int>(tempTexCoords.size()))
 					{
 						vertex.texCoords = tempTexCoords[texIdx];
 					}
 
-					if (!tempNormals.empty() && normIdx >= 0)
+					if (normIdx >= 0 && normIdx < static_cast<int>(tempNormals.size()))
 					{
 						vertex.normal = tempNormals[normIdx];
 					}

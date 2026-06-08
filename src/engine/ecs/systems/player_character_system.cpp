@@ -61,6 +61,10 @@ void playerCharacterSystem(entt::registry& registry)
 		JPH::Vec3 currentVel = character->GetLinearVelocity();
 		JPH::Vec3 desiredVel(0.0f, 0.0f, 0.0f);
 
+		// Velocity of the surface underfoot — non-zero when standing on a
+		// moving kinematic platform (lift/door). Used to carry the player.
+		JPH::Vec3 groundVel = character->GetGroundVelocity();
+
 		if (onGround)
 		{
 			// Ground movement — Quake-style acceleration
@@ -96,6 +100,9 @@ void playerCharacterSystem(entt::registry& registry)
 				} 
 			}
 
+			// Carry the player horizontally with a moving platform.
+			desiredVel += JPH::Vec3(groundVel.GetX(), 0.0f, groundVel.GetZ());
+
 			// jump
 			if (input.jump)
 			{
@@ -103,8 +110,10 @@ void playerCharacterSystem(entt::registry& registry)
 			}
 			else
 			{
-				// Keep ground velocity vertical component
-				desiredVel += JPH::Vec3(0.0f, currentVel.GetY(), 0.0f);
+				// Ride the platform's vertical motion (e.g. a rising lift).
+				// On static ground GetGroundVelocity() is zero, so this is a
+				// no-op there.
+				desiredVel += JPH::Vec3(0.0f, groundVel.GetY(), 0.0f);
 			}
 		}
 		else

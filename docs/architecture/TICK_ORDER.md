@@ -52,16 +52,25 @@ Each fixed timestep tick runs these systems in order:
  #  System                    Phase         Purpose
 ─────────────────────────────────────────────────────────────────
  1  weaponSwitchSystem        Input         Handle weapon swap input
- 2  playerCharacterSystem     Movement      Apply input → CharacterVirtual
- 3  moverSystem               Animation     Animate door/lift positions
- 4  moverSyncSystem           Physics Prep  Push mover positions to Jolt
- 5  joltWorld.step()          Physics       Simulate all rigid bodies
- 6  joltSyncSystem            Physics Sync  Read Jolt transforms → ECS
+ 2  moverSystem               Animation     Animate door/lift positions
+ 3  moverSyncSystem           Physics Prep  Push mover positions to Jolt
+ 4  joltWorld.step()          Physics       Simulate rigid + kinematic bodies
+ 5  joltSyncSystem            Physics Sync  Read Jolt transforms → ECS
+ 6  playerCharacterSystem     Movement      Apply input → CharacterVirtual,
+                                            resolving against the now-moved world
  7  combatSystem              Game Logic    Hitscan/projectile weapons
  8  lifetimeSystem            Cleanup       Auto-destroy timed entities
  9  triggerSystem             Game Logic    Detect trigger overlaps
-10  demoResetSystem           Cleanup       Reset physics demo objects
+10  playerDeathSystem         Game Logic    Respawn the player on death
+11  demoResetSystem           Cleanup       Reset physics demo objects
 ```
+
+> **Tick-order note:** the player's `ExtendedUpdate` (6) runs *after* movers
+> animate (2-3) and the physics step sweeps their kinematic bodies (4). This is
+> deliberate — it lets the player's capsule resolve against the lift/door at its
+> *current-tick* position, so boarding and riding a lift are smooth. Combined
+> with `GetGroundVelocity()` platform inheritance in `playerCharacterSystem`,
+> the player rides movers without lag or jitter.
 
 ### Why This Order Matters
 
