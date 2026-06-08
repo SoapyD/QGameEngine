@@ -3,8 +3,8 @@
 #include <glad/glad.h>
 #include <glm/gtc/matrix_transform.hpp>
 
-void renderSystem(entt::registry& registry, const Camera& camera, 
-	float aspectRatio)
+void renderSystem(entt::registry& registry, const Camera& camera,
+	float aspectRatio, float alpha)
 {
 	glm::mat4 view = camera.getViewMatrix();
 	glm::mat4 projection = camera.getProjectionMatrix(aspectRatio);
@@ -61,8 +61,19 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 
 	for (auto [entity, pos, mesh] : meshView.each())
 	{
+		// Interpolate between the previous and current tick position. Snap
+		// (skip interpolation) on large deltas so teleports/respawns don't
+		// streak across the level.
+		glm::vec3 renderPos = pos.value;
+		if (registry.all_of<PrevPosition>(entity))
+		{
+			const glm::vec3& prev = registry.get<PrevPosition>(entity).value;
+			if (glm::distance(prev, pos.value) < 3.0f)
+				renderPos = glm::mix(prev, pos.value, alpha);
+		}
+
 		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, pos.value);
+		model = glm::translate(model, renderPos);
 
 		if (registry.all_of<Rotation>(entity))
 		{

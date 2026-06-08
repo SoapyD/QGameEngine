@@ -45,9 +45,7 @@ Level setupScene
     // ─── Player entity ────────────────────────────────────────
 	auto player = registry.create();
 	registry.emplace<Position>(player, glm::vec3(15.0f, 1.7f, 15.0f));
-	registry.emplace<Velocity>(player);                        // NEW
 	registry.emplace<AABBCollider>(player, glm::vec3(0.3f, 0.85f, 0.3f), false);
-	registry.emplace<Gravity>(player);                         // NEW
 	registry.emplace<OnGround>(player);                        // NEW
 	registry.emplace<CharacterPhysics>(player);                // NEW
 	registry.emplace<PlayerInput>(player);
@@ -187,9 +185,7 @@ Level setupScene
         auto cube = registry.create();
         registry.emplace<Position>(cube, startPos);
         registry.emplace<Velocity>(cube, startVel);
-        registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);
-        registry.emplace<Gravity>(cube);
-        registry.emplace<OnGround>(cube);
+        registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);        registry.emplace<OnGround>(cube);
         registry.emplace<DemoReset>(cube, startPos, startVel, 6.0f, 0.0f);
         registry.emplace<MeshRenderer>
         (
@@ -209,9 +205,7 @@ Level setupScene
         auto cube = registry.create();
         registry.emplace<Position>(cube, startPos);
         registry.emplace<Velocity>(cube, startVel);
-        registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);
-        registry.emplace<Gravity>(cube);
-        registry.emplace<OnGround>(cube);
+        registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);        registry.emplace<OnGround>(cube);
         registry.emplace<DemoReset>(cube, startPos, startVel, 4.0f, 0.0f);
         registry.emplace<MeshRenderer>
         (
@@ -231,11 +225,7 @@ Level setupScene
         auto cube = registry.create();
         registry.emplace<Position>(cube, startPos);
         registry.emplace<Velocity>(cube, startVel);
-        registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);
-        registry.emplace<Gravity>(cube);
-        registry.emplace<OnGround>(cube);
-        auto& phys = registry.emplace<CharacterPhysics>(cube);
-        phys.groundFriction = 1.5f;  // low friction so it slides visibly
+        registry.emplace<AABBCollider>(cube, glm::vec3(0.5f), false);        registry.emplace<OnGround>(cube);
         registry.emplace<DemoReset>(cube, startPos, startVel, 5.0f, 0.0f);
         registry.emplace<MeshRenderer>
         (

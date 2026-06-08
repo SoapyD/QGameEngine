@@ -18,6 +18,10 @@ class Shader
 		// get the OpenGL program ID (needed for settings uniforms later)
 		unsigned int getId() const { return m_programId; }
 
+		// false if any shader failed to compile or the program failed to link
+		// (so callers can detect a broken shader instead of rendering black)
+		bool isValid() const { return m_valid; }
+
 		// uniform setters
 		void setMat4(const std::string& name, const glm::mat4& value) const;
 		void setVec3(const std::string& name, const glm::vec3& value) const;
@@ -26,6 +30,7 @@ class Shader
 
 	private:
 		unsigned int m_programId;
+		mutable bool m_valid = true;  // cleared by checkErrors on failure
 
 		// helper: read a file into a string
 		std::string readFile(const std::string& path) const;

@@ -18,7 +18,7 @@
 - An area plan is evaluation-only. It instruments, reproduces, and attributes — it never edits engine code.
 - Every area plan **ends with a findings table**: `Issue → Severity (P0/P1/P2) → Confirmed cause → Proposed action → Target file:line`.
 - Confirmed P0/P1 findings graduate into a `*-fixes.md` implementation plan. P2s (cleanup, doc fixes) can be batched into the PR that touches that area.
-- Cross-link to the architecture docs in [`docs/architecture/`](../../architecture/README.md); flag any divergence as a finding.
+- Cross-link to the architecture docs in [`docs/architecture/`](../../../architecture/README.md); flag any divergence as a finding.
 
 ---
 
@@ -42,7 +42,7 @@ Foundations first, so each layer is understood before the layers that build on i
 ## Area scopes
 
 ### 01 — Build & dead-code census
-**Files:** [CMakeLists.txt](../../../CMakeLists.txt), every `.cpp` vs the `add_executable` list.
+**Files:** [CMakeLists.txt](../../../../CMakeLists.txt), every `.cpp` vs the `add_executable` list.
 **Check:** Which `.cpp` files are **not** compiled (already spotted: `physics/collision.cpp`, `physics/spatial_hash.cpp`, `physics/jolt_sync_system.cpp`, and the whole `ecs/systems/archived/` tree). For each: is it dead (delete), reference-only (keep + document), or accidentally dropped (re-add)? Also confirm `physics/aabb.h`, `physics/collision.h`, `physics/spatial_hash.h` have no live includers.
 **Output:** a keep/delete/document decision per orphan. This unblocks every later area by guaranteeing you only read live code.
 
@@ -52,7 +52,7 @@ Foundations first, so each layer is understood before the layers that build on i
 
 ### 03 — ECS data model
 **Files:** `ecs/components.h`, `ecs/systems/system_phase.h`, `ecs/weapon_definitions.h`.
-**Check:** Component defaults sanity, redundant/overlapping components, anything that's data-but-should-be-derived, and **doc divergence** against [COMPONENTS.md](../../architecture/COMPONENTS.md) (the `stepHeight` 0.7-vs-1.5 mismatch already found lives here).
+**Check:** Component defaults sanity, redundant/overlapping components, anything that's data-but-should-be-derived, and **doc divergence** against [COMPONENTS.md](../../../architecture/COMPONENTS.md) (the `stepHeight` 0.7-vs-1.5 mismatch already found lives here).
 
 ### 04 — Renderer
 **Files:** `renderer/{shader,texture,mesh,obj_loader,camera,stb_image_impl}.*`, `ecs/systems/render_system.*`, `ecs/systems/debug_hud_system.*`.
@@ -72,7 +72,7 @@ Foundations first, so each layer is understood before the layers that build on i
 
 ### 08 — Integration (`main.cpp`)
 **Files:** `src/main.cpp`.
-**Check:** Tick order vs [TICK_ORDER.md](../../architecture/TICK_ORDER.md) (the physics §2 reorder decision lands here), init/shutdown ordering, Jolt world lifetime vs registry, camera-follow sync, any logic that should be a system but lives inline.
+**Check:** Tick order vs [TICK_ORDER.md](../../../architecture/TICK_ORDER.md) (the physics §2 reorder decision lands here), init/shutdown ordering, Jolt world lifetime vs registry, camera-follow sync, any logic that should be a system but lives inline.
 
 ---
 
@@ -109,4 +109,33 @@ All areas are evaluated. The confirmed P0/P1 items, grouped into the implementat
 
 **Headline:** the only **P0** is the lift glitch (fix plan #2), and it is genuinely an integration/physics-ordering problem — confirmed at three layers (player system, mover sync, `main` tick order). Two **P1 functional regressions** also found beyond the original report: the **teleporter doesn't move the player** (#3) and **projectiles pass through walls** (#4). Everything else is latent robustness or cleanup.
 
-Fix plans themselves are **not yet written** — each is a one-line entry above until the corresponding work is scheduled. Recommended next step: instrument and write `physics-fixes.md` (#2), since it's the active P0 and gates the Phase-5 milestone.
+## Progress (applied & verified via the harness)
+
+The headless harness ([../headless-debug-harness.md](../headless-debug-harness.md)) is **built** (`QEngineHeadless`, `src/harness/headless_main.cpp`) with 6 scenarios, all green:
+
+| Item | Status | Evidence |
+|------|--------|----------|
+| Harness (#1.5) | ✅ done | `qengine_lib` split; `buildWorld`/`stepSimulation` extracted; hidden-window headless; single-threaded determinism |
+| Physics #2 (tick reorder + ground-velocity carry) | ✅ done | `ride_lift_up`, `walk_onto_lift`, `walk_floor_seams`, `rest_no_jitter` all PASS; resting velocity 5.33→0 |
+| Teleport #3 | ✅ done | `teleporter` red (28.28 off) → green (0.05) |
+| Projectile #4 | ✅ done | `rocket_vs_floor` red (minY −39) → green (detonates at 0.38) |
+| Dead-code #1 (partial) | ◑ partial | removed duplicate `physics/jolt_sync_system.*`; `collision.*`/`spatial_hash.*`/`archived/` still present |
+| IsValid guards ([06 §6.3]) | ✅ done | added to all four body helpers |
+| Window resize + validity ([02 §2.1/2.2]) | ✅ done | live framebuffer size; `isValid()` checked in both entry points |
+| Doc sync ([03 §3.1], [05 §7], [08 §8.3]) | ✅ done | stepHeight + tick order corrected |
+| Renderer/OBJ robustness ([04 §4.1/4.3/4.7]) | ✅ done | shader `isValid()` + failure flag; OBJ index guards & `stoi` try/catch; texture `GL_RG` |
+| Level-loader hardening ([06 §6.2/6.5]) | ✅ done | bail on open failure; reject invalid sector ids |
+| Integration cleanup ([08 §8.4/8.5]) | ✅ done | named `CameraDirection` ctx type; removed dead Jolt sensor bodies |
+
+| Render interpolation ([08 §8.2]) | ✅ done | `PrevPosition` + `getAlpha()` lerp in `renderSystem` and the camera follow; 3-unit snap guard for teleports. **Needs visual confirmation** (headless can't render). |
+| Minor cleanup ([08 §8.6/8.7]) | ✅ done | mouse-fire via `InputManager::isMouseButtonPressed`; `kEyeHeightFraction` constant replaces the magic 0.7 |
+| Component cleanup ([03 §3.2/3.5]) | ✅ done | removed vestigial `Gravity` (struct + emplaces), player `Velocity`, misleading cube `CharacterPhysics` |
+| Dead code ([01], legacy) | ✅ resolved | duplicate `jolt_sync_system.*` deleted; `collision.*`/`spatial_hash.*`/`archived/` **deliberately retained** as the chapter's old-vs-new reference (decision, not oversight) |
+
+**All eval items resolved.** Findings were either fixed-and-verified or evaluated-and-retained-by-decision (legacy reference code; `AABBCollider.layer/mask` left in place as harmless unused fields).
+
+**One open verification — yours, not code:** render interpolation is implemented but the harness can't see it. Run `build/QEngine.exe` and confirm motion is smooth and nothing streaks on teleport/respawn. If something looks off, that's the one thing to revisit.
+
+---
+
+**Status: COMPLETE — archived 2026-06-08.** Bundle moved to `docs/plans/archive/eval/`.

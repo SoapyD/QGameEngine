@@ -15,6 +15,14 @@ struct HudConfig
 	unsigned int shaderId = 0;
 };
 
+// Player's view/aim direction, published to the registry context each frame
+// (combatSystem reads it for firing). A named type avoids the fragile bare
+// glm::vec3-in-context coupling.
+struct CameraDirection
+{
+	glm::vec3 value = glm::vec3(0.0f, 0.0f, -1.0f);
+};
+
 // Input state for the player — set each frame from InputManager
 struct PlayerInput
 {
@@ -30,6 +38,16 @@ struct PlayerInput
 struct Position {
 	glm::vec3 value = glm::vec3(0.0f);
 };
+
+// Position at the start of the previous fixed tick. The renderer lerps
+// between this and Position by the fixed-timestep alpha so motion is smooth
+// at frame rates above the 60 Hz tick rate.
+struct PrevPosition {
+	glm::vec3 value = glm::vec3(0.0f);
+};
+
+// Fraction of the collider half-height the camera/eye sits above centre.
+inline constexpr float kEyeHeightFraction = 0.7f;
 
 struct Rotation {
 	glm::vec3 euler = glm::vec3(0.0f); // pitch, yaw, roll in degrees
@@ -66,11 +84,6 @@ struct AABBCollider
 	bool isTrigger = false; // triggers detect overlap but don't block
 	uint32_t layer = CollisionLayers::World; //what layer am I on?
 	uint32_t mask = CollisionLayers::All; // what layers do I collide with
-};
-
-struct Gravity
-{
-	float strength = 20.0f; // quake uses ~800 units/s² (our scale is smaller)
 };
 
 struct OnGround

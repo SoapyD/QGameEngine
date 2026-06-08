@@ -15,6 +15,10 @@ class InputManager
 		bool isKeyReleased(int key) const;
 
 		// ─── Mouse queries ───────────────────────────────────────
+		bool isMouseButtonPressed(int button) const
+		{
+			return m_window && glfwGetMouseButton(m_window, button) == GLFW_PRESS;
+		}
 		float getMouseXOffset() const { return m_mouseXOffset; }
 		float getMouseYOffset() const { return m_mouseYOffset; }
 		float getMouseX() const { return m_lastMouseX; }

@@ -63,6 +63,18 @@ void triggerSystem(entt::registry& registry)
 				case TriggerAction::Teleport:
 				{
 					entPos.value = trigger.destination;
+					// The player is a CharacterVirtual whose position is
+					// authoritative — playerCharacterSystem rewrites Position
+					// from it every tick, so setting Position alone is undone
+					// next tick. Move the character itself (as playerDeathSystem
+					// does) or the teleport never takes effect.
+					if (registry.all_of<JoltCharacter>(entity))
+					{
+						auto& character = registry.get<JoltCharacter>(entity).character;
+						character->SetPosition(JPH::RVec3(
+							trigger.destination.x, trigger.destination.y, trigger.destination.z));
+						character->SetLinearVelocity(JPH::Vec3::sZero());
+					}
 					// reset velocity to prevent flying out of the teleporter
 					if (registry.all_of<Velocity>(entity))
 					{

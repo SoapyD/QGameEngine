@@ -1,6 +1,6 @@
 # Fix Plan — Headless Simulation & Debug Harness
 
-**Status:** Planned (implementation not started).
+**Status:** ✅ COMPLETE — implemented & verified 2026-06-08. Phase A (hidden-window headless) shipped with 6 green scenarios; Phase B (true no-GL / GPU-less CI) deferred as a future enhancement. Archived.
 **Type:** Implementation plan (graduated from the evaluation bundle — see [eval/README.md](eval/README.md)).
 **Priority:** Do this **before** `physics-fixes.md`. It's what turns "you drive while I read logs" into "I reproduce, measure, and regression-test the physics myself."
 **Why:** The engine today has no tests, no headless mode, no input scripting — `main.cpp` always opens a window and reads live GLFW input. Every bug we found ([lift glitch](eval/05-physics.md), [teleporter](eval/07-gameplay-systems.md#L1), [projectiles through walls](eval/07-gameplay-systems.md)) is only reproducible by a human at a keyboard looking at a screen. This plan removes that dependency.
@@ -24,7 +24,7 @@ A windowless build that runs the **exact same fixed-tick simulation** as the gam
 The simulation is *mostly* GL-free (Jolt + ECS systems need no OpenGL), but two couplings block a clean headless run:
 
 - **Resource loading** creates GL objects: `ResourceManager::getMesh/getTexture/getShader` call `glGen*`. `scene_setup` needs mesh VAOs for `MeshRenderer` and `CombatResources`.
-- **Level building creates GL meshes**: `buildSectorMeshes` ([level_loader.cpp:189](../../src/engine/level/level_loader.cpp#L189)) makes a `Mesh` (VAO) per sector during level load — but the **collision** geometry (`createLevelBodies`) only needs `surface.vertices`, not the GL mesh.
+- **Level building creates GL meshes**: `buildSectorMeshes` ([level_loader.cpp:189](../../../src/engine/level/level_loader.cpp#L189)) makes a `Mesh` (VAO) per sector during level load — but the **collision** geometry (`createLevelBodies`) only needs `surface.vertices`, not the GL mesh.
 
 Two strategies, sequenced:
 
@@ -44,7 +44,7 @@ Decouple collision geometry from GL meshes so the simulation builds with **zero*
 ## Architecture changes
 
 ### 1. Factor the engine into a library target
-Today [CMakeLists.txt:62](../../CMakeLists.txt#L62) builds one executable from all sources. Restructure:
+Today [CMakeLists.txt:62](../../../CMakeLists.txt#L62) builds one executable from all sources. Restructure:
 
 ```
 qengine_lib   (STATIC)  — all engine sources EXCEPT main.cpp
@@ -58,12 +58,12 @@ This is the enabling refactor — both entry points share identical system code,
 The windowed loop and the harness must run **the same** setup and tick, or the harness proves nothing:
 
 - `buildWorld(registry, resources, JoltWorld&) -> Level` — everything in `main.cpp` lines 73-107 (scene + bodies + player + broadphase).
-- `stepSimulation(registry, JoltWorld&, const Level&, float dt)` — the body of the `while (fixedTimestep.step())` loop ([main.cpp:184-199](../../src/main.cpp#L184-L199)).
+- `stepSimulation(registry, JoltWorld&, const Level&, float dt)` — the body of the `while (fixedTimestep.step())` loop ([main.cpp:184-199](../../../src/main.cpp#L184-L199)).
 
 `main.cpp` then *calls* these. **Bonus:** the [08 §8.1](eval/08-integration.md) tick-order fix (the lift-glitch reorder) then lives in **one** function that both builds share — fix once, verified by the harness.
 
 ### 3. Scripted input
-Replace the per-frame GLFW→`PlayerInput` glue ([main.cpp:146-178](../../src/main.cpp#L146-L178)) with a scriptable source the harness drives:
+Replace the per-frame GLFW→`PlayerInput` glue ([main.cpp:146-178](../../../src/main.cpp#L146-L178)) with a scriptable source the harness drives:
 
 ```
 struct InputCommand {
@@ -79,7 +79,7 @@ The harness writes `PlayerInput` each tick from the active command — no window
 
 ### 4. Determinism
 - Use Jolt's **single-threaded** job system in headless (`JobSystemSingleThreaded`, already compiled) so runs are byte-reproducible. Add a flag to `JoltWorld::init`.
-- Seed the combat `std::mt19937` ([combat_system.cpp:11](../../src/engine/ecs/systems/combat_system.cpp#L11)) from a fixed value in headless (today it's `random_device` → non-reproducible spread).
+- Seed the combat `std::mt19937` ([combat_system.cpp:11](../../../src/engine/ecs/systems/combat_system.cpp#L11)) from a fixed value in headless (today it's `random_device` → non-reproducible spread).
 
 ### 5. Recording & assertions
 - A `Recorder` that snapshots chosen state each tick (player `Position`/`OnGround`/`GetGroundVelocity`, a named mover's ECS+Jolt Y, health, projectile count) into rows.

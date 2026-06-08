@@ -153,7 +153,9 @@ Predictive: 0.1 units contact detection distance
 | `mStickToFloorStepDown` | `(0, -stepHeight, 0)` | How far down to stick when walking off edges |
 | Gravity parameter | `(0, -20, 0)` | Used internally for floor-sticking calculations |
 
-`stepHeight` defaults to 1.5 units. This is intentionally generous — `ExtendedUpdate` only steps up when there's a solid surface to land on, so a large value doesn't cause problems.
+`stepHeight` defaults to 0.7 units (see `CharacterPhysics` in `components.h`). `ExtendedUpdate` only steps up when there's a solid surface to land on.
+
+**Platform carry:** when the player is on a moving kinematic body (lift/door), `playerCharacterSystem` adds `CharacterVirtual::GetGroundVelocity()` to the player's velocity so they ride the platform. On static ground this is zero. The fixed tick order also runs movers + the physics step *before* the player's `ExtendedUpdate`, so the player resolves against the platform's current-tick position (see [TICK_ORDER.md](TICK_ORDER.md)).
 
 ---
 

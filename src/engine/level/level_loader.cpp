@@ -15,6 +15,7 @@ Level LevelLoader::load
 	if(!file.is_open())
 	{
 		std::cerr << "ERROR: Could not open level file: " << path << std::endl;
+		return level;  // bail rather than parse a closed stream into an empty level
 	}
 
 	std::string line;
@@ -64,6 +65,13 @@ void LevelLoader::parseSector(const std::string& line, Level& level)
 	iss >> type >> sector.id
 		>> sector.boundsMin.x >> sector.boundsMin.y >> sector.boundsMin.z
 		>> sector.boundsMax.x >> sector.boundsMax.y >> sector.boundsMax.z;
+
+	// reject malformed/absurd ids before using one as a vector size
+	if (sector.id < 0 || sector.id > 100000)
+	{
+		std::cerr << "ERROR: invalid sector id " << sector.id << std::endl;
+		return;
+	}
 
 	// ensure vector is large enough
 	if (sector.id >= static_cast<int>(level.sectors.size()))

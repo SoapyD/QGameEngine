@@ -69,6 +69,7 @@ void createDynamicBody(entt::registry& registry, entt::entity entity)
     shapeSettings.SetEmbedded();
 
     auto shapeResult = shapeSettings.Create();
+    if (!shapeResult.IsValid()) return;  // half-extent below convex radius → skip rather than crash
 
     JPH::BodyCreationSettings bodySettings(
         shapeResult.Get(),
@@ -108,6 +109,7 @@ void createKinematicBody(entt::registry& registry, entt::entity entity)
     shapeSettings.SetEmbedded();
 
     auto shapeResult = shapeSettings.Create();
+    if (!shapeResult.IsValid()) return;  // half-extent below convex radius → skip rather than crash
 
     JPH::BodyCreationSettings bodySettings(
         shapeResult.Get(),
@@ -137,6 +139,7 @@ void createStaticBody(entt::registry& registry, entt::entity entity)
     shapeSettings.SetEmbedded();
 
     auto shapeResult = shapeSettings.Create();
+    if (!shapeResult.IsValid()) return;  // half-extent below convex radius → skip rather than crash
 
     JPH::BodyCreationSettings bodySettings(
         shapeResult.Get(),
@@ -166,6 +169,7 @@ void createSensorBody(entt::registry& registry, entt::entity entity)
     shapeSettings.SetEmbedded();
 
     auto shapeResult = shapeSettings.Create();
+    if (!shapeResult.IsValid()) return;  // half-extent below convex radius → skip rather than crash
 
     JPH::BodyCreationSettings bodySettings(
         shapeResult.Get(),
