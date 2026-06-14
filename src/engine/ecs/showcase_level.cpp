@@ -3,7 +3,7 @@
 #include "engine/level/level_loader.h"
 
 // ─── Helper: build a single large test room ─────────────────────
-Level createShowcaseLevel()
+Level createShowcaseLevel(bool headless)
 {
     Level level;
 
@@ -62,6 +62,9 @@ Level createShowcaseLevel()
         level.sectors.push_back(std::move(room));
     }
 
-    buildSectorMeshes(level);
+    // Render meshes are only needed for drawing; the headless harness has no
+    // GL context, and physics bodies are built from the surface geometry above.
+    if (!headless)
+        buildSectorMeshes(level);
     return level;
 }

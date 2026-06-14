@@ -23,8 +23,9 @@ void triggerSystem(entt::registry& registry)
 
 		AABB triggerBox = AABB::fromCentreSize(trigPos.value, trigCol.halfExtents);
 
-		// check against all entities with position and collisder
-		auto entityView = registry.view<Position, AABBCollider, TagPlayer>();
+		// Check against all triggerable entities (currently just the player,
+		// but enemies/props can opt in via TagTriggerable without changing this).
+		auto entityView = registry.view<Position, AABBCollider, TagTriggerable>();
 
 		for (auto [entity, entPos, entCol] : entityView.each())
 		{

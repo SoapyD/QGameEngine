@@ -1,5 +1,13 @@
 #pragma once
 
+// ─── LEGACY / DEAD CODE — not compiled, kept for tutorial reference ──────────
+// `collision.cpp` is NOT in the CMake build and this header has no live
+// includer. The swept-AABB collision was replaced by Jolt (see
+// docs/processes/physics.md → "Legacy & retained code"). Do not extend; the
+// `.map`/Jolt path supersedes it.
+// NOTE: `aabb.h` (below) is the opposite — it is LIVE (combat + trigger systems).
+// ────────────────────────────────────────────────────────────────────────────
+
 #include "engine/physics/aabb.h"
 
 struct SweepResult

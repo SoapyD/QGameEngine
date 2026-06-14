@@ -25,14 +25,16 @@ Reference documentation for the QEngine codebase. Updated through Chapter 15d.
 
 | Document | Description |
 |----------|-------------|
-| [ROADMAP.md](ROADMAP.md) | Master chapter plan (Phases 1-5, Chapters 0-20) |
-| [ROADMAP_TRENCHBROOM.md](ROADMAP_TRENCHBROOM.md) | TrenchBroom integration details (Chapters 17-20) |
-| [ROADMAP_CLEANUP.md](ROADMAP_CLEANUP.md) | Cleanup and polish tasks |
-| [ROADMAP_NICE_TO_HAVES.md](ROADMAP_NICE_TO_HAVES.md) | Optional future features |
+| [ROADMAP.md](../roadmap/ROADMAP.md) | Master chapter plan (Phases 1-5, Chapters 0-20) |
+| [ROADMAP_TRENCHBROOM.md](../roadmap/ROADMAP_TRENCHBROOM.md) | TrenchBroom integration details (Chapters 17-20) |
+| [ROADMAP_CLEANUP.md](../roadmap/ROADMAP_CLEANUP.md) | Cleanup and polish tasks |
+| [ROADMAP_NICE_TO_HAVES.md](../roadmap/ROADMAP_NICE_TO_HAVES.md) | Optional future features |
 
 ## Other Reference
 
 | Document | Description |
 |----------|-------------|
 | [CPP_CONCEPTS_BY_CHAPTER.md](CPP_CONCEPTS_BY_CHAPTER.md) | C++ concepts introduced in each chapter |
-| [FUTURE_TUTORIALS.md](FUTURE_TUTORIALS.md) | Ideas for future tutorial content |
+| [FUTURE_TUTORIALS.md](../roadmap/FUTURE_TUTORIALS.md) | Ideas for future tutorial content |
+| [Processes overview](../processes/_overview.md) | How each functionality flows across systems |
+| [Status overview](../status/_overview.md) | Quick-parse state of every functionality |

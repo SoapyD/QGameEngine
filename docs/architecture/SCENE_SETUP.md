@@ -20,7 +20,6 @@ A single sector: origin `(0,0,0)` to `(30,6,30)`.
 | `Position` | `(15, 1.7, 15)` — centre of room |
 | `Velocity` | `(0, 0, 0)` |
 | `AABBCollider` | halfExtents `(0.3, 0.85, 0.3)` |
-| `Gravity` | strength 20 |
 | `OnGround` | false |
 | `CharacterPhysics` | defaults |
 | `Health` | 100/100 |

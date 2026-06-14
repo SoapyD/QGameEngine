@@ -4,11 +4,15 @@
 #include <glad/glad.h>
 #include <vector>
 #include <string>
+#include <cstddef>
 
 class Mesh
 {
 	public:
-		Mesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);	
+		Mesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
+		// GL-free stub (all handles 0). Lets the headless harness hold a named
+		// mesh without a GL context; never drawn. cleanup() already no-ops on 0.
+		explicit Mesh(std::nullptr_t) noexcept {}
 		~Mesh();
 
 		// prevent copying (GPU resources shouldn't be duplicated accidentally)

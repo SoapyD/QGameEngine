@@ -142,8 +142,8 @@ void playerCharacterSystem(entt::registry& registry)
 				desiredVel = JPH::Vec3(currentVel.GetX(), currentVel.GetY(), currentVel.GetZ());
 			}
 
-			// apply gravity while in the air
-			desiredVel += JPH::Vec3(0.0f, -20.0f * dt, 0.0f);
+			// apply gravity while in the air (shared magnitude from PhysicsConfig)
+			desiredVel += JPH::Vec3(0.0f, -config.gravity * dt, 0.0f);
 		}
 
 		// ─── Apply pending knockback ────────────────────────

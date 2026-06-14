@@ -1,5 +1,11 @@
 #pragma once
 
+// ─── LEGACY / DEAD CODE — not compiled, kept for tutorial reference ──────────
+// `spatial_hash.cpp` is NOT in the CMake build and this header has no live
+// includer (only the archived collision_system used it). Jolt owns broad-phase
+// now. See docs/processes/physics.md → "Legacy & retained code".
+// ────────────────────────────────────────────────────────────────────────────
+
 #include <entt/entt.hpp>
 #include <glm/glm.hpp>
 #include <unordered_map>

@@ -18,8 +18,21 @@
 
 namespace qengine
 {
-    void loadResources(ResourceManager& resources)
+    void loadResources(ResourceManager& resources, bool headless)
     {
+        if (headless)
+        {
+            // GL-free stubs: scene_setup still fetches handles by name, but the
+            // ids are 0 and nothing is ever drawn. No GL context required.
+            for (const char* n : { "basic", "hud", "textured", "lit" })
+                resources.storeShader(n, std::make_shared<Shader>(nullptr));
+            for (const char* n : { "wall", "grid_grey", "grid_orange",
+                                   "grid_blue", "grid_green", "grid_red" })
+                resources.storeTexture(n, std::make_shared<Texture>(nullptr));
+            resources.storeMesh("cube", std::make_shared<Mesh>(nullptr));
+            return;
+        }
+
         resources.getShader("basic",
             "assets/shaders/basic.vert", "assets/shaders/basic.frag");
         resources.getShader("hud",
@@ -39,9 +52,10 @@ namespace qengine
         resources.getMesh("cube", "assets/models/cube.obj");
     }
 
-    Level buildWorld(entt::registry& registry, ResourceManager& resources, JoltWorld& joltWorld)
+    Level buildWorld(entt::registry& registry, ResourceManager& resources,
+                     JoltWorld& joltWorld, bool headless)
     {
-        Level level = setupScene(registry, resources);
+        Level level = setupScene(registry, resources, headless);
 
         // Static bodies from level geometry
         createLevelBodies(registry, level);

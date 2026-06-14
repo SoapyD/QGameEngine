@@ -1,3 +1,8 @@
+# LEGACY / DEAD ASSET — the `.qlvl` format is parsed only by the unused
+# LevelLoader (src/engine/level/level_loader.cpp). The running game builds its
+# level procedurally via createShowcaseLevel(); this file is never loaded and is
+# superseded by the Phase 5 TrenchBroom `.map` path. Kept for reference only.
+#
 # QEngine Level Format
 # sector <id> <min_x> <min_y> <min_z> <max_x> <max_y> <max_z>
 # surface <sector_id> <type> <x1> <y1> <z1> <x2> <y2> <z2> <x3> <y3> <z3> <x4> <y4> <z4> <texture>

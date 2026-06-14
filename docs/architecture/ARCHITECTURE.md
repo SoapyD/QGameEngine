@@ -9,14 +9,14 @@ Updated through Chapter 15d. See [COMPONENTS.md](COMPONENTS.md), [SYSTEMS.md](SY
 ```
 QEngine/
 ├── CMakeLists.txt
-├── extern/                          # Third-party libraries
+├── extern/                          # Third-party libraries (in-repo)
 │   ├── entt/                        #   ECS framework
 │   ├── glfw/                        #   Window + input
 │   ├── glad/                        #   OpenGL loader
 │   ├── glm/                         #   Math library
-│   ├── stb/                         #   Image loading, easy font
-│   ├── tinyobjloader/               #   OBJ model loading
-│   └── JoltPhysics/                 #   Physics engine
+│   └── stb/                         #   Image loading, easy font
+│                                    #   (Jolt Physics is fetched via CMake FetchContent,
+│                                    #    OBJ loading is the in-repo renderer/obj_loader.cpp)
 ├── assets/
 │   ├── shaders/                     #   GLSL vertex/fragment shaders
 │   │   ├── basic.vert/.frag         #     Unlit, solid colour
@@ -27,7 +27,9 @@ QEngine/
 │   └── models/
 │       └── cube.obj                 #   Unit cube mesh
 └── src/
-    ├── main.cpp                     # Entry point, game loop, input collection
+    ├── main.cpp                     # Windowed entry point, game loop, input collection
+    ├── harness/
+    │   └── headless_main.cpp        #   Headless entry point (QEngineHeadless target)
     └── engine/
         ├── core/
         │   ├── window.h/.cpp        #   GLFW window wrapper (create, poll, swap)
@@ -74,9 +76,11 @@ QEngine/
         │   ├── mesh.h/.cpp          #   VAO/VBO/EBO management
         │   ├── obj_loader.h/.cpp    #   OBJ file parser
         │   └── stb_image_impl.cpp   #   stb_image implementation unit
-        └── level/
-            ├── level.h              #   Level, Sector, Surface structs
-            └── level_loader.h/.cpp  #   buildSectorMeshes
+        ├── level/
+        │   ├── level.h              #   Level, Sector, Surface structs
+        │   └── level_loader.h/.cpp  #   buildSectorMeshes (LEGACY .qlvl path — see note below)
+        └── app/
+            └── simulation.h/.cpp    #   Shared buildWorld + stepSimulation (windowed + headless)
 ```
 
 ---
@@ -140,6 +144,7 @@ QEngine/
 - Doors and lifts (kinematic movers with state machine + start delay)
 - Trigger volumes (activate movers, teleport, damage, heal)
 - Weapons (shotgun hitscan, rocket launcher projectile)
+- Player death / respawn (`player_death_system`, in the tick order)
 - Debug HUD (FPS, position, health, ammo)
 - Demo reset system (periodic physics object respawn)
 
@@ -148,7 +153,6 @@ QEngine/
 - AI / enemies
 - Audio
 - Networking
-- Death / respawn
 - Crosshair / expanded HUD
 - TrenchBroom level loading
 - BSP traversal

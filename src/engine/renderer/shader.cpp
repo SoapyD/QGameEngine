@@ -26,7 +26,9 @@ Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
 
 Shader::~Shader()
 {
-	glDeleteProgram(m_programId);
+	// 0 == stub/never-created program; the guard also avoids a GL call when
+	// there is no context (headless), where glDeleteProgram isn't bound.
+	if (m_programId) glDeleteProgram(m_programId);
 }
 
 void Shader::use() const
@@ -34,11 +36,21 @@ void Shader::use() const
 	glUseProgram(m_programId);
 }
 
+int Shader::uniformLocation(const std::string& name) const
+{
+	auto it = m_uniformCache.find(name);
+	if (it != m_uniformCache.end()) return it->second;
+
+	int location = glGetUniformLocation(m_programId, name.c_str());
+	m_uniformCache.emplace(name, location);  // cache misses (-1) too, so we ask once
+	return location;
+}
+
 void Shader::setMat4(const std::string& name, const glm::mat4& value) const
 {
 	glUniformMatrix4fv
 	(
-		glGetUniformLocation(m_programId, name.c_str()),
+		uniformLocation(name),
 		1,						// count: 1 matric
 		GL_FALSE,				// transpose: no
 		glm::value_ptr(value)	// pointer to the matrix data
@@ -49,7 +61,7 @@ void Shader::setVec3(const std::string& name, const glm::vec3& value) const
 {
 	glUniform3fv
 	(
-		glGetUniformLocation(m_programId, name.c_str()),
+		uniformLocation(name),
 		1,						// count: 1 matric
 		glm::value_ptr(value)	// pointer to the matrix data
 	);
@@ -57,27 +69,12 @@ void Shader::setVec3(const std::string& name, const glm::vec3& value) const
 
 void Shader::setFloat(const std::string& name, float value) const
 {
-	glUniform1f
-	(
-		glGetUniformLocation
-		(
-			m_programId,
-			name.c_str()
-		),
-		value
-	);
+	glUniform1f(uniformLocation(name), value);
 }
 
 void Shader::setInt(const std::string& name, int value) const
 {
-	glUniform1i(
-		glGetUniformLocation
-		(
-			m_programId,
-			name.c_str()
-		),
-		value
-	);
+	glUniform1i(uniformLocation(name), value);
 }
 
 std::string Shader::readFile(const std::string& path) const
