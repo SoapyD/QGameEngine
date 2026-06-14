@@ -15,6 +15,11 @@ These are **planning documents** — they propose work, they don't perform it.
 Implementation plans graduate into their own `docs/plans/NN-<name>.md` files and are
 moved to `archive/` once shipped (the project's existing habit).
 
+**Plan bundles (multi-plan efforts in their own dir):**
+- [`conventions/`](conventions/README.md) — adopt WyrdWars-style file conventions in
+  C++ (small/single-responsibility files, `types/` folders, barrel discipline) +
+  C++-aware enforcement checks. 7 plans, sequenced; proposed 2026-06-14.
+
 **Shipped & archived:**
 - [01-project-improvements.md](archive/01-project-improvements.md) — current-system
   improvements & layout review. Implemented and verified 2026-06-14 (factories,
