@@ -22,7 +22,9 @@ struct JoltWorld
 
     // singleThreaded=true uses a deterministic single-threaded job system —
     // required by the headless harness so simulation runs are reproducible.
-    void init(bool singleThreaded = false)
+    // `gravity` is the downward magnitude (units/s^2); pass PhysicsConfig::gravity
+    // so the world and the player system share one value.
+    void init(bool singleThreaded = false, float gravity = 20.0f)
     {
         // Register Jolt allocator and install callbacks
         JPH::RegisterDefaultAllocator();
@@ -63,8 +65,8 @@ struct JoltWorld
             objectLayerPairFilter
         );
 
-        // Set gravity (Quake-style: 20 units/s^2 downward)
-        physicsSystem->SetGravity(JPH::Vec3(0.0f, -20.0f, 0.0f));
+        // Set gravity (Quake-style, magnitude from PhysicsConfig — default 20 units/s^2 downward)
+        physicsSystem->SetGravity(JPH::Vec3(0.0f, -gravity, 0.0f));
     }
 
     void step(float deltaTime)

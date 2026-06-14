@@ -9,7 +9,6 @@
 //
 // Exit code 0 = all assertions passed, 1 = a failure (CI-friendly).
 
-#include "engine/core/window.h"
 #include "engine/core/resource_manager.h"
 #include "engine/app/simulation.h"
 #include "engine/ecs/components.h"
@@ -318,23 +317,18 @@ int main(int argc, char** argv)
 {
     std::string scenario = (argc > 1) ? argv[1] : "ride_lift_up";
 
-    // Hidden window — gives us a GL context so resources load, nothing shows.
-    Window window(320, 240, "QEngine headless", /*visible=*/false);
-    if (!window.isValid())
-    {
-        std::cerr << "Fatal: headless GL context creation failed" << std::endl;
-        return 1;
-    }
-
+    // Fully headless: no window, no GL context. loadResources caches GL-free
+    // stubs and buildWorld skips render-mesh building, so this runs on a box
+    // with no GPU/driver (CI-friendly). Physics is unaffected.
     ResourceManager resources;
-    qengine::loadResources(resources);
+    qengine::loadResources(resources, /*headless=*/true);
 
     entt::registry registry;
     auto& cfg = registry.ctx().emplace<PhysicsConfig>();
     auto& jolt = registry.ctx().emplace<JoltWorld>();
-    jolt.init(/*singleThreaded=*/true);   // deterministic
+    jolt.init(/*singleThreaded=*/true, cfg.gravity);   // deterministic
 
-    Level level = qengine::buildWorld(registry, resources, jolt);
+    Level level = qengine::buildWorld(registry, resources, jolt, /*headless=*/true);
     float dt = cfg.fixedDeltaTime;
 
     std::cout << "── headless scenario: " << scenario << " ──" << std::endl;

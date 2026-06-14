@@ -24,6 +24,11 @@ std::shared_ptr<Shader> ResourceManager::getShader
 	return shader;	
 }
 
+void ResourceManager::storeShader(const std::string& name, std::shared_ptr<Shader> shader)
+{
+	m_shaders[name] = shader;
+}
+
 std::shared_ptr<Shader> ResourceManager::getShader(const std::string& name) const
 {
 	auto it = m_shaders.find(name);
@@ -57,6 +62,11 @@ std::shared_ptr<Texture> ResourceManager::getTexture
 	m_textures[name] = texture;
 	std::cout << "ResourceManager: cached texture '" << name << "'" << std::endl;
 	return texture;	
+}
+
+void ResourceManager::storeTexture(const std::string& name, std::shared_ptr<Texture> texture)
+{
+	m_textures[name] = texture;
 }
 
 std::shared_ptr<Texture> ResourceManager::getTexture

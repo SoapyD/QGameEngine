@@ -1,0 +1,22 @@
+name: Code Quality
+
+on:
+  pull_request:
+    branches: [main, master, dev]
+  workflow_dispatch:
+
+jobs:
+  # Branch-flow guard: only `dev` is allowed to merge into a production branch
+  # (master/main). PRs into master/main from any other branch fail. PRs into
+  # `dev` skip the enforcing step (the `if` is false) and pass.
+  guard-branch-flow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Only `dev` may merge into master
+        if: github.base_ref == 'master' || github.base_ref == 'main'
+        run: |
+          if [ "${{ github.head_ref }}" != "dev" ]; then
+            echo "::error::PRs into '${{ github.base_ref }}' must come from 'dev', but this one is from '${{ github.head_ref }}'. Merge your branch into 'dev' first, then open a 'dev → ${{ github.base_ref }}' PR."
+            exit 1
+          fi
+          echo "OK: '${{ github.head_ref }}' → '${{ github.base_ref }}' is an allowed merge."

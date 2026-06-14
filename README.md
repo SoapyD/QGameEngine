@@ -25,31 +25,35 @@ cmake --build build
 ```
 QEngine/
 ├── src/
-│   ├── main.cpp                    # Entry point and game loop
-│   └── engine/
-│       ├── core/                   # Window, input, resources, timestep
-│       ├── ecs/
-│       │   ├── components.h        # All ECS component definitions
-│       │   ├── scene_setup.*       # Entity spawning
-│       │   └── systems/            # All game systems
-│       ├── physics/                # Jolt integration, config, layers
-│       ├── renderer/               # Camera, shaders, textures, meshes
-│       └── level/                  # Level geometry and loading
+│   ├── main.cpp                    # Windowed entry point and game loop
+│   ├── engine/
+│   │   ├── core/                   # Window, input, resources, timestep
+│   │   ├── ecs/
+│   │   │   ├── components.h        # All ECS component definitions
+│   │   │   ├── scene_setup.*       # Entity spawning
+│   │   │   └── systems/            # All game systems
+│   │   ├── physics/                # Jolt integration, config, layers
+│   │   ├── renderer/               # Camera, shaders, textures, meshes
+│   │   ├── level/                  # Level geometry and loading
+│   │   └── app/                    # Shared sim orchestration (buildWorld, stepSimulation)
+│   └── harness/                    # Headless entry point (QEngineHeadless)
 ├── assets/                         # Shaders, textures, models
 ├── docs/                           # Technical documentation
-└── extern/                         # Third-party libraries
+└── extern/                         # Third-party libraries (entt, glad, glfw, glm, stb; Jolt via FetchContent)
 ```
 
 ## Documentation
 
-Detailed technical documentation lives in [`docs/`](docs/README.md):
+Detailed technical documentation lives in [`docs/architecture/`](docs/architecture/README.md):
 
-- [Architecture](docs/ARCHITECTURE.md) — Project structure, design philosophy, what's implemented
-- [Systems](docs/SYSTEMS.md) — Every ECS system, what it does, components it uses
-- [Components](docs/COMPONENTS.md) — Every component, fields, defaults, which systems read/write them
-- [Tick Order](docs/TICK_ORDER.md) — Game loop breakdown, system execution order, data flow
-- [Jolt Physics](docs/JOLT_PHYSICS.md) — Physics integration, body types, layers, CharacterVirtual
-- [Scene Setup](docs/SCENE_SETUP.md) — Showcase scene entities, positions, configuration
+- [Architecture](docs/architecture/ARCHITECTURE.md) — Project structure, design philosophy, what's implemented
+- [Systems](docs/architecture/SYSTEMS.md) — Every ECS system, what it does, components it uses
+- [Components](docs/architecture/COMPONENTS.md) — Every component, fields, defaults, which systems read/write them
+- [Tick Order](docs/architecture/TICK_ORDER.md) — Game loop breakdown, system execution order, data flow
+- [Jolt Physics](docs/architecture/JOLT_PHYSICS.md) — Physics integration, body types, layers, CharacterVirtual
+- [Scene Setup](docs/architecture/SCENE_SETUP.md) — Showcase scene entities, positions, configuration
+
+Process flows and current status live in [`docs/processes/`](docs/processes/_overview.md) and [`docs/status/`](docs/status/_overview.md).
 
 ## Tutorial Series
 

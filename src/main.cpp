@@ -6,6 +6,8 @@
 #include "engine/ecs/components.h"
 #include "engine/ecs/systems/debug_hud_system.h"
 #include "engine/ecs/systems/render_system.h"
+#include "engine/ecs/systems/player_input_system.h"
+#include "engine/ecs/systems/camera_follow_system.h"
 #include "engine/physics/physics_config.h"
 #include "engine/physics/jolt_world.h"
 #include "engine/renderer/camera.h"
@@ -41,7 +43,7 @@ int main()
 	FixedTimestep fixedTimestep(physicsConfig.fixedDeltaTime);
 
 	auto& joltWorld = registry.ctx().emplace<JoltWorld>();
-	joltWorld.init();
+	joltWorld.init(false, physicsConfig.gravity);
 
 	Level level = qengine::buildWorld(registry, resources, joltWorld);
 
@@ -82,38 +84,8 @@ int main()
 		// mouse look - camera still handles this directly
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
-		glm::vec3 front =camera.getFront();
-		glm::vec3 right = glm::normalize(glm::cross(front, glm::vec3(0, 1, 0)));
-
-		// flatten to horizontal plane (don't fly when looking up/down)
-		front.y = 0.0f;
-		front = glm::normalize(front);
-		right.y = 0.0f;
-		right = glm::normalize(right);
-
-		glm::vec3 wishDir(0.0f);
-		if (input.isKeyPressed(GLFW_KEY_W)) wishDir += front;
-		if (input.isKeyPressed(GLFW_KEY_S)) wishDir -= front;
-		if (input.isKeyPressed(GLFW_KEY_A)) wishDir -= right;
-		if (input.isKeyPressed(GLFW_KEY_D)) wishDir += right;
-
-		// normalise to prevent faster diagonal movement
-		if (glm::length(wishDir) > 0.0f)
-			wishDir = glm::normalize(wishDir);
-
-		// ─── Populate PlayerInput from GLFW ──────────────────────
-		auto inputView = registry.view<PlayerInput>();
-		for (auto [entity, playerInput] : inputView.each()) {
-			playerInput.wishDir = wishDir;
-			playerInput.jump = input.isKeyPressed(GLFW_KEY_SPACE);
-			playerInput.fire = input.isMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT);
-			playerInput.weaponSwitch = -1;
-			if (input.isKeyPressed(GLFW_KEY_1)) playerInput.weaponSwitch = 0;
-			if (input.isKeyPressed(GLFW_KEY_2)) playerInput.weaponSwitch = 1;
-		}
-
-		// ─── Write camera direction into registry context ────── NEW
-		registry.ctx().insert_or_assign<CameraDirection>(CameraDirection{camera.getFront()});
+		// ─── Map input → PlayerInput + publish aim direction ─────
+		playerInputSystem(registry, input, camera);
 
 		// ─── ECS Systems (tick order!) ───────────────────────────
 		while (fixedTimestep.step())
@@ -130,24 +102,7 @@ int main()
 		float alpha = fixedTimestep.getAlpha();
 
 		// ─── Camera follows player body (interpolated) ───────────
-		auto playerView = registry.view<Position, AABBCollider, TagPlayer>();
-		for (auto [entity, pos, col] : playerView.each())
-		{
-			glm::vec3 followPos = pos.value;
-			if (registry.all_of<PrevPosition>(entity))
-			{
-				const glm::vec3& prev = registry.get<PrevPosition>(entity).value;
-				if (glm::distance(prev, pos.value) < 3.0f)
-					followPos = glm::mix(prev, pos.value, alpha);
-			}
-			// Camera sits near the top of the collider (eye height)
-			glm::vec3 eyePos = followPos;
-			eyePos.y += col.halfExtents.y * kEyeHeightFraction;
-			camera.setPosition(eyePos);
-		}
-
-		// Write camera direction and position into registry context
-		registry.ctx().insert_or_assign<CameraDirection>(CameraDirection{camera.getFront()});
+		cameraFollowSystem(registry, camera, alpha);
 
 		// ─── Render ──────────────────────────────────────────────
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);

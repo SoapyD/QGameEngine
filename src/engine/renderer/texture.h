@@ -2,11 +2,16 @@
 
 #include <glad/glad.h>
 #include <string>
+#include <cstddef>
 
 class Texture
 {
 	public:
 		Texture(const std::string& path);
+		// GL-free stub (texture id 0). For the headless harness — never bound;
+		// the destructor already skips glDeleteTextures on a 0 id.
+		explicit Texture(std::nullptr_t)
+			: m_textureId(0), m_width(0), m_height(0), m_channels(0) {}
 		~Texture();
 
 		// Bind this texture to a texture unit (0, 1, 2, etc.)

@@ -85,13 +85,9 @@ Axis-aligned bounding box. `halfExtents` defines the box size from centre. `isTr
 
 **Used by:** `triggerSystem` (AABB overlap), `playerCharacterSystem` (capsule shape dimensions), Jolt body creation functions (box shape dimensions), `renderSystem` (camera eye height).
 
-### `Gravity`
-```cpp
-struct Gravity {
-    float strength = 20.0f;
-};
-```
-Legacy component from the old physics system. The player's gravity is now handled inside `playerCharacterSystem` (hardcoded `-20.0f * dt`). Dynamic bodies use Jolt's world gravity (`-20 m/s^2`). This component exists for compatibility but is not actively read by any current system.
+> **Removed:** the old `Gravity` component was deleted in the 2026-06-08 eval
+> cleanup. Player gravity is now applied inside `playerCharacterSystem`
+> (`-20.0f * dt`); dynamic bodies use Jolt's world gravity (`-20 m/s^2`).
 
 ### `OnGround`
 ```cpp
@@ -111,7 +107,7 @@ struct CharacterPhysics {
     float groundAcceleration = 10.0f;
     float airAcceleration = 10.0f;
     float jumpForce = 8.0f;
-    float stepHeight = 1.5f;
+    float stepHeight = 0.7f;
 };
 ```
 Tuning values for Quake-style movement. All values are read by `playerCharacterSystem`.

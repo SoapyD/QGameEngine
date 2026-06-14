@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(QEngine VERSION 0.1.0 LANGUAGES C CXX)
 
-# Use C++17
+# Use C++20
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -65,11 +65,14 @@ add_library(qengine_lib STATIC
 	src/engine/core/input_manager.cpp
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
+	src/engine/ecs/factories.cpp
 	src/engine/ecs/jolt_body_helpers.cpp
 	src/engine/ecs/scene_setup.cpp
 	src/engine/ecs/showcase_level.cpp
+	src/engine/ecs/systems/camera_follow_system.cpp
 	src/engine/ecs/systems/combat_system.cpp
 	src/engine/ecs/systems/debug_hud_system.cpp
+	src/engine/ecs/systems/player_input_system.cpp
 	src/engine/ecs/systems/demo_reset_system.cpp
 	src/engine/ecs/systems/lifetime_system.cpp
 	src/engine/ecs/systems/jolt_sync_system.cpp

@@ -1,3 +1,5 @@
+// LEGACY / DEAD CODE — not in the CMake build (replaced by Jolt). Kept for
+// tutorial reference only. See docs/processes/physics.md.
 #include "engine/physics/collision.h"
 #include <algorithm>
 #include <cmath>

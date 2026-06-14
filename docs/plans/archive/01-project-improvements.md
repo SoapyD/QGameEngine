@@ -1,5 +1,9 @@
 # Plan 01 — Current-System Improvements & Layout Review
 
+**Status: ✅ COMPLETE — shipped & archived 2026-06-14.** Every item below (§A/§B
+findings + Tiers 1–3) was implemented, built green, and verified against the 6
+headless regression scenarios. See the Completion record for the per-item summary.
+
 **Scope:** What can we improve in the engine as it stands (through Ch 15d + the
 2026-06-08 eval fixes), and does the project layout still make sense before Phase 5
 (TrenchBroom) lands?
@@ -9,6 +13,26 @@ timestep, library/harness separation. The problems are **drift and dead-ends**, 
 design: docs that describe removed code, a second (unused) level format, and entity
 spawning that's hard-coded inline in a way that will block the TrenchBroom work.
 None are urgent bugs; all are cheap to fix and pay off directly in Phase 5.
+
+---
+
+## Completion record — 2026-06-14
+
+Shipped and verified (build green + all 6 headless scenarios pass identically
+before/after each change — no behavioural drift):
+
+| Item | Status | Notes |
+|------|--------|-------|
+| §B Documentation drift | ✅ done | All listed doc mismatches swept (README links, COMPONENTS `Gravity`/`stepHeight`, SCENE_SETUP, ARCHITECTURE death-respawn + extern tree, CMake C++20). |
+| C-Tier1 #1 Entity factories | ✅ done | New `ecs/factories.{h,cpp}` (`spawnPlayer/PointLight/StaticBox/DemoCube/Mover/Trigger/DebugWireframe/DecorBox`); `scene_setup.cpp` now declarative. |
+| C-Tier2 #5 Constants → PhysicsConfig | ✅ done | `PhysicsConfig::gravity` single-sources world + player-system gravity. |
+| C-Tier2 #6 Input/camera as systems | ✅ done | `playerInputSystem` + `cameraFollowSystem` extracted from `main.cpp`. |
+| C-Tier2 #7 Harness no-GL (Phase B) | ✅ done | GL-free stub resources + skip `buildSectorMeshes` in headless; hidden window removed. `QEngineHeadless` now needs no GPU/driver. |
+| §A #3 Label/retire legacy code | ✅ done | Banner-marked the genuinely dead code only: `collision.{h,cpp}`, `spatial_hash.{h,cpp}`, `.qlvl` parser (`LevelLoader::*`), `test.qlvl`, `systems/archived/*` (folder README). The falsely-flagged **live** code (`aabb.h`, `collision_layers.h`, `buildSectorMeshes`) is now documented in `docs/processes/physics.md` → "Legacy & retained code" so it isn't re-flagged. |
+| C-Tier1 #4 Visual interp check | ✅ done | Smooth motion + no teleport/respawn streak confirmed in-app (2026-06-14). |
+| C-Tier2 #8 Generalise triggers | ✅ done | New `TagTriggerable` tag; `triggerSystem` keys off it instead of `TagPlayer` (player carries it — behaviour identical, enemies/props can opt in). |
+| C-Tier3 #9 Uniform caching | ✅ done | `Shader` caches uniform locations (name→location map) instead of `glGetUniformLocation` every set. |
+| C-Tier3 #10 Split `components.h` | ✅ done | Split into `ecs/components/{core,physics,combat,gameplay,rendering,tags}.h`; `components.h` is now a barrel so all includers are unchanged. |
 
 ---
 

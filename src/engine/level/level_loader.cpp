@@ -3,10 +3,13 @@
 #include <sstream>
 #include <iostream>
 
+// LEGACY / DEAD CODE — the `.qlvl` parser (LevelLoader::*) is never called by
+// the running game; superseded by the Phase 5 `.map` loader. Only
+// buildSectorMeshes (bottom of file) is live. See docs/processes/physics.md.
 Level LevelLoader::load
 (
 	const std::string& path,
-	const std::unordered_map<std::string, 
+	const std::unordered_map<std::string,
 	unsigned int>& textureMap
 )
 {

@@ -23,6 +23,9 @@ class ResourceManager
 		// retrieve a previously loaded shader by name
 		std::shared_ptr<Shader> getShader(const std::string& name) const;
 
+		// store an already-constructed shader (e.g. a GL-free headless stub)
+		void storeShader(const std::string& name, std::shared_ptr<Shader> shader);
+
 		// ─── Textures ────────────────────────────────────────────
 		// load a texture (or return the cache version if already loaded)
 		std::shared_ptr<Texture> getTexture
@@ -33,6 +36,9 @@ class ResourceManager
 
 		// retrieve a previously loaded texture by name
 		std::shared_ptr<Texture> getTexture(const std::string& name) const;
+
+		// store an already-constructed texture (e.g. a GL-free headless stub)
+		void storeTexture(const std::string& name, std::shared_ptr<Texture> texture);
 
 		// ─── Meshes ──────────────────────────────────────────────
 		// load a mesh from an OBJ file (or return the cached version)
