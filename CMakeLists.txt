@@ -66,23 +66,41 @@ add_library(qengine_lib STATIC
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
 	src/engine/ecs/factories.cpp
-	src/engine/ecs/jolt_body_helpers.cpp
-	src/engine/ecs/scene_setup.cpp
-	src/engine/ecs/showcase_level.cpp
-	src/engine/ecs/systems/camera_follow_system.cpp
-	src/engine/ecs/systems/combat_system.cpp
-	src/engine/ecs/systems/debug_hud_system.cpp
-	src/engine/ecs/systems/player_input_system.cpp
+	src/engine/physics/bodies/create_dynamic_body.cpp
+	src/engine/physics/bodies/create_kinematic_body.cpp
+	src/engine/physics/bodies/create_level_bodies.cpp
+	src/engine/physics/bodies/create_sensor_body.cpp
+	src/engine/physics/bodies/create_static_body.cpp
+	src/engine/app/scene_setup.cpp
+	src/engine/level/showcase_level.cpp
+	src/engine/ecs/systems/player/camera_follow_system.cpp
+	src/engine/ecs/systems/combat/apply_spread.cpp
+	src/engine/ecs/systems/combat/box_hits_level.cpp
+	src/engine/ecs/systems/combat/combat_system.cpp
+	src/engine/ecs/systems/combat/fire_hitscan.cpp
+	src/engine/ecs/systems/combat/fire_projectile.cpp
+	src/engine/ecs/systems/combat/raycast_entities.cpp
+	src/engine/ecs/systems/combat/spawn_tracer.cpp
+	src/engine/ecs/systems/combat/splash_damage.cpp
+	src/engine/ecs/systems/combat/update_projectiles.cpp
+	src/engine/ecs/systems/debug_hud/debug_hud_system.cpp
+	src/engine/ecs/systems/debug_hud/draw_ammo.cpp
+	src/engine/ecs/systems/debug_hud/draw_bar.cpp
+	src/engine/ecs/systems/debug_hud/draw_crosshair.cpp
+	src/engine/ecs/systems/debug_hud/draw_flash_overlay.cpp
+	src/engine/ecs/systems/debug_hud/draw_text.cpp
+	src/engine/ecs/systems/player/player_input_system.cpp
 	src/engine/ecs/systems/demo_reset_system.cpp
 	src/engine/ecs/systems/lifetime_system.cpp
-	src/engine/ecs/systems/jolt_sync_system.cpp
-	src/engine/ecs/systems/player_character_system.cpp
-	src/engine/ecs/systems/player_death_system.cpp
-	src/engine/ecs/systems/mover_sync_system.cpp
-	src/engine/ecs/systems/mover_system.cpp
+	src/engine/ecs/systems/sync/jolt_sync_system.cpp
+	src/engine/ecs/systems/player/init_player_character.cpp
+	src/engine/ecs/systems/player/player_character_system.cpp
+	src/engine/ecs/systems/player/player_death_system.cpp
+	src/engine/ecs/systems/sync/mover_sync_system.cpp
+	src/engine/ecs/systems/mover/mover_system.cpp
 	src/engine/ecs/systems/render_system.cpp
 	src/engine/ecs/systems/trigger_system.cpp
-	src/engine/level/level_loader.cpp
+	src/engine/level/build_sector_meshes.cpp
 	src/engine/physics/jolt_world.cpp
 	src/engine/physics/raycast.cpp
 	src/engine/renderer/camera.cpp

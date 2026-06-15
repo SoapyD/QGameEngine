@@ -3,7 +3,9 @@
 #include <entt/entt.hpp>
 #include <glm/glm.hpp>
 
-#include "engine/ecs/components.h"
+#include "engine/ecs/components/rendering.h"  // MeshRenderer
+#include "engine/ecs/components/gameplay.h"   // TriggerAction
+#include "engine/ecs/types/mesh_assets.h"
 
 // ─────────────────────────────────────────────────────────────────────
 // Entity factories
@@ -21,13 +23,7 @@
 
 namespace factories
 {
-    // Shared render handles for the showcase's cube-based entities.
-    struct MeshAssets
-    {
-        unsigned int cubeVAO = 0;
-        unsigned int cubeIndexCount = 0;
-        unsigned int litShader = 0;
-    };
+    // MeshAssets lives in ecs/types/mesh_assets.h (included above).
 
     // A MeshRenderer for the shared cube mesh with the given texture.
     MeshRenderer cubeRenderer(const MeshAssets& a, unsigned int textureId);

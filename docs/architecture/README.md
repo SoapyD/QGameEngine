@@ -34,6 +34,7 @@ Reference documentation for the QEngine codebase. Updated through Chapter 15d.
 
 | Document | Description |
 |----------|-------------|
+| [CODING_STANDARD.md](CODING_STANDARD.md) | File-organisation rules — one-thing-per-file, `types/` folders, barrel discipline, size caps |
 | [CPP_CONCEPTS_BY_CHAPTER.md](CPP_CONCEPTS_BY_CHAPTER.md) | C++ concepts introduced in each chapter |
 | [FUTURE_TUTORIALS.md](../roadmap/FUTURE_TUTORIALS.md) | Ideas for future tutorial content |
 | [Processes overview](../processes/_overview.md) | How each functionality flows across systems |

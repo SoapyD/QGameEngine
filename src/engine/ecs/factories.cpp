@@ -1,6 +1,7 @@
 #include "engine/ecs/factories.h"
 
-#include "engine/ecs/jolt_body_helpers.h"
+#include "engine/ecs/components.h"   // spawns touch every component group
+#include "engine/physics/jolt_bodies.h"
 #include "engine/ecs/weapon_definitions.h"
 
 #include <utility>

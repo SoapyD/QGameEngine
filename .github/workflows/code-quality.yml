@@ -20,3 +20,16 @@ jobs:
             exit 1
           fi
           echo "OK: '${{ github.head_ref }}' → '${{ github.base_ref }}' is an allowed merge."
+
+  # File-convention checks (docs/architecture/CODING_STANDARD.md): one-thing-per-file,
+  # types/ folders, barrel/header discipline, size caps. Heuristic Python scanners
+  # in scripts/checks/; --strict fails the job on any non-allowlisted finding.
+  conventions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run convention checks
+        run: python scripts/checks/run_all.py --strict
