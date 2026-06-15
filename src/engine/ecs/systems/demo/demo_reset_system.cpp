@@ -1,4 +1,4 @@
-#include "engine/ecs/systems/demo_reset_system.h"
+#include "engine/ecs/systems/demo/demo_reset_system.h"
 #include "engine/ecs/components.h"
 #include "engine/physics/physics_config.h"
 #include "engine/physics/jolt_world.h"

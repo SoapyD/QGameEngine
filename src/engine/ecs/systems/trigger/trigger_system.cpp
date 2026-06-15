@@ -1,4 +1,4 @@
-#include "engine/ecs/systems/trigger_system.h"
+#include "engine/ecs/systems/trigger/trigger_system.h"
 #include "engine/ecs/components.h"
 #include "engine/physics/types/aabb.h"
 #include "engine/physics/physics_config.h"

@@ -1,5 +1,5 @@
 #include "engine/app/scene_setup.h"
-#include "engine/ecs/factories.h"
+#include "engine/level/factories.h"
 #include "engine/level/showcase_level.h"
 #include "engine/ecs/components.h"
 #include "engine/level/level.h"

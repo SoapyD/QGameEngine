@@ -1,11 +1,9 @@
 # QEngine — File-Convention Adoption (plan bundle)
 
-**Status: ✅ Plans 01–07 COMPLETE — shipped 2026-06-15** (tree convention-compliant,
-`run_all.py` reports 0 findings, build clean, 6 scenarios pass, checks enforced in CI).
-**Plan 08 (systems domain grouping) is 🟧 IN PROGRESS** — files moved + checks green,
-but the build is paused on a `ranlib: file truncated` archive issue (see
-[08-systems-domain-grouping.md](08-systems-domain-grouping.md)). The canonical rules
-live in [`CODING_STANDARD.md`](../../../architecture/CODING_STANDARD.md).
+**Status: ✅ COMPLETE — shipped 2026-06-15.** All 8 plans implemented and verified:
+tree convention-compliant (`run_all.py --strict` = 0 findings), build clean, all 6
+headless scenarios pass, checks enforced in CI. The canonical rules live in
+[`CODING_STANDARD.md`](../../../architecture/CODING_STANDARD.md).
 
 Outcome summary:
 - `types/` folders for incidental structs/enums (ecs + physics).
@@ -17,8 +15,8 @@ Outcome summary:
 - Size caps recalibrated to realistic C++ values (CODING_STANDARD §4).
 - Dead code (`collision`, `spatial_hash`, `.qlvl` parser, `archived/*`) dropped from
   the build and banner-labelled — **kept, not deleted** (pending an explicit call).
-- **(Plan 08, pending build verify)** systems grouped into domain folders:
-  `systems/player/`, `systems/mover/`, `systems/sync/`, `weapon_switch` → `combat/`.
+- Systems grouped into domain folders: `systems/player/`, `systems/mover/`,
+  `systems/sync/`, and `weapon_switch` → `combat/` (Plan 08).
 
 ## Why
 
@@ -78,7 +76,7 @@ in the others.
 | 05 | [engine-classes.md](05-engine-classes.md) | Renderer/core class `.cpp` splits + headers |
 | 06 | [physics-level.md](06-physics-level.md) | Physics free fns, level, dead-code retirement |
 | 07 | [enforcement-rollout.md](07-enforcement-rollout.md) | Blocking checks, CI hook, archive |
-| 08 | [systems-domain-grouping.md](08-systems-domain-grouping.md) | Group systems into domain folders (🟧 build verify pending) |
+| 08 | [systems-domain-grouping.md](08-systems-domain-grouping.md) | Group systems into domain folders (player/mover/sync) |
 
 ## Verify (every plan)
 

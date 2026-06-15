@@ -65,7 +65,7 @@ add_library(qengine_lib STATIC
 	src/engine/core/input_manager.cpp
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
-	src/engine/ecs/factories.cpp
+	src/engine/level/factories.cpp
 	src/engine/physics/bodies/create_dynamic_body.cpp
 	src/engine/physics/bodies/create_kinematic_body.cpp
 	src/engine/physics/bodies/create_level_bodies.cpp
@@ -90,19 +90,20 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/debug_hud/draw_flash_overlay.cpp
 	src/engine/ecs/systems/debug_hud/draw_text.cpp
 	src/engine/ecs/systems/player/player_input_system.cpp
-	src/engine/ecs/systems/demo_reset_system.cpp
-	src/engine/ecs/systems/lifetime_system.cpp
+	src/engine/ecs/systems/demo/demo_reset_system.cpp
+	src/engine/ecs/systems/lifetime/lifetime_system.cpp
 	src/engine/ecs/systems/sync/jolt_sync_system.cpp
 	src/engine/ecs/systems/player/init_player_character.cpp
 	src/engine/ecs/systems/player/player_character_system.cpp
 	src/engine/ecs/systems/player/player_death_system.cpp
 	src/engine/ecs/systems/sync/mover_sync_system.cpp
 	src/engine/ecs/systems/mover/mover_system.cpp
-	src/engine/ecs/systems/render_system.cpp
-	src/engine/ecs/systems/trigger_system.cpp
+	src/engine/ecs/systems/render/render_system.cpp
+	src/engine/ecs/systems/trigger/trigger_system.cpp
 	src/engine/level/build_sector_meshes.cpp
 	src/engine/physics/jolt_world.cpp
-	src/engine/physics/raycast.cpp
+	src/engine/physics/raycast/ray_intersect_aabb.cpp
+	src/engine/physics/raycast/ray_intersect_triangle.cpp
 	src/engine/renderer/camera.cpp
 	src/engine/renderer/mesh.cpp
 	src/engine/renderer/obj_loader.cpp

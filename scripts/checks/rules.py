@@ -13,7 +13,7 @@ See docs/architecture/CODING_STANDARD.md for the rules these encode.
 # leaving cohesive units alone.
 SIZE_RULES = [
     ("src/engine/ecs/systems/**/*.cpp", 190, "system free-fn"),
-    ("src/engine/ecs/factories*.cpp", 150, "factory"),
+    ("**/factories*.cpp", 150, "factory"),   # cohesive spawn module — cap follows the file
     ("src/engine/level/**/*.cpp", 100, "level free-fn"),
     ("src/engine/core/**/*.cpp", 200, "core class"),
     ("src/engine/renderer/**/*.cpp", 200, "renderer class"),

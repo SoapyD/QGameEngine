@@ -41,35 +41,39 @@ QEngine/
         │   ├── components/          #   Component defs by group (core, physics,
         │   │                        #     combat, gameplay, rendering, tags)
         │   ├── types/               #   Incidental types (entity_hit, mesh_assets, system_phase)
-        │   ├── factories.h/.cpp     #   spawnPlayer / spawnMover / spawnTrigger / ...
         │   ├── weapon_definitions.h #   createWeapon() factory (inline)
-        │   └── systems/             #   One free function per file; long ones get a folder
-        │       ├── combat/          #     combat_system + fire_hitscan/projectile, splash, ...
-        │       ├── debug_hud/       #     debug_hud_system + draw_text/bar/crosshair/...
-        │       ├── player_character_system.{h,cpp} / init_player_character.cpp
-        │       ├── mover_system / mover_sync_system / jolt_sync_system
-        │       ├── trigger_system / lifetime_system / demo_reset_system
-        │       ├── render_system / weapon_switch_system
+        │   └── systems/             #   One free function per file; grouped by domain folder
+        │       ├── player/          #     character, init, input, death, camera_follow
+        │       ├── mover/           #     mover_system
+        │       ├── sync/            #     mover_sync, jolt_sync (ECS↔Jolt)
+        │       ├── combat/          #     combat_system + fire_*/splash/... + weapon_switch
+        │       ├── debug_hud/       #     debug_hud_system + draw_*
+        │       ├── render/          #     render_system
+        │       ├── trigger/         #     trigger_system
+        │       ├── lifetime/        #     lifetime_system
+        │       ├── demo/            #     demo_reset_system
         │       └── archived/        #     Dead pre-Jolt systems (not compiled — see README)
         ├── physics/
         │   ├── jolt_setup.h         #   Jolt layers, filters, callbacks
         │   ├── jolt_world.h/.cpp    #   JoltWorld wrapper (init, step, shutdown)
         │   ├── physics_config.h     #   PhysicsConfig (gravity, fixedDeltaTime, ...)
         │   ├── collision_layers.h   #   Jolt object-layer bitmasks (live)
-        │   ├── raycast.h/.cpp       #   Ray-AABB / ray-triangle intersection
+        │   ├── raycast.h            #   Ray-AABB / ray-triangle declarations
+        │   ├── raycast/             #   ray_intersect_aabb.cpp, ray_intersect_triangle.cpp
         │   ├── jolt_bodies.h        #   Body-creation declarations
         │   ├── bodies/              #   create_{static,dynamic,kinematic,sensor,level}_body.cpp
         │   ├── types/               #   aabb.h, ray.h (value types)
         │   └── (collision.*, spatial_hash.*  — LEGACY, not compiled)
-        ├── renderer/
+        ├── renderer/                #   Single classes, kept whole (one .h/.cpp each)
         │   ├── camera.h/.cpp        #   FPS camera (position, orientation, matrices)
-        │   ├── shader.h/.cpp        #   Shader compilation + uniform helpers (cached)
+        │   ├── shader.h/.cpp        #   Shader compilation + uniform helpers
         │   ├── texture.h/.cpp       #   Texture loading (stb_image)
         │   ├── mesh.h/.cpp          #   VAO/VBO/EBO management
         │   ├── obj_loader.h/.cpp    #   OBJ file parser
         │   └── stb_image_impl.cpp   #   stb_image implementation unit
         ├── level/
         │   ├── level.h              #   Level, Sector, Surface structs
+        │   ├── factories.h/.cpp     #   spawnPlayer / spawnMover / spawnTrigger / ... (level entities)
         │   ├── build_sector_meshes.h/.cpp  # Sector render meshes (live)
         │   ├── showcase_level.h/.cpp       # Hardcoded showcase room geometry
         │   └── level_loader.h/.cpp  #   LEGACY .qlvl parser (not compiled)

@@ -1,4 +1,4 @@
-#include "engine/ecs/factories.h"
+#include "engine/level/factories.h"
 
 #include "engine/ecs/components.h"   // spawns touch every component group
 #include "engine/physics/jolt_bodies.h"

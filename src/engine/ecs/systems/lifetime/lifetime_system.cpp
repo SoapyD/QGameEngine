@@ -1,4 +1,4 @@
-#include "engine/ecs/systems/lifetime_system.h"
+#include "engine/ecs/systems/lifetime/lifetime_system.h"
 #include "engine/ecs/components.h"
 #include "engine/physics/physics_config.h"
 

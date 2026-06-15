@@ -1,6 +1,6 @@
 #pragma once
 // Shared render handles for the showcase's cube-based factory entities.
-// (Relocated from ecs/factories.h per CODING_STANDARD §2.)
+// (Relocated from level/factories.h per CODING_STANDARD §2.)
 
 namespace factories
 {
