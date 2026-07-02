@@ -148,8 +148,6 @@ namespace
     entt::entity make_weapon_railgun (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
     { return makePickup(r, c, p, PickupType::Weapon, 10, "grid_grey", WeaponType::Railgun); }
 
-    using SpawnFn = entt::entity(*)(entt::registry&, const SpawnContext&, const SpawnParams&);
-
     const std::unordered_map<std::string, SpawnFn>& table()
     {
         static const std::unordered_map<std::string, SpawnFn> t = {
