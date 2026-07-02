@@ -12,6 +12,7 @@
 #include "engine/core/resource_manager.h"
 #include "engine/app/simulation.h"
 #include "engine/ecs/components.h"
+#include "engine/level/showcase_descriptor.h"
 #include "engine/physics/jolt_world.h"
 #include "engine/physics/physics_config.h"
 
@@ -293,6 +294,49 @@ namespace
         return report("rocket_vs_floor", minProjY > -0.5f && minProjY < 1e8f, buf);
     }
 
+    // The showcase must build identically through the descriptor → classname
+    // dispatch path. Tally the descriptor classnames and assert the world's
+    // component archetypes match — a data-path regression (an unhandled
+    // classname, a mis-wired factory) shows up here as a count mismatch. Pure
+    // static check on the built world; runs no ticks.
+    bool scenario_spawn_counts(entt::registry& reg, JoltWorld&, const Level&, float)
+    {
+        // Expected tallies from the source-of-truth descriptors.
+        int dPlayer = 0, dMover = 0, dTrigger = 0, dPoint = 0, dDir = 0, dDemo = 0;
+        for (const auto& p : showcaseDescriptors())
+        {
+            if      (p.classname == "info_player_start")                       dPlayer++;
+            else if (p.classname == "func_door" || p.classname == "func_plat") dMover++;
+            else if (p.classname.rfind("trigger_", 0) == 0)                    dTrigger++;
+            else if (p.classname == "light")                                   dPoint++;
+            else if (p.classname == "light_environment")                       dDir++;
+            else if (p.classname == "prop_dynamic")                            dDemo++;
+        }
+
+        // What actually got built.
+        auto count = [](auto view) { int n = 0; for (auto e : view) { (void)e; ++n; } return n; };
+        int wPlayer  = count(reg.view<TagPlayer>());
+        int wMover   = count(reg.view<Mover>());
+        int wTrigger = count(reg.view<TriggerVolume>());
+        int wPoint   = count(reg.view<PointLight>());
+        int wDir     = count(reg.view<DirectionalLight>());
+        int wDemo    = count(reg.view<DemoReset>());
+
+        bool match = wPlayer == dPlayer && wMover == dMover && wTrigger == dTrigger
+                  && wPoint == dPoint && wDir == dDir && wDemo == dDemo;
+        // Sanity floor: the known showcase shape (1 player, 2 movers, 4 triggers,
+        // 5 point lights, 1 sun, 3 demo cubes) — catches an empty/half-built scene.
+        bool shape = wPlayer == 1 && wMover == 2 && wTrigger == 4
+                  && wPoint == 5 && wDir == 1 && wDemo == 3;
+
+        char buf[200];
+        std::snprintf(buf, sizeof(buf),
+            "player %d/%d mover %d/%d trigger %d/%d point %d/%d dir %d/%d demo %d/%d (world/descriptor)",
+            wPlayer, dPlayer, wMover, dMover, wTrigger, dTrigger,
+            wPoint, dPoint, wDir, dDir, wDemo, dDemo);
+        return report("spawn_counts", match && shape, buf);
+    }
+
     // Walk into the teleporter trigger; the player should jump to the
     // destination and stay there.
     bool scenario_teleporter(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
@@ -340,6 +384,7 @@ int main(int argc, char** argv)
     else if (scenario == "walk_floor_seams") pass = scenario_walk_floor_seams(registry, jolt, level, dt);
     else if (scenario == "rocket_vs_floor")  pass = scenario_rocket_vs_floor(registry, jolt, level, dt);
     else if (scenario == "teleporter")       pass = scenario_teleporter(registry, jolt, level, dt);
+    else if (scenario == "spawn_counts")     pass = scenario_spawn_counts(registry, jolt, level, dt);
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
     jolt.shutdown();

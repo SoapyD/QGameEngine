@@ -1,10 +1,11 @@
 #include "engine/app/scene_setup.h"
-#include "engine/level/factories.h"
 #include "engine/level/showcase_level.h"
+#include "engine/level/spawn_scene.h"
+#include "engine/level/showcase_descriptor.h"
 #include "engine/ecs/components.h"
 #include "engine/level/level.h"
 
-using factories::MeshAssets;
+#include <string>
 
 Level setupScene
 (
@@ -16,13 +17,8 @@ Level setupScene
     auto litShader   = resources.getShader("lit");
     auto gridGrey    = resources.getTexture("grid_grey");
     auto gridOrange  = resources.getTexture("grid_orange");
-    auto gridBlue    = resources.getTexture("grid_blue");
-    auto gridGreen   = resources.getTexture("grid_green");
     auto gridRed     = resources.getTexture("grid_red");
     auto cubeMesh    = resources.getMesh("cube");
-
-    // Shared render handles passed to the cube-based factories.
-    MeshAssets assets{ cubeMesh->getVAO(), cubeMesh->getIndexCount(), litShader->getId() };
 
     // ─── Showcase level geometry ────────────────────────────────
     Level level = createShowcaseLevel(headless);
@@ -41,90 +37,20 @@ Level setupScene
         );
     }
 
-    // ─── Player ─────────────────────────────────────────────────
-    factories::spawnPlayer(registry, glm::vec3(15.0f, 1.7f, 15.0f));
-
-    // ═══════════════════════════════════════════════════════════
-    // LIGHTING
-    // ═══════════════════════════════════════════════════════════
-    factories::spawnDirectionalLight(registry,
-        glm::vec3(-0.2f, -1.0f, -0.3f), glm::vec3(1.0f), 0.08f);
-
-    // Bright ceiling lights (front and back halves of the room) — wide range.
-    factories::spawnPointLight(registry, assets, glm::vec3(15.0f, 5.5f, 10.0f),
-        glm::vec3(2.0f), 0.05f, 0.09f, 0.032f, gridGrey->getId());
-    factories::spawnPointLight(registry, assets, glm::vec3(15.0f, 5.5f, 20.0f),
-        glm::vec3(2.0f), 0.05f, 0.09f, 0.032f, gridGrey->getId());
-
-    // Coloured torches down the left wall — tight pools.
-    factories::spawnPointLight(registry, assets, glm::vec3(3.0f, 2.0f, 10.0f),
-        glm::vec3(3.0f, 0.2f, 0.2f), 0.01f, 0.35f, 0.44f, gridRed->getId());
-    factories::spawnPointLight(registry, assets, glm::vec3(3.0f, 2.0f, 15.0f),
-        glm::vec3(0.2f, 3.0f, 0.2f), 0.01f, 0.35f, 0.44f, gridGreen->getId());
-    factories::spawnPointLight(registry, assets, glm::vec3(3.0f, 2.0f, 20.0f),
-        glm::vec3(0.2f, 0.2f, 3.0f), 0.01f, 0.35f, 0.44f, gridBlue->getId());
-
-    // ═══════════════════════════════════════════════════════════
-    // PHYSICS DEMOS
-    // ═══════════════════════════════════════════════════════════
-    // Shelf: raised static platform to slide cubes off (top surface at y=2).
-    factories::spawnStaticBox(registry, assets, glm::vec3(20.0f, 1.0f, 5.0f),
-        glm::vec3(4.0f, 2.0f, 4.0f), glm::vec3(2.0f, 1.0f, 2.0f), gridBlue->getId());
-
-    // Cube 1: nudged off the shelf edge → falls to floor (resets every 6s).
-    factories::spawnDemoCube(registry, assets, glm::vec3(20.5f, 4.0f, 5.0f),
-        glm::vec3(-6.0f, 0.0f, 0.0f), 6.0f, gridOrange->getId());
-    // Cube 2: pure gravity drop from near the ceiling (resets every 4s).
-    factories::spawnDemoCube(registry, assets, glm::vec3(20.0f, 5.0f, 8.0f),
-        glm::vec3(0.0f), 4.0f, gridOrange->getId());
-    // Cube 3: slides across the floor, low friction (resets every 5s).
-    factories::spawnDemoCube(registry, assets, glm::vec3(20.0f, 0.5f, 12.0f),
-        glm::vec3(3.0f, 0.0f, 1.0f), 5.0f, gridOrange->getId());
-
-    // ═══════════════════════════════════════════════════════════
-    // DOORS, LIFTS, TRIGGERS
-    // ═══════════════════════════════════════════════════════════
-    // Door: slides upward when the player approaches.
-    auto door = factories::spawnMover(registry, assets,
-        glm::vec3(25.0f, 1.5f, 15.0f), glm::vec3(25.0f, 4.5f, 15.0f),
-        glm::vec3(0.2f, 3.0f, 4.0f), glm::vec3(0.1f, 1.5f, 2.0f),
-        3.0f, 4.0f, 0.0f, gridOrange->getId());
-    factories::spawnTrigger(registry, glm::vec3(25.0f, 1.5f, 15.0f),
-        glm::vec3(2.0f, 1.5f, 2.5f), TriggerAction::ActivateMover, door,
-        glm::vec3(0.0f), 0.0f, 1.0f);
-    factories::spawnDebugWireframe(registry, assets, glm::vec3(25.0f, 1.5f, 15.0f),
-        glm::vec3(4.0f, 3.0f, 5.0f), gridGreen->getId());
-
-    // Lift: rises when the player steps on it. Bottom y=0.2 so the body
-    // (bottom at y=0.1) clears the floor body (top at y=0.1).
-    auto lift = factories::spawnMover(registry, assets,
-        glm::vec3(10.0f, 0.2f, 25.0f), glm::vec3(10.0f, 4.2f, 25.0f),
-        glm::vec3(3.0f, 0.2f, 3.0f), glm::vec3(1.5f, 0.1f, 1.5f),
-        2.0f, 2.0f, 2.0f, gridGreen->getId());
-    factories::spawnTrigger(registry, glm::vec3(10.0f, 0.5f, 25.0f),
-        glm::vec3(1.5f, 0.3f, 1.5f), TriggerAction::ActivateMover, lift,
-        glm::vec3(0.0f), 0.0f, 0.5f);
-    factories::spawnDebugWireframe(registry, assets, glm::vec3(10.0f, 0.5f, 25.0f),
-        glm::vec3(3.0f, 0.6f, 3.0f), gridGreen->getId());
-
-    // Teleporter → far corner.
-    factories::spawnTrigger(registry, glm::vec3(5.0f, 0.5f, 5.0f),
-        glm::vec3(1.0f, 1.5f, 1.0f), TriggerAction::Teleport, entt::null,
-        glm::vec3(25.0f, 1.0f, 25.0f), 0.0f, 1.0f);
-    factories::spawnDebugWireframe(registry, assets, glm::vec3(5.0f, 0.5f, 5.0f),
-        glm::vec3(2.0f, 3.0f, 2.0f), gridGreen->getId());
-    factories::spawnDecorBox(registry, assets, glm::vec3(5.0f, 1.5f, 5.0f),
-        glm::vec3(0.1f, 3.0f, 0.1f), gridBlue->getId());  // centre pole
-
-    // Lava pool: visible surface (y=0.1 so the top face sits at y=0.2) plus a
-    // damage trigger dealing 25/sec with no cooldown.
-    factories::spawnDecorBox(registry, assets, glm::vec3(20.0f, 0.1f, 25.0f),
-        glm::vec3(6.0f, 0.2f, 6.0f), gridRed->getId());
-    factories::spawnTrigger(registry, glm::vec3(20.0f, 0.5f, 25.0f),
-        glm::vec3(3.0f, 0.5f, 3.0f), TriggerAction::Damage, entt::null,
-        glm::vec3(0.0f), 25.0f, 0.0f);
-    factories::spawnDebugWireframe(registry, assets, glm::vec3(20.0f, 0.5f, 25.0f),
-        glm::vec3(6.0f, 1.0f, 6.0f), gridRed->getId());
+    // ─── Scene entities: built from descriptors via classname dispatch ──
+    // showcaseDescriptors() is the in-code stand-in for parsed .map data.
+    // spawnScene runs a two-pass build (spawn all, then resolve door/lift/
+    // teleporter target links) — before buildWorld's mover view, so movers
+    // still get their kinematic bodies. The SpawnContext supplies the shared
+    // cube handles and resolves texture names → GL ids.
+    factories::SpawnContext ctx;
+    ctx.assets = factories::MeshAssets{ cubeMesh->getVAO(), cubeMesh->getIndexCount(),
+                                        litShader->getId() };
+    ctx.texture = [&resources](std::string_view name)
+    {
+        return resources.getTexture(std::string(name))->getId();
+    };
+    factories::spawnScene(registry, ctx, showcaseDescriptors());
 
     // ─── Combat resources (registry context) ────────────────────
     auto& combatRes = registry.ctx().emplace<CombatResources>();

@@ -66,6 +66,9 @@ add_library(qengine_lib STATIC
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
 	src/engine/level/factories.cpp
+	src/engine/level/classname_factory.cpp
+	src/engine/level/spawn_scene.cpp
+	src/engine/level/showcase_descriptor.cpp
 	src/engine/physics/bodies/create_dynamic_body.cpp
 	src/engine/physics/bodies/create_kinematic_body.cpp
 	src/engine/physics/bodies/create_level_bodies.cpp

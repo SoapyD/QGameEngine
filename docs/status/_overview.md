@@ -33,6 +33,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 | ECS (EnTT) | ✅ | components + free-function systems |
 | FPS camera | ✅ | mouse look |
 | Level geometry (sectors/surfaces) | ✅ | hardcoded showcase room |
+| Entity spawn (factories) | ✅ | data-driven: `classname`→factory dispatch + two-pass `targetname` linking; showcase built from an in-code descriptor list (`.map`-loader-ready) |
 | Resource manager | ✅ | name-cached handles |
 
 ## Not yet implemented
@@ -45,7 +46,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 | Networking | 🔴 | `src/engine/network/` empty (scaffold); see roadmap |
 | TrenchBroom level loading | 🔴 | levels hardcoded; setup planned (plan 03) |
 | BSP traversal | 🔴 | sectors built, no BSP walk |
-| Unit tests | 🔴 | `tests/` empty; only the headless harness exists |
+| Unit tests | 🔴 | `tests/` empty; only the headless harness exists (7 scenarios inc. `spawn_counts`) |
 
 ## Archived (not compiled)
 
