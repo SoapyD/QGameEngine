@@ -11,9 +11,16 @@ than fixing existing bugs.
 | 3 | [03-trenchbroom-setup.md](03-trenchbroom-setup.md) | How do we get the map-building tool (TrenchBroom) running, and what's needed to author a level like the hard-coded showcase? |
 | 4 | [04-architecture-docs-and-engine-overview.md](04-architecture-docs-and-engine-overview.md) | Plan to update the architecture docs + a high-level "how the engine works" refresher. |
 
+**Implementation plans (dated, graduated from the above):**
+
+| Date | Plan | Graduated from |
+|------|------|----------------|
+| 2026-07-02 | [entity-factory classname→factory dispatch](2026-07-02-entity-factory-classname-dispatch.md) | Plan 02 #1 / Plan 03 step 2.0 |
+
 These are **planning documents** — they propose work, they don't perform it.
-Implementation plans graduate into their own `docs/plans/NN-<name>.md` files and are
-moved to `archive/` once shipped (the project's existing habit).
+Implementation plans graduate into their own dated `docs/plans/YYYY-MM-DD-<name>.md` files
+(the low-level factory refactor already shipped; this one makes the layer data-drivable) and
+are moved to `archive/` once shipped (the project's existing habit).
 
 
 **Shipped & archived:**

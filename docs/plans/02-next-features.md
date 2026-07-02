@@ -60,7 +60,7 @@ Phase-5 prep). Then jump to TrenchBroom.
 
 | # | Feature | Why now | Reuses | Size |
 |---|---------|---------|--------|------|
-| 1 | **Entity-factory refactor** | Prereq for everything below *and* for TrenchBroom `classname`→factory. Turn the inline spawns in `scene_setup.cpp` into `spawnDoor/spawnLift/spawnTrigger/spawnLight/...`. | — | S |
+| 1 | **Entity-factory refactor** → **graduated** to [2026-07-02-entity-factory-classname-dispatch.md](2026-07-02-entity-factory-classname-dispatch.md). The literal "inline spawns → `spawn*` functions" part already shipped (2026-06-14, `factories::`); the dated plan covers what remains: a `classname`→factory dispatch layer so map data / pickups / enemies can hang off it. Prereq for everything below *and* for TrenchBroom. | — | S |
 | 2 | **Item pickups** (health, ammo, armour, weapon) | Closes the gameplay loop (you can already lose health/ammo, but not regain them by exploring). Pure reuse of trigger-overlap + `Health`/`Ammo`. New `Pickup` component + `pickupSystem`. | `triggerSystem` overlap, `Ammo`, `Health`, `WeaponInventory` | S |
 | 3 | **Graphical HUD + crosshair (finish Ch 16)** | The "polish" milestone. Crosshair, health/ammo bars, and actually *render* the existing `DamageFlash`. Makes it feel like a game. | `debugHudSystem` plumbing, HUD shader, `DamageFlash` data | S–M |
 | 4 | **Flesh out weapons & ammo wiring** | All 7 weapons are defined; grant them, give weapon-switch keys 1–7, stock the 4 ammo types, and confirm each weapon decrements the *right* ammo pool. Fix the **Nailgun** (flagged `Hitscan` but has `projectileSpeed` — likely meant `Projectile`). | `createWeapon`, `combatSystem`, `weaponSwitchSystem` | S |
