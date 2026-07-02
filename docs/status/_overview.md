@@ -19,6 +19,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 | [movers](movers.md) | ✅ | Doors + lifts; kinematic push verified (lift fix shipped) |
 | [combat](combat.md) | ✅ | Shotgun hitscan + rocket projectile; projectile fix shipped |
 | player death/respawn | ✅ | `player_death_system` in the tick order (Health ≤ 0 → respawn) |
+| item pickups | 🟡 | `pickupSystem` grants health/ammo/armour/weapons on touch (5 demo items in showcase); respawn + armour absorption pending (Phase 2) |
 | [triggers](triggers.md) | ✅ | activate/teleport/damage/heal; `changeLevel` recorded but not wired |
 | [physics](physics.md) | ✅ | Jolt static/dynamic/kinematic/character/sensor + sync bridge |
 | [rendering](rendering.md) | ✅ | Phong (dir + point lights), textures, debug text HUD |

@@ -33,6 +33,11 @@ void playerInputSystem(entt::registry& registry, const InputManager& input, cons
         playerInput.weaponSwitch = -1; // -1 = no switch
         if (input.isKeyPressed(GLFW_KEY_1)) playerInput.weaponSwitch = 0;
         if (input.isKeyPressed(GLFW_KEY_2)) playerInput.weaponSwitch = 1;
+        if (input.isKeyPressed(GLFW_KEY_3)) playerInput.weaponSwitch = 2;
+        if (input.isKeyPressed(GLFW_KEY_4)) playerInput.weaponSwitch = 3;
+        if (input.isKeyPressed(GLFW_KEY_5)) playerInput.weaponSwitch = 4;
+        if (input.isKeyPressed(GLFW_KEY_6)) playerInput.weaponSwitch = 5;
+        if (input.isKeyPressed(GLFW_KEY_7)) playerInput.weaponSwitch = 6;
     }
 
     // Publish the aim direction for combatSystem (reads it from context).

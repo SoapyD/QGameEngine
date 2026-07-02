@@ -1,6 +1,7 @@
 #include "engine/ecs/systems/combat/combat_internal.h"
 
 #include "engine/ecs/components.h"
+#include "engine/ecs/apply_damage.h"
 #include "engine/physics/raycast.h"
 #include "engine/physics/types/aabb.h"
 
@@ -56,29 +57,14 @@ void fireHitscan
 		{
 			hitPoint = entityHit->point;
 
-			// apply damage
-			if (registry.all_of<Health>(entityHit->entity))
+			// apply damage (armour-aware; flashes internally)
+			if (applyDamage(registry, entityHit->entity, weapon.damage))
 			{
-				auto& health = registry.get<Health>(entityHit->entity);
-				if (health.invulnerableTimer <= 0.0f)
+				// Knockback: push target in the direction of the shot
+				if (registry.all_of<PendingKnockback>(entityHit->entity))
 				{
-					float before = health.current;
-					health.current -= weapon.damage;
-					if (health.current < 0.0f) health.current = 0.0f;  // NEW
-
-					// trigger damage flash if health actually decreated
-					if (health.current < before && registry.all_of<DamageFlash>(entityHit->entity))
-					{
-						auto& flash = registry.get<DamageFlash>(entityHit->entity);
-						flash.timer = flash.duration;
-					}
-
-					// Knockback: push target in the direction of the shot
-					if (health.current < before && registry.all_of<PendingKnockback>(entityHit->entity))
-					{
-						glm::vec3 knockDir = glm::normalize(direction);
-						registry.get<PendingKnockback>(entityHit->entity).impulse += knockDir * 1.0f;
-					}
+					glm::vec3 knockDir = glm::normalize(direction);
+					registry.get<PendingKnockback>(entityHit->entity).impulse += knockDir * 1.0f;
 				}
 			}
 		}

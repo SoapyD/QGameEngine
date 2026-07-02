@@ -355,6 +355,130 @@ namespace
         std::snprintf(buf, sizeof(buf), "player ended at (%.2f,%.2f,%.2f), dist to destination=%.2f", p.x, p.y, p.z, distToDest);
         return report("teleporter", distToDest < 2.0f, buf);
     }
+
+    // Wound the player, then stand them on the showcase health pickup at
+    // (16,1,23). pickupSystem should heal them and consume the pickup entity.
+    bool scenario_pickup_health(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        const float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        auto countPickups = [&]() { int n = 0; for (auto e : reg.view<Pickup>()) { (void)e; ++n; } return n; };
+
+        reg.get<Health>(player).current = 50.0f;   // wound so a heal is observable
+        float hpBefore = reg.get<Health>(player).current;
+        int   before   = countPickups();
+
+        teleportPlayer(reg, player, glm::vec3(16.0f, halfY, 23.0f));  // onto item_health
+        Input idle;
+        for (int i = 0; i < 10; i++) { applyInput(reg, player, idle); qengine::stepSimulation(reg, jolt, level, dt); }
+
+        float hpAfter = reg.get<Health>(player).current;
+        int   after   = countPickups();
+
+        // The HUD toast is set on collect (the HUD itself only renders/fades it).
+        const auto& msg = reg.get<PickupMessage>(player);
+        bool toastSet = !msg.text.empty() && msg.timer > 0.0f;
+
+        char buf[220];
+        std::snprintf(buf, sizeof(buf),
+            "health %.0f→%.0f, pickups %d→%d, toast=\"%s\" (expect +25 health, one fewer pickup, a message)",
+            hpBefore, hpAfter, before, after, msg.text.c_str());
+        return report("pickup_health", hpAfter > hpBefore && after == before - 1 && toastSet, buf);
+    }
+
+    // Fire the shotgun once (should spend a shell), then walk onto the shells
+    // pickup at (17,1,9) (should refill +10). Proves ammo is consumed and
+    // replenished.
+    bool scenario_ammo_shells(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        const float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        int start = reg.get<Ammo>(player).shells;   // 25; shotgun is slot 0
+
+        // One shot forward.
+        Input fire; fire.fire = true; fire.lookDir = glm::vec3(0.0f, 0.0f, -1.0f);
+        applyInput(reg, player, fire);
+        qengine::stepSimulation(reg, jolt, level, dt);
+        int afterFire = reg.get<Ammo>(player).shells;
+
+        // Walk onto the shells pickup (+10).
+        Input idle;
+        teleportPlayer(reg, player, glm::vec3(17.0f, halfY, 9.0f));
+        for (int i = 0; i < 10; i++) { applyInput(reg, player, idle); qengine::stepSimulation(reg, jolt, level, dt); }
+        int afterPickup = reg.get<Ammo>(player).shells;
+
+        char buf[200];
+        std::snprintf(buf, sizeof(buf),
+            "shells %d→%d (fire -1) →%d (pickup +10)", start, afterFire, afterPickup);
+        return report("ammo_shells", afterFire == start - 1 && afterPickup == afterFire + 10, buf);
+    }
+
+    // Pin the player in the lava with 10 armour. Armour should soak damage first,
+    // then health takes the overflow — proving armour absorbs before health.
+    bool scenario_armor_absorb(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        const float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        reg.get<Armor>(player).current = 10.0f;
+        reg.get<Health>(player).current = 100.0f;
+
+        // Lava trigger is at (20,0.5,25), dmg 25/sec. Re-pin each tick so the
+        // upward lava knockback can't carry the player out of the volume.
+        Input idle;
+        for (int i = 0; i < 60; i++)   // ~1s → ~25 total damage
+        {
+            teleportPlayer(reg, player, glm::vec3(20.0f, halfY, 25.0f));
+            applyInput(reg, player, idle);
+            qengine::stepSimulation(reg, jolt, level, dt);
+        }
+
+        float armor  = reg.get<Armor>(player).current;
+        float health = reg.get<Health>(player).current;
+
+        // ~25 damage: armour (10) drains to 0, health takes the remaining ~15 → ~85.
+        char buf[200];
+        std::snprintf(buf, sizeof(buf),
+            "after ~25 lava dmg: armor=%.1f (expect 0), health=%.1f (expect ~85)", armor, health);
+        return report("armor_absorb", armor < 0.5f && health > 82.0f && health < 88.0f, buf);
+    }
+
+    // Walk onto the Nailgun weapon pickup. It must add the weapon + its own ammo
+    // (nails) WITHOUT touching shotgun ammo (shells) or auto-switching weapons.
+    bool scenario_weapon_pickup(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        const float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        int shellsBefore  = reg.get<Ammo>(player).shells;                 // 25
+        int nailsBefore   = reg.get<Ammo>(player).nails;                  // 0
+        int weaponsBefore = (int)reg.get<WeaponInventory>(player).weapons.size(); // 2
+        int currentBefore = reg.get<WeaponInventory>(player).currentWeapon;       // 0
+
+        teleportPlayer(reg, player, glm::vec3(5.0f, halfY, 15.0f));  // weapon_nailgun
+        Input idle;
+        for (int i = 0; i < 10; i++) { applyInput(reg, player, idle); qengine::stepSimulation(reg, jolt, level, dt); }
+
+        const auto& inv = reg.get<WeaponInventory>(player);
+        const auto& ammo = reg.get<Ammo>(player);
+        bool hasNailgun = false;
+        for (const auto& w : inv.weapons) if (w.type == WeaponType::Nailgun) hasNailgun = true;
+
+        bool pass = ammo.shells == shellsBefore          // shotgun ammo untouched
+                 && ammo.nails > nailsBefore             // nails granted
+                 && (int)inv.weapons.size() == weaponsBefore + 1
+                 && hasNailgun
+                 && inv.currentWeapon == currentBefore;  // no auto-switch
+
+        char buf[220];
+        std::snprintf(buf, sizeof(buf),
+            "shells %d→%d (unchanged), nails %d→%d, weapons %d→%d, current=%d",
+            shellsBefore, ammo.shells, nailsBefore, ammo.nails,
+            weaponsBefore, (int)inv.weapons.size(), inv.currentWeapon);
+        return report("weapon_pickup", pass, buf);
+    }
 }
 
 int main(int argc, char** argv)
@@ -385,6 +509,10 @@ int main(int argc, char** argv)
     else if (scenario == "rocket_vs_floor")  pass = scenario_rocket_vs_floor(registry, jolt, level, dt);
     else if (scenario == "teleporter")       pass = scenario_teleporter(registry, jolt, level, dt);
     else if (scenario == "spawn_counts")     pass = scenario_spawn_counts(registry, jolt, level, dt);
+    else if (scenario == "pickup_health")    pass = scenario_pickup_health(registry, jolt, level, dt);
+    else if (scenario == "ammo_shells")      pass = scenario_ammo_shells(registry, jolt, level, dt);
+    else if (scenario == "armor_absorb")     pass = scenario_armor_absorb(registry, jolt, level, dt);
+    else if (scenario == "weapon_pickup")    pass = scenario_weapon_pickup(registry, jolt, level, dt);
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
     jolt.shutdown();

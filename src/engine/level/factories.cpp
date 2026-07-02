@@ -36,6 +36,8 @@ namespace factories
         reg.emplace<WeaponInventory>(player, std::move(inv));
 
         reg.emplace<Ammo>(player, 25, 0, 5, 0);  // 25 shells, 5 rockets
+        reg.emplace<Armor>(player, 0.0f, 100.0f); // starts empty; item_armor fills it
+        reg.emplace<PickupMessage>(player);       // HUD toast on collect
         return player;
     }
 
@@ -133,6 +135,18 @@ namespace factories
         reg.emplace<Position>(e, pos);
         reg.emplace<Scale>(e, scale);
         reg.emplace<MeshRenderer>(e, cubeRenderer(a, textureId));
+        return e;
+    }
+
+    entt::entity spawnPickup(entt::registry& reg, const MeshAssets& a, glm::vec3 pos,
+                             const Pickup& pickup, unsigned int textureId)
+    {
+        auto e = reg.create();
+        reg.emplace<Position>(e, pos);
+        reg.emplace<Scale>(e, glm::vec3(0.4f));            // small floating cube
+        reg.emplace<AABBCollider>(e, glm::vec3(0.5f), true); // sensor: ECS overlap, no Jolt body
+        reg.emplace<MeshRenderer>(e, cubeRenderer(a, textureId));
+        reg.emplace<Pickup>(e, pickup);
         return e;
     }
 }

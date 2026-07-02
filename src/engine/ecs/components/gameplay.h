@@ -4,8 +4,12 @@
 #include <entt/entt.hpp>
 #include <string>
 
+// WeaponType is defined in components/combat.h; a Weapon pickup only stores it
+// by value, so an opaque declaration keeps this header light.
+enum class WeaponType;
+
 // Gameplay/state components: health and damage feedback, movers (doors/lifts),
-// trigger volumes, lifetimes, and the demo-reset prop helper.
+// trigger volumes, lifetimes, the demo-reset prop helper, and item pickups.
 
 struct Health
 {
@@ -81,4 +85,34 @@ struct DemoReset
 	glm::vec3 startVelocity = glm::vec3(0.0f);
 	float interval = 5.0f; // seconds between resets
 	float timer = 0.0f; // counts up each ticket
+};
+
+// ─── Item pickups ────────────────────────────────────────────────
+enum class PickupType
+{
+	Health,   // restores Health (capped at max)
+	Shells,   // Ammo.shells
+	Nails,    // Ammo.nails
+	Rockets,  // Ammo.rockets
+	Cells,    // Ammo.cells
+	Armor,    // restores Armor (capped at max)
+	Weapon    // grants weaponType if not held; tops up its ammo
+};
+
+// A sensor entity that grants an effect to a TagTriggerable toucher, then is
+// consumed. pickupSystem does the overlap + grant + destroy.
+struct Pickup
+{
+	PickupType type = PickupType::Health;
+	int amount = 0;                              // health/armour/ammo granted
+	WeaponType weaponType = static_cast<WeaponType>(0); // used only when type == Weapon
+};
+
+// Transient on-screen toast ("Picked up …"). pickupSystem sets text + timer on
+// the receiver; the HUD draws it centred and fades it out.
+struct PickupMessage
+{
+	std::string text;
+	float timer = 0.0f;    // remaining display time (seconds)
+	float duration = 2.5f; // total display length
 };

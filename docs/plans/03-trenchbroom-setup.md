@@ -85,7 +85,7 @@ This is Phase 5, Chapters 17–20. Ordered by dependency; each step leaves the b
 
 | Step | Deliverable | Replaces / adds | Ref |
 |------|-------------|-----------------|-----|
-| **2.0** ✅ | **Entity-factory refactor** — DONE (2026-07-02). `classname`→factory dispatch + `SpawnParams` + two-pass `targetname` linking; showcase now built from a descriptor list. The parser (2.1) just emits `SpawnParams`; entity mapping (2.3) is registering FGD classnames against the existing dispatch table. See [2026-07-02-entity-factory-classname-dispatch.md](2026-07-02-entity-factory-classname-dispatch.md). | Inline spawns in `scene_setup.cpp` | Plan 02 §C #1 |
+| **2.0** ✅ | **Entity-factory refactor** — DONE (2026-07-02). `classname`→factory dispatch + `SpawnParams` + two-pass `targetname` linking; showcase now built from a descriptor list. The parser (2.1) just emits `SpawnParams`; entity mapping (2.3) is registering FGD classnames against the existing dispatch table. See [archive/2026-07-02-entity-factory-classname-dispatch.md](archive/2026-07-02-entity-factory-classname-dispatch.md). | Inline spawns in `scene_setup.cpp` | Plan 02 §C #1 |
 | **2.1** | **`.map` parser** — read entities → brushes → planes (3 points + texture + UV). | New `MapLoader`; `.qlvl` path retired | Ch 17 |
 | **2.2** | **Brush → mesh** — plane-plane-plane intersection (Cramer's rule), Sutherland-Hodgman face clipping, fan-triangulate, normals from planes, axial UV projection. | `buildSectorMeshes` analogue for brushes | Ch 17 |
 | **2.3** | **FGD + entity mapping** — `classname` → factory (`info_player_start`, `light`, `func_door`, `trigger_*`, `item_*`, …); `target`/`targetname` linking for triggers→movers. | Hooks 2.0 factories to map data | Ch 18 |

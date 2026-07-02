@@ -65,6 +65,7 @@ add_library(qengine_lib STATIC
 	src/engine/core/input_manager.cpp
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
+	src/engine/ecs/apply_damage.cpp
 	src/engine/level/factories.cpp
 	src/engine/level/classname_factory.cpp
 	src/engine/level/spawn_scene.cpp
@@ -91,6 +92,7 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/debug_hud/draw_bar.cpp
 	src/engine/ecs/systems/debug_hud/draw_crosshair.cpp
 	src/engine/ecs/systems/debug_hud/draw_flash_overlay.cpp
+	src/engine/ecs/systems/debug_hud/draw_panel.cpp
 	src/engine/ecs/systems/debug_hud/draw_text.cpp
 	src/engine/ecs/systems/player/player_input_system.cpp
 	src/engine/ecs/systems/demo/demo_reset_system.cpp
@@ -103,6 +105,7 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/mover/mover_system.cpp
 	src/engine/ecs/systems/render/render_system.cpp
 	src/engine/ecs/systems/trigger/trigger_system.cpp
+	src/engine/ecs/systems/pickup/pickup_system.cpp
 	src/engine/level/build_sector_meshes.cpp
 	src/engine/physics/jolt_world.cpp
 	src/engine/physics/raycast/ray_intersect_aabb.cpp
