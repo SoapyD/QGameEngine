@@ -18,6 +18,11 @@ void drawBar(float x, float y, float width, float height, float fillPercent,
              unsigned int shaderId, const glm::mat4& projection,
              const glm::vec3& bgColor, const glm::vec3& fgColor);
 
+// Draw a semi-transparent filled quad (legibility backing behind text).
+void drawPanel(float x, float y, float width, float height,
+               unsigned int shaderId, const glm::mat4& projection,
+               const glm::vec3& color, float alpha);
+
 // Green/yellow/red based on fill percent.
 glm::vec3 healthBarColor(float percent);
 

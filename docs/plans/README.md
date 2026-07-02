@@ -11,19 +11,22 @@ than fixing existing bugs.
 | 3 | [03-trenchbroom-setup.md](03-trenchbroom-setup.md) | How do we get the map-building tool (TrenchBroom) running, and what's needed to author a level like the hard-coded showcase? |
 | 4 | [04-architecture-docs-and-engine-overview.md](04-architecture-docs-and-engine-overview.md) | Plan to update the architecture docs + a high-level "how the engine works" refresher. |
 
-**Implementation plans (dated, graduated from the above):**
+**Active implementation plans (dated, graduated from the above):**
 
-| Date | Plan | Graduated from |
-|------|------|----------------|
-| 2026-07-02 | [entity-factory classname→factory dispatch](2026-07-02-entity-factory-classname-dispatch.md) | Plan 02 #1 / Plan 03 step 2.0 |
+| Date | Plan | Graduated from | Status |
+|------|------|----------------|--------|
+| 2026-07-02 | [item pickups](2026-07-02-item-pickups.md) | Plan 02 #2 | Phase 1 shipped; Phase 2 pending |
 
 These are **planning documents** — they propose work, they don't perform it.
 Implementation plans graduate into their own dated `docs/plans/YYYY-MM-DD-<name>.md` files
-(the low-level factory refactor already shipped; this one makes the layer data-drivable) and
-are moved to `archive/` once shipped (the project's existing habit).
+and are moved to `archive/` once shipped (the project's existing habit).
 
 
 **Shipped & archived:**
+- [2026-07-02-entity-factory-classname-dispatch.md](archive/2026-07-02-entity-factory-classname-dispatch.md)
+  — data-driven entity spawning: `classname`→factory dispatch + `SpawnParams` + two-pass
+  `targetname` linking; showcase rebuilt from a descriptor list. Graduated from Plan 02 #1 /
+  Plan 03 step 2.0. Shipped 2026-07-02; tutorial Chapter 18.
 - [conventions/](archive/conventions/README.md) — adopt WyrdWars-style file
   conventions in C++ (one-thing-per-file, `types/` folders, barrel/header
   discipline) + C++-aware enforcement checks in CI. 7 plans; shipped 2026-06-15.

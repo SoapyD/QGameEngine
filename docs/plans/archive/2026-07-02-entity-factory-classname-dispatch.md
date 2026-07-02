@@ -1,6 +1,6 @@
 # 2026-07-02 — Entity-Factory Refactor: classname → factory dispatch
 
-**Status:** Implemented — steps 1–7 complete, headless harness green (7/7 inc. `spawn_counts`), 2026-07-02. Ready to archive once merged.
+**Status:** ✅ Shipped & archived — steps 1–7 complete, headless harness green (7/7 inc. `spawn_counts`), 2026-07-02. Tutorial written up as Chapter 18.
 **Prereq for:** Plan 02 #2 (pickups), #5 (enemies); Plan 03 step 2.0/2.3 (TrenchBroom `.map` loader)
 **Blocked by:** nothing — can start now.
 

@@ -1,6 +1,7 @@
 #include "engine/ecs/systems/combat/combat_internal.h"
 
 #include "engine/ecs/components.h"
+#include "engine/ecs/apply_damage.h"
 #include "engine/physics/jolt_world.h"
 
 // ─── Splash damage ──────────────────────────────────────────────
@@ -25,19 +26,9 @@ void applySplashDamage
 		// Linear falloff: full damage at center, zero at edge
 		float scale = 1.0f - (distance / radius);
 		float damage = maxDamage * scale;
-		if (health.invulnerableTimer <= 0.0f)
-		{
-			float before = health.current;
-			health.current -= damage;
-			if (health.current < 0.0f) health.current = 0.0f;
 
-			// trigger damage flash if health actually decreated
-			if (health.current < before && registry.all_of<DamageFlash>(entity))
-			{
-				auto& flash = registry.get<DamageFlash>(entity);
-				flash.timer = flash.duration;
-			}
-		}
+		// Armour-aware damage (invuln + flash handled inside).
+		applyDamage(registry, entity, damage);
 
 		// knockback - push entity away from explosion
 		if (registry.all_of<Velocity>(entity))

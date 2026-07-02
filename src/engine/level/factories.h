@@ -4,7 +4,7 @@
 #include <glm/glm.hpp>
 
 #include "engine/ecs/components/rendering.h"  // MeshRenderer
-#include "engine/ecs/components/gameplay.h"   // TriggerAction
+#include "engine/ecs/components/gameplay.h"   // TriggerAction, Pickup
 #include "engine/ecs/types/mesh_assets.h"
 
 // ─────────────────────────────────────────────────────────────────────
@@ -67,4 +67,9 @@ namespace factories
     // Decorative box with no physics (poles, markers, lava surface).
     entt::entity spawnDecorBox(entt::registry& reg, const MeshAssets& a, glm::vec3 pos,
                                glm::vec3 scale, unsigned int textureId);
+
+    // Item pickup: a small rendered cube with a sensor AABB (ECS overlap only,
+    // no Jolt body) carrying the given Pickup. pickupSystem grants + destroys it.
+    entt::entity spawnPickup(entt::registry& reg, const MeshAssets& a, glm::vec3 pos,
+                             const Pickup& pickup, unsigned int textureId);
 }

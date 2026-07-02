@@ -13,6 +13,7 @@
 #include "engine/ecs/systems/sync/mover_sync_system.h"
 #include "engine/ecs/systems/mover/mover_system.h"
 #include "engine/ecs/systems/trigger/trigger_system.h"
+#include "engine/ecs/systems/pickup/pickup_system.h"
 #include "engine/ecs/systems/combat/weapon_switch_system.h"
 #include "engine/physics/jolt_world.h"
 
@@ -97,6 +98,7 @@ namespace qengine
         combatSystem(registry, level);
         lifetimeSystem(registry);
         triggerSystem(registry);
+        pickupSystem(registry);         // grant + consume items on touch
         playerDeathSystem(registry);
         demoResetSystem(registry);
     }

@@ -5,6 +5,7 @@
 // data doesn't include. See docs/plans/2026-07-02-entity-factory-classname-dispatch.md.
 
 #include <glm/glm.hpp>
+#include <entt/entt.hpp>
 #include <functional>
 #include <sstream>
 #include <string>
@@ -68,4 +69,8 @@ namespace factories
         MeshAssets assets;
         std::function<unsigned int(std::string_view)> texture;
     };
+
+    // A classname factory: builds one entity from its SpawnParams. The dispatch
+    // table (classname_factory.cpp) maps classname strings onto these.
+    using SpawnFn = entt::entity(*)(entt::registry&, const SpawnContext&, const SpawnParams&);
 }

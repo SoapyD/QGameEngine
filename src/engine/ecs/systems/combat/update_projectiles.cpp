@@ -1,6 +1,7 @@
 #include "engine/ecs/systems/combat/combat_internal.h"
 
 #include "engine/ecs/components.h"
+#include "engine/ecs/apply_damage.h"
 #include "engine/physics/types/aabb.h"
 #include "engine/physics/jolt_world.h"
 
@@ -47,29 +48,14 @@ void updateProjectiles(entt::registry& registry, const Level& level, float dt)
 			AABB targetBox = AABB::fromCentreSize(tPos.value, tCol.halfExtents);
 			if (projBox.intersects(targetBox))
 			{
-				// apply damage if the target has Health
-				if (registry.all_of<Health>(target))
+				// apply direct-hit damage (armour-aware; flashes internally)
+				if (applyDamage(registry, target, proj.damage))
 				{
-					auto& health = registry.get<Health>(target);
-					if (health.invulnerableTimer <= 0.0f)
+					// Knockback: push target away from projectile
+					if (registry.all_of<PendingKnockback>(target))
 					{
-						float before = health.current;
-						health.current -= proj.damage;
-						if (health.current < 0.0f) health.current = 0.0f;  // NEW
-
-						// trigger damage flash if health actually decreated
-						if (health.current < before && registry.all_of<DamageFlash>(target))
-						{
-							auto& flash = registry.get<DamageFlash>(target);
-							flash.timer = flash.duration;
-						}
-
-						// Knockback: push target away from projectile
-						if (health.current < before && registry.all_of<PendingKnockback>(target))
-						{
-							glm::vec3 knockDir = glm::normalize(vel.value);
-							registry.get<PendingKnockback>(target).impulse += knockDir * 1.6f;
-						}
+						glm::vec3 knockDir = glm::normalize(vel.value);
+						registry.get<PendingKnockback>(target).impulse += knockDir * 1.6f;
 					}
 				}
 

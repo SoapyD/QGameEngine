@@ -998,10 +998,11 @@ Under the hood, the difference is structural:
 
 ## What's Next
 
-We built the socket; next we plug in the real thing. In **Chapter 19: The `.map` Parser &
-Brush Geometry**, we install TrenchBroom, define the QEngine entity set in a `.fgd` file, and
-write the loader that reads a `.map` from disk — parsing entities into `SpawnParams` (which
-flow straight into the `spawnScene` we just built) and brushes into renderable, collidable
-geometry. The hard-coded `showcaseDescriptors()` becomes `showcase.map`, and the engine stops
-having its levels compiled into it.
+The socket is built; before we plug a level editor into it we'll make the showcase worth
+exploring. In **Chapter 19: Item Pickups, Ammo & Armour**, we add item entities — each just a
+new `classname` on the dispatch table you just wrote — plus an ammo economy and an armour
+stat, closing the core FPS loop. Then, in **Chapter 20: The `.map` Parser & Brush Geometry**,
+we plug in the real thing: TrenchBroom-authored `.map` files parsed into `SpawnParams` (which
+flow straight into the `spawnScene` we just built) and brushes turned into renderable,
+collidable geometry — and `showcaseDescriptors()` becomes `showcase.map`.
 ```

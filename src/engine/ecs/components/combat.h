@@ -52,6 +52,14 @@ struct Ammo
 	int cells = 0;
 };
 
+// Secondary damage buffer. In v1 it is a stat that item_armor fills; damage
+// absorption is a Phase-2 follow-on (see the item-pickups plan).
+struct Armor
+{
+	float current = 0.0f;
+	float max = 100.0f;
+};
+
 // attacked to projectile entities
 struct Projectile
 {

@@ -4,6 +4,25 @@
 #include "engine/ecs/components.h"
 #include "engine/physics/physics_config.h"
 
+namespace
+{
+	// The ammo pool a weapon draws from.
+	int& ammoPool(Ammo& ammo, WeaponType type)
+	{
+		switch (type)
+		{
+			case WeaponType::Shotgun:
+			case WeaponType::SuperShotgun:    return ammo.shells;
+			case WeaponType::Nailgun:         return ammo.nails;
+			case WeaponType::RocketLauncher:
+			case WeaponType::GrenadeLauncher: return ammo.rockets;
+			case WeaponType::LighteningGun:
+			case WeaponType::Railgun:         return ammo.cells;
+		}
+		return ammo.shells;
+	}
+}
+
 // ─── Main combat system ─────────────────────────────────────────
 // Ticks weapon cooldowns, dispatches fire input to hitscan/projectile, then
 // advances live projectiles. The heavy lifting lives in the sibling files
@@ -42,6 +61,15 @@ void combatSystem
 
 		Weapon& weapon = inv.weapons[inv.currentWeapon];
 		if (weapon.cooldownRemaining > 0.0f) continue;
+
+		// Ammo gate: a shooter that tracks Ammo must have enough, and firing
+		// consumes it. Shooters with no Ammo component (e.g. enemies) fire freely.
+		if (Ammo* ammo = registry.try_get<Ammo>(entity))
+		{
+			int& pool = ammoPool(*ammo, weapon.type);
+			if (pool < weapon.ammoPerShot) continue;   // out of ammo — no shot
+			pool -= weapon.ammoPerShot;
+		}
 
         // Get firing direction from camera front vector
         // The camera direction is written into the registry context each frame

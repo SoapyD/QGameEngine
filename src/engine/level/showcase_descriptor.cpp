@@ -149,5 +149,21 @@ std::vector<SpawnParams> showcaseDescriptors()
         .props = { {"texture", "grid_red"} },
     });
 
+    // ─── Item pickups (demo placement around the room) ───────────
+    // Health near the lava so you can heal after getting burned.
+    d.push_back({ .classname = "item_health",  .origin = glm::vec3(16.0f, 1.0f, 23.0f) });
+    // Shells out on the open floor between spawn and the shelf.
+    d.push_back({ .classname = "item_shells",  .origin = glm::vec3(17.0f, 1.0f, 9.0f) });
+    // Rockets by the door.
+    d.push_back({ .classname = "item_rockets", .origin = glm::vec3(24.0f, 1.0f, 12.0f) });
+    // Armour shard mid-room.
+    d.push_back({ .classname = "item_armor",   .origin = glm::vec3(12.0f, 1.0f, 20.0f) });
+    // The Nailgun (a weapon the player doesn't start with) by the torch wall,
+    // with a bumped ammo grant.
+    d.push_back({
+        .classname = "weapon_nailgun", .origin = glm::vec3(5.0f, 1.0f, 15.0f),
+        .props = { {"amount", "50"} },
+    });
+
     return d;
 }

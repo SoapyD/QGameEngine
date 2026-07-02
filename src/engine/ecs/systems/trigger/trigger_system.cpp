@@ -1,5 +1,6 @@
 #include "engine/ecs/systems/trigger/trigger_system.h"
 #include "engine/ecs/components.h"
+#include "engine/ecs/apply_damage.h"
 #include "engine/physics/types/aabb.h"
 #include "engine/physics/physics_config.h"
 
@@ -86,29 +87,12 @@ void triggerSystem(entt::registry& registry)
 
 				case TriggerAction::Damage:
 				{
-					if (registry.all_of<Health>(entity))
+					// Armour absorbs first, then health (see applyDamage).
+					if (applyDamage(registry, entity, trigger.value * dt))
 					{
-						auto& health = registry.get<Health>(entity);
-						if (health.invulnerableTimer <= 0.0f)
-						{
-							float before = health.current;
-							health.current -= trigger.value * dt;
-							if (health.current < 0.0f) health.current = 0.0f;
-						
-							// trigger damage flash if health actually decreated
-							if (health.current < before && registry.all_of<DamageFlash>(entity))
-							{
-								auto& flash = registry.get<DamageFlash>(entity);
-								flash.timer = flash.duration;
-							}
-
-							// Knockback: push player upward out of lava
-							if (health.current < before && registry.all_of<PendingKnockback>(entity))
-							{
-								registry.get<PendingKnockback>(entity).impulse += glm::vec3(0.0f, 1.0f, 0.0f);
-							}
-						}
-
+						// Knockback: push player upward out of lava
+						if (registry.all_of<PendingKnockback>(entity))
+							registry.get<PendingKnockback>(entity).impulse += glm::vec3(0.0f, 1.0f, 0.0f);
 					}
 					break;
 				}
