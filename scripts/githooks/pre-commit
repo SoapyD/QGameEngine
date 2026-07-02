@@ -1,0 +1,16 @@
+#!/bin/sh
+# QEngine pre-commit hook — file-convention checks
+# (docs/architecture/CODING_STANDARD.md). Opt in with:
+#
+#     git config core.hooksPath scripts/githooks
+#
+# Runs the same checks as CI. Requires python on PATH.
+
+python scripts/checks/run_all.py --strict
+status=$?
+if [ "$status" -ne 0 ]; then
+    echo "" >&2
+    echo "Pre-commit blocked: file-convention violations (above)." >&2
+    echo "Fix them, or run 'python scripts/checks/run_all.py' to inspect in report mode." >&2
+    exit 1
+fi

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "engine/ecs/components.h"
+#include "engine/ecs/components/combat.h"   // Weapon, WeaponType, FireMode
 
 inline Weapon createWeapon(WeaponType type)
 {

@@ -50,7 +50,7 @@ checking this table.
 |------|------|
 | `physics/collision.{h,cpp}` | swept-AABB collision; not in CMake, no live includer |
 | `physics/spatial_hash.{h,cpp}` | broad-phase grid; not in CMake, only archived used it |
-| `level/level_loader.cpp` → `LevelLoader::*` | the `.qlvl` text parser; never called |
+| `level/level_loader.{h,cpp}` | the `.qlvl` text parser; removed from CMake, never called |
 | `assets/levels/test.qlvl` | sample `.qlvl`; never loaded |
 | `ecs/systems/archived/*` | pre-Jolt systems; not in CMake (see folder README) |
 
@@ -59,7 +59,7 @@ checking this table.
 |---------------|---------|
 | `physics/aabb.h` (`AABB`) | `combatSystem` (hit tests) and `triggerSystem` (overlap) |
 | `physics/collision_layers.h` (`CollisionLayers`) | `components.h` — `AABBCollider::layer/mask` defaults reference it; the fields are inert under Jolt but the header is a real include |
-| `level_loader.cpp` → `buildSectorMeshes` | `createShowcaseLevel()` — builds the level's render meshes (non-headless) |
+| `level/build_sector_meshes.{h,cpp}` (`buildSectorMeshes`) | `createShowcaseLevel()` — builds the level's render meshes (non-headless) |
 | `physics/raycast.{h,cpp}` | `combatSystem` hitscan (ray-vs-AABB / ray-vs-level) |
 
 See also: [`../architecture/JOLT_PHYSICS.md`](../architecture/JOLT_PHYSICS.md),

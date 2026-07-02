@@ -1,6 +1,6 @@
 #pragma once
 
-#include "engine/ecs/components.h"
+#include "engine/ecs/components/core.h"   // Vertex
 #include <glad/glad.h>
 #include <vector>
 #include <string>
