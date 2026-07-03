@@ -63,7 +63,8 @@ Each fixed timestep tick runs these systems in order:
  9  triggerSystem             Game Logic    Detect trigger overlaps
 10  pickupSystem              Game Logic    Grant + consume items on touch
 11  playerDeathSystem         Game Logic    Respawn the player on death
-12  demoResetSystem           Cleanup       Reset physics demo objects
+12  enemyDeathSystem          Cleanup       Remove enemies whose health hit 0
+13  demoResetSystem           Cleanup       Reset physics demo objects
 ```
 
 > **Tick-order note:** the player's `ExtendedUpdate` (6) runs *after* movers
@@ -87,9 +88,9 @@ Each fixed timestep tick runs these systems in order:
 
 **9: Triggers last.** Trigger detection uses ECS positions (not Jolt queries), so it needs to run after `joltSyncSystem` has updated everything. Activating a mover here means it will start moving on the *next* tick (which is correct — the state change is picked up by `moverSystem` next iteration).
 
-**10-11: Pickups & death.** `pickupSystem` grants/consumes items and `playerDeathSystem` respawns the player — both act on the final, synced positions.
+**10-12: Pickups & death.** `pickupSystem` grants/consumes items, `playerDeathSystem` respawns the player, and `enemyDeathSystem` removes dead enemies — all after the final, synced positions and after combat has applied its damage.
 
-**12: Demo reset.** Runs last because it teleports entities, which would interfere with physics if it ran earlier.
+**13: Demo reset.** Runs last because it teleports entities, which would interfere with physics if it ran earlier.
 
 ---
 

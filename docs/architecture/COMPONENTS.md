@@ -260,7 +260,7 @@ struct DamageFlash {
     float duration = 0.3f; // total flash length (seconds)
 };
 ```
-Drives the red full-screen "you got hit" overlay. Set when the player takes damage; **ticked and rendered by** `debugHudSystem` (`drawFlashOverlay`).
+"Recently hit" timer. Set by `applyDamage` on any target that has it. **For the player** it drives the red full-screen overlay (ticked + drawn by `debugHudSystem`). **For enemies** (the grunt) it drives a brief flat-white model flash: `renderSystem` overrides the colour while `timer > 0`, and `enemyDeathSystem` fades the timer.
 
 ### `PendingKnockback`
 ```cpp
@@ -378,6 +378,26 @@ struct PickupMessage {
 };
 ```
 Transient on-screen toast ("Picked up …"). `pickupSystem` sets `text`+`timer` on the receiving player; `debugHudSystem` draws it centred and fades it out.
+
+---
+
+## Enemy Components
+
+### `AIStateKind` (enum)
+```cpp
+enum class AIStateKind { Idle, Chase, Attack, Dead };
+```
+Only `Idle` is produced by the AI *setup* — the state machine that uses the rest lands in the AI behaviour plan.
+
+### `AIState`
+```cpp
+struct AIState {
+    AIStateKind  state = AIStateKind::Idle;
+    float        attackCooldown = 0.0f;   // seconds until the next attack
+    entt::entity target = entt::null;     // who to chase/attack (behaviour)
+};
+```
+Marks an entity as an enemy (the `monster_grunt` archetype) and holds its behaviour state. **Used by:** `enemyDeathSystem` (view filter + death cleanup); the behaviour system (chase/attack) is a later plan. `buildWorld` gives every `AIState` entity a kinematic Jolt body so it stands and blocks the player.
 
 ---
 

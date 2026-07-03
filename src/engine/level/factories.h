@@ -78,4 +78,9 @@ namespace factories
     // component, angled so its profile reads. Sensor AABB, no Jolt body.
     entt::entity spawnWeaponPickup(entt::registry& reg, const MeshAssets& a, glm::vec3 pos,
                                    const Pickup& pickup, WeaponType weapon);
+
+    // Enemy grunt: a solid, coloured humanoid-ish box with Health + AIState. Its
+    // kinematic Jolt body (so it stands + blocks the player) is created later in
+    // buildWorld, like movers. No behaviour yet — see the AI behaviour plan.
+    entt::entity spawnMonsterGrunt(entt::registry& reg, const MeshAssets& a, glm::vec3 pos);
 }

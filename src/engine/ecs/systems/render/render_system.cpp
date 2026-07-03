@@ -153,11 +153,12 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 			glBindTexture(GL_TEXTURE_2D, mesh.textureId);
 			glUniform1i(glGetUniformLocation(mesh.shaderId, "textureSampler"), 0);
 		}
-
-		// Flat colour override for debug wireframes
+		// Flat colour override for debug wireframes (+ enemy hit flash)
 		loc = glGetUniformLocation(mesh.shaderId, "colorOverride");
 		if (registry.all_of<TagDebugWireframe>(entity))
 			glUniform4f(loc, 0.0f, 1.0f, 0.0f, 1.0f);  // bright green
+		else if (const DamageFlash* f = registry.try_get<DamageFlash>(entity); f && f->timer > 0.0f)
+			glUniform4f(loc, 1.0f, 1.0f, 1.0f, 1.0f);  // hit flash — brief flat white
 		else
 			glUniform4f(loc, 0.0f, 0.0f, 0.0f, 0.0f);   // disabled (normal lighting)
 

@@ -42,7 +42,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 
 | Feature | State | Note |
 |---------|-------|------|
-| AI / enemies | 🔴 | no behaviour systems |
+| AI / enemies | 🟡 | `monster_grunt` archetype (kinematic body, blocks player, shootable, dies); no chase/attack behaviour yet |
 | Crosshair / expanded HUD | 🔴 | debug HUD only |
 | Networking | 🔴 | `src/engine/network/` empty (scaffold); see roadmap |
 | TrenchBroom level loading | 🔴 | levels hardcoded; setup planned (plan 03) |

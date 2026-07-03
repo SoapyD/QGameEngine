@@ -16,8 +16,7 @@ These are **planning documents** — they propose work, they don't perform it.
 ### Enemies — group `AI`
 | Plan | Scope |
 |------|-------|
-| [2026-07-03_AI_setup.md](2026-07-03_AI_setup.md) | `monster_grunt` archetype: factory, Jolt body, health, spawning, trigger generalisation. Exists + shootable, no behaviour. |
-| [2026-07-03_AI_behaviour.md](2026-07-03_AI_behaviour.md) | State machine (Idle→Chase→Attack→Dead), line-of-sight, seek movement, attacks, death. Depends on AI_setup. |
+| [2026-07-03_AI_behaviour.md](2026-07-03_AI_behaviour.md) | State machine (Idle→Chase→Attack→Dead), line-of-sight, seek movement, attacks. Depends on AI_setup (shipped). |
 
 ### Level authoring — group `trenchbroom`
 | Plan | Scope |
@@ -30,6 +29,13 @@ These are **planning documents** — they propose work, they don't perform it.
 ---
 
 ## Recently shipped & archived
+- **Enemy hit/death feedback** — shipped (grunt white hit-flash via `DamageFlash` + `renderSystem`
+  `colorOverride`; `combat.flesh_hit` on hit, `combat.explosion_small` on death; `enemyDeathSystem`
+  fades the flash). Done directly (no dated plan). Shipped 2026-07-03.
+- [2026-07-03_AI_setup.md](archive/2026-07-03_AI_setup.md) — enemy foundation: `monster_grunt`
+  archetype (new `AIState` component, coloured box, kinematic body that blocks the player,
+  shootable + dies via a new `enemyDeathSystem`), 2 in the showcase, `monster_grunt` headless
+  scenario. Behaviour (chase/attack) still open in AI_behaviour. Shipped 2026-07-03.
 - **First-person weapon viewmodel + weapon readability** — shipped: procedural per-weapon gun
   shapes + colours drawn in view space (idle bob, fire recoil, switch drop/raise; `useAlbedo` path
   added to the lit shader). Weapon pickups render as the same coloured gun models (shared `gun_*`

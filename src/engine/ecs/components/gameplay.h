@@ -116,3 +116,21 @@ struct PickupMessage
 	float timer = 0.0f;    // remaining display time (seconds)
 	float duration = 2.5f; // total display length
 };
+
+// ─── Enemy AI ────────────────────────────────────────────────────
+enum class AIStateKind
+{
+	Idle,   // standing still (the only state the setup plan produces)
+	Chase,  // moving toward the target
+	Attack, // in range, attacking on a cooldown
+	Dead    // health depleted; awaiting cleanup
+};
+
+// Marks an enemy and holds its behaviour state. Created by the setup plan (the
+// grunt archetype); the state machine that drives it lands in the behaviour plan.
+struct AIState
+{
+	AIStateKind  state = AIStateKind::Idle;
+	float        attackCooldown = 0.0f;      // seconds until the next attack is allowed
+	entt::entity target = entt::null;        // who to chase/attack (resolved by behaviour)
+};

@@ -231,11 +231,35 @@ All systems are free functions that take `entt::registry&` as their first parame
 | `JoltCharacter` | Write (move the CharacterVirtual) |
 | `TagPlayer` | Read (view filter) |
 
-**When:** Fixed tick, after `pickupSystem`, before `demoResetSystem`.
+**When:** Fixed tick, after `pickupSystem`, before `enemyDeathSystem`.
 
 ---
 
-### 11. `demoResetSystem`
+### 11. `enemyDeathSystem`
+
+**File:** `systems/enemy/enemy_death_system.h/.cpp`
+
+**Purpose:** Per-tick enemy upkeep that isn't behaviour: fades each enemy's `DamageFlash` timer (the white hit-blink), and removes enemies whose `Health` reached 0 — plays `combat.explosion_small`, destroys the Jolt body, drops the entity. Chase/attack behaviour is a separate system (behaviour plan).
+
+**Components:**
+| Component | Access |
+|-----------|--------|
+| `AIState` | Read (view filter — marks enemies) |
+| `DamageFlash` | Read/Write (fade the hit-flash timer) |
+| `Health` | Read (≤ 0 → dead) |
+| `JoltBody` | Read (body id to remove/destroy) |
+
+**Context:**
+| Context | Access |
+|---------|--------|
+| `PhysicsConfig` | Read (`fixedDeltaTime` for the flash fade) |
+| `JoltWorld` | Read (`getBodyInterface()` to remove the body) |
+
+**When:** Fixed tick, after `playerDeathSystem`, before `demoResetSystem`.
+
+---
+
+### 12. `demoResetSystem`
 
 **File:** `systems/demo_reset_system.h/.cpp`
 
@@ -258,7 +282,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 12. `renderSystem`
+### 13. `renderSystem`
 
 **File:** `systems/render_system.h/.cpp`
 
@@ -279,7 +303,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 13. `debugHudSystem`
+### 14. `debugHudSystem`
 
 **File:** `systems/debug_hud_system.h/.cpp`
 
@@ -307,7 +331,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 14. `audioSystem`
+### 15. `audioSystem`
 
 **File:** `systems/audio/audio_system.h/.cpp`
 
