@@ -131,6 +131,7 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/debug_hud/draw_ammo.cpp
 	src/engine/ecs/systems/debug_hud/draw_bar.cpp
 	src/engine/ecs/systems/debug_hud/draw_crosshair.cpp
+	src/engine/ecs/systems/debug_hud/draw_weapon_bar.cpp
 	src/engine/ecs/systems/debug_hud/draw_flash_overlay.cpp
 	src/engine/ecs/systems/debug_hud/draw_panel.cpp
 	src/engine/ecs/systems/debug_hud/draw_text.cpp
@@ -151,6 +152,9 @@ add_library(qengine_lib STATIC
 	src/engine/physics/raycast/ray_intersect_aabb.cpp
 	src/engine/physics/raycast/ray_intersect_triangle.cpp
 	src/engine/renderer/camera.cpp
+	src/engine/renderer/gun_mesh.cpp
+	src/engine/renderer/create_weapon_viewmodel.cpp
+	src/engine/renderer/render_weapon_viewmodel.cpp
 	src/engine/renderer/mesh.cpp
 	src/engine/renderer/obj_loader.cpp
 	src/engine/renderer/shader.cpp

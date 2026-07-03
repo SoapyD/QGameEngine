@@ -192,11 +192,50 @@ All systems are free functions that take `entt::registry&` as their first parame
 |---------|--------|
 | `PhysicsConfig` | Read (`fixedDeltaTime` for cooldown and damage-per-second) |
 
-**Note:** Uses ECS-level AABB overlap, not Jolt's contact listener. Jolt sensor bodies exist for the triggers but aren't queried here — the ECS overlap works fine since positions are synced.
+**Note:** Uses ECS-level AABB overlap, not Jolt's contact listener. `buildWorld` deliberately does **not** create Jolt sensor bodies for triggers — they were never queried and would be spuriously hit by combat's impulse sweep. The ECS overlap works because positions are synced by `joltSyncSystem` first.
 
 ---
 
-### 9. `demoResetSystem`
+### 9. `pickupSystem`
+
+**File:** `systems/pickup/pickup_system.h/.cpp`
+
+**Purpose:** ECS AABB overlap between `Pickup` sensor entities and `TagTriggerable` touchers. On overlap, grants the effect (health / ammo pool / armour / weapon), sets a `PickupMessage` toast, and destroys the pickup.
+
+**Components:**
+| Component | Access |
+|-----------|--------|
+| `Position` | Read (pickup + toucher) |
+| `AABBCollider` | Read (overlap extents) |
+| `Pickup` | Read (type/amount/weaponType) |
+| `TagTriggerable` | Read (view filter — who can collect) |
+| `Health` / `Ammo` / `Armor` / `WeaponInventory` | Write (grant) |
+| `PickupMessage` | Write (toast text/timer) |
+
+**When:** Fixed tick, after `triggerSystem` (positions already synced).
+
+---
+
+### 10. `playerDeathSystem`
+
+**File:** `systems/player/player_death_system.h/.cpp`
+
+**Purpose:** When the player's `Health` reaches 0, respawns them at their `SpawnPoint` and grants a short `Health::invulnerableTimer`.
+
+**Components:**
+| Component | Access |
+|-----------|--------|
+| `Health` | Read/Write (detect ≤ 0, restore, set invuln) |
+| `SpawnPoint` | Read (respawn position + yaw) |
+| `Position` | Write (teleport to spawn) |
+| `JoltCharacter` | Write (move the CharacterVirtual) |
+| `TagPlayer` | Read (view filter) |
+
+**When:** Fixed tick, after `pickupSystem`, before `demoResetSystem`.
+
+---
+
+### 11. `demoResetSystem`
 
 **File:** `systems/demo_reset_system.h/.cpp`
 
@@ -219,7 +258,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 10. `renderSystem`
+### 12. `renderSystem`
 
 **File:** `systems/render_system.h/.cpp`
 
@@ -231,7 +270,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 | `Position` | Read |
 | `Scale` | Read (optional) |
 | `MeshRenderer` | Read (VAO, shader, texture, index count) |
-| `Colour` | Read (optional — tint colour) |
+| `Colour` | Read (optional — flat lit albedo colour, untextured; e.g. weapon-pickup gun meshes) |
 | `DirectionalLight` | Read |
 | `PointLight` | Read |
 | `TagDebugWireframe` | Read (draws in `GL_LINE` mode) |
@@ -240,27 +279,44 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 11. `debugHudSystem`
+### 13. `debugHudSystem`
 
 **File:** `systems/debug_hud_system.h/.cpp`
 
-**Purpose:** Renders a text-based HUD overlay showing FPS, player position, health, current weapon, and ammo. Uses `stb_easy_font` for text rendering.
+**Purpose:** Renders the 2D overlay: FPS text, health + armour bars, ammo readout, **crosshair**, **damage-flash overlay**, and the **pickup toast**. Text uses `stb_easy_font`; bars/crosshair/panels/flash are drawn by the sibling `draw_*` files (`draw_bar`, `draw_ammo`, `draw_crosshair`, `draw_flash_overlay`, `draw_panel`, `draw_text`). Also ticks the `DamageFlash` and `PickupMessage` timers.
 
 **Components:**
 | Component | Access |
 |-----------|--------|
 | `Position` | Read (player position display) |
-| `Health` | Read (health display) |
+| `Health` | Read (health bar) |
+| `Armor` | Read (armour bar) |
 | `WeaponInventory` | Read (current weapon display) |
-| `Ammo` | Read (ammo counts display) |
+| `Ammo` | Read (ammo readout) |
+| `DamageFlash` | Read/Write (tick timer + draw overlay) |
+| `PickupMessage` | Read/Write (tick timer + draw toast) |
 | `TagPlayer` | Read (view filter) |
 
 **Context:**
 | Context | Access |
 |---------|--------|
 | `HudConfig` | Read (`shaderId` for the HUD shader) |
+| `PhysicsConfig` | Read (`fixedDeltaTime` for flash/toast timers) |
 
 **Parameters:** Takes `windowWidth`, `windowHeight`, `fps` directly.
+
+---
+
+### 14. `audioSystem`
+
+**File:** `systems/audio/audio_system.h/.cpp`
+
+**Purpose:** Drains the `SoundQueue` and plays each `SoundEvent` through the audio engine (miniaudio + stb_vorbis). A **frame system** — runs once per frame in the windowed build only; the headless build leaves the queue unread. Simulation systems enqueue with `queueSound()` / `queueSoundAt()` (weapon fire, pickups, doors, teleport, jump/pain/death) and looping music is started once at setup.
+
+**Context:**
+| Context | Access |
+|---------|--------|
+| `SoundQueue` | Read/Write (drain the frame's events) |
 
 ---
 

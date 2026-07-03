@@ -1,7 +1,7 @@
 #pragma once
 
 #include <entt/entt.hpp>
-#include <vector>
+#include <array>
 
 // Weapon, ammo, projectile, and combat-resource components.
 
@@ -38,10 +38,15 @@ struct Weapon
     int ammoPerShot = 1;
 };
 
+// Fixed 7-slot inventory indexed by WeaponType (0..6). A slot is selectable and
+// fireable only when owned[slot] is true, so number keys 1-7 always map to the
+// same weapon type regardless of pickup order. spawnPlayer populates every slot's
+// stats and marks the starting weapons owned; pickups just flip an owned flag.
 struct WeaponInventory
 {
-	std::vector<Weapon> weapons;
-	int currentWeapon = 0;
+	std::array<Weapon, 7> weapons{};
+	std::array<bool, 7>   owned{};
+	int currentWeapon = 0; // WeaponType index of the active weapon
 };
 
 struct Ammo

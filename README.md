@@ -46,6 +46,7 @@ QEngine/
 
 Detailed technical documentation lives in [`docs/architecture/`](docs/architecture/README.md):
 
+- **[Engine Overview](docs/architecture/ENGINE_OVERVIEW.md) — start here: how the engine works, top to bottom**
 - [Architecture](docs/architecture/ARCHITECTURE.md) — Project structure, design philosophy, what's implemented
 - [Systems](docs/architecture/SYSTEMS.md) — Every ECS system, what it does, components it uses
 - [Components](docs/architecture/COMPONENTS.md) — Every component, fields, defaults, which systems read/write them

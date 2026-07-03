@@ -1,6 +1,6 @@
 # QEngine — Architecture Reference
 
-Updated through Chapter 15d. See [COMPONENTS.md](COMPONENTS.md), [SYSTEMS.md](SYSTEMS.md), and [TICK_ORDER.md](TICK_ORDER.md) for detailed breakdowns.
+Updated through Chapter 20 (pickups, graphical HUD, audio). See [COMPONENTS.md](COMPONENTS.md), [SYSTEMS.md](SYSTEMS.md), and [TICK_ORDER.md](TICK_ORDER.md) for detailed breakdowns.
 
 ---
 
@@ -90,14 +90,14 @@ QEngine/
 - **Components** are plain data structs — no methods, no inheritance
 - **Systems** are free functions — no state, no member variables
 - **Registry** is the single source of truth — all game state lives here
-- **Context objects** (`registry.ctx()`) store singletons: `PhysicsConfig`, `JoltWorld`, `HudConfig`, `CombatResources`
+- **Context objects** (`registry.ctx()`) store singletons: `PhysicsConfig`, `JoltWorld`, `HudConfig`, `CombatResources`, `CameraDirection`, `SoundQueue`
 
 ### Physics (Jolt)
 - **Static bodies** for level geometry and immovable platforms
 - **Dynamic bodies** for physics objects (cubes)
 - **Kinematic bodies** for movers (doors, lifts) — pushed via `MoveKinematic`
 - **CharacterVirtual** for the player — direct velocity control with collision response
-- **Sensor bodies** for trigger volumes — overlap detection without blocking
+- **Triggers and pickups** use ECS AABB overlap, *not* Jolt sensor bodies — `buildWorld` deliberately creates none (a `createSensorBody` helper exists but is unused)
 - See [JOLT_PHYSICS.md](JOLT_PHYSICS.md) for full details
 
 ### Fixed Timestep
@@ -121,37 +121,40 @@ QEngine/
 | `main.cpp` | ~230 | Game loop, input, camera, system orchestration |
 | `components.h` | ~260 | Every component and tag definition |
 | `scene_setup.cpp` | ~370 | Entity spawning (player, lights, demos, triggers) |
-| `jolt_body_helpers.cpp` | ~190 | 5 Jolt body creation functions |
+| `physics/bodies/*` | ~190 | 5 Jolt body-creation functions (static/dynamic/kinematic/sensor/level) |
 | `player_character_system.cpp` | ~165 | Player movement + CharacterVirtual |
 | `combat_system.cpp` | ~300 | Weapon firing, hitscan, projectiles |
 | `render_system.cpp` | ~150 | OpenGL draw calls + lighting |
 
 ---
 
-## What's Implemented (Through Chapter 15d)
+## What's Implemented (Through Chapter 20)
 
 - Window creation, OpenGL context, GLFW input
 - Shader system (basic, textured, lit, HUD)
 - Texture loading (stb_image)
-- OBJ mesh loading (tinyobjloader)
+- OBJ mesh loading (in-repo `renderer/obj_loader.cpp`)
 - ECS entity/component/system architecture (EnTT)
-- FPS camera with mouse look
+- Data-driven entity spawning (`classname`→factory dispatch + two-pass `targetname` linking)
+- FPS camera with mouse look + fixed-timestep interpolation
 - Level geometry (sectors, surfaces, BSP-style)
 - Phong lighting (directional + point lights)
-- Jolt Physics (static, dynamic, kinematic, sensor bodies)
+- Jolt Physics (static, dynamic, kinematic bodies + CharacterVirtual)
 - Player movement (Quake-style acceleration, CharacterVirtual)
 - Doors and lifts (kinematic movers with state machine + start delay)
 - Trigger volumes (activate movers, teleport, damage, heal)
-- Weapons (shotgun hitscan, rocket launcher projectile)
+- Item pickups (health, ammo, armour, weapons) + armour bar
+- Weapons — all 7 wired to a fixed 7-slot inventory (keys 1-7 = weapon type); shotgun + rocket launcher to start, the rest collected; each draws from its own ammo pool (shells/nails/rockets/cells)
 - Player death / respawn (`player_death_system`, in the tick order)
-- Debug HUD (FPS, position, health, ammo)
+- Graphical HUD (FPS, health/armour bars, ammo, crosshair, damage flash, pickup toast, weapon bar showing owned/available slots 1-7)
+- First-person weapon viewmodel (procedural per-weapon gun shapes + colours; idle bob, fire recoil, switch drop/raise). Weapon pickups render as the same coloured gun models.
+- Audio (miniaudio + stb_vorbis: SFX + looping music via `SoundQueue`/`audioSystem`)
 - Demo reset system (periodic physics object respawn)
 
 ## What's Not Yet Implemented
 
 - AI / enemies
-- Audio
 - Networking
-- Crosshair / expanded HUD
-- TrenchBroom level loading
+- Menus / game states (boots straight into gameplay)
+- TrenchBroom level loading (levels are hard-coded)
 - BSP traversal

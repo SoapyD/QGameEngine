@@ -30,6 +30,11 @@ glm::vec3 healthBarColor(float percent);
 void drawAmmo(entt::registry& registry, float x, float y, unsigned int shaderId,
               const glm::mat4& projection, float scale);
 
+// Draw the top-of-screen weapon bar: slots 1-7, coloured when owned (current
+// highlighted), greyed out when not yet collected.
+void drawWeaponBar(entt::registry& registry, int windowWidth, unsigned int shaderId,
+                   const glm::mat4& projection, float scale);
+
 // Draw the full-screen red damage-flash overlay (no-op if flashAlpha <= 0).
 void drawFlashOverlay(int windowWidth, int windowHeight, unsigned int shaderId,
                       const glm::mat4& projection, float flashAlpha);

@@ -3,6 +3,7 @@
 #include "engine/ecs/components.h"   // spawns touch every component group
 #include "engine/physics/jolt_bodies.h"
 #include "engine/ecs/weapon_definitions.h"
+#include "engine/renderer/gun_mesh.h"   // weaponColor for weapon pickups
 
 #include <utility>
 
@@ -28,11 +29,15 @@ namespace factories
         reg.emplace<DamageFlash>(player);
         reg.emplace<PendingKnockback>(player);
 
-        // Two weapons: one hitscan, one projectile. Start on the shotgun.
+        // Fixed 7-slot inventory: every slot carries its weapon's stats, but the
+        // player only *owns* (can select/fire) the shotgun + rocket launcher to
+        // start. Number keys 1-7 map straight to WeaponType; the rest are collected.
         WeaponInventory inv;
-        inv.weapons.push_back(createWeapon(WeaponType::Shotgun));
-        inv.weapons.push_back(createWeapon(WeaponType::RocketLauncher));
-        inv.currentWeapon = 0;
+        for (int i = 0; i < 7; ++i)
+            inv.weapons[i] = createWeapon(static_cast<WeaponType>(i));
+        inv.owned[static_cast<int>(WeaponType::Shotgun)] = true;
+        inv.owned[static_cast<int>(WeaponType::RocketLauncher)] = true;
+        inv.currentWeapon = static_cast<int>(WeaponType::Shotgun);
         reg.emplace<WeaponInventory>(player, std::move(inv));
 
         reg.emplace<Ammo>(player, 25, 0, 5, 0);  // 25 shells, 5 rockets
@@ -146,6 +151,22 @@ namespace factories
         reg.emplace<Scale>(e, glm::vec3(0.4f));            // small floating cube
         reg.emplace<AABBCollider>(e, glm::vec3(0.5f), true); // sensor: ECS overlap, no Jolt body
         reg.emplace<MeshRenderer>(e, cubeRenderer(a, textureId));
+        reg.emplace<Pickup>(e, pickup);
+        return e;
+    }
+
+    entt::entity spawnWeaponPickup(entt::registry& reg, const MeshAssets& a, glm::vec3 pos,
+                                   const Pickup& pickup, WeaponType weapon)
+    {
+        const int i = static_cast<int>(weapon);
+        auto e = reg.create();
+        reg.emplace<Position>(e, pos);
+        reg.emplace<Rotation>(e, glm::vec3(0.0f, 40.0f, 0.0f));   // angled so the profile reads
+        reg.emplace<Scale>(e, glm::vec3(1.6f));                   // guns are small — scale up
+        reg.emplace<AABBCollider>(e, glm::vec3(0.6f), true);      // sensor: ECS overlap, no Jolt body
+        reg.emplace<MeshRenderer>(e,
+            MeshRenderer{ a.gunVAO[i], 0u, a.litShader, 0u, true, a.gunIndexCount[i] });
+        reg.emplace<Colour>(e, glm::vec4(weaponColor(weapon), 1.0f)); // flat albedo via renderSystem
         reg.emplace<Pickup>(e, pickup);
         return e;
     }

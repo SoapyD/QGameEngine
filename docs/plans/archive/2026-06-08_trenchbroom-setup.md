@@ -7,7 +7,7 @@ and specifically how to rebuild the current showcase room as an editor-authored 
 > The `.qlvl` text format + `LevelLoader` exist but the game never uses them (the showcase
 > is built in C++ by `createShowcaseLevel()` + `scene_setup.cpp`), and `assets/levels/test.qlvl`
 > references textures that don't even ship. TrenchBroom is the *planned* tool — it's fully
-> designed in [`roadmap/ROADMAP_TRENCHBROOM.md`](../roadmap/ROADMAP_TRENCHBROOM.md) (Ch 17–20,
+> designed in [`roadmap/ROADMAP_TRENCHBROOM.md`](../../roadmap/ROADMAP_TRENCHBROOM.md) (Ch 17–20,
 > "Written") but **none of the engine-side `.map` support is implemented.** So "getting it up
 > and running" is a **build project**, not just an install. This plan splits it into
 > (1) install/config you can do today, and (2) the engine code that has to land for a map to
@@ -39,7 +39,7 @@ QEngine/
 ```
 
 ### 1.3 `GameConfig.cfg`
-Use the template in [ROADMAP_TRENCHBROOM.md §Phase 4](../roadmap/ROADMAP_TRENCHBROOM.md).
+Use the template in [ROADMAP_TRENCHBROOM.md §Phase 4](../../roadmap/ROADMAP_TRENCHBROOM.md).
 Key fields for *our* assets:
 
 ```jsonc
@@ -85,7 +85,7 @@ This is Phase 5, Chapters 17–20. Ordered by dependency; each step leaves the b
 
 | Step | Deliverable | Replaces / adds | Ref |
 |------|-------------|-----------------|-----|
-| **2.0** ✅ | **Entity-factory refactor** — DONE (2026-07-02). `classname`→factory dispatch + `SpawnParams` + two-pass `targetname` linking; showcase now built from a descriptor list. The parser (2.1) just emits `SpawnParams`; entity mapping (2.3) is registering FGD classnames against the existing dispatch table. See [archive/2026-07-02-entity-factory-classname-dispatch.md](archive/2026-07-02-entity-factory-classname-dispatch.md). | Inline spawns in `scene_setup.cpp` | Plan 02 §C #1 |
+| **2.0** ✅ | **Entity-factory refactor** — DONE (2026-07-02). `classname`→factory dispatch + `SpawnParams` + two-pass `targetname` linking; showcase now built from a descriptor list. The parser (2.1) just emits `SpawnParams`; entity mapping (2.3) is registering FGD classnames against the existing dispatch table. See [archive/2026-07-02_entity-factory-classname-dispatch.md](2026-07-02_entity-factory-classname-dispatch.md). | Inline spawns in `scene_setup.cpp` | Plan 02 §C #1 |
 | **2.1** | **`.map` parser** — read entities → brushes → planes (3 points + texture + UV). | New `MapLoader`; `.qlvl` path retired | Ch 17 |
 | **2.2** | **Brush → mesh** — plane-plane-plane intersection (Cramer's rule), Sutherland-Hodgman face clipping, fan-triangulate, normals from planes, axial UV projection. | `buildSectorMeshes` analogue for brushes | Ch 17 |
 | **2.3** | **FGD + entity mapping** — `classname` → factory (`info_player_start`, `light`, `func_door`, `trigger_*`, `item_*`, …); `target`/`targetname` linking for triggers→movers. | Hooks 2.0 factories to map data | Ch 18 |

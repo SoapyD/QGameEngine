@@ -74,7 +74,8 @@ void combatSystem
 	 for (auto [entity, pos, input, inv] : shooterView.each())
 	 {
 		if (!input.fire) continue;
-		if (inv.weapons.empty()) continue;
+		if (inv.currentWeapon < 0 || inv.currentWeapon >= (int)inv.weapons.size()) continue;
+		if (!inv.owned[inv.currentWeapon]) continue;   // active slot must be a held weapon
 
 		Weapon& weapon = inv.weapons[inv.currentWeapon];
 		if (weapon.cooldownRemaining > 0.0f) continue;

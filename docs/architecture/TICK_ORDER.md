@@ -61,8 +61,9 @@ Each fixed timestep tick runs these systems in order:
  7  combatSystem              Game Logic    Hitscan/projectile weapons
  8  lifetimeSystem            Cleanup       Auto-destroy timed entities
  9  triggerSystem             Game Logic    Detect trigger overlaps
-10  playerDeathSystem         Game Logic    Respawn the player on death
-11  demoResetSystem           Cleanup       Reset physics demo objects
+10  pickupSystem              Game Logic    Grant + consume items on touch
+11  playerDeathSystem         Game Logic    Respawn the player on death
+12  demoResetSystem           Cleanup       Reset physics demo objects
 ```
 
 > **Tick-order note:** the player's `ExtendedUpdate` (6) runs *after* movers
@@ -86,7 +87,9 @@ Each fixed timestep tick runs these systems in order:
 
 **9: Triggers last.** Trigger detection uses ECS positions (not Jolt queries), so it needs to run after `joltSyncSystem` has updated everything. Activating a mover here means it will start moving on the *next* tick (which is correct — the state change is picked up by `moverSystem` next iteration).
 
-**10: Demo reset.** Runs last because it teleports entities, which would interfere with physics if it ran earlier.
+**10-11: Pickups & death.** `pickupSystem` grants/consumes items and `playerDeathSystem` respawns the player — both act on the final, synced positions.
+
+**12: Demo reset.** Runs last because it teleports entities, which would interfere with physics if it ran earlier.
 
 ---
 
@@ -95,15 +98,16 @@ Each fixed timestep tick runs these systems in order:
 After all fixed ticks have run:
 
 ```
-1. Camera follows player       — Read player Position, set camera eye height
-2. Write camera front to ctx   — Update for next frame's combat system
-3. Clear framebuffer           — glClear
-4. renderSystem                — Draw all MeshRenderer entities + lighting
-5. debugHudSystem              — Draw text HUD overlay (FPS, health, ammo)
-6. Swap buffers                — Present to screen
+1. Camera follows player       — Read player Position (lerped prev→current by alpha), set eye height
+2. Write CameraDirection to ctx — Update for next frame's combat system
+3. audioSystem                 — Drain the SoundQueue, play this frame's sounds
+4. Clear framebuffer           — glClear
+5. renderSystem                — Draw all MeshRenderer entities (interpolated) + lighting
+6. debugHudSystem              — Draw the HUD overlay (bars, ammo, crosshair, flash, toast)
+7. Swap buffers                — Present to screen
 ```
 
-Rendering runs once per frame at the display's frame rate. It reads ECS positions directly — there's no interpolation between physics states currently. This means at very high frame rates, objects may appear to move in discrete steps. Adding interpolation (using `FixedTimestep::getAlpha()`) is a future improvement.
+Rendering runs once per frame at the display's frame rate. Motion is smoothed by interpolating between `PrevPosition` and `Position` by the fixed-timestep alpha (`FixedTimestep::getAlpha()`), so objects move smoothly even when the frame rate is well above the 60 Hz tick rate.
 
 ---
 

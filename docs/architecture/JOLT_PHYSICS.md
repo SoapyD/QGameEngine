@@ -90,12 +90,14 @@ Created by `createKinematicBody` for movers (doors, lifts).
 
 ### Sensor Bodies (`EMotionType::Static`, `mIsSensor = true`)
 
-Created by `createSensorBody` for trigger volumes.
+A `createSensorBody` helper exists, but **`buildWorld` deliberately creates none.** Triggers and
+pickups run on **ECS AABB overlap** (`triggerSystem` / `pickupSystem`), not Jolt sensor queries —
+the Jolt sensors were never queried and would be spuriously tripped by combat's impulse sweep.
 
+The helper is documented here for completeness:
 - Detect overlap but don't block movement
 - Layer: `SENSOR`
 - Activation: `DontActivate`
-- Currently not queried by Jolt — the `triggerSystem` uses ECS AABB overlap instead
 
 ---
 
@@ -180,9 +182,9 @@ Predictive: 0.1 units contact detection distance
 3. createLevelBodies()             — Static bodies from level geometry
 4. OptimizeBroadPhase()            — Build spatial acceleration structure
 5. Create kinematic bodies         — For all entities with Mover component
-6. Create sensor bodies            — For all entities with TriggerVolume + isTrigger
-7. initPlayerCharacter()           — Create CharacterVirtual
-8. OptimizeBroadPhase()            — Re-optimize after adding more bodies
+   (no sensor bodies — triggers/pickups use ECS AABB overlap, not Jolt sensors)
+6. initPlayerCharacter()           — Create CharacterVirtual
+7. OptimizeBroadPhase()            — Re-optimize after adding more bodies
 ```
 
 The order matters — `initPlayerCharacter` must run after level bodies exist so the character spawns on solid ground, not in empty space.

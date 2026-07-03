@@ -128,6 +128,9 @@ void debugHudSystem
 		}
 	}
 
+	// Weapon bar (top centre): which weapons are owned + which number selects them.
+	drawWeaponBar(registry, windowWidth, shader, ortho, textScale);
+
 	// Crosshair (screen centre)
 	drawCrosshair(windowWidth * 0.5f, windowHeight * 0.5f, shader, ortho, glm::vec3(1.0f));
 

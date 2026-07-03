@@ -17,9 +17,26 @@
 #include "engine/ecs/systems/combat/weapon_switch_system.h"
 #include "engine/audio/types/sound_event.h"
 #include "engine/physics/jolt_world.h"
+#include "engine/renderer/gun_mesh.h"
+#include "engine/renderer/mesh.h"
+
+#include <memory>
+#include <string>
 
 namespace qengine
 {
+    // Store the 7 first-person / pickup gun meshes as "gun_0".."gun_6". Real
+    // meshes when we have a GL context; GL-free stubs for the headless harness.
+    static void loadGunMeshes(ResourceManager& resources, bool headless)
+    {
+        for (int i = 0; i < 7; ++i)
+        {
+            std::string name = "gun_" + std::to_string(i);
+            resources.storeMesh(name, headless
+                ? std::make_shared<Mesh>(nullptr)
+                : buildGunMesh(static_cast<WeaponType>(i)));
+        }
+    }
     void loadResources(ResourceManager& resources, bool headless)
     {
         if (headless)
@@ -32,6 +49,7 @@ namespace qengine
                                    "grid_blue", "grid_green", "grid_red" })
                 resources.storeTexture(n, std::make_shared<Texture>(nullptr));
             resources.storeMesh("cube", std::make_shared<Mesh>(nullptr));
+            loadGunMeshes(resources, /*headless=*/true);
             return;
         }
 
@@ -52,6 +70,7 @@ namespace qengine
         resources.getTexture("grid_red",   "assets/textures/grid_red.png");
 
         resources.getMesh("cube", "assets/models/cube.obj");
+        loadGunMeshes(resources, /*headless=*/false);
     }
 
     Level buildWorld(entt::registry& registry, ResourceManager& resources,
