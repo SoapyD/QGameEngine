@@ -740,10 +740,14 @@ Run `build/QEngine.exe`:
 ## What's Next
 
 The showcase is now a small but complete FPS loop: things to shoot with, things to pick up,
-and stats that matter. The remaining hard-coded piece is the *level itself*. In **Chapter 20:
-The `.map` Parser & Brush Geometry**, we finally replace `createShowcaseLevel()` +
-`showcaseDescriptors()` with a TrenchBroom-authored `.map` file — parsing brush geometry into
-meshes and colliders, and feeding its entities straight into the `spawnScene` pipeline from
-Chapter 18. All the `item_*` / `weapon_*` classnames you just built become FGD entities you
-can place by hand in the editor.
+and stats that matter — but it's silent. **Chapter 20 (in three parts) adds audio**: *20a —
+Audio Assets & the Manifest* builds a named, swappable sound collection; *20b — The Audio
+Engine* integrates a miniaudio backend; *20c — Wiring Sound Events* hooks weapons, pickups,
+doors and player feedback up to it.
+
+Then, in **Chapter 21: The `.map` Parser & Brush Geometry**, we finally replace
+`createShowcaseLevel()` + `showcaseDescriptors()` with a TrenchBroom-authored `.map` file —
+parsing brush geometry into meshes and colliders, and feeding its entities straight into the
+`spawnScene` pipeline from Chapter 18. All the `item_*` / `weapon_*` classnames you just built
+become FGD entities you can place by hand in the editor.
 ```

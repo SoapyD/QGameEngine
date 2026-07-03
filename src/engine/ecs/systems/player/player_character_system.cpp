@@ -1,5 +1,6 @@
 #include "engine/ecs/systems/player/player_character_system.h"
 #include "engine/ecs/components.h"
+#include "engine/audio/queue_sound.h"
 #include "engine/physics/jolt_world.h"
 #include "engine/physics/physics_config.h"
 
@@ -72,6 +73,7 @@ void playerCharacterSystem(entt::registry& registry)
 			if (input.jump)
 			{
 				desiredVel += JPH::Vec3(0.0f, physics.jumpForce, 0.0f);
+				queueSound(registry, "player.jump");
 			}
 			else
 			{

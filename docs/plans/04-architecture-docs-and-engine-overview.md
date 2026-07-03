@@ -179,8 +179,10 @@ TrenchBroom `.map` load, but the *body-creation* and *tick* code stays the same.
 - **Solid:** rendering, lighting, Jolt physics, Quake movement, doors/lifts/triggers, weapons
   (all 7 defined), death/respawn, knockback data, fixed timestep + interpolation, headless
   regression harness.
-- **Missing/partial:** pickups, enemies/AI, audio, graphical HUD (crosshair/bars), menus/states,
-  authored levels (TrenchBroom). See Plans 02 and 03.
+- **Shipped since:** item pickups + armour/ammo, graphical HUD (crosshair/bars/panels), and
+  audio (miniaudio + SFX/music, Chapter 20). See Plan 02.
+- **Missing/partial:** enemies/AI, menus/game-states, authored levels (TrenchBroom). See
+  Plans 02 and 03.
 - **Legacy/inert (don't be fooled):** `level/` `.qlvl` loader (unused), `physics/{collision,
   spatial_hash,aabb}` + legacy `raycast` triangle path, and `ecs/systems/archived/*` — all kept
   as tutorial "old-vs-new" reference, none compiled into behaviour.

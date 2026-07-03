@@ -165,5 +165,16 @@ std::vector<SpawnParams> showcaseDescriptors()
         .props = { {"amount", "50"} },
     });
 
+    // ─── Weapon rack: the rest of the arsenal (player starts with shotgun +
+    //     rocket launcher; these make all 7 weapons reachable) ─────────────
+    d.push_back({ .classname = "weapon_supershotgun",    .origin = glm::vec3(8.0f, 1.0f, 6.0f)  });
+    d.push_back({ .classname = "weapon_railgun",         .origin = glm::vec3(8.0f, 1.0f, 10.0f) });
+    d.push_back({ .classname = "weapon_lightninggun",    .origin = glm::vec3(8.0f, 1.0f, 14.0f) });
+    d.push_back({ .classname = "weapon_grenadelauncher", .origin = glm::vec3(8.0f, 1.0f, 18.0f) });
+
+    // Ammo for the pools the player doesn't start stocked in (nails, cells).
+    d.push_back({ .classname = "item_nails", .origin = glm::vec3(11.0f, 1.0f, 8.0f)  });
+    d.push_back({ .classname = "item_cells", .origin = glm::vec3(11.0f, 1.0f, 12.0f) });
+
     return d;
 }

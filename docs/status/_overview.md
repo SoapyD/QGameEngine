@@ -36,6 +36,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 | Level geometry (sectors/surfaces) | ✅ | hardcoded showcase room |
 | Entity spawn (factories) | ✅ | data-driven: `classname`→factory dispatch + two-pass `targetname` linking; showcase built from an in-code descriptor list (`.map`-loader-ready) |
 | Resource manager | ✅ | name-cached handles |
+| Audio (miniaudio) | 🟡 | miniaudio + stb_vorbis (OGG); named sound manifest (SFX + music); `SoundQueue`/`audioSystem` event wiring (fire/pickup/door/teleport/jump/pain/death) + looping music. Pending: footsteps, 3D positional falloff, adaptive music |
 
 ## Not yet implemented
 
@@ -43,7 +44,6 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 |---------|-------|------|
 | AI / enemies | 🔴 | no behaviour systems |
 | Crosshair / expanded HUD | 🔴 | debug HUD only |
-| Audio | 🔴 | `src/engine/audio/` empty (scaffold) |
 | Networking | 🔴 | `src/engine/network/` empty (scaffold); see roadmap |
 | TrenchBroom level loading | 🔴 | levels hardcoded; setup planned (plan 03) |
 | BSP traversal | 🔴 | sectors built, no BSP walk |

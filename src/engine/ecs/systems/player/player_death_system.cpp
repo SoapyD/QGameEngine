@@ -1,5 +1,6 @@
 #include "engine/ecs/systems/player/player_death_system.h"
 #include "engine/ecs/components.h"
+#include "engine/audio/queue_sound.h"
 
 #include "engine/physics/jolt_world.h"
 #include "engine/physics/physics_config.h"
@@ -33,9 +34,11 @@ void playerDeathSystem(entt::registry& registry)
 		// move to spawn point
 		pos.value = spawn.position;
 
+		queueSound(registry, "player.death");
+
 		// Teleport the Jolt CharacterVirtual to the spawn position
 		auto& character = joltChar.character;
 		character->SetPosition(JPH::RVec3(spawn.position.x, spawn.position.y, spawn.position.z));
-		character->SetLinearVelocity(JPH::Vec3::sZero()); 
+		character->SetLinearVelocity(JPH::Vec3::sZero());
 	}
 };

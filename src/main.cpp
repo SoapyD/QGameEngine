@@ -8,6 +8,8 @@
 #include "engine/ecs/systems/render/render_system.h"
 #include "engine/ecs/systems/player/player_input_system.h"
 #include "engine/ecs/systems/player/camera_follow_system.h"
+#include "engine/ecs/systems/audio/audio_system.h"
+#include "engine/audio/audio_engine.h"
 #include "engine/physics/physics_config.h"
 #include "engine/physics/jolt_world.h"
 #include "engine/renderer/camera.h"
@@ -33,6 +35,10 @@ int main()
 	// ─── Load resources ──────────────────────────────────────
 	qengine::loadResources(resources);
 
+	// ─── Audio ───────────────────────────────────────────────
+	AudioEngine audio;
+	audio.init("assets/sounds", "assets/sounds/manifest.json");
+
 	// ─── Camera ──────────────────────────────────────────────────
 	Camera camera(glm::vec3(15.0f, 1.7f, 15.0f));
 
@@ -46,6 +52,9 @@ int main()
 	joltWorld.init(false, physicsConfig.gravity);
 
 	Level level = qengine::buildWorld(registry, resources, joltWorld);
+
+	// Start background music (loops).
+	audio.playMusic("music.exploration");
 
 	// ─── Game Loop ───────────────────────────────────────────────
 
@@ -104,6 +113,10 @@ int main()
 		// ─── Camera follows player body (interpolated) ───────────
 		cameraFollowSystem(registry, camera, alpha);
 
+		// ─── Audio: update listener + play queued sounds ─────────
+		audio.setListener(camera.getPosition(), camera.getFront());
+		audioSystem(registry, audio);
+
 		// ─── Render ──────────────────────────────────────────────
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -120,6 +133,7 @@ int main()
 
 	}
 
+	audio.shutdown();
 	joltWorld.shutdown();
 	resources.clear();
 	return 0;

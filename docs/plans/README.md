@@ -11,18 +11,17 @@ than fixing existing bugs.
 | 3 | [03-trenchbroom-setup.md](03-trenchbroom-setup.md) | How do we get the map-building tool (TrenchBroom) running, and what's needed to author a level like the hard-coded showcase? |
 | 4 | [04-architecture-docs-and-engine-overview.md](04-architecture-docs-and-engine-overview.md) | Plan to update the architecture docs + a high-level "how the engine works" refresher. |
 
-**Active implementation plans (dated, graduated from the above):**
-
-| Date | Plan | Graduated from | Status |
-|------|------|----------------|--------|
-| 2026-07-02 | [item pickups](2026-07-02-item-pickups.md) | Plan 02 #2 | Phase 1 shipped; Phase 2 pending |
-
 These are **planning documents** — they propose work, they don't perform it.
 Implementation plans graduate into their own dated `docs/plans/YYYY-MM-DD-<name>.md` files
-and are moved to `archive/` once shipped (the project's existing habit).
+and are moved to `archive/` once shipped (the project's existing habit). No active dated plans
+right now — next candidate is Plan 03 (TrenchBroom `.map` loader).
 
 
 **Shipped & archived:**
+- [2026-07-02-item-pickups.md](archive/2026-07-02-item-pickups.md) — item pickups
+  (health/ammo/armour/weapons) reusing trigger-overlap; armour absorption, ammo consumption,
+  weapon keys, HUD armour bar + panels + pickup toast. Graduated from Plan 02 #2. Shipped
+  2026-07-02; tutorial Chapter 19.
 - [2026-07-02-entity-factory-classname-dispatch.md](archive/2026-07-02-entity-factory-classname-dispatch.md)
   — data-driven entity spawning: `classname`→factory dispatch + `SpawnParams` + two-pass
   `targetname` linking; showcase rebuilt from a descriptor list. Graduated from Plan 02 #1 /

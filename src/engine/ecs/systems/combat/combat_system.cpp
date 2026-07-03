@@ -2,10 +2,27 @@
 #include "engine/ecs/systems/combat/combat_internal.h"
 
 #include "engine/ecs/components.h"
+#include "engine/audio/queue_sound.h"
 #include "engine/physics/physics_config.h"
 
 namespace
 {
+	// The manifest sound id for a weapon's fire.
+	const char* weaponSoundId(WeaponType type)
+	{
+		switch (type)
+		{
+			case WeaponType::Shotgun:         return "weapon.shotgun";
+			case WeaponType::SuperShotgun:    return "weapon.supershotgun";
+			case WeaponType::Nailgun:         return "weapon.nailgun";
+			case WeaponType::RocketLauncher:  return "weapon.rocketlauncher";
+			case WeaponType::GrenadeLauncher: return "weapon.grenadelauncher";
+			case WeaponType::LighteningGun:   return "weapon.lightninggun";
+			case WeaponType::Railgun:         return "weapon.railgun";
+		}
+		return "weapon.shotgun";
+	}
+
 	// The ammo pool a weapon draws from.
 	int& ammoPool(Ammo& ammo, WeaponType type)
 	{
@@ -92,6 +109,7 @@ void combatSystem
 			fireProjectile(registry, entity, weapon, fireOrigin, cameraDir, resources);
 		}
 
+		queueSoundAt(registry, weaponSoundId(weapon.type), fireOrigin);
 		weapon.cooldownRemaining = weapon.fireRate;
 	 }
 

@@ -22,6 +22,7 @@ SIZE_RULES = [
     ("src/engine/core/**/*.cpp", 200, "core class"),
     ("src/engine/renderer/**/*.cpp", 200, "renderer class"),
     ("src/engine/physics/**/*.cpp", 200, "physics"),
+    ("src/engine/audio/**/*.cpp", 200, "audio"),   # subsystem class impl (miniaudio wrapper)
     ("src/engine/app/**/*.cpp", 150, "app"),
     ("src/harness/**/*.cpp", 650, "test harness"),  # scenario-heavy, lenient; grows per scenario
     ("src/**/*.cpp", 150, "cpp (default)"),
@@ -57,6 +58,8 @@ TYPE_LOCATION_ALLOWLIST = [
     "src/engine/physics/jolt_setup.h",   # Jolt layer/filter glue, tightly Jolt-coupled
     "src/engine/physics/jolt_world.h",   # JoltWorld struct = the class for that unit
     "src/engine/physics/physics_config.h",
+    "src/engine/audio/**",               # AudioEngine uses pimpl — the private Impl struct
+                                         # lives out-of-line in the .cpp by design
     "src/engine/app/simulation.h",       # forward-decls only
     "src/harness/**",                    # test scaffolding (wyrdwars skips tests too)
     "extern/**",
