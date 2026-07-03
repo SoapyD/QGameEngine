@@ -481,6 +481,59 @@ namespace
             ownedBefore, ownedCount(inv), inv.currentWeapon);
         return report("weapon_pickup", pass, buf);
     }
+
+    // A monster_grunt from the showcase: while alive it blocks the player, and it
+    // can be shot dead (health drops, then the entity is removed).
+    bool scenario_monster_grunt(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+
+        entt::entity grunt = entt::null;
+        for (auto e : reg.view<AIState, Health, Position, AABBCollider>()) { grunt = e; break; }
+        if (grunt == entt::null) return report("monster_grunt", false, "no monster_grunt spawned");
+
+        glm::vec3 gpos = reg.get<Position>(grunt).value;
+        float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        // ── Collision: stand in front (+Z), push toward the grunt, expect blocked.
+        glm::vec3 front = gpos + glm::vec3(0.0f, 0.0f, 1.4f); front.y = halfY + 0.05f;
+        teleportPlayer(reg, player, front);
+        Input push; push.wishDir = glm::vec3(0.0f, 0.0f, -1.0f);
+        for (int i = 0; i < 90; i++) { applyInput(reg, player, push); qengine::stepSimulation(reg, jolt, level, dt); }
+        float blockedZ = reg.get<Position>(player).value.z;
+        // grunt front face ~ gpos.z + 0.4, player radius ~0.3 → stop near gpos.z+0.7;
+        // must not tunnel to the far side (z < gpos.z).
+        bool blocked = blockedZ > gpos.z + 0.5f;
+
+        // ── Damage + death: stand back, aim, fire the shotgun until it dies.
+        glm::vec3 stand = gpos + glm::vec3(0.0f, 0.0f, 3.0f); stand.y = halfY + 0.05f;
+        teleportPlayer(reg, player, stand);
+        glm::vec3 aim = glm::normalize(gpos - (stand + glm::vec3(0.0f, halfY * 0.7f, 0.0f)));
+
+        Input idle; idle.lookDir = aim;
+        for (int i = 0; i < 5; i++) { applyInput(reg, player, idle); qengine::stepSimulation(reg, jolt, level, dt); }
+
+        float hpBefore = reg.get<Health>(grunt).current;
+        float hpAfter1 = hpBefore;
+        bool died = false;
+        for (int shot = 0; shot < 12 && !died; ++shot)
+        {
+            Input fire; fire.lookDir = aim; fire.fire = true;
+            applyInput(reg, player, fire);
+            qengine::stepSimulation(reg, jolt, level, dt);
+            if (shot == 0 && reg.valid(grunt)) hpAfter1 = reg.get<Health>(grunt).current;
+            for (int i = 0; i < 40 && reg.valid(grunt); i++)
+            { applyInput(reg, player, idle); qengine::stepSimulation(reg, jolt, level, dt); }
+            died = !reg.valid(grunt);
+        }
+
+        bool damaged = hpAfter1 < hpBefore;
+        char buf[220];
+        std::snprintf(buf, sizeof(buf),
+            "blockedZ=%.2f (grunt z=%.2f) blocked=%d; hp %.0f->%.0f died=%d",
+            blockedZ, gpos.z, blocked ? 1 : 0, hpBefore, hpAfter1, died ? 1 : 0);
+        return report("monster_grunt", blocked && damaged && died, buf);
+    }
 }
 
 int main(int argc, char** argv)
@@ -515,6 +568,7 @@ int main(int argc, char** argv)
     else if (scenario == "ammo_shells")      pass = scenario_ammo_shells(registry, jolt, level, dt);
     else if (scenario == "armor_absorb")     pass = scenario_armor_absorb(registry, jolt, level, dt);
     else if (scenario == "weapon_pickup")    pass = scenario_weapon_pickup(registry, jolt, level, dt);
+    else if (scenario == "monster_grunt")    pass = scenario_monster_grunt(registry, jolt, level, dt);
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
     jolt.shutdown();

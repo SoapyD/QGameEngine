@@ -106,6 +106,7 @@ add_library(qengine_lib STATIC
 	src/engine/core/window.cpp
 	src/engine/ecs/apply_damage.cpp
 	src/engine/level/factories.cpp
+	src/engine/level/spawn_monster.cpp
 	src/engine/level/classname_factory.cpp
 	src/engine/level/classname_factory_items.cpp
 	src/engine/level/spawn_scene.cpp
@@ -147,6 +148,7 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/render/render_system.cpp
 	src/engine/ecs/systems/trigger/trigger_system.cpp
 	src/engine/ecs/systems/pickup/pickup_system.cpp
+	src/engine/ecs/systems/enemy/enemy_death_system.cpp
 	src/engine/level/build_sector_meshes.cpp
 	src/engine/physics/jolt_world.cpp
 	src/engine/physics/raycast/ray_intersect_aabb.cpp

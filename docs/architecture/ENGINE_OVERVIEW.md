@@ -131,7 +131,9 @@ stays the same. See [FACTORIES.md](FACTORIES.md) for the factory layer.
   the full 7-weapon loadout (fixed 7-slot inventory, keys 1-7 = weapon type; start with 2, collect
   the rest; each weapon draws from its own ammo pool), and a first-person weapon viewmodel
   (distinct procedural gun shape + colour per weapon, with bob/recoil/switch animation).
-- **Missing:** enemies/AI, menus/game-states, authored levels (TrenchBroom). See the active
+- **Partial:** enemies — the `monster_grunt` archetype exists (kinematic body, blocks the player,
+  shootable, dies via `enemyDeathSystem`) but has no chase/attack behaviour yet.
+- **Missing:** enemy AI behaviour, menus/game-states, authored levels (TrenchBroom). See the active
   [plans](../plans/README.md).
 - **Legacy/inert (don't be fooled):** `level/` `.qlvl` loader (unused), `physics/{collision,
   spatial_hash,aabb}` + legacy `raycast` triangle path, and `ecs/systems/archived/*` — all kept

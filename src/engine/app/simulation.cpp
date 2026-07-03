@@ -14,6 +14,7 @@
 #include "engine/ecs/systems/mover/mover_system.h"
 #include "engine/ecs/systems/trigger/trigger_system.h"
 #include "engine/ecs/systems/pickup/pickup_system.h"
+#include "engine/ecs/systems/enemy/enemy_death_system.h"
 #include "engine/ecs/systems/combat/weapon_switch_system.h"
 #include "engine/audio/types/sound_event.h"
 #include "engine/physics/jolt_world.h"
@@ -93,6 +94,14 @@ namespace qengine
             createKinematicBody(registry, entity);
         }
 
+        // Kinematic bodies for enemies — they stand upright and block the player;
+        // the behaviour plan drives their movement (like movers) later.
+        auto enemyView = registry.view<Position, AABBCollider, AIState>();
+        for (auto [entity, pos, col, ai] : enemyView.each())
+        {
+            createKinematicBody(registry, entity);
+        }
+
         // NOTE: triggers use ECS AABB overlap in triggerSystem, not Jolt
         // sensor queries — so we deliberately do NOT create Jolt sensor bodies
         // here. They were inert (never queried) and would have been spuriously
@@ -124,6 +133,7 @@ namespace qengine
         triggerSystem(registry);
         pickupSystem(registry);         // grant + consume items on touch
         playerDeathSystem(registry);
+        enemyDeathSystem(registry);     // remove grunts whose health hit 0
         demoResetSystem(registry);
     }
 }

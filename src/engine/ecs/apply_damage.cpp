@@ -37,8 +37,14 @@ bool applyDamage(entt::registry& registry, entt::entity target, float amount)
 		flash.timer = flash.duration;
 	}
 
-	if (!wasFlashing && registry.all_of<TagPlayer>(target))
-		queueSound(registry, "player.pain");
+	// Pain/hit voice, once per flash window (so a shotgun's pellets fire it once).
+	if (!wasFlashing)
+	{
+		if (registry.all_of<TagPlayer>(target))
+			queueSound(registry, "player.pain");
+		else if (registry.all_of<AIState, Position>(target))
+			queueSoundAt(registry, "combat.flesh_hit", registry.get<Position>(target).value);
+	}
 
 	return true;
 }

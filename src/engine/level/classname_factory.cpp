@@ -112,6 +112,11 @@ namespace
             ctx.texture(p.getString("texture", "grid_green")));
     }
 
+    entt::entity make_monster_grunt(entt::registry& reg, const SpawnContext& ctx, const SpawnParams& p)
+    {
+        return spawnMonsterGrunt(reg, ctx.assets, p.origin);
+    }
+
     const std::unordered_map<std::string, SpawnFn>& table()
     {
         // World/environment classnames live here; item_* / weapon_* pickups are
@@ -132,6 +137,7 @@ namespace
                 { "info_teleport_destination", &make_info_teleport_destination },
                 { "func_decor",                &make_func_decor },
                 { "_wireframe",                &make_wireframe },
+                { "monster_grunt",             &make_monster_grunt },
             };
             registerItemClassnames(m);
             return m;
