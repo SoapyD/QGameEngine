@@ -15,7 +15,7 @@ void drawAmmo
 	auto ammoView = registry.view<Ammo, WeaponInventory, TagPlayer>();
 	for (auto [ entity, ammo, inv] : ammoView.each())
 	{
-		if (inv.weapons.empty()) continue;
+		if (!inv.owned[inv.currentWeapon]) continue;
 		const Weapon& currentWeapon = inv.weapons[inv.currentWeapon];
 
 		const char* weaponName = "Uknown";

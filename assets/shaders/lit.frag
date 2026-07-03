@@ -32,6 +32,12 @@ uniform int numPointLights;
 uniform PointLightData pointLights[MAX_POINT_LIGHTS];
 uniform vec4 colorOverride;
 
+// Flat-albedo path (used by the first-person weapon viewmodel): when useAlbedo
+// is set, the surface colour is albedoColor instead of a texture sample, but it
+// is still lit. Defaults to off, so world rendering is unchanged.
+uniform bool useAlbedo;
+uniform vec3 albedoColor;
+
 // Camera
 uniform vec3 viewPos;             // Camera position (for specular)
 
@@ -64,7 +70,7 @@ vec3 calcPointLight
 
 
 void main() {
-    vec3 texColor = texture(textureSampler, TexCoord).rgb;
+    vec3 texColor = useAlbedo ? albedoColor : texture(textureSampler, TexCoord).rgb;
     vec3 norm = normalize(Normal);
     vec3 viewDir = normalize(viewPos - FragPos);
 

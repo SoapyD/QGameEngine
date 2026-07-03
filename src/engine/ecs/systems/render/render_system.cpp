@@ -161,6 +161,13 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 		else
 			glUniform4f(loc, 0.0f, 0.0f, 0.0f, 0.0f);   // disabled (normal lighting)
 
+		// Flat lit albedo for Colour'd entities (e.g. weapon-pickup gun meshes); set per-entity so it can't leak.
+		bool hasColour = registry.all_of<Colour>(entity);
+		glUniform1i(glGetUniformLocation(mesh.shaderId, "useAlbedo"), hasColour ? 1 : 0);
+		if (hasColour)
+			glUniform3fv(glGetUniformLocation(mesh.shaderId, "albedoColor"), 1,
+				&registry.get<Colour>(entity).value[0]);
+
 		// Switch to wireframe if this is a debug entity
 		bool wireframe = registry.all_of<TagDebugWireframe>(entity);
 		if (wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);

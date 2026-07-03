@@ -13,6 +13,7 @@ inline void weaponSwitchSystem(entt::registry& registry)
 	{
 		if (input.weaponSwitch >= 0 &&
 		input.weaponSwitch < static_cast<int>(inv.weapons.size()) &&
+		inv.owned[input.weaponSwitch] &&               // can't select a weapon you don't have
 		input.weaponSwitch != inv.currentWeapon)
 		{
 			inv.currentWeapon = input.weaponSwitch;

@@ -261,9 +261,9 @@ namespace
         Input idle;
         for (int i = 0; i < 60; i++) { applyInput(reg, player, idle); qengine::stepSimulation(reg, jolt, level, dt); }
 
-        // One tick: switch to the rocket launcher (slot 1) and fire straight down.
+        // One tick: switch to the rocket launcher (its WeaponType slot) and fire down.
         Input fire;
-        fire.weaponSwitch = 1;
+        fire.weaponSwitch = static_cast<int>(WeaponType::RocketLauncher);
         fire.fire = true;
         fire.lookDir = glm::vec3(0.0f, -1.0f, 0.0f);
         applyInput(reg, player, fire);
@@ -452,9 +452,12 @@ namespace
         entt::entity player = findPlayer(reg);
         const float halfY = reg.get<AABBCollider>(player).halfExtents.y;
 
+        auto ownedCount = [](const WeaponInventory& v)
+        { int n = 0; for (bool b : v.owned) if (b) n++; return n; };
+
         int shellsBefore  = reg.get<Ammo>(player).shells;                 // 25
         int nailsBefore   = reg.get<Ammo>(player).nails;                  // 0
-        int weaponsBefore = (int)reg.get<WeaponInventory>(player).weapons.size(); // 2
+        int ownedBefore   = ownedCount(reg.get<WeaponInventory>(player)); // 2 (shotgun + RL)
         int currentBefore = reg.get<WeaponInventory>(player).currentWeapon;       // 0
 
         teleportPlayer(reg, player, glm::vec3(5.0f, halfY, 15.0f));  // weapon_nailgun
@@ -463,20 +466,19 @@ namespace
 
         const auto& inv = reg.get<WeaponInventory>(player);
         const auto& ammo = reg.get<Ammo>(player);
-        bool hasNailgun = false;
-        for (const auto& w : inv.weapons) if (w.type == WeaponType::Nailgun) hasNailgun = true;
+        bool hasNailgun = inv.owned[static_cast<int>(WeaponType::Nailgun)];
 
         bool pass = ammo.shells == shellsBefore          // shotgun ammo untouched
                  && ammo.nails > nailsBefore             // nails granted
-                 && (int)inv.weapons.size() == weaponsBefore + 1
+                 && ownedCount(inv) == ownedBefore + 1   // exactly one new weapon owned
                  && hasNailgun
                  && inv.currentWeapon == currentBefore;  // no auto-switch
 
         char buf[220];
         std::snprintf(buf, sizeof(buf),
-            "shells %d→%d (unchanged), nails %d→%d, weapons %d→%d, current=%d",
+            "shells %d→%d (unchanged), nails %d→%d, owned %d→%d, current=%d",
             shellsBefore, ammo.shells, nailsBefore, ammo.nails,
-            weaponsBefore, (int)inv.weapons.size(), inv.currentWeapon);
+            ownedBefore, ownedCount(inv), inv.currentWeapon);
         return report("weapon_pickup", pass, buf);
     }
 }

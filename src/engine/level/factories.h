@@ -72,4 +72,10 @@ namespace factories
     // no Jolt body) carrying the given Pickup. pickupSystem grants + destroys it.
     entt::entity spawnPickup(entt::registry& reg, const MeshAssets& a, glm::vec3 pos,
                              const Pickup& pickup, unsigned int textureId);
+
+    // Weapon pickup: like spawnPickup but rendered as the actual gun mesh for the
+    // weapon (from MeshAssets::gunVAO), flat-coloured by weaponColor via a Colour
+    // component, angled so its profile reads. Sensor AABB, no Jolt body.
+    entt::entity spawnWeaponPickup(entt::registry& reg, const MeshAssets& a, glm::vec3 pos,
+                                   const Pickup& pickup, WeaponType weapon);
 }

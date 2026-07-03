@@ -95,7 +95,7 @@ All areas are evaluated. The confirmed P0/P1 items, grouped into the implementat
 | Order | Fix plan | Bundles | Sev | One-liner |
 |-------|----------|---------|-----|-----------|
 | 1 | `dead-code-cleanup.md` | [01](01-build-and-dead-code.md) §1.1–1.4, 1.7 | P2 | Delete orphaned `collision.*`, `spatial_hash.*`, duplicate `jolt_sync_system.*`, dead triangle raycast; relocate `archived/`. Do first — guarantees later work edits live code. |
-| 1.5 | [`../headless-debug-harness.md`](../headless-debug-harness.md) | enabler for #2/#3/#4 | P1 | Windowless build + scripted input + per-tick recording + assertions. Makes the lift/teleport/projectile bugs reproducible and regression-tested without a display or human. **Do before #2.** |
+| 1.5 | [`../2026-06-08_headless-debug-harness.md`](../2026-06-08_headless-debug-harness.md) | enabler for #2/#3/#4 | P1 | Windowless build + scripted input + per-tick recording + assertions. Makes the lift/teleport/projectile bugs reproducible and regression-tested without a display or human. **Do before #2.** |
 | 2 | `physics-fixes.md` | [05](05-physics.md) §2/3/5, [06](06-level-and-scene.md) §6.3/6.4, [08](08-integration.md) §8.1 | **P0** | The lift glitch: tick-order reorder + ground-velocity inheritance + internal-edge removal + `IsValid()` guards. Verified via the harness's `ride_lift_up` scenario (red → green). |
 | 3 | `teleport-fix.md` | [07](07-gameplay-systems.md) §7.1 | P1 | Teleport trigger must `SetPosition` the `CharacterVirtual` (mirror `playerDeathSystem`). |
 | 4 | `projectile-collision-fix.md` | [07](07-gameplay-systems.md) §7.2, [06](06-level-and-scene.md) §6.1 | P1 | Projectiles must test against level geometry (decide Jolt-cast vs collider entities). |
@@ -111,7 +111,7 @@ All areas are evaluated. The confirmed P0/P1 items, grouped into the implementat
 
 ## Progress (applied & verified via the harness)
 
-The headless harness ([../headless-debug-harness.md](../headless-debug-harness.md)) is **built** (`QEngineHeadless`, `src/harness/headless_main.cpp`) with 6 scenarios, all green:
+The headless harness ([../2026-06-08_headless-debug-harness.md](../2026-06-08_headless-debug-harness.md)) is **built** (`QEngineHeadless`, `src/harness/headless_main.cpp`) with 6 scenarios, all green:
 
 | Item | Status | Evidence |
 |------|--------|----------|

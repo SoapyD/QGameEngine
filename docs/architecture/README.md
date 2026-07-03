@@ -1,17 +1,19 @@
 # QEngine — Technical Documentation
 
-Reference documentation for the QEngine codebase. Updated through Chapter 15d.
+Reference documentation for the QEngine codebase. Updated through Chapter 20.
 
 ## Documents
 
 | Document | Description |
 |----------|-------------|
+| **[ENGINE_OVERVIEW.md](ENGINE_OVERVIEW.md)** | **Start here** — how the engine works, top to bottom (data flow, tick, ECS↔Jolt) |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Project structure, folder layout, design philosophy |
 | [SYSTEMS.md](SYSTEMS.md) | Every ECS system — what it does, what components it reads/writes, tick order |
 | [COMPONENTS.md](COMPONENTS.md) | Every ECS component — fields, defaults, which systems use them |
 | [TICK_ORDER.md](TICK_ORDER.md) | The game loop explained — input, fixed timestep, physics, rendering |
 | [JOLT_PHYSICS.md](JOLT_PHYSICS.md) | Jolt integration — body types, layers, CharacterVirtual, body helpers |
 | [SCENE_SETUP.md](SCENE_SETUP.md) | How the showcase scene is built — entities, lighting, physics demos, triggers |
+| [FACTORIES.md](FACTORIES.md) | The entity-factory layer — `classname`→factory dispatch, the typed `spawn*` functions, and how the `.map` loader will target it |
 
 ## Diagrams
 
@@ -39,3 +41,9 @@ Reference documentation for the QEngine codebase. Updated through Chapter 15d.
 | [FUTURE_TUTORIALS.md](../roadmap/FUTURE_TUTORIALS.md) | Ideas for future tutorial content |
 | [Processes overview](../processes/_overview.md) | How each functionality flows across systems |
 | [Status overview](../status/_overview.md) | Quick-parse state of every functionality |
+
+---
+
+## Keeping these docs in sync
+
+> **Rule:** when you change `components.h` (or a `components/*` header) or the system tick order, update [COMPONENTS.md](COMPONENTS.md) / [SYSTEMS.md](SYSTEMS.md) / [TICK_ORDER.md](TICK_ORDER.md) **in the same commit.** All the drift these docs have accumulated came from code-only commits that skipped the doc update.

@@ -25,8 +25,14 @@ A single sector: origin `(0,0,0)` to `(30,6,30)`.
 | `Health` | 100/100 |
 | `PlayerInput` | defaults |
 | `TagPlayer` | — |
+| `TagTriggerable` | — (activates triggers, collects pickups) |
 | `WeaponInventory` | Shotgun (slot 0), Rocket Launcher (slot 1) |
-| `Ammo` | 25 shells, 5 rockets |
+| `Ammo` | 25 shells, 5 rockets (nails/cells 0) |
+| `Armor` | 0 / 100 (starts empty; `item_armor` fills it) |
+| `SpawnPoint` | `(15, 1.7, 15)` — respawn on death |
+| `DamageFlash` | defaults (red hit overlay) |
+| `PendingKnockback` | defaults (splash/impact impulse buffer) |
+| `PickupMessage` | defaults (HUD toast on collect) |
 
 ### Lighting
 

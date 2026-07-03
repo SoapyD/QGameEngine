@@ -6,6 +6,7 @@
 #include "engine/ecs/components.h"
 #include "engine/ecs/systems/debug_hud/debug_hud_system.h"
 #include "engine/ecs/systems/render/render_system.h"
+#include "engine/renderer/weapon_viewmodel.h"
 #include "engine/ecs/systems/player/player_input_system.h"
 #include "engine/ecs/systems/player/camera_follow_system.h"
 #include "engine/ecs/systems/audio/audio_system.h"
@@ -52,6 +53,10 @@ int main()
 	joltWorld.init(false, physicsConfig.gravity);
 
 	Level level = qengine::buildWorld(registry, resources, joltWorld);
+
+	// First-person weapon viewmodel (needs a live GL context — build after load).
+	WeaponViewModel weaponViewModel = createWeaponViewModel(resources);
+	unsigned int litShaderId = resources.getShader("lit")->getId();
 
 	// Start background music (loops).
 	audio.playMusic("music.exploration");
@@ -123,6 +128,8 @@ int main()
 
 		float aspectRatio = (float)window.getWidth() / (float)window.getHeight();
 		renderSystem(registry, camera, aspectRatio, alpha); // draw everything
+		renderWeaponViewModel(weaponViewModel, registry, camera, aspectRatio,
+			litShaderId, frameTime);                        // first-person gun
 		debugHudSystem
 		(
 			registry, window.getWidth(), 

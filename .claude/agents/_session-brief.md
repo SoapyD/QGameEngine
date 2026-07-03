@@ -25,7 +25,11 @@ Always do these, in order:
    plans — high-level design context (ARCHITECTURE, SYSTEMS, TICK_ORDER, etc.).
 5. All `.md` files in `docs/plans/` that are NOT inside `docs/plans/archive/` —
    these are the active plans, and they (read against the last integration commit)
-   determine what the next plan should be.
+   determine what the next plan should be. Plan files are named
+   `YYYY-MM-DD_DESCRIPTION.md` (e.g. `2026-07-02_item-pickups.md`) — the leading
+   date orders them chronologically. When one effort is split into several plans
+   of the same type, they share a group token: `YYYY-MM-DD_GROUP_DESCRIPTION.md`
+   (e.g. `2026-07-03_AI_setup.md` + `2026-07-03_AI_behaviour.md`).
 
 If the user asks for context on a specific process (e.g. "combat", "movers",
 "player movement"), also read:

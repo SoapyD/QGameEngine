@@ -46,6 +46,12 @@ Level setupScene
     factories::SpawnContext ctx;
     ctx.assets = factories::MeshAssets{ cubeMesh->getVAO(), cubeMesh->getIndexCount(),
                                         litShader->getId() };
+    for (int i = 0; i < 7; ++i)
+    {
+        auto gun = resources.getMesh("gun_" + std::to_string(i));
+        ctx.assets.gunVAO[i] = gun->getVAO();
+        ctx.assets.gunIndexCount[i] = gun->getIndexCount();
+    }
     ctx.texture = [&resources](std::string_view name)
     {
         return resources.getTexture(std::string(name))->getId();

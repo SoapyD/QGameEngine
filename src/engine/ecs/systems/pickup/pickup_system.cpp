@@ -46,9 +46,12 @@ namespace
         if (reg.all_of<WeaponInventory>(receiver))
         {
             auto& inv = reg.get<WeaponInventory>(receiver);
-            bool held = std::any_of(inv.weapons.begin(), inv.weapons.end(),
-                [&](const Weapon& w) { return w.type == pickup.weaponType; });
-            if (!held) inv.weapons.push_back(createWeapon(pickup.weaponType));
+            const int slot = static_cast<int>(pickup.weaponType);
+            if (!inv.owned[slot])
+            {
+                inv.weapons[slot] = createWeapon(pickup.weaponType);
+                inv.owned[slot] = true;
+            }
         }
         if (reg.all_of<Ammo>(receiver))
             addAmmo(reg.get<Ammo>(receiver), ammoKindFor(pickup.weaponType), pickup.amount);

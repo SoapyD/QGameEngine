@@ -1,6 +1,6 @@
 # QEngine — ECS Components Reference
 
-All components are plain data structs. No methods, no inheritance, no behaviour. Components live in `src/engine/ecs/components.h`.
+All components are plain data structs. No methods, no inheritance, no behaviour. Components live under `src/engine/ecs/components/` (grouped `core` / `physics` / `combat` / `gameplay` / `rendering` / `tags`), re-exported by the `components.h` barrel.
 
 ---
 
@@ -13,6 +13,14 @@ struct Position {
 };
 ```
 World-space position. Nearly every entity has one. Written by `playerCharacterSystem`, `joltSyncSystem`, `moverSystem`, `demoResetSystem`, `triggerSystem` (teleport).
+
+### `PrevPosition`
+```cpp
+struct PrevPosition {
+    glm::vec3 value = glm::vec3(0.0f);
+};
+```
+Position at the start of the *previous* fixed tick. `main.cpp` snapshots `Position` into this before each `stepSimulation`, and the renderer lerps between the two by the fixed-timestep alpha so motion is smooth above the 60 Hz tick rate.
 
 ### `Rotation`
 ```cpp
@@ -47,6 +55,29 @@ struct Vertex {
 };
 ```
 Mesh vertex data. Not an ECS component — used by the mesh/renderer layer.
+
+---
+
+## Input Components
+
+### `PlayerInput`
+```cpp
+struct PlayerInput {
+    bool fire = false;
+    int weaponSwitch = -1;              // -1 = no switch, 0+ = weapon slot
+    glm::vec3 wishDir = glm::vec3(0.0f); // desired move direction (normalised)
+    bool jump = false;
+};
+```
+Written each frame from `InputManager` (pre-tick). **Read by:** `playerCharacterSystem` (`wishDir`, `jump`), `combatSystem` (`fire`), `weaponSwitchSystem` (`weaponSwitch`).
+
+### `CameraDirection`
+```cpp
+struct CameraDirection {
+    glm::vec3 value = glm::vec3(0.0f, 0.0f, -1.0f);
+};
+```
+The player's view/aim direction, published to the registry **context** each frame. `combatSystem` reads it as the firing direction. A named type replaces the old fragile bare-`glm::vec3`-in-context coupling.
 
 ---
 
@@ -123,6 +154,15 @@ Tuning values for Quake-style movement. All values are read by `playerCharacterS
 | `jumpForce` | Vertical velocity applied on jump |
 | `stepHeight` | Maximum height for automatic stair stepping (Jolt `ExtendedUpdate`) |
 
+### `SpawnPoint`
+```cpp
+struct SpawnPoint {
+    glm::vec3 position = glm::vec3(0.0f);
+    float yaw = 0.0f; // facing direction on respawn (degrees)
+};
+```
+The player's respawn location + facing. **Used by:** `playerDeathSystem` (teleport the player here and grant invulnerability when `Health` hits 0).
+
 ---
 
 ## Weapon Components
@@ -179,6 +219,15 @@ struct Ammo {
 ```
 **Used by:** `combatSystem` (decrement on fire), `debugHudSystem` (display).
 
+### `Armor`
+```cpp
+struct Armor {
+    float current = 0.0f;
+    float max = 100.0f;
+};
+```
+Secondary defence stat. In v1 it is filled by the `item_armor` pickup and shown on the HUD armour bar; damage *absorption* is a Phase-2 follow-on (see the item-pickups plan). **Used by:** `pickupSystem` (fill), `debugHudSystem` (armour bar).
+
 ### `Projectile`
 ```cpp
 struct Projectile {
@@ -199,9 +248,27 @@ Attached to projectile entities spawned by `combatSystem`. Used for hit detectio
 struct Health {
     float current;
     float max;
+    float invulnerableTimer = 0.0f; // seconds of remaining invulnerability
 };
 ```
-**Used by:** `triggerSystem` (damage/heal), `combatSystem` (damage), `debugHudSystem` (display).
+`invulnerableTimer` gives brief post-respawn immunity. **Used by:** `triggerSystem` (damage/heal), `combatSystem` (damage), `playerDeathSystem` (respawn + set invuln), `debugHudSystem` (display).
+
+### `DamageFlash`
+```cpp
+struct DamageFlash {
+    float timer = 0.0f;    // remaining flash time
+    float duration = 0.3f; // total flash length (seconds)
+};
+```
+Drives the red full-screen "you got hit" overlay. Set when the player takes damage; **ticked and rendered by** `debugHudSystem` (`drawFlashOverlay`).
+
+### `PendingKnockback`
+```cpp
+struct PendingKnockback {
+    glm::vec3 impulse = glm::vec3(0.0f);
+};
+```
+An impulse buffered for the player to apply on the next tick (e.g. rocket splash). Written by `combatSystem`, consumed by `playerCharacterSystem`.
 
 ### `MoverState` (enum)
 ```cpp
@@ -283,6 +350,37 @@ Periodically resets demo entities to their starting state. **Used by:** `demoRes
 
 ---
 
+## Item Pickup Components
+
+### `PickupType` (enum)
+```cpp
+enum class PickupType {
+    Health, Shells, Nails, Rockets, Cells, Armor, Weapon
+};
+```
+
+### `Pickup`
+```cpp
+struct Pickup {
+    PickupType type = PickupType::Health;
+    int amount = 0;                              // health/armour/ammo granted
+    WeaponType weaponType = static_cast<WeaponType>(0); // only when type == Weapon
+};
+```
+A sensor entity that grants an effect to a `TagTriggerable` toucher, then is consumed. **Used by:** `pickupSystem` (ECS overlap → grant → destroy). Weapon pickups grant the weapon if not held, else top up its ammo.
+
+### `PickupMessage`
+```cpp
+struct PickupMessage {
+    std::string text;
+    float timer = 0.0f;    // remaining display time (seconds)
+    float duration = 2.5f; // total display length
+};
+```
+Transient on-screen toast ("Picked up …"). `pickupSystem` sets `text`+`timer` on the receiving player; `debugHudSystem` draws it centred and fades it out.
+
+---
+
 ## Rendering Components
 
 ### `MeshRenderer`
@@ -304,7 +402,9 @@ struct Colour {
     glm::vec4 value = glm::vec4(1.0f);
 };
 ```
-Optional RGBA tint. Read by `renderSystem` if present. Default white = no tint.
+Flat albedo colour. When present, `renderSystem` draws the entity **lit but untextured** in this
+colour (via the lit shader's `useAlbedo` path) instead of sampling a texture. Used by weapon
+pickups, which render as coloured gun meshes.
 
 ---
 
@@ -349,6 +449,12 @@ struct TagDebugWireframe {};
 ```
 Marks entities that should render in wireframe mode (`GL_LINE`). Used for trigger volume debug visualisation.
 
+### `TagTriggerable`
+```cpp
+struct TagTriggerable {};
+```
+Marks an entity that can activate `TriggerVolume`s and collect `Pickup`s. Currently only the player carries it, but `triggerSystem`/`pickupSystem` key off this tag rather than `TagPlayer` so enemies/props can be made triggerable without touching the trigger logic.
+
 ---
 
 ## Registry Context Objects
@@ -361,4 +467,5 @@ These are singletons stored in `registry.ctx()`, not attached to entities.
 | `JoltWorld` | Jolt `PhysicsSystem`, allocator, job system | `main.cpp` (init) | Physics systems |
 | `HudConfig` | HUD shader ID | `main.cpp` (init) | `debugHudSystem` |
 | `CombatResources` | VAO, shader, texture IDs for projectile/tracer spawning | `setupScene` | `combatSystem` |
-| `glm::vec3` | Camera front direction (for weapon firing) | `main.cpp` (each frame) | `combatSystem` |
+| `CameraDirection` | Camera front direction (for weapon firing) | `main.cpp` (each frame) | `combatSystem` |
+| `SoundQueue` | One-frame queue of `SoundEvent`s (`{id, pos, positional}`) | any simulation system via `queueSound()` | `audioSystem` (windowed build; drained + played) |

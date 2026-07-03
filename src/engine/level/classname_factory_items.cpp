@@ -22,6 +22,18 @@ namespace
             ctx.texture(p.getString("texture", defaultTexture)));
     }
 
+    // Weapon pickups render as the actual gun mesh (spawnWeaponPickup) rather
+    // than a textured cube.
+    entt::entity makeWeaponPickup(entt::registry& reg, const SpawnContext& ctx,
+                                  const SpawnParams& p, WeaponType weapon, int defaultAmount)
+    {
+        Pickup pickup;
+        pickup.type = PickupType::Weapon;
+        pickup.amount = p.getInt("amount", defaultAmount);
+        pickup.weaponType = weapon;
+        return spawnWeaponPickup(reg, ctx.assets, p.origin, pickup, weapon);
+    }
+
     // ─── Ammo/health/armour items ──────────────────────────────────────
     entt::entity make_item_health (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
     { return makePickup(r, c, p, PickupType::Health,  25, "grid_green"); }
@@ -38,19 +50,19 @@ namespace
 
     // ─── Weapon pickups (grant the weapon + top up its ammo pool) ──────
     entt::entity make_weapon_shotgun        (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
-    { return makePickup(r, c, p, PickupType::Weapon, 10, "grid_grey", WeaponType::Shotgun); }
+    { return makeWeaponPickup(r, c, p, WeaponType::Shotgun, 10); }
     entt::entity make_weapon_supershotgun   (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
-    { return makePickup(r, c, p, PickupType::Weapon, 10, "grid_grey", WeaponType::SuperShotgun); }
+    { return makeWeaponPickup(r, c, p, WeaponType::SuperShotgun, 10); }
     entt::entity make_weapon_nailgun        (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
-    { return makePickup(r, c, p, PickupType::Weapon, 25, "grid_grey", WeaponType::Nailgun); }
+    { return makeWeaponPickup(r, c, p, WeaponType::Nailgun, 25); }
     entt::entity make_weapon_rocketlauncher (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
-    { return makePickup(r, c, p, PickupType::Weapon,  5, "grid_grey", WeaponType::RocketLauncher); }
+    { return makeWeaponPickup(r, c, p, WeaponType::RocketLauncher, 5); }
     entt::entity make_weapon_grenadelauncher(entt::registry& r, const SpawnContext& c, const SpawnParams& p)
-    { return makePickup(r, c, p, PickupType::Weapon,  5, "grid_grey", WeaponType::GrenadeLauncher); }
+    { return makeWeaponPickup(r, c, p, WeaponType::GrenadeLauncher, 5); }
     entt::entity make_weapon_lightninggun   (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
-    { return makePickup(r, c, p, PickupType::Weapon, 50, "grid_grey", WeaponType::LighteningGun); }
+    { return makeWeaponPickup(r, c, p, WeaponType::LighteningGun, 50); }
     entt::entity make_weapon_railgun        (entt::registry& r, const SpawnContext& c, const SpawnParams& p)
-    { return makePickup(r, c, p, PickupType::Weapon, 10, "grid_grey", WeaponType::Railgun); }
+    { return makeWeaponPickup(r, c, p, WeaponType::Railgun, 10); }
 }
 
 void registerItemClassnames(std::unordered_map<std::string, SpawnFn>& t)

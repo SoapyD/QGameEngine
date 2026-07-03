@@ -30,7 +30,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 |-----------|-------|------|
 | Window / GL context / input | ✅ | GLFW + glad |
 | Shaders (basic/textured/lit/hud) | ✅ | |
-| Texture + OBJ loading | ✅ | stb_image, tinyobjloader |
+| Texture + OBJ loading | ✅ | stb_image; OBJ via in-repo `renderer/obj_loader.cpp` |
 | ECS (EnTT) | ✅ | components + free-function systems |
 | FPS camera | ✅ | mouse look |
 | Level geometry (sectors/surfaces) | ✅ | hardcoded showcase room |
