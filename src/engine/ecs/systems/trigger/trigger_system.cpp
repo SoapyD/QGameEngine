@@ -1,6 +1,7 @@
 #include "engine/ecs/systems/trigger/trigger_system.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/apply_damage.h"
+#include "engine/audio/queue_sound.h"
 #include "engine/physics/types/aabb.h"
 #include "engine/physics/physics_config.h"
 
@@ -57,6 +58,7 @@ void triggerSystem(entt::registry& registry)
 							{
 								mover.state = MoverState::Moving;
 							}
+							queueSoundAt(registry, "world.door_open", trigPos.value);
 						}
 					}
 					break;
@@ -82,6 +84,7 @@ void triggerSystem(entt::registry& registry)
 					{
 						registry.get<Velocity>(entity).value = glm::vec3(0.0f);
 					}
+					queueSoundAt(registry, "world.teleport", trigger.destination);
 					break;
 				}
 

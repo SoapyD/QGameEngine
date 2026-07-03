@@ -27,7 +27,9 @@ and `scene_setup.cpp`):
 ### The notable *gaps* (things we conspicuously can't make yet)
 - **Pickups** — no item entities. Weapons/ammo/health can't be collected in-world.
 - **Enemies / AI** — no NPC archetype at all.
-- **Audio** — silent engine.
+- ~~**Audio** — silent engine.~~ ✅ **Shipped 2026-07-03** — miniaudio backend (+ stb_vorbis
+  for OGG), a named sound manifest with SFX + music, and event wiring (weapon fire, pickups,
+  doors, teleport, jump/pain/death) + looping music. Tutorial Chapter 20a/b/c.
 - **Graphical HUD** — crosshair, health/ammo bars, damage-flash *rendering* (the data
   exists, nothing draws it).
 - **Game states** — boots straight into gameplay; no menu/pause/win-lose.
@@ -44,8 +46,8 @@ and `scene_setup.cpp`):
   multiplayer. All optional, none blocking.
 - **CPP_CONCEPTS / Showcase roadmaps** assume an *Enemy AI* and *Audio* chapter exist
   conceptually but they were never given chapter slots in the current ROADMAP (the old
-  Ch 14 "Enemy AI" got reassigned to Jolt). So enemies/audio are **un-slotted** — a real
-  gap, not just "not done yet."
+  Ch 14 "Enemy AI" got reassigned to Jolt). **Audio has since shipped** (tutorial Chapter 20);
+  **Enemy AI remains un-slotted** — a real gap, not just "not done yet."
 
 ---
 
@@ -61,20 +63,20 @@ Phase-5 prep). Then jump to TrenchBroom.
 | # | Feature | Why now | Reuses | Size |
 |---|---------|---------|--------|------|
 | 1 ✅ | **Entity-factory refactor** → **shipped** (2026-07-02), see [archive/2026-07-02-entity-factory-classname-dispatch.md](archive/2026-07-02-entity-factory-classname-dispatch.md). The literal "inline spawns → `spawn*` functions" part shipped earlier (2026-06-14, `factories::`); the dated plan delivered the rest: a `classname`→factory dispatch layer so map data / pickups / enemies can hang off it. Prereq for everything below *and* for TrenchBroom. | — | S |
-| 2 | **Item pickups** (health, ammo, armour, weapon) → **graduated** to [2026-07-02-item-pickups.md](2026-07-02-item-pickups.md). Closes the gameplay loop (you can already lose health/ammo, but not regain them by exploring). Pure reuse of trigger-overlap + `Health`/`Ammo`. New `Pickup` component + `pickupSystem`. | `triggerSystem` overlap, `Ammo`, `Health`, `WeaponInventory` | S |
+| 2 ✅ | **Item pickups** (health, ammo, armour, weapon) → **shipped** (2026-07-02), see [archive/2026-07-02-item-pickups.md](archive/2026-07-02-item-pickups.md). Closed the gameplay loop; also delivered armour absorption, ammo consumption, weapon keys, and HUD polish. New `Pickup` component + `pickupSystem`. | `triggerSystem` overlap, `Ammo`, `Health`, `WeaponInventory` | S |
 | 3 | **Graphical HUD + crosshair (finish Ch 16)** | The "polish" milestone. Crosshair, health/ammo bars, and actually *render* the existing `DamageFlash`. Makes it feel like a game. | `debugHudSystem` plumbing, HUD shader, `DamageFlash` data | S–M |
 | 4 | **Flesh out weapons & ammo wiring** | All 7 weapons are defined; grant them, give weapon-switch keys 1–7, stock the 4 ammo types, and confirm each weapon decrements the *right* ammo pool. Fix the **Nailgun** (flagged `Hitscan` but has `projectileSpeed` — likely meant `Projectile`). | `createWeapon`, `combatSystem`, `weaponSwitchSystem` | S |
 | 5 | **Basic enemy / AI** | The biggest "this is a game now" jump and a long-standing gap. A `monster_grunt`: `Health` (already takes damage), a small state machine (Idle→Chase→Attack→Dead), Jolt body, line-of-sight check, simple seek movement. Generalise triggers off `TagPlayer` so enemies can use doors. | `Health`, combat damage, Jolt bodies, `Mover`/trigger generalisation | L |
-| 6 | **Audio** (miniaudio) | Independent; slot anytime after #3. Weapon fire, footsteps, pickup blips, ambient hum, positional 3D. | new `AudioSource` component + system | M |
+| 6 ✅ | **Audio** (miniaudio) → **shipped** (2026-07-03), tutorial Chapter 20a/b/c. Done directly (no dated plan). Delivered: miniaudio + stb_vorbis (OGG), a named sound manifest (SFX + music, OpenArena placeholders), a `SoundQueue`/`queueSound` event pattern, wiring for fire/pickup/door/teleport/jump/pain/death, and looping music. *Deferred:* footsteps, dry-fire, landing, 3D positional falloff, adaptive/combat music. | `SoundQueue` + `audioSystem` (not `AudioSource`) | M |
 
 After #1–#5 you have a self-contained mini-FPS; **then move to Plan 03 (TrenchBroom)** so
 all this content can be placed by hand instead of hard-coded.
 
 ### Track 2 (alternative): "TrenchBroom first"
 If the priority is *authoring levels* over *more gameplay*, do only **#1 (factories)** and a
-**minimal #3 (crosshair)** from Track 1, then jump straight to Plan 03. Enemies/audio/pickups
-come later and are easier to place once the editor exists. Downside: you'll be building the
-`.map` pipeline against a still-bare gameplay set.
+**minimal #3 (crosshair)** from Track 1, then jump straight to Plan 03. (Pickups and audio have
+since shipped; **enemies** remain, and are easier to place once the editor exists.) Downside:
+you'll be building the `.map` pipeline against a still-bare gameplay set.
 
 **Recommendation:** Track 1 through item #3 at minimum (factories + pickups + HUD) before
 TrenchBroom — that's ~the Ch 16 milestone — then decide whether to detour through enemies

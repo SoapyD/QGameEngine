@@ -15,6 +15,7 @@
 #include "engine/ecs/systems/trigger/trigger_system.h"
 #include "engine/ecs/systems/pickup/pickup_system.h"
 #include "engine/ecs/systems/combat/weapon_switch_system.h"
+#include "engine/audio/types/sound_event.h"
 #include "engine/physics/jolt_world.h"
 
 namespace qengine
@@ -57,6 +58,10 @@ namespace qengine
                      JoltWorld& joltWorld, bool headless)
     {
         Level level = setupScene(registry, resources, headless);
+
+        // Sound-event queue: simulation systems push, the audio system drains it
+        // (windowed build only; headless leaves it unread).
+        registry.ctx().emplace<SoundQueue>();
 
         // Static bodies from level geometry
         createLevelBodies(registry, level);

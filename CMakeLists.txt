@@ -39,6 +39,43 @@ add_library(stb INTERFACE)
 target_include_directories(stb INTERFACE extern/stb)
 
 # ──────────────────────────────────────────────
+# miniaudio — single-header audio backend (downloaded at configure time)
+# ──────────────────────────────────────────────
+set(MINIAUDIO_DIR ${CMAKE_BINARY_DIR}/miniaudio)
+if(NOT EXISTS ${MINIAUDIO_DIR}/miniaudio.h)
+	message(STATUS "Downloading miniaudio.h ...")
+	file(DOWNLOAD
+		https://raw.githubusercontent.com/mackron/miniaudio/0.11.21/miniaudio.h
+		${MINIAUDIO_DIR}/miniaudio.h
+		STATUS MA_DL_STATUS)
+	list(GET MA_DL_STATUS 0 MA_DL_CODE)
+	if(NOT MA_DL_CODE EQUAL 0)
+		message(FATAL_ERROR "Failed to download miniaudio.h (${MA_DL_STATUS}). "
+			"Place miniaudio.h at ${MINIAUDIO_DIR}/ manually and re-configure.")
+	endif()
+endif()
+# stb_vorbis — gives miniaudio OGG/Vorbis decoding (our music is .ogg).
+if(NOT EXISTS ${MINIAUDIO_DIR}/stb_vorbis.c)
+	message(STATUS "Downloading stb_vorbis.c ...")
+	file(DOWNLOAD
+		https://raw.githubusercontent.com/nothings/stb/master/stb_vorbis.c
+		${MINIAUDIO_DIR}/stb_vorbis.c
+		STATUS SV_DL_STATUS)
+	list(GET SV_DL_STATUS 0 SV_DL_CODE)
+	if(NOT SV_DL_CODE EQUAL 0)
+		message(FATAL_ERROR "Failed to download stb_vorbis.c (${SV_DL_STATUS}).")
+	endif()
+endif()
+add_library(miniaudio STATIC src/engine/audio/miniaudio_impl.cpp)
+target_include_directories(miniaudio PUBLIC ${MINIAUDIO_DIR})
+if(WIN32)
+	target_link_libraries(miniaudio PUBLIC ole32 winmm)
+else()
+	find_package(Threads REQUIRED)
+	target_link_libraries(miniaudio PUBLIC Threads::Threads ${CMAKE_DL_LIBS})
+endif()
+
+# ──────────────────────────────────────────────
 # Jolt Physics — fetched from GitHub
 # ──────────────────────────────────────────────
 include(FetchContent)
@@ -62,12 +99,15 @@ FetchContent_MakeAvailable(JoltPhysics)
 # (QEngineHeadless) so both run the exact same systems.
 add_library(qengine_lib STATIC
 	src/engine/app/simulation.cpp
+	src/engine/audio/audio_engine.cpp
+	src/engine/ecs/systems/audio/audio_system.cpp
 	src/engine/core/input_manager.cpp
 	src/engine/core/resource_manager.cpp
 	src/engine/core/window.cpp
 	src/engine/ecs/apply_damage.cpp
 	src/engine/level/factories.cpp
 	src/engine/level/classname_factory.cpp
+	src/engine/level/classname_factory_items.cpp
 	src/engine/level/spawn_scene.cpp
 	src/engine/level/showcase_descriptor.cpp
 	src/engine/physics/bodies/create_dynamic_body.cpp
@@ -126,6 +166,7 @@ target_link_libraries(qengine_lib PUBLIC
 	glm
 	entt
 	stb
+	miniaudio
 	Jolt
 )
 

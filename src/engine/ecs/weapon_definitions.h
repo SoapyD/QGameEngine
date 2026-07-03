@@ -30,7 +30,9 @@ inline Weapon createWeapon(WeaponType type)
 			break;
 
 		case WeaponType::Nailgun:
-			w.fireMode = FireMode::Hitscan;
+			// Fires nails as fast direct-hit projectiles (no splash). Previously
+			// mislabelled Hitscan despite carrying a projectileSpeed.
+			w.fireMode = FireMode::Projectile;
 			w.damage = 9.0f;
 			w.fireRate = 0.1f;
 			w.projectileSpeed = 30.0f;

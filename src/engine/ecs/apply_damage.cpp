@@ -1,5 +1,6 @@
 #include "engine/ecs/apply_damage.h"
 #include "engine/ecs/components.h"
+#include "engine/audio/queue_sound.h"
 
 #include <algorithm>
 
@@ -25,11 +26,19 @@ bool applyDamage(entt::registry& registry, entt::entity target, float amount)
 	health.current -= remaining;
 	if (health.current < 0.0f) health.current = 0.0f;
 
-	// The hit landed (on armour and/or health) — flash the screen.
+	// The hit landed (on armour and/or health) — flash the screen. Note whether a
+	// flash was already active so the pain voice fires once per flash, not every
+	// tick (lava deals damage continuously).
+	bool wasFlashing = false;
 	if (registry.all_of<DamageFlash>(target))
 	{
 		auto& flash = registry.get<DamageFlash>(target);
+		wasFlashing = flash.timer > 0.0f;
 		flash.timer = flash.duration;
 	}
+
+	if (!wasFlashing && registry.all_of<TagPlayer>(target))
+		queueSound(registry, "player.pain");
+
 	return true;
 }

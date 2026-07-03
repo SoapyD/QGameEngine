@@ -1,8 +1,10 @@
 # 2026-07-02 — Item Pickups
 
-**Status:** Phase 1 implemented — pickup on touch (health/ammo/armour/weapons), 5 demo items
-in the showcase, headless green (8/8 inc. `pickup_health`), 2026-07-02. Phase 2 (respawn,
-armour absorption, bob/spin, FGD) not started.
+**Status:** ✅ Shipped & archived. Phase 1 (pickup on touch: health/ammo/armour/weapons, demo
+items in the showcase) plus follow-ons: **armour absorption** (Phase 2), ammo consumption,
+weapon keys 3–7, HUD armour bar + legibility panels, pickup toast. Tutorial Chapter 19.
+Remaining Phase 2 (deferred, not blocking): pickup **respawn**, **bob/spin** visual, and the
+**FGD** entries (which fold naturally into the TrenchBroom arc, Plan 03).
 **Graduated from:** Plan 02 #2 (item pickups)
 **Prereq for:** nothing hard; makes the showcase a playable loop and adds `item_*`/`weapon_*`
 classnames the TrenchBroom FGD (Plan 03 §3.1) will need.

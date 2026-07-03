@@ -1,6 +1,7 @@
 #include "engine/ecs/systems/pickup/pickup_system.h"
 #include "engine/ecs/components.h"
 #include "engine/ecs/weapon_definitions.h"   // createWeapon
+#include "engine/audio/queue_sound.h"
 #include "engine/physics/types/aabb.h"
 
 #include <algorithm>
@@ -85,6 +86,17 @@ namespace
         return "Picked up item";
     }
 
+    const char* pickupSoundId(PickupType type)
+    {
+        switch (type)
+        {
+            case PickupType::Health: return "pickup.health";
+            case PickupType::Armor:  return "pickup.armor";
+            case PickupType::Weapon: return "pickup.weapon";
+            default:                 return "pickup.ammo";
+        }
+    }
+
     // Apply a pickup's effect to the receiving entity.
     void applyPickup(entt::registry& reg, entt::entity receiver, const Pickup& pickup)
     {
@@ -137,6 +149,7 @@ void pickupSystem(entt::registry& registry)
             if (!pickupBox.intersects(recvBox)) continue;
 
             applyPickup(registry, receiver, pickup);
+            queueSound(registry, pickupSoundId(pickup.type));
 
             // Show a HUD toast on the receiver, if it displays one.
             if (auto* msg = registry.try_get<PickupMessage>(receiver))
