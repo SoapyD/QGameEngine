@@ -139,9 +139,10 @@ struct CharacterPhysics {
     float airAcceleration = 10.0f;
     float jumpForce = 8.0f;
     float stepHeight = 0.7f;
+    float maxHorizontalSpeed = 20.0f;
 };
 ```
-Tuning values for Quake-style movement. All values are read by `playerCharacterSystem`.
+Tuning values for Quake-style movement. All values are read by `playerCharacterSystem`. Ground accel/friction is computed in the **ground's reference frame** so a moving platform's velocity is inherited exactly once (fixes speed run-away on horizontal movers).
 
 | Field | Effect |
 |-------|--------|
@@ -153,6 +154,7 @@ Tuning values for Quake-style movement. All values are read by `playerCharacterS
 | `airAcceleration` | Air control responsiveness |
 | `jumpForce` | Vertical velocity applied on jump |
 | `stepHeight` | Maximum height for automatic stair stepping (Jolt `ExtendedUpdate`) |
+| `maxHorizontalSpeed` | Anti-runaway ceiling on the player's *own* horizontal speed (platform carry excluded). Generous so bunny-hopping still feels fast |
 
 ### `SpawnPoint`
 ```cpp
@@ -397,7 +399,17 @@ struct AIState {
     entt::entity target = entt::null;     // who to chase/attack (behaviour)
 };
 ```
-Marks an entity as an enemy (the `monster_grunt` archetype) and holds its behaviour state. **Used by:** `enemyDeathSystem` (view filter + death cleanup); the behaviour system (chase/attack) is a later plan. `buildWorld` gives every `AIState` entity a kinematic Jolt body so it stands and blocks the player.
+Marks an entity as an enemy (the `monster_grunt` archetype) and holds its behaviour state. `target` doubles as the aggro flag — `null` until the grunt sees the player, then the player entity until they escape pursue range. **Written by:** `aiSystem` (aggro, state machine, attack cooldown). **Read by:** `enemyDeathSystem`. `buildWorld` gives every `AIState` entity a kinematic Jolt body so it stands, blocks the player, and can be steered by `aiSystem`.
+
+### `AIPath`
+```cpp
+struct AIPath {
+    std::vector<glm::vec3> waypoints;
+    size_t index = 0;          // current waypoint being walked toward
+    float  repathTimer = 0.0f; // recompute the path at ≤ 0
+};
+```
+The A\* route the grunt is following toward its target, over the `NavGrid`. **Used by:** `aiSystem` — recomputed on a timer / when the path runs out, and followed by steering the kinematic body waypoint to waypoint (so the enemy routes *around* walls and props).
 
 ---
 
@@ -489,3 +501,4 @@ These are singletons stored in `registry.ctx()`, not attached to entities.
 | `CombatResources` | VAO, shader, texture IDs for projectile/tracer spawning | `setupScene` | `combatSystem` |
 | `CameraDirection` | Camera front direction (for weapon firing) | `main.cpp` (each frame) | `combatSystem` |
 | `SoundQueue` | One-frame queue of `SoundEvent`s (`{id, pos, positional}`) | any simulation system via `queueSound()` | `audioSystem` (windowed build; drained + played) |
+| `NavGrid` | Enemy walkability grid (blocked cells over the level's XZ), built from walls + solid props | `buildWorld` (`buildNavGrid`) | `aiSystem` (A\* pathfinding) |

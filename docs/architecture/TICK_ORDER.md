@@ -54,17 +54,18 @@ Each fixed timestep tick runs these systems in order:
  1  weaponSwitchSystem        Input         Handle weapon swap input
  2  moverSystem               Animation     Animate door/lift positions
  3  moverSyncSystem           Physics Prep  Push mover positions to Jolt
- 4  joltWorld.step()          Physics       Simulate rigid + kinematic bodies
- 5  joltSyncSystem            Physics Sync  Read Jolt transforms → ECS
- 6  playerCharacterSystem     Movement      Apply input → CharacterVirtual,
+ 4  aiSystem                  AI            Enemies sense/chase/attack → MoveKinematic
+ 5  joltWorld.step()          Physics       Simulate rigid + kinematic bodies
+ 6  joltSyncSystem            Physics Sync  Read Jolt transforms → ECS
+ 7  playerCharacterSystem     Movement      Apply input → CharacterVirtual,
                                             resolving against the now-moved world
- 7  combatSystem              Game Logic    Hitscan/projectile weapons
- 8  lifetimeSystem            Cleanup       Auto-destroy timed entities
- 9  triggerSystem             Game Logic    Detect trigger overlaps
-10  pickupSystem              Game Logic    Grant + consume items on touch
-11  playerDeathSystem         Game Logic    Respawn the player on death
-12  enemyDeathSystem          Cleanup       Remove enemies whose health hit 0
-13  demoResetSystem           Cleanup       Reset physics demo objects
+ 8  combatSystem              Game Logic    Hitscan/projectile weapons
+ 9  lifetimeSystem            Cleanup       Auto-destroy timed entities
+10  triggerSystem             Game Logic    Detect trigger overlaps
+11  pickupSystem              Game Logic    Grant + consume items on touch
+12  playerDeathSystem         Game Logic    Respawn the player on death
+13  enemyDeathSystem          Cleanup       Remove enemies whose health hit 0
+14  demoResetSystem           Cleanup       Reset physics demo objects
 ```
 
 > **Tick-order note:** the player's `ExtendedUpdate` (6) runs *after* movers
@@ -78,7 +79,7 @@ Each fixed timestep tick runs these systems in order:
 
 **1-2: Input before physics.** The player's desired velocity must be set before the physics step resolves collisions. If physics ran first, the player would always be one tick behind their input.
 
-**3-4: Movers before physics.** `moverSystem` calculates where the door/lift should be this tick. `moverSyncSystem` tells Jolt's kinematic body to move there. During the physics step (5), the kinematic body sweeps to that position and pushes anything in its path.
+**3-4: Movers & AI before physics.** `moverSystem` calculates where the door/lift should be this tick, and `moverSyncSystem` tells Jolt's kinematic body to move there. `aiSystem` does the same for enemies — it picks each grunt's move (chase step) and calls `MoveKinematic`, so during the physics step (5) their kinematic bodies sweep to the new positions. `aiSystem` reads *last* tick's player position (a 1-tick lag, imperceptible), since the current one isn't synced until step 6.
 
 **5: Physics step.** Jolt resolves all collisions, applies gravity to dynamic bodies, moves kinematic bodies to their targets, and updates the `CharacterVirtual`. This is the most expensive call in the loop.
 
@@ -88,9 +89,9 @@ Each fixed timestep tick runs these systems in order:
 
 **9: Triggers last.** Trigger detection uses ECS positions (not Jolt queries), so it needs to run after `joltSyncSystem` has updated everything. Activating a mover here means it will start moving on the *next* tick (which is correct — the state change is picked up by `moverSystem` next iteration).
 
-**10-12: Pickups & death.** `pickupSystem` grants/consumes items, `playerDeathSystem` respawns the player, and `enemyDeathSystem` removes dead enemies — all after the final, synced positions and after combat has applied its damage.
+**11-13: Pickups & death.** `pickupSystem` grants/consumes items, `playerDeathSystem` respawns the player, and `enemyDeathSystem` removes dead enemies — all after the final, synced positions and after combat has applied its damage.
 
-**13: Demo reset.** Runs last because it teleports entities, which would interfere with physics if it ran earlier.
+**14: Demo reset.** Runs last because it teleports entities, which would interfere with physics if it ran earlier.
 
 ---
 

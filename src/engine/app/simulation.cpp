@@ -14,12 +14,15 @@
 #include "engine/ecs/systems/mover/mover_system.h"
 #include "engine/ecs/systems/trigger/trigger_system.h"
 #include "engine/ecs/systems/pickup/pickup_system.h"
+#include "engine/ecs/systems/enemy/ai_system.h"
 #include "engine/ecs/systems/enemy/enemy_death_system.h"
 #include "engine/ecs/systems/combat/weapon_switch_system.h"
 #include "engine/audio/types/sound_event.h"
 #include "engine/physics/jolt_world.h"
 #include "engine/renderer/gun_mesh.h"
 #include "engine/renderer/mesh.h"
+#include "engine/ai/build_nav_grid.h"
+#include "engine/ai/types/nav_grid.h"
 
 #include <memory>
 #include <string>
@@ -112,6 +115,9 @@ namespace qengine
 
         joltWorld.physicsSystem->OptimizeBroadPhase();
 
+        // Enemy pathfinding grid, derived from the now-populated scene.
+        registry.ctx().emplace<NavGrid>(buildNavGrid(registry, level));
+
         return level;
     }
 
@@ -125,6 +131,7 @@ namespace qengine
         weaponSwitchSystem(registry);
         moverSystem(registry);          // animate doors/lifts
         moverSyncSystem(registry);      // push mover targets to Jolt
+        aiSystem(registry, level);      // enemies sense/chase/attack → MoveKinematic
         joltWorld.step(dt);             // sweep kinematic + dynamic bodies
         joltSyncSystem(registry);       // read body transforms back to ECS
         playerCharacterSystem(registry);// player resolves against moved world

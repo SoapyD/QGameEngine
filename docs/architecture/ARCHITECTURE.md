@@ -150,11 +150,10 @@ QEngine/
 - First-person weapon viewmodel (procedural per-weapon gun shapes + colours; idle bob, fire recoil, switch drop/raise). Weapon pickups render as the same coloured gun models.
 - Audio (miniaudio + stb_vorbis: SFX + looping music via `SoundQueue`/`audioSystem`)
 - Demo reset system (periodic physics object respawn)
-- Enemies — `monster_grunt` archetype (kinematic body, blocks the player, shootable, white hit-flash + hit/death sounds, dies via `enemyDeathSystem`). Behaviour (chase/attack) not yet implemented.
+- Enemies — `monster_grunt` archetype (kinematic body, blocks the player, shootable, white hit-flash + hit/death sounds, dies via `enemyDeathSystem`) with `aiSystem` behaviour: line-of-sight sensing/aggro, **A\* pathfinding** (routes around walls/props via a `NavGrid`), and melee attack.
 
 ## What's Not Yet Implemented
 
-- Enemy AI behaviour (chase / attack / line-of-sight) — the grunt archetype exists but just stands there
 - Networking
 - Menus / game states (boots straight into gameplay)
 - TrenchBroom level loading (levels are hard-coded)

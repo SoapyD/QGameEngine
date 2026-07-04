@@ -78,6 +78,28 @@ namespace
         reg.get<Position>(player).value = p;
     }
 
+    // Hard-teleport a kinematic body (enemy) + its ECS mirror.
+    void teleportKinematic(JoltWorld& jolt, entt::registry& reg, entt::entity e, glm::vec3 p)
+    {
+        jolt.getBodyInterface().SetPosition(reg.get<JoltBody>(e).id,
+            JPH::RVec3(p.x, p.y, p.z), JPH::EActivation::Activate);
+        reg.get<Position>(e).value = p;
+    }
+
+    // Remove all enemies (body + entity). Pure player-physics scenarios call this
+    // so aggroed grunts can't wander in and disturb the measurement.
+    void clearEnemies(JoltWorld& jolt, entt::registry& reg)
+    {
+        auto& bi = jolt.getBodyInterface();
+        std::vector<entt::entity> es;
+        for (auto e : reg.view<AIState>()) es.push_back(e);
+        for (auto e : es)
+        {
+            if (auto* b = reg.try_get<JoltBody>(e)) { bi.RemoveBody(b->id); bi.DestroyBody(b->id); }
+            reg.destroy(e);
+        }
+    }
+
     float playerVelY(entt::registry& reg, entt::entity player)
     {
         return reg.get<JoltCharacter>(player).character->GetLinearVelocity().GetY();
@@ -223,6 +245,7 @@ namespace
     bool scenario_walk_floor_seams(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
     {
         entt::entity player = findPlayer(reg);
+        clearEnemies(jolt, reg);   // isolate the floor-physics measurement from AI
         const float halfY = reg.get<AABBCollider>(player).halfExtents.y;
 
         teleportPlayer(reg, player, glm::vec3(10.0f, halfY, 8.0f));
@@ -534,6 +557,129 @@ namespace
             blockedZ, gpos.z, blocked ? 1 : 0, hpBefore, hpAfter1, died ? 1 : 0);
         return report("monster_grunt", blocked && damaged && died, buf);
     }
+
+    // Enemy behaviour: no line-of-sight → stays put; open LoS → chases and
+    // attacks (the player takes damage).
+    bool scenario_monster_ai(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+
+        // The front grunt (lowest z) is at a known spawn (13, .95, 8).
+        entt::entity grunt = entt::null; float bestZ = 1e9f;
+        for (auto [e, ai, pos] : reg.view<AIState, Position>().each())
+            if (pos.value.z < bestZ) { bestZ = pos.value.z; grunt = e; }
+        if (grunt == entt::null) return report("monster_ai", false, "no grunt");
+
+        glm::vec3 gpos = reg.get<Position>(grunt).value;
+        float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        // ── Blocked LoS: hide behind the shelf; grunt must stay Idle + not move.
+        teleportPlayer(reg, player, glm::vec3(24.0f, halfY + 0.05f, 5.0f));
+        for (int i = 0; i < 60; i++) { applyInput(reg, player, Input{}); qengine::stepSimulation(reg, jolt, level, dt); }
+        bool idleHidden = reg.get<AIState>(grunt).state == AIStateKind::Idle;
+        float movedHidden = glm::length(reg.get<Position>(grunt).value - gpos);
+
+        // ── Open LoS: stand ~10 units in front; grunt should close in.
+        glm::vec3 seen = gpos + glm::vec3(0.0f, 0.0f, 10.0f); seen.y = halfY + 0.05f;
+        teleportPlayer(reg, player, seen);
+        float distStart = glm::length(reg.get<Position>(grunt).value - reg.get<Position>(player).value);
+        bool sawChase = false;
+        for (int i = 0; i < 150; i++)
+        {
+            applyInput(reg, player, Input{});
+            qengine::stepSimulation(reg, jolt, level, dt);
+            if (reg.valid(grunt) && reg.get<AIState>(grunt).state == AIStateKind::Chase) sawChase = true;
+        }
+        float distChase = glm::length(reg.get<Position>(grunt).value - reg.get<Position>(player).value);
+        bool chased = sawChase && distChase < distStart - 1.0f;
+
+        // ── Attack: keep still; the player should take damage.
+        float hpStart = reg.get<Health>(player).current;
+        for (int i = 0; i < 240; i++) { applyInput(reg, player, Input{}); qengine::stepSimulation(reg, jolt, level, dt); }
+        bool attacked = reg.get<Health>(player).current < hpStart;
+
+        char buf[240];
+        std::snprintf(buf, sizeof(buf),
+            "hidden idle=%d moved=%.2f; dist %.1f->%.1f chase=%d; attack=%d",
+            idleHidden ? 1 : 0, movedHidden, distStart, distChase, chased ? 1 : 0, attacked ? 1 : 0);
+        return report("monster_ai", idleHidden && movedHidden < 0.3f && chased && attacked, buf);
+    }
+
+    // Pathfinding: an aggroed grunt with the shelf between it and the player must
+    // route AROUND the shelf (never through it) and reach attack range.
+    bool scenario_monster_path(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        entt::entity grunt = entt::null; float bestZ = 1e9f;
+        for (auto [e, ai, pos] : reg.view<AIState, Position>().each())
+            if (pos.value.z < bestZ) { bestZ = pos.value.z; grunt = e; }
+        if (grunt == entt::null) return report("monster_path", false, "no grunt");
+
+        float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        // Grunt just west of the shelf (shelf spans x[18,22] z[3,7]).
+        teleportKinematic(jolt, reg, grunt, glm::vec3(16.0f, 0.95f, 5.0f));
+
+        // Aggro it with an open line of sight to the north.
+        teleportPlayer(reg, player, glm::vec3(16.0f, halfY + 0.05f, 10.0f));
+        for (int i = 0; i < 40; i++) { applyInput(reg, player, Input{}); qengine::stepSimulation(reg, jolt, level, dt); }
+        bool aggroed = reg.get<AIState>(grunt).target != entt::null;
+
+        // Now hide the player on the far side of the shelf. The grunt is aggroed,
+        // so it must path AROUND the shelf to reach the player.
+        teleportPlayer(reg, player, glm::vec3(26.0f, halfY + 0.05f, 5.0f));
+
+        bool enteredShelf = false;
+        for (int i = 0; i < 600; i++)
+        {
+            applyInput(reg, player, Input{});
+            qengine::stepSimulation(reg, jolt, level, dt);
+            if (!reg.valid(grunt)) break;
+            glm::vec3 gp = reg.get<Position>(grunt).value;
+            if (gp.x > 18.0f && gp.x < 22.0f && gp.z > 3.0f && gp.z < 7.0f) enteredShelf = true;
+        }
+
+        float finalDist = reg.valid(grunt)
+            ? glm::length(reg.get<Position>(grunt).value - reg.get<Position>(player).value) : 1e9f;
+        bool reached = finalDist < 3.5f;
+
+        char buf[220];
+        std::snprintf(buf, sizeof(buf),
+            "aggroed=%d; routed around shelf (no-clip=%d); final dist=%.1f reached=%d",
+            aggroed ? 1 : 0, enteredShelf ? 0 : 1, finalDist, reached ? 1 : 0);
+        return report("monster_path", aggroed && !enteredShelf && reached, buf);
+    }
+
+    // The player's own horizontal speed is clamped: injecting an absurd velocity
+    // and holding a movement key must settle back under the cap (no runaway).
+    bool scenario_speed_cap(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        clearEnemies(jolt, reg);
+        const float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        teleportPlayer(reg, player, glm::vec3(8.0f, halfY, 15.0f));
+        for (int i = 0; i < 30; i++) { applyInput(reg, player, Input{}); qengine::stepSimulation(reg, jolt, level, dt); }
+
+        auto& ch = reg.get<JoltCharacter>(player).character;
+        ch->SetLinearVelocity(JPH::Vec3(60.0f, 0.0f, 0.0f));   // absurd shove
+        Input fwd; fwd.wishDir = glm::vec3(1, 0, 0); fwd.lookDir = glm::vec3(1, 0, 0);
+
+        float peak = 0.0f;
+        for (int i = 0; i < 30; i++)
+        {
+            applyInput(reg, player, fwd);   // hold forward (no friction path)
+            qengine::stepSimulation(reg, jolt, level, dt);
+            JPH::Vec3 v = ch->GetLinearVelocity();
+            peak = std::max(peak, std::sqrt(v.GetX() * v.GetX() + v.GetZ() * v.GetZ()));
+        }
+
+        float cap = reg.get<CharacterPhysics>(player).maxHorizontalSpeed;
+        char buf[180];
+        std::snprintf(buf, sizeof(buf),
+            "injected 60 u/s + held forward: peak horiz speed=%.1f (cap %.1f)", peak, cap);
+        return report("speed_cap", peak <= cap + 1.0f, buf);
+    }
 }
 
 int main(int argc, char** argv)
@@ -569,6 +715,9 @@ int main(int argc, char** argv)
     else if (scenario == "armor_absorb")     pass = scenario_armor_absorb(registry, jolt, level, dt);
     else if (scenario == "weapon_pickup")    pass = scenario_weapon_pickup(registry, jolt, level, dt);
     else if (scenario == "monster_grunt")    pass = scenario_monster_grunt(registry, jolt, level, dt);
+    else if (scenario == "monster_ai")       pass = scenario_monster_ai(registry, jolt, level, dt);
+    else if (scenario == "monster_path")     pass = scenario_monster_path(registry, jolt, level, dt);
+    else if (scenario == "speed_cap")        pass = scenario_speed_cap(registry, jolt, level, dt);
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
     jolt.shutdown();

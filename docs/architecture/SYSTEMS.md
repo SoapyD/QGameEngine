@@ -50,6 +50,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 - **Air movement:** Same acceleration formula but capped at `maxAirSpeed` (1.0), enabling bunny hopping.
 - **Jump:** Sets vertical velocity to `jumpForce` when on ground and jump is pressed.
 - **Gravity:** Applied manually to `desiredVel` while airborne (`-20.0f * dt`).
+- **Platform carry:** ground accel/friction runs in the ground's reference frame, so a moving kinematic platform's velocity is inherited exactly once (no run-away on horizontal movers). Horizontal speed is clamped to `CharacterPhysics.maxHorizontalSpeed` as a backstop.
 - **ExtendedUpdate:** Steps the character with stair-stepping (`mWalkStairsStepUp`) and floor-sticking (`mStickToFloorStepDown`), both controlled by `stepHeight`.
 
 ---
@@ -235,7 +236,37 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 11. `enemyDeathSystem`
+### 11. `aiSystem`
+
+**File:** `systems/enemy/ai_system.h/.cpp`
+
+**Purpose:** Enemy behaviour. For each `AIState` entity: **aggro** the player on sight (detect range + clear line of sight; `target` latches until they escape pursue range), run the `Idle → Chase → Attack` state machine, and melee-attack on a cooldown (`applyDamage`). In **Chase** it **pathfinds** (A\* over the `NavGrid`, stored in `AIPath`, recomputed on a timer) and steers the kinematic body waypoint to waypoint, so it routes *around* walls and props instead of straight-lining into them. Line-of-sight tests level surfaces + solid props via `raycastEntities`.
+
+**Components:**
+| Component | Access |
+|-----------|--------|
+| `AIState` | Read/Write (aggro target, state, attack cooldown) |
+| `AIPath` | Read/Write (A\* waypoints + follow cursor) |
+| `Position` | Read (self + player) |
+| `JoltBody` | Read (kinematic body to `MoveKinematic`) |
+| `Rotation` | Write (face movement/target) |
+| `TagPlayer` | Read (locate the target) |
+| `Health` | Write (attack damages the player, via `applyDamage`) |
+
+**Context:**
+| Context | Access |
+|---------|--------|
+| `PhysicsConfig` | Read (`fixedDeltaTime`) |
+| `JoltWorld` | Read (`getBodyInterface()` for `MoveKinematic`) |
+| `NavGrid` | Read (walkability grid for A\*) |
+
+**Also takes:** `const Level&` (line-of-sight vs. walls). Pathfinding lives in `engine/ai/` (`build_nav_grid`, `find_path`). Repaths are capped per tick.
+
+**When:** Fixed tick, after `moverSyncSystem` and **before** `joltWorld.step()`, so the enemy's `MoveKinematic` target is swept this tick (mirrors movers). Reads last tick's player position.
+
+---
+
+### 12. `enemyDeathSystem`
 
 **File:** `systems/enemy/enemy_death_system.h/.cpp`
 
@@ -282,7 +313,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 13. `renderSystem`
+### 14. `renderSystem`
 
 **File:** `systems/render_system.h/.cpp`
 
@@ -303,7 +334,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 14. `debugHudSystem`
+### 15. `debugHudSystem`
 
 **File:** `systems/debug_hud_system.h/.cpp`
 
@@ -331,7 +362,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 ---
 
-### 15. `audioSystem`
+### 16. `audioSystem`
 
 **File:** `systems/audio/audio_system.h/.cpp`
 

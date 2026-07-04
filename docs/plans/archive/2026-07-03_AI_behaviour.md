@@ -1,8 +1,8 @@
 # Plan — Enemy AI: Behaviour (state machine & combat)
 
-**Group:** `AI` (part 2 of 2 — **depends on** [archive/2026-07-03_AI_setup.md](archive/2026-07-03_AI_setup.md), shipped 2026-07-03).
-**Graduated from** [archive/2026-06-08_next-features.md](archive/2026-06-08_next-features.md) §C #5.
-**Status:** Proposed — ready to implement.
+**Group:** `AI` (part 2 of 2 — **depends on** [archive/2026-07-03_AI_setup.md](2026-07-03_AI_setup.md), shipped 2026-07-03).
+**Graduated from** [archive/2026-06-08_next-features.md](2026-06-08_next-features.md) §C #5.
+**Status:** ✅ Shipped 2026-07-04. New `aiSystem` (`systems/enemy/ai_system.*`, tick slot after `moverSyncSystem`, before the physics step) drives the grunt: detect-range + line-of-sight sensing (level surfaces + solid props via `raycastEntities`), `Idle→Chase→Attack` state on `AIState`, kinematic-steer chase (`MoveKinematic`, **Option A** from below), face-the-player, and melee `applyDamage` on a cooldown (with a `weapon.gauntlet` swing). New headless scenario `monster_ai` (blocked LoS → stays Idle; open LoS → closes 10→2.5 and damages the player) — 13/13 green, conventions clean. Deferred (nice-to-haves): `CharacterVirtual` locomotion for corridors, ranged attacks, pathfinding, enemy health bar.
 
 **Goal:** make the grunt *act* — see the player, chase, and attack — so it's a real enemy rather
 than a standing target. This is the "it's a game now" jump.

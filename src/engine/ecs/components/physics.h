@@ -46,6 +46,10 @@ struct CharacterPhysics
 	float airAcceleration = 10.0f;
 	float jumpForce = 8.0f;
 	float stepHeight = 0.7f; // Max height of a step the player can walk up
+	// Anti-runaway ceiling on the player's OWN horizontal speed (excludes platform
+	// carry). Generous so bunny-hopping still feels fast; catches pathological
+	// speed-ups (e.g. being carried/shoved by a moving kinematic body).
+	float maxHorizontalSpeed = 20.0f;
 };
 
 // ─── Spawn / Respawn ─────────────────────────────────────────
