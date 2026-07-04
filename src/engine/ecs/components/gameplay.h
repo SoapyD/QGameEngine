@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include <entt/entt.hpp>
 #include <string>
+#include <vector>
 
 // WeaponType is defined in components/combat.h; a Weapon pickup only stores it
 // by value, so an opaque declaration keeps this header light.
@@ -132,5 +133,15 @@ struct AIState
 {
 	AIStateKind  state = AIStateKind::Idle;
 	float        attackCooldown = 0.0f;      // seconds until the next attack is allowed
-	entt::entity target = entt::null;        // who to chase/attack (resolved by behaviour)
+	entt::entity target = entt::null;        // who to chase/attack (null = not aggroed)
+};
+
+// Enemy navigation path: the waypoints (grid-cell centres) the grunt is walking
+// toward its target, plus the follow cursor and a repath timer. Filled by
+// aiSystem via A* over the NavGrid.
+struct AIPath
+{
+	std::vector<glm::vec3> waypoints;
+	size_t index = 0;           // current waypoint being walked toward
+	float  repathTimer = 0.0f;  // counts down; a new path is computed at ≤ 0
 };

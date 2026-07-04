@@ -21,6 +21,7 @@ namespace factories
         reg.emplace<Health>(e, 50.0f, 50.0f, 0.0f);
         reg.emplace<DamageFlash>(e, 0.0f, 0.12f);   // brief white blink when shot (renderSystem)
         reg.emplace<AIState>(e);
+        reg.emplace<AIPath>(e);
         // No TagTriggerable: player-only volumes (lava, teleporters) must not
         // affect the grunt. It is NOT given PendingKnockback either (kinematic
         // bodies ignore impulses — knockback is deferred to the behaviour plan).

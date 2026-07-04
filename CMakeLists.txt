@@ -99,6 +99,8 @@ FetchContent_MakeAvailable(JoltPhysics)
 # (QEngineHeadless) so both run the exact same systems.
 add_library(qengine_lib STATIC
 	src/engine/app/simulation.cpp
+	src/engine/ai/build_nav_grid.cpp
+	src/engine/ai/find_path.cpp
 	src/engine/audio/audio_engine.cpp
 	src/engine/ecs/systems/audio/audio_system.cpp
 	src/engine/core/input_manager.cpp
@@ -148,6 +150,7 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/render/render_system.cpp
 	src/engine/ecs/systems/trigger/trigger_system.cpp
 	src/engine/ecs/systems/pickup/pickup_system.cpp
+	src/engine/ecs/systems/enemy/ai_system.cpp
 	src/engine/ecs/systems/enemy/enemy_death_system.cpp
 	src/engine/level/build_sector_meshes.cpp
 	src/engine/physics/jolt_world.cpp

@@ -42,7 +42,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 
 | Feature | State | Note |
 |---------|-------|------|
-| AI / enemies | 🟡 | `monster_grunt` archetype (kinematic body, blocks player, shootable, dies); no chase/attack behaviour yet |
+| AI / enemies | ✅ | `monster_grunt`: kinematic body, blocks player, shootable (hit-flash + sounds), `aiSystem` LoS-aggro → A\* chase (routes around walls/props) → melee attack. Ranged/navmesh not done |
 | Crosshair / expanded HUD | 🔴 | debug HUD only |
 | Networking | 🔴 | `src/engine/network/` empty (scaffold); see roadmap |
 | TrenchBroom level loading | 🔴 | levels hardcoded; setup planned (plan 03) |

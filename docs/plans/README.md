@@ -13,10 +13,10 @@ These are **planning documents** — they propose work, they don't perform it.
 
 ## Active plans
 
-### Enemies — group `AI`
+### Fixes
 | Plan | Scope |
 |------|-------|
-| [2026-07-03_AI_behaviour.md](2026-07-03_AI_behaviour.md) | State machine (Idle→Chase→Attack→Dead), line-of-sight, seek movement, attacks. Depends on AI_setup (shipped). |
+| [2026-07-04_mouse-look-fix.md](2026-07-04_mouse-look-fix.md) | Mouse look drops motion while moving — `InputManager` overwrites the frame's mouse delta instead of accumulating it. ~2-line fix. |
 
 ### Level authoring — group `trenchbroom`
 | Plan | Scope |
@@ -29,6 +29,16 @@ These are **planning documents** — they propose work, they don't perform it.
 ---
 
 ## Recently shipped & archived
+- **Fix: player speed run-away** — shipped. `playerCharacterSystem` now does ground accel/friction
+  in the ground-relative frame (platform velocity inherited once, not double-counted each tick —
+  the bug the new horizontally-moving enemies exposed) + a `CharacterPhysics.maxHorizontalSpeed`
+  (20) backstop. New `speed_cap` scenario. Done directly (no dated plan). Shipped 2026-07-04.
+- [2026-07-04_AI_pathfinding.md](archive/2026-07-04_AI_pathfinding.md) — enemies route around
+  walls/props: new `engine/ai/` (`NavGrid` + A\* `find_path`), `AIPath` component, `aiSystem`
+  aggro/pursue + path-follow. `monster_path` scenario. Shipped 2026-07-04.
+- [2026-07-03_AI_behaviour.md](archive/2026-07-03_AI_behaviour.md) — enemy behaviour: `aiSystem`
+  (LoS-gated `Idle→Chase→Attack`, kinematic-steer chase, melee attack), tick slot before the
+  physics step. `monster_ai` headless scenario. Shipped 2026-07-04.
 - **Enemy hit/death feedback** — shipped (grunt white hit-flash via `DamageFlash` + `renderSystem`
   `colorOverride`; `combat.flesh_hit` on hit, `combat.explosion_small` on death; `enemyDeathSystem`
   fades the flash). Done directly (no dated plan). Shipped 2026-07-03.

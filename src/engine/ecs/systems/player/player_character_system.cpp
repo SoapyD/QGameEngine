@@ -33,60 +33,67 @@ void playerCharacterSystem(entt::registry& registry)
 
 		if (onGround)
 		{
-			// Ground movement — Quake-style acceleration
+			// Ground movement — Quake-style acceleration, computed in the ground's
+			// reference frame so a moving platform's velocity is inherited exactly
+			// once (currentVel already carries last tick's groundHoriz — adding it
+			// again each tick is what made speed run away on horizontal movers).
+			JPH::Vec3 groundHoriz(groundVel.GetX(), 0.0f, groundVel.GetZ());
+			JPH::Vec3 relVel = JPH::Vec3(currentVel.GetX(), 0.0f, currentVel.GetZ()) - groundHoriz;
 			JPH::Vec3 wishDir(input.wishDir.x, 0.0f, input.wishDir.z);
-			float wishSpeed = physics.maxGroundSpeed;
-		
+			JPH::Vec3 moveVel = relVel;
+
 			if (wishDir.LengthSq() > 0.0f)
 			{
 				wishDir = wishDir.Normalized();
-				float currentSpeed = currentVel.Dot(wishDir);
-				float addSpeed = wishSpeed - currentSpeed;
+				float currentSpeed = relVel.Dot(wishDir);
+				float addSpeed = physics.maxGroundSpeed - currentSpeed;
 				if (addSpeed > 0.0f)
 				{
-					float accelSpeed = physics.groundAcceleration * wishSpeed * dt;
+					float accelSpeed = physics.groundAcceleration * physics.maxGroundSpeed * dt;
 					if (accelSpeed > addSpeed) accelSpeed = addSpeed;
-					desiredVel = JPH::Vec3(currentVel.GetX(), 0.0f, currentVel.GetZ()) + wishDir * accelSpeed;
-				}
-				else
-				{
-					desiredVel = JPH::Vec3(currentVel.GetX(), 0.0f, currentVel.GetZ());
+					moveVel = relVel + wishDir * accelSpeed;
 				}
 			}
 			else
 			{
-				// no input = apply ground friction
-				JPH::Vec3 horizontalVel(currentVel.GetX(), 0.0f, currentVel.GetZ());
-				float speed = horizontalVel.Length();
-				if (speed > 0.f)
+				// no input = apply ground friction (to the player's own velocity)
+				float speed = relVel.Length();
+				if (speed > 0.0f)
 				{
 					float drop = speed * physics.groundFriction * dt;
 					float newSpeed = std::max(speed - drop, 0.0f);
-					desiredVel = horizontalVel * (newSpeed / speed);
-				} 
+					moveVel = relVel * (newSpeed / speed);
+				}
+				else
+				{
+					moveVel = JPH::Vec3::sZero();
+				}
 			}
 
-			// Carry the player horizontally with a moving platform.
-			desiredVel += JPH::Vec3(groundVel.GetX(), 0.0f, groundVel.GetZ());
+			// Anti-runaway: clamp the player's OWN horizontal speed. Platform
+			// carry is added afterward, so riding a fast platform is never clamped.
+			float ownSpeed = moveVel.Length();
+			if (ownSpeed > physics.maxHorizontalSpeed)
+				moveVel = moveVel * (physics.maxHorizontalSpeed / ownSpeed);
 
-			// jump
+			desiredVel = moveVel + groundHoriz;   // inherit the platform once
+
 			if (input.jump)
 			{
-				desiredVel += JPH::Vec3(0.0f, physics.jumpForce, 0.0f);
+				desiredVel.SetY(physics.jumpForce);
 				queueSound(registry, "player.jump");
 			}
 			else
 			{
-				// Ride the platform's vertical motion (e.g. a rising lift).
-				// On static ground GetGroundVelocity() is zero, so this is a
-				// no-op there.
-				desiredVel += JPH::Vec3(0.0f, groundVel.GetY(), 0.0f);
+				// Ride the platform's vertical motion (0 on static ground).
+				desiredVel.SetY(groundVel.GetY());
 			}
 		}
 		else
 		{
 			// Air movement — limited air control
 			JPH::Vec3 wishDir(input.wishDir.x, 0.0f, input.wishDir.z);
+			desiredVel = JPH::Vec3(currentVel.GetX(), currentVel.GetY(), currentVel.GetZ());
 
 			if (wishDir.LengthSq() > 0.0f)
 			{
@@ -99,14 +106,15 @@ void playerCharacterSystem(entt::registry& registry)
 					if (accelSpeed > addSpeed) accelSpeed = addSpeed;
 					desiredVel = JPH::Vec3(currentVel.GetX(), currentVel.GetY(), currentVel.GetZ()) + wishDir * accelSpeed;
 				}
-				else
-				{
-					desiredVel = JPH::Vec3(currentVel.GetX(), currentVel.GetY(), currentVel.GetZ());
-				}
 			}
-			else
+
+			// Anti-runaway: clamp horizontal air speed too.
+			JPH::Vec3 airHoriz(desiredVel.GetX(), 0.0f, desiredVel.GetZ());
+			float airSpeed = airHoriz.Length();
+			if (airSpeed > physics.maxHorizontalSpeed)
 			{
-				desiredVel = JPH::Vec3(currentVel.GetX(), currentVel.GetY(), currentVel.GetZ());
+				airHoriz = airHoriz * (physics.maxHorizontalSpeed / airSpeed);
+				desiredVel = JPH::Vec3(airHoriz.GetX(), desiredVel.GetY(), airHoriz.GetZ());
 			}
 
 			// apply gravity while in the air (shared magnitude from PhysicsConfig)
