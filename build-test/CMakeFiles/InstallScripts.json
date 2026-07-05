@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Documents/Programming/C_Projects/QEngine/build-test/cmake_install.cmake",
+		"D:/Documents/Programming/C_Projects/QEngine/build-test/extern/glfw/cmake_install.cmake",
+		"D:/Documents/Programming/C_Projects/QEngine/build-test/extern/glfw/src/cmake_install.cmake",
+		"D:/Documents/Programming/C_Projects/QEngine/build-test/_deps/joltphysics-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

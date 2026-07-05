@@ -8,6 +8,13 @@
 `.map`* — **no engine code required**. This can be done today and produces a real sample `.map`
 to develop the loader against.
 
+**Status (2026-07-04):** Repo-side config **done** — [`tb/GameConfig.cfg`](../../tb/GameConfig.cfg)
+and [`tb/QEngine.fgd`](../../tb/QEngine.fgd) written (FGD covers every showcase classname, keys
+matched 1:1 to [`showcase_descriptor.cpp`](../../src/engine/level/showcase_descriptor.cpp)), and
+[`assets/maps/`](../../assets/maps/) created with a [README](../../assets/maps/README.md) documenting
+the showcase-rebuild mapping. **Remaining (manual, needs the GUI — over to you):** §1 install the
+app, §5 copy `tb/` into the TrenchBroom games dir, then draw + save `assets/maps/showcase.map`.
+
 ---
 
 ## 1. Install
@@ -28,10 +35,14 @@ QEngine/
 ```
 
 ## 3. `GameConfig.cfg`
-Standard-format config; `filesystem.searchpath = "assets"`, `textures.root = "textures"`,
-`.png` extension, `entities.definitions = ["QEngine.fgd"]`, plus a `trigger_*` transparent
-brush tag. Full template in the archived original and
-[`roadmap/ROADMAP_TRENCHBROOM.md`](../../docs/roadmap/ROADMAP_TRENCHBROOM.md) §Phase 4.
+Standard-format config; `filesystem.searchpath = "assets"`, a **`materials`** block with
+`root = "textures"` + `format {extensions:[".png"], format:"image"}`,
+`entities.definitions = ["QEngine.fgd"]`, plus a `trigger_*` transparent brush tag.
+
+> **v2026.1 note (corrected 2026-07-04):** this build uses config `version: 9` with a
+> **`materials`** block — NOT the older `textures`/`attribute` block the roadmap §Phase 4
+> template shows. The shipped [`tb/GameConfig.cfg`](../../tb/GameConfig.cfg) already uses the
+> correct v2026.1 schema (verified against the install's own `games/Generic/GameConfig.cfg`).
 
 ## 4. `QEngine.fgd` skeleton
 Define at least the archetypes the showcase uses so they can be placed:
@@ -41,11 +52,22 @@ Define at least the archetypes the showcase uses so they can be placed:
 `item_*` / `weapon_*` / `monster_grunt` classnames. (Full FGD property tables: archived original §3.1.)
 
 ## 5. Install the config
-- **Windows:** copy `tb/` into `%APPDATA%\TrenchBroom\games\QEngine\` (or set the game path to the
-  repo root in Preferences → Game).
-- **Linux/Mac:** `~/.TrenchBroom/games/QEngine/`.
-- Restart → **New Map → QEngine** should list our textures + FGD entities.
+Copy `GameConfig.cfg` + `QEngine.fgd` + `Icon.png` into a folder TrenchBroom scans:
+- **Reliable (v2026.1):** the install's own games dir —
+  `TrenchBroom-Win64-AMD64-v2026.1-Release\games\QEngine\`.
+- **Survives reinstalls:** `%APPDATA%\TrenchBroom\games\QEngine\` (Win) /
+  `~/.TrenchBroom/games/QEngine/` (Linux/Mac).
+- Then Preferences → **Games → QEngine → Game Path** = repo root, so `assets/textures`
+  resolves. Restart → **New Map → QEngine** lists our textures + FGD entities.
+
+**Full click-by-click walkthrough for v2026.1:**
+[`../roadmap/TRENCHBROOM_WALKTHROUGH.md`](../roadmap/TRENCHBROOM_WALKTHROUGH.md).
 
 ## Done when
 You can draw a hollow room, texture it, place a few entities, and **save `assets/maps/showcase.map`**.
 The engine can't load it yet — that's the engine-loader plan. This sample `.map` unblocks it.
+
+**What to build & the settings that matter:** see
+[`../roadmap/TRENCHBROOM_TEST_MAP.md`](../roadmap/TRENCHBROOM_TEST_MAP.md) — the minimal
+smoke-test map, what each element exercises in the loader, and the format/texture/scale
+gotchas that break loading silently.

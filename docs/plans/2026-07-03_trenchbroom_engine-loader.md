@@ -18,7 +18,7 @@
 ## Steps (ordered by dependency; each leaves the build runnable)
 | Step | Deliverable | Adds/replaces | Ch |
 |------|-------------|---------------|----|
-| **2.1** | **`.map` parser** — entities → brushes → planes (3 points + texture + UV) | new `MapLoader`; retire the unused `.qlvl` path | 17 |
+| **2.1** ✅ | **`.map` parser** — DONE (2026-07-04). Standard-format text→struct front end: [`map_loader.{h,cpp}`](../../src/engine/level/map_loader.cpp) (`qmap::parseMapString`/`loadMapFile`) → [`types/map_data.h`](../../src/engine/level/types/map_data.h) (`MapData` → `MapEntity` → `MapBrush` → `MapFace`). Tokenizer strips `//` comments; recursive descent parses entities/brushes/faces with line-numbered errors on malformed input. **No** coordinate/scale conversion or spawning yet (that's 2.2–2.4). Covered by the `map_parse` headless scenario. `.qlvl` path still dead, not yet deleted. | new `MapLoader`; retire the unused `.qlvl` path | 17 |
 | **2.2** | **Brush → mesh** — plane∩plane∩plane (Cramer), Sutherland-Hodgman face clipping, fan-triangulate, plane normals, axial UV | `buildSectorMeshes` analogue for brushes | 17 |
 | **2.3** | **FGD + entity mapping** — `classname` → existing factories; `target`/`targetname` two-pass linking | hooks the 2.0 dispatch table to map data | 18 |
 | **2.4** | **Brush collision** — convex-hull (or AABB) Jolt static/kinematic/sensor bodies from brush planes | `createLevelBodies` analogue | 19 |

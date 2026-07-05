@@ -17,9 +17,12 @@
 
 #include <entt/entt.hpp>
 #include <iostream>
+#include <string>
 
-int main()
+int main(int argc, char** argv)
 {
+	std::string mapPath = (argc > 1) ? argv[1] : "assets/maps/smoke.map";  // ""/"showcase" → showcase
+	if (mapPath == "showcase") mapPath.clear();
 	// ─── Core systems ────────────────────────────────────────
 	Window window(1280, 720, "QEngine");
 	if (!window.isValid())
@@ -52,7 +55,7 @@ int main()
 	auto& joltWorld = registry.ctx().emplace<JoltWorld>();
 	joltWorld.init(false, physicsConfig.gravity);
 
-	Level level = qengine::buildWorld(registry, resources, joltWorld);
+	Level level = qengine::buildWorld(registry, resources, joltWorld, false, mapPath);
 
 	// First-person weapon viewmodel (needs a live GL context — build after load).
 	WeaponViewModel weaponViewModel = createWeaponViewModel(resources);

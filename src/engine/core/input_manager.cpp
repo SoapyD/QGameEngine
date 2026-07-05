@@ -8,6 +8,11 @@ void InputManager::init(GLFWwindow* window)
 	// capture the mouse cursor - essential for FPS-style camera
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
+	// prefer raw (unaccelerated) mouse motion where the platform supports it,
+	// for consistent look input independent of OS pointer acceleration
+	if (glfwRawMouseMotionSupported())
+		glfwSetInputMode(window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
+
 	// Store a pointer to this InputManager inside the GLFW window.
 	// This is how the static callback can find our instance.
 	// GLFW provides this "user pointer" slot specifically for this purpose.
@@ -56,8 +61,13 @@ void InputManager::mouseCallback(GLFWwindow* window, double xpos, double ypos)
 		input->m_firstMouse = false;
 	}
 
-	input->m_mouseXOffset = x - input->m_lastMouseX;
-	input->m_mouseYOffset = input->m_lastMouseY - y; // reversed: y goes bottom-to-top in OpenGL
+	// Accumulate every motion event dispatched this frame. glfwPollEvents() can
+	// fire this callback many times per frame; overwriting would keep only the
+	// last event's tiny delta and drop the rest (worse on longer frames, i.e.
+	// while moving). update() zeroes these at frame start, so the sum is the
+	// whole frame's motion.
+	input->m_mouseXOffset += x - input->m_lastMouseX;
+	input->m_mouseYOffset += input->m_lastMouseY - y; // reversed: y goes bottom-to-top in OpenGL
 	input->m_lastMouseX = x;
 	input->m_lastMouseY = y;
 }

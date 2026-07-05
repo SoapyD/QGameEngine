@@ -1,6 +1,9 @@
 # Plan — Fix: mouse look drops motion while moving
 
-**Status:** Proposed — ready to implement. **Small** (a one-line-ish fix + optional polish).
+**Status:** Done (2026-07-04). Implemented in [`input_manager.cpp`](../../src/engine/core/input_manager.cpp) —
+delta now accumulates (`+=`) in `mouseCallback`, and raw mouse motion is enabled in `init` when
+supported. Built clean; all 15 headless scenarios still pass (harness can't exercise windowed input —
+needs the manual sweep below). **Small** (a one-line-ish fix + optional polish).
 
 **Symptom (reported):** you can't move/strafe and look at the same time — the camera barely
 turns while you're holding a movement key.

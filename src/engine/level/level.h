@@ -43,4 +43,10 @@ struct Level
 	std::vector<Sector> sectors;
 	std::vector<Portal> portals;
 	std::vector<LevelEntity> entities;
+
+	// Extra render meshes owned by the level but not tied to a single sector's
+	// `mesh` slot — used by the .map loader, which builds one mesh per texture
+	// group. Kept alive here for the level's lifetime because ~Mesh frees the VAO
+	// the MeshRenderer components reference.
+	std::vector<std::unique_ptr<Mesh>> renderMeshes;
 };
