@@ -113,6 +113,11 @@ add_library(qengine_lib STATIC
 	src/engine/level/classname_factory_items.cpp
 	src/engine/level/spawn_scene.cpp
 	src/engine/level/showcase_descriptor.cpp
+	src/engine/level/map_loader.cpp
+	src/engine/level/map_to_level.cpp
+	src/engine/level/map_to_descriptors.cpp
+	src/engine/level/build_textured_meshes.cpp
+	src/engine/app/scene_setup_map.cpp
 	src/engine/physics/bodies/create_dynamic_body.cpp
 	src/engine/physics/bodies/create_kinematic_body.cpp
 	src/engine/physics/bodies/create_level_bodies.cpp
@@ -194,7 +199,7 @@ endif()
 # ──────────────────────────────────────────────
 # QEngineHeadless — windowless harness / regression tests
 # ──────────────────────────────────────────────
-add_executable(QEngineHeadless src/harness/headless_main.cpp)
+add_executable(QEngineHeadless src/harness/headless_main.cpp src/harness/map_scenarios.cpp)
 target_link_libraries(QEngineHeadless PRIVATE qengine_lib)
 
 if (MINGW)

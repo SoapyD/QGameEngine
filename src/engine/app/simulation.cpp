@@ -4,6 +4,7 @@
 #include "engine/ecs/components.h"
 #include "engine/physics/jolt_bodies.h"
 #include "engine/app/scene_setup.h"
+#include "engine/app/scene_setup_map.h"
 #include "engine/ecs/systems/combat/combat_system.h"
 #include "engine/ecs/systems/demo/demo_reset_system.h"
 #include "engine/ecs/systems/sync/jolt_sync_system.h"
@@ -78,9 +79,11 @@ namespace qengine
     }
 
     Level buildWorld(entt::registry& registry, ResourceManager& resources,
-                     JoltWorld& joltWorld, bool headless)
+                     JoltWorld& joltWorld, bool headless, const std::string& mapPath)
     {
-        Level level = setupScene(registry, resources, headless);
+        Level level = mapPath.empty()   // empty → showcase; a path → load that .map
+            ? setupScene(registry, resources, headless)
+            : setupSceneFromMap(registry, resources, mapPath, headless);
 
         // Sound-event queue: simulation systems push, the audio system drains it
         // (windowed build only; headless leaves it unread).

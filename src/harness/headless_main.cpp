@@ -13,6 +13,7 @@
 #include "engine/app/simulation.h"
 #include "engine/ecs/components.h"
 #include "engine/level/showcase_descriptor.h"
+#include "harness/map_scenarios.h"
 #include "engine/physics/jolt_world.h"
 #include "engine/physics/physics_config.h"
 
@@ -680,11 +681,13 @@ namespace
             "injected 60 u/s + held forward: peak horiz speed=%.1f (cap %.1f)", peak, cap);
         return report("speed_cap", peak <= cap + 1.0f, buf);
     }
+
 }
 
 int main(int argc, char** argv)
 {
     std::string scenario = (argc > 1) ? argv[1] : "ride_lift_up";
+    std::string mapArg = (argc > 2) ? argv[2] : "assets/maps/smoke.map";  // map_file path
 
     // Fully headless: no window, no GL context. loadResources caches GL-free
     // stubs and buildWorld skips render-mesh building, so this runs on a box
@@ -718,6 +721,9 @@ int main(int argc, char** argv)
     else if (scenario == "monster_ai")       pass = scenario_monster_ai(registry, jolt, level, dt);
     else if (scenario == "monster_path")     pass = scenario_monster_path(registry, jolt, level, dt);
     else if (scenario == "speed_cap")        pass = scenario_speed_cap(registry, jolt, level, dt);
+    else if (scenario == "map_parse")        pass = mapscenarios::scenarioMapParse();
+    else if (scenario == "map_file")         pass = mapscenarios::scenarioMapFile(mapArg);
+    else if (scenario == "map_scene")        pass = mapscenarios::scenarioMapScene();
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
     jolt.shutdown();

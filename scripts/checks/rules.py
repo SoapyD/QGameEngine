@@ -18,6 +18,9 @@ SIZE_RULES = [
     # factories; cohesive, not logic-heavy. Capped like the factory module, not the
     # tight generic-level cap below.
     ("**/classname_factory*.cpp", 200, "classname dispatch (adapter table)"),
+    # Recursive-descent .map parser: a cohesive tokeniser + parser, longer than the
+    # tight level free-fn cap by nature (like the factory/dispatch carve-outs above).
+    ("**/map_loader.cpp", 250, "map parser (recursive descent)"),
     ("src/engine/level/**/*.cpp", 100, "level free-fn"),
     ("src/engine/core/**/*.cpp", 200, "core class"),
     ("src/engine/renderer/**/*.cpp", 200, "renderer class"),
@@ -61,6 +64,9 @@ TYPE_LOCATION_ALLOWLIST = [
     "src/engine/audio/**",               # AudioEngine uses pimpl — the private Impl struct
                                          # lives out-of-line in the .cpp by design
     "src/engine/app/simulation.h",       # forward-decls only
+    # parser-internal token/error types (Tok/Token/ParseError) — impl detail that
+    # lives with the parser, like the audio pimpl Impl struct above.
+    "src/engine/level/map_loader.cpp",
     "src/harness/**",                    # test scaffolding (wyrdwars skips tests too)
     "extern/**",
 ]

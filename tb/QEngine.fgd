@@ -1,0 +1,108 @@
+// QEngine.fgd — entity definitions for TrenchBroom
+// ─────────────────────────────────────────────────────────────────────
+// Every classname here mirrors a factory in the engine's classname->factory
+// dispatch (see src/engine/level/showcase_descriptor.cpp, which is the
+// source of truth for property names). The future .map loader (plan
+// 2026-07-03_trenchbroom_engine-loader.md, steps 2.1/2.3) maps these keys
+// straight onto the existing SpawnParams/components, so keep the key names
+// identical to the descriptor.
+//
+// COORDINATE / UNIT NOTE: TrenchBroom is Z-up and integer Quake units; the
+// engine is Y-up and small float units. The loader converts axes and scales
+// on import. Values you type here (origin/endpos/direction/velocity) are in
+// ENGINE convention where they name world positions the descriptor uses, so
+// the loader's conversion must be applied consistently to geometry AND to
+// these entity properties. Property TYPES below use `string` for any vector
+// or float-intensity field so the editor doesn't clamp them to 0-255 ints.
+
+// ─── Base classes ────────────────────────────────────────────────────
+@baseclass = Targetname [ targetname(target_source) : "Name (linked to by target)" ]
+@baseclass = Target     [ target(target_destination) : "Fires / links to this targetname" ]
+@baseclass = Angle      [ angle(integer) : "Facing angle (yaw)" : 0 ]
+@baseclass = Texture    [ texture(string) : "Texture name (assets/textures, no extension)" ]
+
+// ─── Player / spawns ─────────────────────────────────────────────────
+@PointClass base(Angle) size(-16 -16 -24, 16 16 32) color(0 255 0) = info_player_start : "Player spawn point" []
+
+@PointClass base(Targetname) size(-8 -8 -8, 8 8 8) color(255 0 255) = info_teleport_destination :
+    "Teleport destination (targeted by trigger_teleport)" []
+
+// ─── Lighting ────────────────────────────────────────────────────────
+@PointClass size(-8 -8 -8, 8 8 8) color(255 255 128) = light : "Point light"
+[
+    _color(string)    : "Color (RGB, float, can exceed 1 for HDR)" : "1 1 1"
+    ambient(string)   : "Ambient contribution" : "0.05"
+    linear(string)    : "Linear attenuation" : "0.09"
+    quadratic(string) : "Quadratic attenuation" : "0.032"
+]
+
+@PointClass size(-8 -8 -8, 8 8 8) color(255 255 200) = light_environment : "Directional sun/ambient"
+[
+    direction(string) : "Sun direction vector" : "-0.2 -1.0 -0.3"
+    _color(string)    : "Color (RGB, float)" : "1 1 1"
+    ambient(string)   : "Global ambient" : "0.08"
+]
+
+// ─── Physics demo props ──────────────────────────────────────────────
+@PointClass base(Texture) size(-8 -8 -8, 8 8 8) color(255 128 0) = prop_dynamic :
+    "Dynamic demo cube (respawns on an interval)"
+[
+    velocity(string) : "Initial velocity" : "0 0 0"
+    interval(string) : "Respawn interval (seconds)" : "5.0"
+]
+
+// ─── Static / decorative world brushes ───────────────────────────────
+@SolidClass base(Texture) color(80 80 200) = func_static : "Static collidable brush geometry" []
+@SolidClass base(Texture) color(80 80 200) = func_decor  : "Static non-interactive decor brush (poles, lava surface)" []
+
+// ─── Movers (brush entities) ─────────────────────────────────────────
+@SolidClass base(Targetname, Texture) color(128 0 128) = func_door : "Sliding door (opens toward endpos)"
+[
+    endpos(string)     : "Absolute world position when fully open" : "0 0 0"
+    speed(string)      : "Movement speed (units/sec)" : "3.0"
+    wait(string)       : "Time open before returning (seconds)" : "4.0"
+    startdelay(string) : "Delay before moving (seconds)" : "0.0"
+]
+
+@SolidClass base(Targetname, Texture) color(128 0 128) = func_plat : "Lift / platform (rises to endpos)"
+[
+    endpos(string)     : "Absolute world position at top of travel" : "0 0 0"
+    speed(string)      : "Movement speed (units/sec)" : "2.0"
+    wait(string)       : "Time at top before returning (seconds)" : "2.0"
+    startdelay(string) : "Delay before moving (seconds)" : "2.0"
+]
+
+// ─── Triggers (brush entities) ───────────────────────────────────────
+@SolidClass base(Target) color(128 128 0) = trigger_multiple : "Repeatable trigger (activates its target mover)"
+[
+    cooldown(string) : "Re-fire cooldown (seconds)" : "1.0"
+]
+
+@SolidClass base(Target) color(128 128 0) = trigger_teleport : "Teleport volume (sends player to target destination)"
+[
+    cooldown(string) : "Re-fire cooldown (seconds)" : "1.0"
+]
+
+@SolidClass color(200 32 32) = trigger_hurt : "Damage volume (lava/hazard)"
+[
+    dmg(string)      : "Damage per second" : "25.0"
+    cooldown(string) : "Damage tick cooldown (0 = every tick)" : "0.0"
+]
+
+// ─── Item pickups ────────────────────────────────────────────────────
+@PointClass size(-12 -12 0, 12 12 24) color(0 255 128)  = item_health  : "Health pickup"  [ amount(integer) : "Health" : 25 ]
+@PointClass size(-12 -12 0, 12 12 24) color(0 200 255)  = item_armor   : "Armour shard"   [ amount(integer) : "Armour" : 25 ]
+@PointClass size(-12 -12 0, 12 12 24) color(255 200 0)  = item_shells  : "Shotgun shells" [ amount(integer) : "Shells" : 10 ]
+@PointClass size(-12 -12 0, 12 12 24) color(255 160 0)  = item_rockets : "Rockets"        [ amount(integer) : "Rockets" : 5 ]
+@PointClass size(-12 -12 0, 12 12 24) color(200 200 0)  = item_nails   : "Nails"          [ amount(integer) : "Nails" : 25 ]
+@PointClass size(-12 -12 0, 12 12 24) color(0 255 255)  = item_cells   : "Cells"          [ amount(integer) : "Cells" : 25 ]
+
+// ─── Weapon pickups ──────────────────────────────────────────────────
+@PointClass size(-14 -14 0, 14 14 20) color(255 96 0) = weapon_nailgun         : "Nailgun"          [ amount(integer) : "Bundled ammo" : 30 ]
+@PointClass size(-14 -14 0, 14 14 20) color(255 96 0) = weapon_supershotgun    : "Super Shotgun"    [ amount(integer) : "Bundled ammo" : 10 ]
+@PointClass size(-14 -14 0, 14 14 20) color(255 96 0) = weapon_railgun         : "Railgun"          [ amount(integer) : "Bundled ammo" : 10 ]
+@PointClass size(-14 -14 0, 14 14 20) color(255 96 0) = weapon_lightninggun    : "Lightning Gun"    [ amount(integer) : "Bundled ammo" : 30 ]
+@PointClass size(-14 -14 0, 14 14 20) color(255 96 0) = weapon_grenadelauncher : "Grenade Launcher" [ amount(integer) : "Bundled ammo" : 5 ]
+
+// ─── Enemies ─────────────────────────────────────────────────────────
+@PointClass base(Angle) size(-16 -16 0, 16 16 56) color(255 0 0) = monster_grunt : "Grunt enemy (LoS aggro + A* + melee)" []

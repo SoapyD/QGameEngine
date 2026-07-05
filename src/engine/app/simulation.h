@@ -1,6 +1,7 @@
 #pragma once
 
 #include <entt/entt.hpp>
+#include <string>
 #include "engine/level/level.h"
 
 // Shared simulation entry points used by BOTH the windowed game (main.cpp)
@@ -23,8 +24,10 @@ namespace qengine
     // sensor bodies, the player CharacterVirtual, and broad-phase optimisation.
     // `joltWorld` must already be init()'d and PhysicsConfig must be in the
     // registry context. `headless` skips building GL render meshes for the level.
+    // `mapPath` empty → the hard-coded showcase; non-empty → load that .map.
     Level buildWorld(entt::registry& registry, ResourceManager& resources,
-                     JoltWorld& joltWorld, bool headless = false);
+                     JoltWorld& joltWorld, bool headless = false,
+                     const std::string& mapPath = "");
 
     // Run ONE fixed-timestep tick: the full ordered system pipeline.
     // The caller is responsible for having written PlayerInput and the camera

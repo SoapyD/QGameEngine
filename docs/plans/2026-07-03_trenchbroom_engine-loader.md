@@ -7,6 +7,16 @@
 **Goal:** load a TrenchBroom `.map` into the running engine, replacing the hard-coded
 `createShowcaseLevel()`. This is the real build effort (Phase 5, Ch 17–20).
 
+**Status (2026-07-05):** ✅ **Shipped at MVP fidelity** (commit `ff3db55`, branch `trenchbroom`).
+`smoke.map` loads and is playable (walk the room, walls collide). Steps 2.2–2.5 done via the
+**AABB box-fidelity** approach rather than the general plane∩plane∩plane algorithm originally
+sketched below — each brush → its axis-aligned bounding box → 6 quad surfaces. This is **lossless
+for axis-aligned box maps** (all `smoke.map` is) and reuses the engine's existing AABB-per-surface
+collision + nav-grid path. **Deferred:** general angled-brush geometry (true plane intersection +
+convex-hull collision), brush-entity movers/triggers exercised by a real map, texture-name→GL for
+non-preloaded textures, and deleting the showcase (kept as `buildWorld` fallback). Documented in
+tutorial Ch 26–28.
+
 ---
 
 ## Prerequisites
@@ -18,11 +28,11 @@
 ## Steps (ordered by dependency; each leaves the build runnable)
 | Step | Deliverable | Adds/replaces | Ch |
 |------|-------------|---------------|----|
-| **2.1** | **`.map` parser** — entities → brushes → planes (3 points + texture + UV) | new `MapLoader`; retire the unused `.qlvl` path | 17 |
-| **2.2** | **Brush → mesh** — plane∩plane∩plane (Cramer), Sutherland-Hodgman face clipping, fan-triangulate, plane normals, axial UV | `buildSectorMeshes` analogue for brushes | 17 |
-| **2.3** | **FGD + entity mapping** — `classname` → existing factories; `target`/`targetname` two-pass linking | hooks the 2.0 dispatch table to map data | 18 |
-| **2.4** | **Brush collision** — convex-hull (or AABB) Jolt static/kinematic/sensor bodies from brush planes | `createLevelBodies` analogue | 19 |
-| **2.5** | **Wire `buildWorld` to a `.map`** instead of `createShowcaseLevel()`; texture-name resolution; optional hot-reload | `simulation.cpp::buildWorld` | 20 |
+| **2.1** ✅ | **`.map` parser** — DONE (2026-07-04). Standard-format text→struct front end: [`map_loader.{h,cpp}`](../../src/engine/level/map_loader.cpp) (`qmap::parseMapString`/`loadMapFile`) → [`types/map_data.h`](../../src/engine/level/types/map_data.h) (`MapData` → `MapEntity` → `MapBrush` → `MapFace`). Tokenizer strips `//` comments; recursive descent parses entities/brushes/faces with line-numbered errors on malformed input. **No** coordinate/scale conversion or spawning yet (that's 2.2–2.4). Covered by the `map_parse` headless scenario. `.qlvl` path still dead, not yet deleted. | new `MapLoader`; retire the unused `.qlvl` path | 17 |
+| **2.2** ✅ | **Brush → geometry (MVP)** — DONE 2026-07-05 via **brush AABB → 6 quad surfaces** (`map_transform.h` Z-up→Y-up ÷32; `map_to_level.{h,cpp}`; per-texture render meshes in `build_textured_meshes.{h,cpp}`, owned by `Level.renderMeshes`). CCW-from-outside winding under back-face cull; majority-texture per brush. General plane∩plane∩plane geometry **deferred**. | reused `Surface`/`buildSectorMeshes` path | 28 |
+| **2.3** ✅ | **Entity mapping** — DONE. `map_to_descriptors.{h,cpp}`: `MapEntity` → `SpawnParams` (origin/size, spatial props → engine space), then the **existing** `factories::spawnScene` two-pass dispatch/linking — no new factory code. | reused 2.0 dispatch table | 28 |
+| **2.4** ✅ | **Brush collision** — DONE via the existing `createLevelBodies` (AABB box per surface, ±0.1 fatten) run on the map's surfaces. Convex-hull from brush planes deferred with the general geometry. | reused `createLevelBodies` | 28 |
+| **2.5** ✅ | **Wire `buildWorld`** — DONE. `scene_setup_map.{h,cpp}` + `buildWorld(mapPath)` / `main.cpp` arg; empty path ⇒ showcase fallback (not deleted). Texture-name resolution via ResourceManager. Hot-reload not done. | `simulation.cpp::buildWorld`, `main.cpp` | 28 |
 
 ## Coordinate-system gotchas (call out early)
 - **Z-up (Quake/TB) vs Y-up (QEngine)** — convert axes consistently across geometry, entity
