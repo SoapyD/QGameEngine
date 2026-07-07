@@ -724,6 +724,7 @@ int main(int argc, char** argv)
     else if (scenario == "map_parse")        pass = mapscenarios::scenarioMapParse();
     else if (scenario == "map_file")         pass = mapscenarios::scenarioMapFile(mapArg);
     else if (scenario == "map_scene")        pass = mapscenarios::scenarioMapScene();
+    else if (scenario == "map_ground")       pass = mapscenarios::scenarioMapGroundPlacement(mapArg);
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
     jolt.shutdown();

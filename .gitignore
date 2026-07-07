@@ -1,2 +1,5 @@
 /build
 /build-test
+
+# TrenchBroom autosaves
+/assets/maps/autosave/

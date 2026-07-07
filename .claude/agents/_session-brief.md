@@ -66,6 +66,10 @@ prose paragraphs.
 ## Next plan
 [One sentence: which active plan to tackle next, based on the active plans read
 against what just shipped.]
+
+---
+Default worker: use the `terse` agent (.claude/agents/terse.md) — claim-first,
+token-efficient output — for this project's work.
 ```
 
 ## Rules
@@ -81,3 +85,5 @@ against what just shipped.]
   last commit > status snapshot > active plans > next plan > architecture snapshot.
 - Do not include information that isn't in the docs you read or the git log. Do not
   guess at current state.
+- Always end the brief with the "Default worker" footer pointing at the `terse`
+  agent, so each session adopts token-efficient output from the start.

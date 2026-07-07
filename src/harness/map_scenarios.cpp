@@ -3,13 +3,16 @@
 #include "engine/level/map_loader.h"
 #include "engine/level/map_to_level.h"
 #include "engine/level/map_to_descriptors.h"
+#include "engine/level/map_transform.h"
 #include "engine/level/level.h"
 
 #include <glm/glm.hpp>
 
+#include <cmath>
 #include <cstddef>
 #include <cstdio>
 #include <iostream>
+#include <sstream>
 #include <string>
 
 // Scenario definitions are indented inside the namespace (like headless_main's
@@ -169,5 +172,54 @@ namespace mapscenarios
             "sectors=%zu surfaces=%zu descriptors=%zu (player=%d light=%d) err=\"%s\"",
             lvl.sectors.size(), surfaces, descriptors.size(), players, lights, err.c_str());
         return report("map_scene", ok, buf);
+    }
+
+    bool scenarioMapGroundPlacement(const std::string& path)
+    {
+        std::string err;
+        qmap::MapData map = qmap::loadMapFile(path, &err);
+        auto descriptors = mapEntitiesToDescriptors(map);
+
+        // Mirror of spawnMonsterGrunt's AABBCollider half-Y and the loader's lift.
+        constexpr float kGruntHalfY = 0.9f;
+        constexpr float kEps        = 0.01f;
+
+        int grunts = 0, sunk = 0;
+        float worstFeetGap = 0.0f;   // signed: negative = feet below authored floor
+
+        for (const auto& e : map.entities)
+        {
+            if (e.classname() != "monster_grunt" || !e.has("origin")) continue;
+            ++grunts;
+
+            // Authored ground point (feet target) in engine space.
+            std::istringstream ss(e.getString("origin"));
+            glm::vec3 m(0.0f);
+            ss >> m.x >> m.y >> m.z;
+            const float floorY = qmap::mapPointToEngine(m).y;
+
+            // The matching descriptor must place the body CENTRE a half-height above
+            // that ground, so the feet (centre − halfY) land exactly on the floor.
+            const glm::vec3 wantCentre = qmap::mapPointToEngine(m) + glm::vec3(0.0f, kGruntHalfY, 0.0f);
+            bool matched = false;
+            for (const auto& d : descriptors)
+            {
+                if (d.classname != "monster_grunt") continue;
+                if (glm::length(d.origin - wantCentre) < kEps) { matched = true; break; }
+            }
+
+            const float feetY = matched ? (wantCentre.y - kGruntHalfY) : (floorY - kGruntHalfY);
+            const float gap   = feetY - floorY;
+            if (std::fabs(gap) > kEps) { ++sunk; }
+            if (std::fabs(gap) > std::fabs(worstFeetGap)) worstFeetGap = gap;
+        }
+
+        bool ok = err.empty() && grunts > 0 && sunk == 0;
+
+        char buf[220];
+        std::snprintf(buf, sizeof(buf),
+            "grunts=%d, sunk/misplaced=%d, worst feet gap=%.3f (want ~0), err=\"%s\"",
+            grunts, sunk, worstFeetGap, err.c_str());
+        return report("map_ground", ok, buf);
     }
 }

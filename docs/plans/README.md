@@ -21,7 +21,6 @@ These are **planning documents** — they propose work, they don't perform it.
 ### Level authoring — group `trenchbroom`
 | Plan | Scope |
 |------|-------|
-| [2026-07-03_trenchbroom_install.md](2026-07-03_trenchbroom_install.md) | Install + configure TrenchBroom (`tb/` config, FGD). No engine code — do now. |
 | [2026-07-03_trenchbroom_engine-loader.md](2026-07-03_trenchbroom_engine-loader.md) | `.map` parser → brush mesh → entity mapping → brush collision → wire `buildWorld`. |
 
 *(The `docs` group — architecture-sync + engine-overview — has shipped; see below.)*
@@ -29,6 +28,10 @@ These are **planning documents** — they propose work, they don't perform it.
 ---
 
 ## Recently shipped & archived
+- [2026-07-03_trenchbroom_install.md](archive/2026-07-03_trenchbroom_install.md) — installed +
+  configured TrenchBroom v2026.1 (`tb/` config in AppData, Game Path set) and authored both
+  `assets/maps/smoke.map` and the full `assets/maps/showcase.map` (complete showcase rebuild).
+  Shipped 2026-07-07.
 - **Fix: player speed run-away** — shipped. `playerCharacterSystem` now does ground accel/friction
   in the ground-relative frame (platform velocity inherited once, not double-counted each tick —
   the bug the new horizontally-moving enemies exposed) + a `CharacterPhysics.maxHorizontalSpeed`

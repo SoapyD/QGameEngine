@@ -6,7 +6,7 @@ loader as it comes online (parser → mesh → entities → collision → wire-u
 You don't need the full showcase to start — a tiny room drives the whole pipeline.
 
 **Prereq:** the QEngine game config from [`../../tb/`](../../tb/) is installed — see
-[`../plans/2026-07-03_trenchbroom_install.md`](../plans/2026-07-03_trenchbroom_install.md).
+[`../plans/archive/2026-07-03_trenchbroom_install.md`](../plans/archive/2026-07-03_trenchbroom_install.md).
 
 > **Just want click-by-click steps?** See the hands-on walkthrough
 > [`TRENCHBROOM_WALKTHROUGH.md`](TRENCHBROOM_WALKTHROUGH.md) (tuned to v2026.1). This doc

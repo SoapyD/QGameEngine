@@ -19,4 +19,9 @@ namespace mapscenarios
     // geometry + SpawnParams, and assert the MVP conversion (36 surfaces, player +
     // light descriptors). Pure data — no GL, registry, or physics.
     bool scenarioMapScene();
+
+    // Ground-placement check: load a `.map` and assert every floor-standing actor
+    // (monster_grunt) is lifted from its authored feet-origin to a centre-origin,
+    // so it stands ON the floor rather than sinking in by half its height.
+    bool scenarioMapGroundPlacement(const std::string& path);
 }

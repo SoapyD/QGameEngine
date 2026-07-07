@@ -36,14 +36,11 @@ int main(int argc, char** argv)
 
 	ResourceManager resources;
 
-	// ─── Load resources ──────────────────────────────────────
 	qengine::loadResources(resources);
 
-	// ─── Audio ───────────────────────────────────────────────
 	AudioEngine audio;
 	audio.init("assets/sounds", "assets/sounds/manifest.json");
 
-	// ─── Camera ──────────────────────────────────────────────────
 	Camera camera(glm::vec3(15.0f, 1.7f, 15.0f));
 
 	// ─── ECS: Create the world ───────────────────────────────────
@@ -61,16 +58,18 @@ int main(int argc, char** argv)
 	WeaponViewModel weaponViewModel = createWeaponViewModel(resources);
 	unsigned int litShaderId = resources.getShader("lit")->getId();
 
-	// Start background music (loops).
-	audio.playMusic("music.exploration");
+	audio.playMusic("music.exploration");  // loops
 
 	// ─── Game Loop ───────────────────────────────────────────────
 
 	auto& hudConfig = registry.ctx().emplace<HudConfig>();
 	hudConfig.shaderId = resources.getShader("hud")->getId();
 
-	// enable depth testing (so closer things draw in front of further things)
-	glEnable(GL_DEPTH_TEST);
+	// F1 toggles trigger-volume wireframes; default on (visible on load).
+	registry.ctx().emplace<DebugRenderConfig>();
+	bool prevToggleKey = false;
+
+	glEnable(GL_DEPTH_TEST);  // closer fragments occlude further ones
 
 	float fpsTimer = 0.0f;
 	int frameCount = 0;
@@ -98,7 +97,12 @@ int main(int argc, char** argv)
 		if (input.isKeyPressed(GLFW_KEY_ESCAPE))
 			glfwSetWindowShouldClose(window.getHandle(), true);
 
-		// mouse look - camera still handles this directly
+		// F1 (edge-detected): toggle trigger-volume debug wireframes.
+		bool toggleKey = input.isKeyPressed(GLFW_KEY_F1);
+		if (toggleKey && !prevToggleKey)
+			registry.ctx().get<DebugRenderConfig>().showTriggerVolumes ^= true;
+		prevToggleKey = toggleKey;
+
 		camera.processMouse(input.getMouseXOffset(), input.getMouseYOffset());
 
 		// ─── Map input → PlayerInput + publish aim direction ─────
@@ -133,11 +137,7 @@ int main(int argc, char** argv)
 		renderSystem(registry, camera, aspectRatio, alpha); // draw everything
 		renderWeaponViewModel(weaponViewModel, registry, camera, aspectRatio,
 			litShaderId, frameTime);                        // first-person gun
-		debugHudSystem
-		(
-			registry, window.getWidth(), 
-			window.getHeight(), currentFps
-		);
+		debugHudSystem(registry, window.getWidth(), window.getHeight(), currentFps);
 
 		window.swapBuffers();
 
