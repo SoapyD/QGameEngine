@@ -1,7 +1,7 @@
 # Plan — TrenchBroom: Engine `.map` Loader
 
 **Group:** `trenchbroom` (part 2 of 2 — **depends on**
-[2026-07-03_trenchbroom_install.md](2026-07-03_trenchbroom_install.md) for a sample `.map`).
+[2026-07-03_trenchbroom_install.md](archive/2026-07-03_trenchbroom_install.md) for a sample `.map`).
 **Graduated from** [archive/2026-06-08_trenchbroom-setup.md](archive/2026-06-08_trenchbroom-setup.md) Parts 2–3.
 
 **Goal:** load a TrenchBroom `.map` into the running engine, replacing the hard-coded

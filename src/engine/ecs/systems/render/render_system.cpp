@@ -44,7 +44,6 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 	for (auto [entity, pos, light] : pointView.each())
 	{
 		if (numPointLights >= MAX_POINT_LIGHTS) break;
-
 		pointLightsData[numPointLights] =
 		{
 			pos.value,
@@ -57,10 +56,17 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 	}
 
 	// ─── Draw meshes ─────────────────────────────────────────────
+	// Trigger wireframes show only when the debug toggle is on (no config → on).
+	bool showTriggers = !registry.ctx().contains<DebugRenderConfig>()
+		|| registry.ctx().get<DebugRenderConfig>().showTriggerVolumes;
+
 	auto meshView = registry.view<Position, MeshRenderer>();
 
 	for (auto [entity, pos, mesh] : meshView.each())
 	{
+		const bool isWireframe = registry.all_of<TagDebugWireframe>(entity);
+		if (isWireframe && !showTriggers) continue;
+
 		// Interpolate between the previous and current tick position. Snap
 		// (skip interpolation) on large deltas so teleports/respawns don't
 		// streak across the level.
@@ -91,11 +97,8 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 
 		glUseProgram(mesh.shaderId);
 
-		// transform uniforms
+		// Uniforms set via raw GL (we hold only the shader ID, not the object).
 		GLint loc;
-		
-		// we need to set uniforms via the raw OpenGL calls here
-		// since we only have the shader ID, not the shader object
 		loc = glGetUniformLocation(mesh.shaderId, "model");
 		glUniformMatrix4fv(loc, 1, GL_FALSE, &model[0][0]);
 		loc = glGetUniformLocation(mesh.shaderId, "view");
@@ -155,7 +158,7 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 		}
 		// Flat colour override for debug wireframes (+ enemy hit flash)
 		loc = glGetUniformLocation(mesh.shaderId, "colorOverride");
-		if (registry.all_of<TagDebugWireframe>(entity))
+		if (isWireframe)
 			glUniform4f(loc, 0.0f, 1.0f, 0.0f, 1.0f);  // bright green
 		else if (const DamageFlash* f = registry.try_get<DamageFlash>(entity); f && f->timer > 0.0f)
 			glUniform4f(loc, 1.0f, 1.0f, 1.0f, 1.0f);  // hit flash — brief flat white
@@ -169,9 +172,7 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 			glUniform3fv(glGetUniformLocation(mesh.shaderId, "albedoColor"), 1,
 				&registry.get<Colour>(entity).value[0]);
 
-		// Switch to wireframe if this is a debug entity
-		bool wireframe = registry.all_of<TagDebugWireframe>(entity);
-		if (wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		if (isWireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		glBindVertexArray(mesh.vao);
 
@@ -184,7 +185,6 @@ void renderSystem(entt::registry& registry, const Camera& camera,
 			glDrawArrays(GL_TRIANGLES, 0, mesh.vertexCount);
 		}
 
-		// Switch back to filled rendering for the next entity
-		if (wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		if (isWireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);  // restore fill
 	}
 };

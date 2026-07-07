@@ -6,11 +6,13 @@
 #include "engine/level/map_loader.h"
 #include "engine/level/map_to_descriptors.h"
 #include "engine/level/map_to_level.h"
+#include "engine/level/factories.h"
 #include "engine/level/spawn_scene.h"
 
 #include <iostream>
 #include <string>
 #include <utility>
+#include <vector>
 
 Level setupSceneFromMap
 (
@@ -72,6 +74,22 @@ Level setupSceneFromMap
         return resources.getTexture(std::string(name))->getId();
     };
     factories::spawnScene(registry, ctx, mapEntitiesToDescriptors(map));
+
+    // ─── Debug: wireframe twin per trigger volume ────────────────
+    // The showcase hand-placed `_wireframe` boxes over its trigger zones; a
+    // `.map` has none, so its activate/hurt/teleport volumes are invisible.
+    // Spawn a green wireframe box matching each trigger's AABB (shown/hidden by
+    // the DebugRenderConfig toggle). Collect first, then spawn — creating
+    // entities mid-view would touch the Position pool we're iterating.
+    if (!headless)
+    {
+        unsigned int wireTex = resources.getTexture("grid_green")->getId();
+        std::vector<std::pair<glm::vec3, glm::vec3>> zones;  // centre, full-size
+        for (auto [e, pos, col, trig] : registry.view<Position, AABBCollider, TriggerVolume>().each())
+            zones.emplace_back(pos.value, col.halfExtents * 2.0f);
+        for (const auto& [centre, size] : zones)
+            factories::spawnDebugWireframe(registry, ctx.assets, centre, size, wireTex);
+    }
 
     // ─── Combat resources (registry context) ────────────────────
     auto& combatRes = registry.ctx().emplace<CombatResources>();

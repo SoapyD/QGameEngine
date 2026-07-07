@@ -13,6 +13,14 @@ struct HudConfig
 	unsigned int shaderId = 0;
 };
 
+// Debug-visualisation toggles (stored in registry context). renderSystem reads
+// these; the game loop flips them from key input. `showTriggerVolumes` draws the
+// otherwise-invisible activate/hurt/teleport zones as green wireframe boxes.
+struct DebugRenderConfig
+{
+	bool showTriggerVolumes = true;
+};
+
 // Player's view/aim direction, published to the registry context each frame
 // (combatSystem reads it for firing). A named type avoids the fragile bare
 // glm::vec3-in-context coupling.
