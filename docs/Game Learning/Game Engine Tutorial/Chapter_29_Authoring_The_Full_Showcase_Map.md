@@ -213,7 +213,7 @@ bare pickup grants the default ammo. The showcase lines them up along a wall:
 // entity 3
 {
 "classname" "weapon_grenadelauncher"
-"origin" "-398 -366 -80"
+"origin" "-398 -366 -64"
 }
 ```
 
@@ -239,6 +239,15 @@ times.
 
 Two grunts, side by side. That's the same enemy you spent Chapters 22–25 making shootable and path-finding
 — now a thing you drop into a room by clicking.
+
+Notice both grunts are authored with their origin **on the floor** (`z = -80`, the floor surface) — you
+rest them on the ground and they stand on the ground in-game. That's *not* automatic: the factories spawn an
+actor at its body **centre**, so a naive import would bury a floor-placed grunt half-in the floor. The
+loader corrects it by lifting a floor-standing actor by its half-height on the way in — the fix, why it was
+needed, and the regression test that guards it are **Chapter 30**. (The pickups above sit a little higher,
+at `z = -64`, because they're authored to *float* just off the floor rather than stand on it, and the lift
+applies only to the grunt.) For authoring, the rule is simply: **rest a grunt on the floor and it stands on
+the floor.**
 
 > **Why does the showcase set so few keys — a bare `light_environment`, origin-only pickups — instead of
 > being explicit about every property?** Because the FGD defaults *are* the descriptor's values, by design
@@ -428,33 +437,26 @@ transform that converts every brush vertex. Look at `src/engine/level/map_to_des
 that turns a `MapEntity` into a `SpawnParams`:
 
 ```cpp
-        // Vector-valued props factories read back by name must cross into engine
-        // space here (props are otherwise raw map-space strings).
-        auto convertPoint = [&](const char* key)
+        // Vector props the factories read back by name must cross into engine
+        // space here (positions scale + axis-swap; a direction only axis-swaps).
+        auto convertKey = [&](const char* key, glm::vec3 (*xf)(glm::vec3))
         {
             if (!e.has(key)) return;
             std::istringstream ss(e.getString(key));
             glm::vec3 m(0.0f);
             if (ss >> m.x >> m.y >> m.z)
-                p.props[key] = vec3ToStr(qmap::mapPointToEngine(m));
+                p.props[key] = vec3ToStr(xf(m));
         };
-        auto convertDir = [&](const char* key)
-        {
-            if (!e.has(key)) return;
-            std::istringstream ss(e.getString(key));
-            glm::vec3 m(0.0f);
-            if (ss >> m.x >> m.y >> m.z)
-                p.props[key] = vec3ToStr(qmap::mapDirToEngine(m));
-        };
-        convertPoint("endpos");    // func_door/func_plat travel target (world pos)
-        convertPoint("velocity");  // prop_dynamic initial velocity (linear)
-        convertDir("direction");   // light_environment sun vector
+        convertKey("endpos",    qmap::mapPointToEngine);  // door/plat travel target
+        convertKey("velocity",  qmap::mapPointToEngine);  // prop_dynamic velocity
+        convertKey("direction", qmap::mapDirToEngine);    // light_environment sun
 ```
 
-Three spatial keys get converted on the way in: `endpos` and `velocity` are *positions* (run through
-`mapPointToEngine` — axis swap **and** scale), and `direction` (the sun vector) is a *direction* (run
-through `mapDirToEngine` — axis swap only, no scale, since a direction has no length that should shrink).
-The rule that falls out of this is simple and absolute:
+One small lambda, `convertKey`, does the work for all three — it takes the conversion function as a
+parameter (`xf`), so the *only* difference between the keys is which transform they pass. Two of them,
+`endpos` and `velocity`, are *positions* and pass `mapPointToEngine` (axis swap **and** scale); the third,
+`direction` (the sun vector), is a *direction* and passes `mapDirToEngine` (axis swap only, no scale, since a
+direction has no length that should shrink). The rule that falls out of this is simple and absolute:
 
 > **Any vector key you type in TrenchBroom — `endpos`, `velocity`, `direction` — is authored in MAP space.
 > The loader converts it. Never type engine units into these keys.**
