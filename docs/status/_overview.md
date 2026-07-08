@@ -42,8 +42,8 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 
 | Feature | State | Note |
 |---------|-------|------|
-| AI / enemies | ✅ | `monster_grunt`: kinematic body, blocks player, shootable (hit-flash + sounds), `aiSystem` LoS-aggro → A\* chase (routes around walls/props) → melee attack. Ranged/navmesh not done |
-| Crosshair / expanded HUD | 🔴 | debug HUD only |
+| AI / enemies | ✅ | `monster_grunt` (melee) + `monster_ranged` (blue, keeps distance & fires dodgeable bolts): `CharacterVirtual` + kinematic inner body (blocks player), shootable (hit-flash + sounds), `aiSystem` LoS-aggro → A\* chase with **collided locomotion** (no corner-clip) → melee **or** standoff+ranged attack. Projectiles are faction-tagged (no friendly-fire). Navmesh deferred (grid A\* adequate) |
+| Crosshair / expanded HUD | ✅ | Health/armour bars, ammo (low-ammo red), weapon bar, pickup toast, damage flash. **Dynamic crosshair** (gap grows with weapon spread + movement + recoil), **hit/kill markers**, **damage-direction chevron**. Signals live in `HudSignals` (ctx, updated by `hudSignalSystem`) so the state is tested headless (`hud_signals`). Deferred: floating enemy health bar, debug-toggle key |
 | Networking | 🔴 | `src/engine/network/` empty (scaffold); see roadmap |
 | TrenchBroom level loading | 🔴 | levels hardcoded; setup planned (plan 03) |
 | BSP traversal | 🔴 | sectors built, no BSP walk |

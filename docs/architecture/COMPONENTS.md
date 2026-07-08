@@ -99,7 +99,7 @@ struct JoltCharacter {
     JPH::Ref<JPH::CharacterVirtual> character;
 };
 ```
-Links the player entity to a Jolt `CharacterVirtual` controller. Created by `initPlayerCharacter`. The `character` ref is used to set velocity, call `ExtendedUpdate`, read position, and check ground state.
+Links an entity to a Jolt `CharacterVirtual` controller. The `character` ref is used to set velocity, call `ExtendedUpdate`, read position, and check ground state. Carried by **the player** (created by `initPlayerCharacter`, no inner body) and by **enemies** (created by `initEnemyCharacters`, *with* a kinematic inner body on `Layers::MOVING` so the enemy blocks the player and other enemies). Driven by `playerCharacterSystem` / `aiSystem` respectively.
 
 **Used by:** `playerCharacterSystem` only.
 
@@ -236,10 +236,11 @@ struct Projectile {
     float damage;
     float splashRadius;
     float splashDamage;
-    entt::entity owner = entt::null;
+    entt::entity owner = entt::null;   // who fired it (kill credit; owner never self-hits)
+    Faction faction = Faction::Player; // Player/Enemy — friendly-fire guard
 };
 ```
-Attached to projectile entities spawned by `combatSystem`. Used for hit detection and splash damage calculation.
+Attached to projectile entities spawned by `fireProjectile`. Used for hit detection and splash damage. `faction` is derived from the shooter (enemies fire `Enemy`, everything else `Player`); `updateProjectiles` skips same-faction targets (and other projectiles), so enemy bolts never hurt enemies and player shots never hurt the player.
 
 ---
 
@@ -399,7 +400,7 @@ struct AIState {
     entt::entity target = entt::null;     // who to chase/attack (behaviour)
 };
 ```
-Marks an entity as an enemy (the `monster_grunt` archetype) and holds its behaviour state. `target` doubles as the aggro flag — `null` until the grunt sees the player, then the player entity until they escape pursue range. **Written by:** `aiSystem` (aggro, state machine, attack cooldown). **Read by:** `enemyDeathSystem`. `buildWorld` gives every `AIState` entity a kinematic Jolt body so it stands, blocks the player, and can be steered by `aiSystem`.
+Marks an entity as an enemy (the `monster_grunt` archetype) and holds its behaviour state. `target` doubles as the aggro flag — `null` until the grunt sees the player, then the player entity until they escape pursue range. **Written by:** `aiSystem` (aggro, state machine, attack cooldown). **Read by:** `enemyDeathSystem`. `buildWorld` (`initEnemyCharacters`) gives every `AIState` entity a `JoltCharacter` (`CharacterVirtual` + kinematic inner body) so it stands on the floor, blocks the player, and is driven with collided locomotion by `aiSystem`.
 
 ### `AIPath`
 ```cpp
@@ -409,7 +410,21 @@ struct AIPath {
     float  repathTimer = 0.0f; // recompute the path at ≤ 0
 };
 ```
-The A\* route the grunt is following toward its target, over the `NavGrid`. **Used by:** `aiSystem` — recomputed on a timer / when the path runs out, and followed by steering the kinematic body waypoint to waypoint (so the enemy routes *around* walls and props).
+The A\* route the grunt is following toward its target, over the `NavGrid`. **Used by:** `aiSystem` — recomputed on a timer / when the path runs out, and followed by driving the enemy's `CharacterVirtual` from waypoint to waypoint (so the enemy routes *around* walls and props, and collides rather than clips on corner-cuts).
+
+### `RangedAttack`
+```cpp
+struct RangedAttack {
+    float range = 16.0f;           // fire when the player is within this (and visible)
+    float standoffMin = 7.0f;      // back off if the player closes inside this
+    float damage = 10.0f;
+    float projectileSpeed = 12.0f; // slow enough to dodge
+    float windup = 0.5f;           // telegraph before firing (seconds)
+    float cooldown = 1.6f;         // seconds between shots
+    float windupTimer = 0.0f;      // >0 while telegraphing the current shot
+};
+```
+Present on ranged enemies (the `monster_ranged` archetype); absent → melee-only. **Used by:** `aiSystem`'s ranged branch — holds the enemy at standoff range, telegraphs (`windup`), then fires a dodgeable Enemy-faction bolt (`aiFireEnemyBolt` → `fireProjectile`). See also [SYSTEMS.md](SYSTEMS.md) `aiSystem`.
 
 ---
 
@@ -498,6 +513,7 @@ These are singletons stored in `registry.ctx()`, not attached to entities.
 | `PhysicsConfig` | `fixedDeltaTime`, `terminalVelocity` | `main.cpp` (init) | Most systems |
 | `JoltWorld` | Jolt `PhysicsSystem`, allocator, job system | `main.cpp` (init) | Physics systems |
 | `HudConfig` | HUD shader ID | `main.cpp` (init) | `debugHudSystem` |
+| `HudSignals` | Crosshair gap, recoil, hit/kill/damage-dir timers, low-ammo flag, `showDebug` | `buildWorld`; recomputed each tick by `hudSignalSystem`, event markers set by `combatSystem`/`aiSystem` | `debugHudSystem` (draws it) |
 | `CombatResources` | VAO, shader, texture IDs for projectile/tracer spawning | `setupScene` | `combatSystem` |
 | `CameraDirection` | Camera front direction (for weapon firing) | `main.cpp` (each frame) | `combatSystem` |
 | `SoundQueue` | One-frame queue of `SoundEvent`s (`{id, pos, positional}`) | any simulation system via `queueSound()` | `audioSystem` (windowed build; drained + played) |

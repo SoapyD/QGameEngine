@@ -21,6 +21,9 @@ std::optional<EntityHit> raycastEntities
 	{
 		if (entity == ignore) continue;
 		if (col.isTrigger) continue;
+		// Projectiles are ephemeral — they must not block sightlines (an enemy's
+		// own bolt would break its line of sight) or be shootable targets.
+		if (registry.any_of<Projectile>(entity)) continue;
 
 		AABB box = AABB::fromCentreSize(pos.value, col.halfExtents);
 		auto hit = rayIntersectionsAABB(ray, box);

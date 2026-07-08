@@ -1,14 +1,15 @@
 #include "engine/ecs/systems/enemy/ai_system.h"
+#include "engine/ecs/systems/enemy/ai_support.h"
 
 #include "engine/ecs/components.h"
 #include "engine/ecs/apply_damage.h"
-#include "engine/ecs/systems/combat/combat_internal.h"   // raycastEntities
 #include "engine/ai/find_path.h"
 #include "engine/ai/types/nav_grid.h"
 #include "engine/physics/jolt_world.h"
 #include "engine/physics/physics_config.h"
-#include "engine/physics/raycast.h"
 #include "engine/audio/queue_sound.h"
+
+#include <Jolt/Physics/Character/CharacterVirtual.h>
 
 #include <algorithm>
 #include <cmath>
@@ -26,30 +27,6 @@ namespace
     constexpr float kWaypointHit  = 0.5f;   // distance at which a waypoint is "reached"
     constexpr int   kRepathBudget = 4;      // A* recomputes allowed per tick (stagger enemies)
 
-    bool clearLineOfSight(entt::registry& reg, const Level& level, entt::entity self,
-                          entt::entity player, glm::vec3 from, glm::vec3 to)
-    {
-        glm::vec3 delta = to - from;
-        float dist = glm::length(delta);
-        if (dist < 0.001f) return true;
-        Ray ray{ from, delta / dist };
-
-        for (const auto& sector : level.sectors)
-            for (const auto& s : sector.surfaces)
-            {
-                AABB box;
-                box.min = glm::min(glm::min(s.vertices[0], s.vertices[1]),
-                                   glm::min(s.vertices[2], s.vertices[3])) - glm::vec3(0.05f);
-                box.max = glm::max(glm::max(s.vertices[0], s.vertices[1]),
-                                   glm::max(s.vertices[2], s.vertices[3])) + glm::vec3(0.05f);
-                auto hit = rayIntersectionsAABB(ray, box);
-                if (hit && *hit < dist - 0.1f) return false;
-            }
-
-        auto hit = raycastEntities(reg, ray, self, dist);
-        return !(hit && hit->entity != player && hit->distance < dist - 0.1f);
-    }
-
     void faceDir(entt::registry& reg, entt::entity e, glm::vec3 d)
     {
         if (glm::length(d) < 0.001f) return;
@@ -61,8 +38,9 @@ namespace
 void aiSystem(entt::registry& registry, const Level& level)
 {
     const float dt = registry.ctx().get<PhysicsConfig>().fixedDeltaTime;
-    auto& bodyInterface = registry.ctx().get<JoltWorld>().getBodyInterface();
+    auto& jolt = registry.ctx().get<JoltWorld>();
     const NavGrid* nav = registry.ctx().find<NavGrid>();
+    const auto& combatRes = registry.ctx().get<CombatResources>();
 
     entt::entity player = entt::null;
     glm::vec3 playerPos(0.0f);
@@ -72,19 +50,25 @@ void aiSystem(entt::registry& registry, const Level& level)
 
     int repathBudget = kRepathBudget;
 
-    for (auto [entity, ai, pos, body, path] : registry.view<AIState, Position, JoltBody, AIPath>().each())
+    for (auto [entity, ai, pos, joltChar, path] : registry.view<AIState, Position, JoltCharacter, AIPath>().each())
     {
-        auto haltInPlace = [&] {
-            bodyInterface.MoveKinematic(body.id,
-                JPH::RVec3(pos.value.x, pos.value.y, pos.value.z), JPH::Quat::sIdentity(), dt);
+        JPH::CharacterVirtual* ch = joltChar.character.GetPtr();
+
+        // Move the character with a horizontal velocity (0 = hold ground) and mirror
+        // its collided position back into ECS. joltSyncSystem skips enemies now — they
+        // have no JoltBody — so aiSystem owns their Position.
+        auto move = [&](glm::vec3 horiz) {
+            aiStepCharacter(ch, horiz, dt, jolt);
+            JPH::RVec3 cp = ch->GetPosition();
+            pos.value = glm::vec3(cp.GetX(), cp.GetY(), cp.GetZ());
         };
 
         glm::vec3 flat = playerPos - pos.value; flat.y = 0.0f;
         float dist = glm::length(flat);
         glm::vec3 toPlayer = dist > 0.001f ? flat / dist : glm::vec3(0.0f);
-        bool los = clearLineOfSight(registry, level, entity, player,
-                                    pos.value + glm::vec3(0.0f, kEyeOffset, 0.0f),
-                                    playerPos + glm::vec3(0.0f, 0.4f, 0.0f));
+        bool los = aiClearLineOfSight(registry, level, entity, player,
+                                      pos.value + glm::vec3(0.0f, kEyeOffset, 0.0f),
+                                      playerPos + glm::vec3(0.0f, 0.4f, 0.0f));
 
         // ─── Aggro: acquire on sight, drop when the player escapes ───
         if (ai.target == entt::null)
@@ -100,24 +84,63 @@ void aiSystem(entt::registry& registry, const Level& level)
         {
             ai.state = AIStateKind::Idle;
             path.waypoints.clear();
-            haltInPlace();
+            move(glm::vec3(0.0f));
             continue;
         }
 
         if (ai.attackCooldown > 0.0f)
             ai.attackCooldown = std::max(0.0f, ai.attackCooldown - dt);
 
-        // ─── Attack: in range with a clear shot ──────────────────
-        if (los && dist <= kAttackRange)
+        // ─── Ranged attack: hold at standoff, telegraph, then fire a bolt ──
+        if (RangedAttack* r = registry.try_get<RangedAttack>(entity))
+        {
+            if (los && dist <= r->range)
+            {
+                ai.state = AIStateKind::Attack;
+                path.waypoints.clear();
+                faceDir(registry, entity, toPlayer);
+                // Keep distance: back off if the player closes inside standoffMin,
+                // otherwise hold position and shoot.
+                move(dist < r->standoffMin ? -toPlayer * kMoveSpeed : glm::vec3(0.0f));
+
+                if (r->windupTimer > 0.0f)
+                {
+                    r->windupTimer = std::max(0.0f, r->windupTimer - dt);
+                    if (r->windupTimer <= 0.0f)   // telegraph elapsed → release
+                    {
+                        glm::vec3 eye = pos.value + glm::vec3(0.0f, kEyeOffset, 0.0f);
+                        glm::vec3 aim = glm::normalize((playerPos + glm::vec3(0.0f, 0.4f, 0.0f)) - eye);
+                        aiFireEnemyBolt(registry, entity, eye, aim, *r, combatRes);
+                        ai.attackCooldown = r->cooldown;
+                    }
+                }
+                else if (ai.attackCooldown <= 0.0f)
+                {
+                    r->windupTimer = r->windup;   // begin the telegraph (aim + pause)
+                }
+                continue;
+            }
+            r->windupTimer = 0.0f;   // out of range/LoS — abandon any half-aimed shot
+            // fall through to Chase to close the distance
+        }
+        // ─── Melee attack: in range with a clear shot ──────────────────
+        else if (los && dist <= kAttackRange)
         {
             ai.state = AIStateKind::Attack;
             path.waypoints.clear();
             faceDir(registry, entity, toPlayer);
-            haltInPlace();
+            move(glm::vec3(0.0f));
             if (ai.attackCooldown <= 0.0f && applyDamage(registry, player, kAttackDamage))
             {
                 queueSoundAt(registry, "weapon.gauntlet", pos.value);
                 ai.attackCooldown = kAttackPeriod;
+                // HUD damage-direction: the melee hit came from this grunt.
+                if (HudSignals* hud = registry.ctx().find<HudSignals>())
+                {
+                    hud->damageDir = glm::length(flat) > 0.001f
+                        ? glm::vec2(toPlayer.x, toPlayer.z) * -1.0f : glm::vec2(0.0f);
+                    hud->damageDirTimer = HudSignals::kDamageDirTime;
+                }
             }
             continue;
         }
@@ -148,9 +171,7 @@ void aiSystem(entt::registry& registry, const Level& level)
             }
         }
 
-        glm::vec3 target = pos.value + stepDir * kMoveSpeed * dt;
-        bodyInterface.MoveKinematic(body.id,
-            JPH::RVec3(target.x, target.y, target.z), JPH::Quat::sIdentity(), dt);
         faceDir(registry, entity, stepDir);
+        move(stepDir * kMoveSpeed);
     }
 }

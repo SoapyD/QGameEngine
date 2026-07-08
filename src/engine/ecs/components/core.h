@@ -13,6 +13,25 @@ struct HudConfig
 	unsigned int shaderId = 0;
 };
 
+// Transient HUD event signals (combat/AI → HUD), recomputed each fixed tick by
+// hudSignalSystem and read by debugHudSystem. Lives in the registry context so
+// the *state* is testable headless — the GL HUD only draws it. Timers count down
+// in seconds; a value > 0 means "show this for now".
+struct HudSignals
+{
+	float     crosshairGap    = 2.0f;            // half-gap (px): base + spread + movement + recoil
+	float     recoil          = 0.0f;            // kick derived from the current weapon's cooldown
+	float     hitMarkerTimer  = 0.0f;            // >0 briefly after a player shot damages an enemy
+	float     killMarkerTimer = 0.0f;            // >0 briefly after a player shot kills an enemy
+	float     damageDirTimer  = 0.0f;            // >0 briefly after the player takes a hit
+	glm::vec2 damageDir       = glm::vec2(0.0f); // world-XZ unit dir toward the last attacker
+	bool      lowAmmo         = false;           // current weapon's pool at/under the low threshold
+	bool      showDebug       = true;            // gate the FPS/debug text (clean production HUD)
+
+	static constexpr float kMarkerTime    = 0.25f; // hit/kill marker lifetime
+	static constexpr float kDamageDirTime = 1.2f;  // damage-direction arc lifetime
+};
+
 // Debug-visualisation toggles (stored in registry context). renderSystem reads
 // these; the game loop flips them from key input. `showTriggerVolumes` draws the
 // otherwise-invisible activate/hurt/teleport zones as green wireframe boxes.

@@ -130,7 +130,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 **File:** `systems/combat_system.h/.cpp`
 
-**Purpose:** Handles weapon firing — hitscan raycasting and projectile spawning. Applies damage to entities with `Health` components. Spawns visual tracers for hitscan and projectile entities for rockets/grenades.
+**Purpose:** Handles weapon firing — hitscan raycasting and projectile spawning. Applies damage to entities with `Health` components. Spawns visual tracers for hitscan and projectile entities for rockets/grenades. Projectiles carry a `Faction` (derived from the shooter); `updateProjectiles` skips same-faction targets and other projectiles, so enemy bolts can't hurt enemies, player shots can't hurt the player, and bolts pass through each other. `raycastEntities` likewise ignores projectiles (they neither block sightlines nor are shootable). Enemy ranged fire reuses `fireProjectile` via `aiSystem`, not this system's player-input path.
 
 **Components:**
 | Component | Access |
@@ -240,15 +240,20 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 **File:** `systems/enemy/ai_system.h/.cpp`
 
-**Purpose:** Enemy behaviour. For each `AIState` entity: **aggro** the player on sight (detect range + clear line of sight; `target` latches until they escape pursue range), run the `Idle → Chase → Attack` state machine, and melee-attack on a cooldown (`applyDamage`). In **Chase** it **pathfinds** (A\* over the `NavGrid`, stored in `AIPath`, recomputed on a timer) and steers the kinematic body waypoint to waypoint, so it routes *around* walls and props instead of straight-lining into them. Line-of-sight tests level surfaces + solid props via `raycastEntities`.
+**Purpose:** Enemy behaviour. For each `AIState` entity: **aggro** the player on sight (detect range + clear line of sight; `target` latches until they escape pursue range), run the `Idle → Chase → Attack` state machine, and attack on a cooldown. In **Chase** it **pathfinds** (A\* over the `NavGrid`, stored in `AIPath`, recomputed on a timer) and drives its `CharacterVirtual` toward each waypoint, so it routes *around* walls and props **and** — because locomotion is now collided (`ExtendedUpdate`), not a kinematic sweep — no longer clips a wall on a corner-cut. **Attack** is melee (`applyDamage`) by default; an enemy carrying a `RangedAttack` instead **holds at standoff range**, telegraphs (`windup`), then fires a dodgeable Enemy-faction bolt (`aiFireEnemyBolt` → `fireProjectile`), backing off if the player closes inside `standoffMin`. Line-of-sight tests level surfaces + solid entities via `aiClearLineOfSight` (projectiles are excluded, so an enemy's own bolt never blocks its sight).
+
+**Helpers (split files, CODING_STANDARD §4):** `ai_step_character.cpp` (`aiStepCharacter` — collided locomotion), `ai_line_of_sight.cpp` (`aiClearLineOfSight`), `ai_fire_bolt.cpp` (`aiFireEnemyBolt`), all declared in `ai_support.h`.
+
+**Initialisation:** Call `initEnemyCharacters(registry)` once after level bodies exist (in `buildWorld`). Like `initPlayerCharacter`, it builds a `CapsuleShape` `CharacterVirtual` from each enemy's `AABBCollider` — plus a kinematic **inner body** on `Layers::MOVING` so the enemy still blocks the player and separates from other enemies. `aiSystem` owns the enemy's `Position` (it writes back `CharacterVirtual::GetPosition()`); `joltSyncSystem` skips enemies since they have no `JoltBody`.
 
 **Components:**
 | Component | Access |
 |-----------|--------|
 | `AIState` | Read/Write (aggro target, state, attack cooldown) |
 | `AIPath` | Read/Write (A\* waypoints + follow cursor) |
-| `Position` | Read (self + player) |
-| `JoltBody` | Read (kinematic body to `MoveKinematic`) |
+| `RangedAttack` | Read/Write (optional — standoff/windup/fire; melee-only if absent) |
+| `Position` | Read/Write (self, from `CharacterVirtual`; player read) |
+| `JoltCharacter` | Read (drive `ExtendedUpdate`, read position/ground state) |
 | `Rotation` | Write (face movement/target) |
 | `TagPlayer` | Read (locate the target) |
 | `Health` | Write (attack damages the player, via `applyDamage`) |
@@ -256,13 +261,14 @@ All systems are free functions that take `entt::registry&` as their first parame
 **Context:**
 | Context | Access |
 |---------|--------|
+| `CombatResources` | Read (spawn ranged bolts via `fireProjectile`) |
 | `PhysicsConfig` | Read (`fixedDeltaTime`) |
-| `JoltWorld` | Read (`getBodyInterface()` for `MoveKinematic`) |
+| `JoltWorld` | Read (`physicsSystem` filters + `tempAllocator` for `ExtendedUpdate`) |
 | `NavGrid` | Read (walkability grid for A\*) |
 
 **Also takes:** `const Level&` (line-of-sight vs. walls). Pathfinding lives in `engine/ai/` (`build_nav_grid`, `find_path`). Repaths are capped per tick.
 
-**When:** Fixed tick, after `moverSyncSystem` and **before** `joltWorld.step()`, so the enemy's `MoveKinematic` target is swept this tick (mirrors movers). Reads last tick's player position.
+**When:** Fixed tick, after `moverSyncSystem` and **before** `joltWorld.step()`. The character's `ExtendedUpdate` moves it (and its inner body) immediately, so the player's own `ExtendedUpdate` later in the tick collides against the enemy's current-tick position. Reads last tick's player position.
 
 ---
 
@@ -270,7 +276,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 
 **File:** `systems/enemy/enemy_death_system.h/.cpp`
 
-**Purpose:** Per-tick enemy upkeep that isn't behaviour: fades each enemy's `DamageFlash` timer (the white hit-blink), and removes enemies whose `Health` reached 0 — plays `combat.explosion_small`, destroys the Jolt body, drops the entity. Chase/attack behaviour is a separate system (behaviour plan).
+**Purpose:** Per-tick enemy upkeep that isn't behaviour: fades each enemy's `DamageFlash` timer (the white hit-blink), and removes enemies whose `Health` reached 0 — plays `combat.explosion_small`, drops the entity. Destroying the entity erases its `JoltCharacter`, whose destructor removes and destroys the inner body — no manual body teardown. Chase/attack behaviour is a separate system (`aiSystem`).
 
 **Components:**
 | Component | Access |
@@ -278,7 +284,7 @@ All systems are free functions that take `entt::registry&` as their first parame
 | `AIState` | Read (view filter — marks enemies) |
 | `DamageFlash` | Read/Write (fade the hit-flash timer) |
 | `Health` | Read (≤ 0 → dead) |
-| `JoltBody` | Read (body id to remove/destroy) |
+| `JoltCharacter` | (erased on destroy → inner body auto-removed) |
 
 **Context:**
 | Context | Access |
@@ -310,6 +316,16 @@ All systems are free functions that take `entt::registry&` as their first parame
 |---------|--------|
 | `PhysicsConfig` | Read (`fixedDeltaTime`) |
 | `JoltWorld` | Read (`getBodyInterface()`) |
+
+---
+
+### 13. `hudSignalSystem`
+
+**File:** `systems/hud/hud_signal_system.h/.cpp`
+
+**Purpose:** Recompute the player-facing HUD *state* each fixed tick into the `HudSignals` context: the crosshair gap (base + weapon spread + horizontal movement + a recoil kick *derived* from the current weapon's cooldown), the low-ammo flag, and the decay of the transient hit/kill/damage-direction timers. The **markers themselves are set at their event sites** — `fireHitscan`/`updateProjectiles` set the hit/kill marker when a player shot damages/kills an enemy; `updateProjectiles` (enemy bolt) and `aiSystem` (melee) set the damage-direction vector when the player is hit. Runs last in the sim tick, **before render**, so the state is fully computed for `debugHudSystem` to draw — and, crucially, is exercised **headless** (the `hud_signals` scenario asserts this ctx state; the GL HUD only draws it).
+
+**Context:** `HudSignals` (write), `PhysicsConfig` (read `fixedDeltaTime`). **Components:** player `WeaponInventory`/`Ammo`/`JoltCharacter` (read, for spread/low-ammo/speed).
 
 ---
 

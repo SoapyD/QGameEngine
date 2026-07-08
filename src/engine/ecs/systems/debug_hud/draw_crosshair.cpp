@@ -4,14 +4,13 @@
 
 void drawCrosshair
 (
-	float centreX, float centreY,
+	float centreX, float centreY, float gap,
 	unsigned int shaderId, const glm::mat4& projection,
 	const glm::vec3& color
 )
 {
-	// Crosshair: two lines with a 2px gap in the centre
-	// Total width/height = 20px (10px each side, minus 2px gap)
-	float gap = 2.0f;
+	// Crosshair: two lines gapped by `gap` px each side of centre. The gap grows
+	// with weapon spread / movement / recoil (see hudSignalSystem).
 	float arm = 10.0f;
 
 	// 4 vertices: horizontal line (2) + vertical line (2)

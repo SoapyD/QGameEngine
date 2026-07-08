@@ -49,6 +49,9 @@ void drawAmmo
 			ammoText, sizeof(ammoText),
 			"%s /%d", weaponName, ammoCount
 		);
-		drawText(x, y, ammoText, shaderId, projection, scale, glm::vec3(0.0f));
+		// Red when the current pool is low (flag computed by hudSignalSystem).
+		const HudSignals* hud = registry.ctx().find<HudSignals>();
+		glm::vec3 col = (hud && hud->lowAmmo) ? glm::vec3(0.9f, 0.1f, 0.1f) : glm::vec3(0.0f);
+		drawText(x, y, ammoText, shaderId, projection, scale, col);
 	}
 }

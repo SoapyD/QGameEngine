@@ -117,6 +117,11 @@ namespace
         return spawnMonsterGrunt(reg, ctx.assets, p.origin);
     }
 
+    entt::entity make_monster_ranged(entt::registry& reg, const SpawnContext& ctx, const SpawnParams& p)
+    {
+        return spawnMonsterRanged(reg, ctx.assets, p.origin);
+    }
+
     const std::unordered_map<std::string, SpawnFn>& table()
     {
         // World/environment classnames live here; item_* / weapon_* pickups are
@@ -138,6 +143,7 @@ namespace
                 { "func_decor",                &make_func_decor },
                 { "_wireframe",                &make_wireframe },
                 { "monster_grunt",             &make_monster_grunt },
+                { "monster_ranged",            &make_monster_ranged },
             };
             registerItemClassnames(m);
             return m;

@@ -121,11 +121,12 @@ Special case — iterates all surfaces in all sectors. Computes an AABB for each
 
 ---
 
-## CharacterVirtual (Player)
+## CharacterVirtual (Player & Enemies)
 
-**File:** `src/engine/ecs/systems/player_character_system.cpp`
+**File:** `src/engine/ecs/systems/player_character_system.cpp` (player),
+`src/engine/ecs/systems/enemy/init_enemy_characters.cpp` + `ai_system.cpp` (enemies)
 
-The player uses `CharacterVirtual` instead of a rigid body. This gives direct velocity control while still getting collision response.
+The player **and enemies** use `CharacterVirtual` instead of a rigid body. This gives direct velocity control while still getting collision response — for enemies it means path-following that collides with walls/props instead of clipping through them on a corner-cut.
 
 ### Initialisation (`initPlayerCharacter`)
 
@@ -159,6 +160,13 @@ Predictive: 0.1 units contact detection distance
 
 **Platform carry:** when the player is on a moving kinematic body (lift/door), `playerCharacterSystem` adds `CharacterVirtual::GetGroundVelocity()` to the player's velocity so they ride the platform. On static ground this is zero. The fixed tick order also runs movers + the physics step *before* the player's `ExtendedUpdate`, so the player resolves against the platform's current-tick position (see [TICK_ORDER.md](TICK_ORDER.md)).
 
+### Enemy characters (`initEnemyCharacters` / `aiSystem`)
+
+Enemies use the same capsule `CharacterVirtual`, built from each enemy's `AABBCollider` half-extents, with two differences from the player:
+
+- **Inner body.** `mInnerBodyShape` + `mInnerBodyLayer = Layers::MOVING` give the character a kinematic rigid body that *other* things collide with — so the enemy still **blocks the player** and separates from other enemies (the standalone kinematic enemy body it replaced). Jolt makes the character ignore its own inner body, and the `CharacterVirtual` destructor removes+destroys the inner body when the `JoltCharacter` component is erased (on death).
+- **Driven by `aiSystem`, not player input.** Each tick `aiSystem` sets a horizontal velocity toward the current A\* waypoint (0 = hold), applies gravity, calls `ExtendedUpdate`, and writes `GetPosition()` back to ECS. This runs **before** `joltWorld.step()`; because `ExtendedUpdate` moves the inner body immediately, the player's later `ExtendedUpdate` collides against the enemy's current-tick position. Enemies have **no** `JoltBody`, so `joltSyncSystem` skips them.
+
 ---
 
 ## MoveKinematic vs SetPosition
@@ -183,8 +191,10 @@ Predictive: 0.1 units contact detection distance
 4. OptimizeBroadPhase()            — Build spatial acceleration structure
 5. Create kinematic bodies         — For all entities with Mover component
    (no sensor bodies — triggers/pickups use ECS AABB overlap, not Jolt sensors)
-6. initPlayerCharacter()           — Create CharacterVirtual
-7. OptimizeBroadPhase()            — Re-optimize after adding more bodies
+6. initEnemyCharacters()           — CharacterVirtual + kinematic inner body per enemy
+7. initPlayerCharacter()           — Create CharacterVirtual
+8. OptimizeBroadPhase()            — Re-optimize after adding more bodies
+9. buildNavGrid()                  — Walkability grid from the (loaded/showcase) level
 ```
 
-The order matters — `initPlayerCharacter` must run after level bodies exist so the character spawns on solid ground, not in empty space.
+The order matters — `initEnemyCharacters`/`initPlayerCharacter` must run after level bodies exist so the characters spawn on solid ground, not in empty space.

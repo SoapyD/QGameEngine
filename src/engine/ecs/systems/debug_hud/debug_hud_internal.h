@@ -9,9 +9,18 @@
 void drawText(float x, float y, const char* text, unsigned int shaderId,
               const glm::mat4& projection, float scale, const glm::vec3& color);
 
-// Draw a centred crosshair (two gapped lines).
-void drawCrosshair(float centreX, float centreY, unsigned int shaderId,
+// Draw a centred crosshair (two lines gapped by `gap` px each side of centre).
+void drawCrosshair(float centreX, float centreY, float gap, unsigned int shaderId,
                    const glm::mat4& projection, const glm::vec3& color);
+
+// Draw a small diagonal "X" hit-marker over the crosshair (white = hit, red = kill).
+void drawHitMarker(float centreX, float centreY, unsigned int shaderId,
+                   const glm::mat4& projection, const glm::vec3& color);
+
+// Draw a damage-direction chevron at `screenAngle` radians around the crosshair
+// (0 = straight ahead/up, +x = to the right), fading with `alpha`.
+void drawDamageArc(float centreX, float centreY, float screenAngle, float alpha,
+                   unsigned int shaderId, const glm::mat4& projection);
 
 // Draw a background + partial-fill bar (health bar).
 void drawBar(float x, float y, float width, float height, float fillPercent,

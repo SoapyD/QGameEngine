@@ -1,7 +1,6 @@
 #include "engine/ecs/systems/enemy/enemy_death_system.h"
 
 #include "engine/ecs/components.h"
-#include "engine/physics/jolt_world.h"
 #include "engine/physics/physics_config.h"
 #include "engine/audio/queue_sound.h"
 
@@ -25,16 +24,12 @@ void enemyDeathSystem(entt::registry& registry)
 
     if (dead.empty()) return;
 
-    // Destroy dead enemies: pop a sound, remove the Jolt body, drop the entity.
-    auto& bodyInterface = registry.ctx().get<JoltWorld>().getBodyInterface();
+    // Destroy dead enemies: pop a sound, drop the entity. The enemy's
+    // CharacterVirtual (JoltCharacter) removes and destroys its own inner body in
+    // its destructor when the component is erased — no manual body teardown needed.
     for (entt::entity e : dead)
     {
         queueSoundAt(registry, "combat.explosion_small", registry.get<Position>(e).value);
-        if (const JoltBody* body = registry.try_get<JoltBody>(e))
-        {
-            bodyInterface.RemoveBody(body->id);
-            bodyInterface.DestroyBody(body->id);
-        }
         registry.destroy(e);
     }
 }

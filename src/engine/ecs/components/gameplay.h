@@ -145,3 +145,18 @@ struct AIPath
 	size_t index = 0;           // current waypoint being walked toward
 	float  repathTimer = 0.0f;  // counts down; a new path is computed at ≤ 0
 };
+
+// Present on ranged enemies. aiSystem holds them at standoff range and, on a
+// clear shot, plays a brief telegraph (windup) then fires a dodgeable projectile
+// at the player. Absent → the enemy is melee-only. Fired shots are Enemy-faction
+// (they can't hurt other enemies). See aiSystem's ranged branch.
+struct RangedAttack
+{
+	float range           = 16.0f;  // fire when the player is within this (and visible)
+	float standoffMin     = 7.0f;   // back off if the player closes inside this
+	float damage          = 10.0f;  // per bolt
+	float projectileSpeed = 12.0f;  // slow enough to dodge
+	float windup          = 0.5f;   // telegraph before the shot lands (seconds)
+	float cooldown        = 1.6f;   // seconds between shots
+	float windupTimer     = 0.0f;   // >0 while telegraphing the current shot
+};

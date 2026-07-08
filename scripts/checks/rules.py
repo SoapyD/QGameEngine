@@ -27,7 +27,7 @@ SIZE_RULES = [
     ("src/engine/physics/**/*.cpp", 200, "physics"),
     ("src/engine/audio/**/*.cpp", 200, "audio"),   # subsystem class impl (miniaudio wrapper)
     ("src/engine/app/**/*.cpp", 150, "app"),
-    ("src/harness/**/*.cpp", 750, "test harness"),  # scenario-heavy, lenient; grows per scenario
+    ("src/harness/**/*.cpp", 1000, "test harness"),  # scenario-heavy, lenient; grows per scenario
     ("src/**/*.cpp", 150, "cpp (default)"),
     ("src/**/*.h", 100, "header"),
 ]

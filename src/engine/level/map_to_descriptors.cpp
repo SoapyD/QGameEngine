@@ -20,7 +20,7 @@ namespace
     // centre-origin the factories expect (value = the actor's collider half-Y).
     float groundHalfHeight(const std::string& cls)
     {
-        if (cls == "monster_grunt") return 0.9f;  // mirrors spawnMonsterGrunt
+        if (cls == "monster_grunt" || cls == "monster_ranged") return 0.9f;  // grunt collider
         return 0.0f;
     }
 

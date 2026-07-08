@@ -28,6 +28,17 @@ These are **planning documents** — they propose work, they don't perform it.
 ---
 
 ## Recently shipped & archived
+- [2026-07-08_hud-crosshair-expansion.md](archive/2026-07-08_hud-crosshair-expansion.md) — dynamic
+  crosshair (spread + movement + recoil), hit/kill markers, low-ammo cue, damage-direction chevron,
+  and a debug/production split flag. HUD *state* lives in `HudSignals` (ctx) updated by
+  `hudSignalSystem`, so it's tested headless (`hud_signals`). Deferred: enemy health bar, toggle key.
+  Shipped 2026-07-08.
+- [2026-07-08_AI_ranged-and-navmesh.md](archive/2026-07-08_AI_ranged-and-navmesh.md) — **Part 2
+  (grid-hardening):** enemies now move with a `CharacterVirtual` + kinematic inner body → collided
+  locomotion (no corner-clip); nav-rebuild was already load-once; navmesh deferred. **Part 1 (ranged
+  attacks):** `Faction`-tagged projectiles (no friendly-fire), `RangedAttack` + `monster_ranged`
+  archetype, `aiSystem` standoff→telegraph→dodgeable-bolt branch. New scenarios `monster_ranged` +
+  `friendly_fire`; 18/18 green. Shipped 2026-07-08.
 - [2026-07-03_trenchbroom_install.md](archive/2026-07-03_trenchbroom_install.md) — installed +
   configured TrenchBroom v2026.1 (`tb/` config in AppData, Game Path set) and authored both
   `assets/maps/smoke.map` and the full `assets/maps/showcase.map` (complete showcase rebuild).
