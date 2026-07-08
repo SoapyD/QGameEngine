@@ -96,7 +96,7 @@ QEngine/
 - **Static bodies** for level geometry and immovable platforms
 - **Dynamic bodies** for physics objects (cubes)
 - **Kinematic bodies** for movers (doors, lifts) — pushed via `MoveKinematic`
-- **CharacterVirtual** for the player — direct velocity control with collision response
+- **CharacterVirtual** for the player and enemies — direct velocity control with collision response (enemies add a kinematic inner body so they block the player)
 - **Triggers and pickups** use ECS AABB overlap, *not* Jolt sensor bodies — `buildWorld` deliberately creates none (a `createSensorBody` helper exists but is unused)
 - See [JOLT_PHYSICS.md](JOLT_PHYSICS.md) for full details
 
@@ -150,7 +150,7 @@ QEngine/
 - First-person weapon viewmodel (procedural per-weapon gun shapes + colours; idle bob, fire recoil, switch drop/raise). Weapon pickups render as the same coloured gun models.
 - Audio (miniaudio + stb_vorbis: SFX + looping music via `SoundQueue`/`audioSystem`)
 - Demo reset system (periodic physics object respawn)
-- Enemies — `monster_grunt` archetype (kinematic body, blocks the player, shootable, white hit-flash + hit/death sounds, dies via `enemyDeathSystem`) with `aiSystem` behaviour: line-of-sight sensing/aggro, **A\* pathfinding** (routes around walls/props via a `NavGrid`), and melee attack.
+- Enemies — `monster_grunt` (melee) + `monster_ranged` (standoff + dodgeable bolts) archetypes (`CharacterVirtual` + kinematic inner body — blocks the player, shootable, white hit-flash + hit/death sounds, dies via `enemyDeathSystem`) with `aiSystem` behaviour: line-of-sight sensing/aggro, **A\* pathfinding** with **collided locomotion** (routes around walls/props via a `NavGrid`, no corner-clip), and melee **or** faction-safe ranged attack.
 
 ## What's Not Yet Implemented
 

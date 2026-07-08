@@ -7,6 +7,7 @@
 #include <glad/glad.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <cstdio>
+#include <cmath>
 
 // ─── Debug HUD overlay ──────────────────────────────────────────
 // Orchestrates the 2D overlay: FPS, health bar, ammo, crosshair, damage flash.
@@ -66,15 +67,21 @@ void debugHudSystem
 		}
 	}
 
+	const HudSignals* sig = registry.ctx().find<HudSignals>();
+
 	float textScale = 2.0f; // stb_easy_font is tiny — scale it up
 	const glm::vec3 panelColor(0.0f);
 	const float panelAlpha = 0.45f;
 
-	// FPS (top-left, white) on a legibility panel
-	char fpsText[64];
-	snprintf(fpsText, sizeof(fpsText), "FPS: %.0f", fps);
-	drawPanel(2.0f, 2.0f, 120.0f, 22.0f, shader, ortho, panelColor, panelAlpha);
-	drawText(5.0f, 5.0f, fpsText, shader, ortho, textScale, glm::vec3(1.0f));
+	// FPS (top-left, white) on a legibility panel — debug-only, hidden in the clean
+	// production HUD unless HudSignals::showDebug is on.
+	if (!sig || sig->showDebug)
+	{
+		char fpsText[64];
+		snprintf(fpsText, sizeof(fpsText), "FPS: %.0f", fps);
+		drawPanel(2.0f, 2.0f, 120.0f, 22.0f, shader, ortho, panelColor, panelAlpha);
+		drawText(5.0f, 5.0f, fpsText, shader, ortho, textScale, glm::vec3(1.0f));
+	}
 
 	// Bottom-left status cluster: armour bar (top), health bar (below), ammo (right).
 	float barX = 10.0f;
@@ -131,8 +138,30 @@ void debugHudSystem
 	// Weapon bar (top centre): which weapons are owned + which number selects them.
 	drawWeaponBar(registry, windowWidth, shader, ortho, textScale);
 
-	// Crosshair (screen centre)
-	drawCrosshair(windowWidth * 0.5f, windowHeight * 0.5f, shader, ortho, glm::vec3(1.0f));
+	// Crosshair (screen centre) — gap grows with spread/movement/recoil.
+	float cx = windowWidth * 0.5f;
+	float cy = windowHeight * 0.5f;
+	float gap = sig ? sig->crosshairGap : 2.0f;
+	drawCrosshair(cx, cy, gap, shader, ortho, glm::vec3(1.0f));
+
+	// Hit / kill marker (kill wins if both are live).
+	if (sig && sig->killMarkerTimer > 0.0f)
+		drawHitMarker(cx, cy, shader, ortho, glm::vec3(1.0f, 0.25f, 0.2f));
+	else if (sig && sig->hitMarkerTimer > 0.0f)
+		drawHitMarker(cx, cy, shader, ortho, glm::vec3(1.0f));
+
+	// Damage-direction chevron: world-XZ attacker dir → screen angle vs camera yaw.
+	if (sig && sig->damageDirTimer > 0.0f)
+	{
+		const auto* cam = registry.ctx().find<CameraDirection>();
+		glm::vec2 fwd = cam ? glm::vec2(cam->value.x, cam->value.z) : glm::vec2(0.0f, -1.0f);
+		if (glm::length(fwd) > 0.001f) fwd = glm::normalize(fwd);
+		glm::vec2 right(-fwd.y, fwd.x);            // world screen-right in XZ
+		glm::vec2 d = sig->damageDir;
+		float angle = std::atan2(glm::dot(d, right), glm::dot(d, fwd));  // 0 = ahead
+		float alpha = sig->damageDirTimer / HudSignals::kDamageDirTime;
+		drawDamageArc(cx, cy, angle, alpha, shader, ortho);
+	}
 
 	// Damage flash overlay
 	drawFlashOverlay(windowWidth, windowHeight, shader, ortho, flashAlpha);

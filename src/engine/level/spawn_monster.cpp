@@ -4,8 +4,9 @@
 
 // Enemy grunt archetype. Kept in its own file (factories.cpp is at its size cap).
 // A solid coloured box that can be shot (raycastEntities keys off AABBCollider),
-// takes damage (applyDamage keys off Health), and blocks the player (its
-// kinematic Jolt body is created in buildWorld). Behaviour is a separate plan.
+// takes damage (applyDamage keys off Health), and blocks the player (via the
+// kinematic inner body of the CharacterVirtual built in initEnemyCharacters).
+// aiSystem drives its movement.
 
 namespace factories
 {
@@ -25,6 +26,17 @@ namespace factories
         // No TagTriggerable: player-only volumes (lava, teleporters) must not
         // affect the grunt. It is NOT given PendingKnockback either (kinematic
         // bodies ignore impulses — knockback is deferred to the behaviour plan).
+        return e;
+    }
+
+    // Ranged variant: the grunt archetype plus a RangedAttack, tinted differently
+    // so it reads as a distinct threat. aiSystem keeps it at distance and fires
+    // dodgeable bolts; it is otherwise identical (shootable, blocks, dies).
+    entt::entity spawnMonsterRanged(entt::registry& reg, const MeshAssets& a, glm::vec3 pos)
+    {
+        auto e = spawnMonsterGrunt(reg, a, pos);
+        reg.emplace<RangedAttack>(e);
+        reg.get<Colour>(e).value = glm::vec4(0.35f, 0.35f, 0.85f, 1.0f);  // blue — ranged
         return e;
     }
 }

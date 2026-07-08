@@ -54,7 +54,8 @@ Each fixed timestep tick runs these systems in order:
  1  weaponSwitchSystem        Input         Handle weapon swap input
  2  moverSystem               Animation     Animate door/lift positions
  3  moverSyncSystem           Physics Prep  Push mover positions to Jolt
- 4  aiSystem                  AI            Enemies sense/chase/attack → MoveKinematic
+ 4  aiSystem                  AI            Enemies sense/chase/pathfind → CharacterVirtual;
+                                            melee or standoff+ranged attack
  5  joltWorld.step()          Physics       Simulate rigid + kinematic bodies
  6  joltSyncSystem            Physics Sync  Read Jolt transforms → ECS
  7  playerCharacterSystem     Movement      Apply input → CharacterVirtual,
@@ -66,6 +67,7 @@ Each fixed timestep tick runs these systems in order:
 12  playerDeathSystem         Game Logic    Respawn the player on death
 13  enemyDeathSystem          Cleanup       Remove enemies whose health hit 0
 14  demoResetSystem           Cleanup       Reset physics demo objects
+15  hudSignalSystem           HUD Prep      Recompute crosshair spread / markers / low-ammo
 ```
 
 > **Tick-order note:** the player's `ExtendedUpdate` (6) runs *after* movers
@@ -79,7 +81,7 @@ Each fixed timestep tick runs these systems in order:
 
 **1-2: Input before physics.** The player's desired velocity must be set before the physics step resolves collisions. If physics ran first, the player would always be one tick behind their input.
 
-**3-4: Movers & AI before physics.** `moverSystem` calculates where the door/lift should be this tick, and `moverSyncSystem` tells Jolt's kinematic body to move there. `aiSystem` does the same for enemies — it picks each grunt's move (chase step) and calls `MoveKinematic`, so during the physics step (5) their kinematic bodies sweep to the new positions. `aiSystem` reads *last* tick's player position (a 1-tick lag, imperceptible), since the current one isn't synced until step 6.
+**3-4: Movers & AI before physics.** `moverSystem` calculates where the door/lift should be this tick, and `moverSyncSystem` tells Jolt's kinematic body to move there. `aiSystem` drives each enemy's `CharacterVirtual` (collided locomotion along its A\* path) with an immediate `ExtendedUpdate`, so its kinematic inner body is already at the new position when the player resolves against it in step 7. `aiSystem` reads *last* tick's player position (a 1-tick lag, imperceptible), since the current one isn't synced until step 6.
 
 **5: Physics step.** Jolt resolves all collisions, applies gravity to dynamic bodies, moves kinematic bodies to their targets, and updates the `CharacterVirtual`. This is the most expensive call in the loop.
 

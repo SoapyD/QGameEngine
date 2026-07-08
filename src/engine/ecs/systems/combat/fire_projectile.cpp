@@ -24,13 +24,17 @@ void fireProjectile
 		glm::vec3(0.15f, 0.15f, 0.15f),
 		false
 	);
+	// Whose shot this is — enemies fire Enemy projectiles (won't hit other
+	// enemies), everything else fires Player projectiles. See updateProjectiles.
+	const Faction faction = registry.any_of<AIState>(shooter) ? Faction::Enemy : Faction::Player;
 	registry.emplace<Projectile>
 	(
 		projectile,
 		weapon.damage,
 		weapon.splashRadius,
 		weapon.splashDamage,
-		shooter
+		shooter,
+		faction
 	);
 	registry.emplace<Lifetime>(projectile, 10.0f); // Despawn after 10 seconds
 

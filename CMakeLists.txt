@@ -139,6 +139,8 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/debug_hud/draw_ammo.cpp
 	src/engine/ecs/systems/debug_hud/draw_bar.cpp
 	src/engine/ecs/systems/debug_hud/draw_crosshair.cpp
+	src/engine/ecs/systems/debug_hud/draw_hit_marker.cpp
+	src/engine/ecs/systems/debug_hud/draw_damage_arc.cpp
 	src/engine/ecs/systems/debug_hud/draw_weapon_bar.cpp
 	src/engine/ecs/systems/debug_hud/draw_flash_overlay.cpp
 	src/engine/ecs/systems/debug_hud/draw_panel.cpp
@@ -156,7 +158,12 @@ add_library(qengine_lib STATIC
 	src/engine/ecs/systems/trigger/trigger_system.cpp
 	src/engine/ecs/systems/pickup/pickup_system.cpp
 	src/engine/ecs/systems/enemy/ai_system.cpp
+	src/engine/ecs/systems/enemy/ai_step_character.cpp
+	src/engine/ecs/systems/enemy/ai_line_of_sight.cpp
+	src/engine/ecs/systems/enemy/ai_fire_bolt.cpp
 	src/engine/ecs/systems/enemy/enemy_death_system.cpp
+	src/engine/ecs/systems/enemy/init_enemy_characters.cpp
+	src/engine/ecs/systems/hud/hud_signal_system.cpp
 	src/engine/level/build_sector_meshes.cpp
 	src/engine/physics/jolt_world.cpp
 	src/engine/physics/raycast/ray_intersect_aabb.cpp

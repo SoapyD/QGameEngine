@@ -176,9 +176,11 @@ std::vector<SpawnParams> showcaseDescriptors()
     d.push_back({ .classname = "item_nails", .origin = glm::vec3(11.0f, 1.0f, 8.0f)  });
     d.push_back({ .classname = "item_cells", .origin = glm::vec3(11.0f, 1.0f, 12.0f) });
 
-    // ─── Enemies: a couple of grunts to shoot (they just stand there for now) ──
-    d.push_back({ .classname = "monster_grunt", .origin = glm::vec3(13.0f, 0.95f, 8.0f)  });
-    d.push_back({ .classname = "monster_grunt", .origin = glm::vec3(8.0f,  0.95f, 22.0f) });
+    // ─── Enemies: melee grunts that chase, plus a ranged grunt that keeps its
+    //     distance and lobs dodgeable bolts. ─────────────────────────────────
+    d.push_back({ .classname = "monster_grunt",  .origin = glm::vec3(13.0f, 0.95f, 8.0f)  });
+    d.push_back({ .classname = "monster_grunt",  .origin = glm::vec3(8.0f,  0.95f, 22.0f) });
+    d.push_back({ .classname = "monster_ranged", .origin = glm::vec3(24.0f, 0.95f, 18.0f) });
 
     return d;
 }

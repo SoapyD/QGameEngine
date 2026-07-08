@@ -22,6 +22,15 @@ enum class FireMode
 	Projectile
 };
 
+// Which side a shot belongs to, so projectiles never damage their own side.
+// Derived from the shooter (enemies = Enemy, everything else = Player) — see
+// fireProjectile. Neutral targets (props/cubes) match neither and stay hittable.
+enum class Faction
+{
+	Player,
+	Enemy
+};
+
 struct Weapon
 {
 	WeaponType type;
@@ -72,6 +81,7 @@ struct Projectile
 	float splashRadius;
 	float splashDamage;
 	entt::entity owner = entt::null; // Who fired it (for kill credit)
+	Faction faction = Faction::Player; // whose shot — friendly-fire guard
 };
 
 // Resources the combat system needs to spawn projectiles and tracers

@@ -80,7 +80,11 @@ namespace factories
                                    const Pickup& pickup, WeaponType weapon);
 
     // Enemy grunt: a solid, coloured humanoid-ish box with Health + AIState. Its
-    // kinematic Jolt body (so it stands + blocks the player) is created later in
-    // buildWorld, like movers. No behaviour yet — see the AI behaviour plan.
+    // CharacterVirtual (so it stands, blocks the player, and walks) is created in
+    // buildWorld (initEnemyCharacters); aiSystem drives melee behaviour.
     entt::entity spawnMonsterGrunt(entt::registry& reg, const MeshAssets& a, glm::vec3 pos);
+
+    // Enemy ranged grunt: like the grunt but carries a RangedAttack, so aiSystem
+    // holds it at standoff range and fires dodgeable Enemy-faction projectiles.
+    entt::entity spawnMonsterRanged(entt::registry& reg, const MeshAssets& a, glm::vec3 pos);
 }

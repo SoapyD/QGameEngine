@@ -44,6 +44,11 @@ void updateProjectiles(entt::registry& registry, const Level& level, float dt)
 			if (target == projEntity) continue;  // don't collide with self
 			if (target == proj.owner) continue;
 			if (tCol.isTrigger) continue;
+			if (registry.any_of<Projectile>(target)) continue;  // bolts pass through each other
+			// Friendly-fire guard: a shot never damages its own side. Props (neither
+			// player nor enemy) match no faction and stay hittable.
+			if (proj.faction == Faction::Enemy  && registry.any_of<AIState>(target))  continue;
+			if (proj.faction == Faction::Player && registry.any_of<TagPlayer>(target)) continue;
 
 			AABB targetBox = AABB::fromCentreSize(tPos.value, tCol.halfExtents);
 			if (projBox.intersects(targetBox))
@@ -56,6 +61,25 @@ void updateProjectiles(entt::registry& registry, const Level& level, float dt)
 					{
 						glm::vec3 knockDir = glm::normalize(vel.value);
 						registry.get<PendingKnockback>(target).impulse += knockDir * 1.6f;
+					}
+
+					// HUD signals: a player bolt hitting an enemy → hit/kill marker;
+					// an enemy bolt hitting the player → damage-direction (toward the
+					// source, i.e. against the bolt's travel).
+					if (HudSignals* hud = registry.ctx().find<HudSignals>())
+					{
+						if (proj.faction == Faction::Player && registry.any_of<AIState>(target))
+						{
+							hud->hitMarkerTimer = HudSignals::kMarkerTime;
+							const Health* h = registry.try_get<Health>(target);
+							if (h && h->current <= 0.0f) hud->killMarkerTimer = HudSignals::kMarkerTime;
+						}
+						else if (proj.faction == Faction::Enemy && registry.any_of<TagPlayer>(target))
+						{
+							glm::vec2 from(-vel.value.x, -vel.value.z);
+							if (glm::length(from) > 0.001f) hud->damageDir = glm::normalize(from);
+							hud->damageDirTimer = HudSignals::kDamageDirTime;
+						}
 					}
 				}
 

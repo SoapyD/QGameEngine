@@ -17,6 +17,8 @@
 #include "engine/ecs/systems/pickup/pickup_system.h"
 #include "engine/ecs/systems/enemy/ai_system.h"
 #include "engine/ecs/systems/enemy/enemy_death_system.h"
+#include "engine/ecs/systems/enemy/init_enemy_characters.h"
+#include "engine/ecs/systems/hud/hud_signal_system.h"
 #include "engine/ecs/systems/combat/weapon_switch_system.h"
 #include "engine/audio/types/sound_event.h"
 #include "engine/physics/jolt_world.h"
@@ -85,9 +87,10 @@ namespace qengine
             ? setupScene(registry, resources, headless)
             : setupSceneFromMap(registry, resources, mapPath, headless);
 
-        // Sound-event queue: simulation systems push, the audio system drains it
-        // (windowed build only; headless leaves it unread).
+        // Context singletons: sound-event queue (windowed drains it) + HUD signal
+        // state (updated headless by hudSignalSystem, drawn by the GL HUD).
         registry.ctx().emplace<SoundQueue>();
+        registry.ctx().emplace<HudSignals>();
 
         // Static bodies from level geometry
         createLevelBodies(registry, level);
@@ -96,17 +99,12 @@ namespace qengine
         // Kinematic bodies for movers (lifts, doors)
         auto moverView = registry.view<Position, AABBCollider, Mover>();
         for (auto [entity, pos, col, mover] : moverView.each())
-        {
             createKinematicBody(registry, entity);
-        }
 
-        // Kinematic bodies for enemies — they stand upright and block the player;
-        // the behaviour plan drives their movement (like movers) later.
-        auto enemyView = registry.view<Position, AABBCollider, AIState>();
-        for (auto [entity, pos, col, ai] : enemyView.each())
-        {
-            createKinematicBody(registry, entity);
-        }
+        // Enemies move with a CharacterVirtual (collided locomotion, driven by
+        // aiSystem) whose kinematic inner body still blocks the player. Built here,
+        // after level bodies exist, so first-tick ground detection is correct.
+        initEnemyCharacters(registry);
 
         // NOTE: triggers use ECS AABB overlap in triggerSystem, not Jolt
         // sensor queries — so we deliberately do NOT create Jolt sensor bodies
@@ -145,5 +143,6 @@ namespace qengine
         playerDeathSystem(registry);
         enemyDeathSystem(registry);     // remove grunts whose health hit 0
         demoResetSystem(registry);
+        hudSignalSystem(registry);      // recompute crosshair spread / markers / low-ammo
     }
 }

@@ -117,8 +117,10 @@ setupScene()              build showcase geometry + spawn all entities from a de
 createLevelBodies()       static Jolt bodies from each surface (fattened to clear convex radius)
 OptimizeBroadPhase()
 createKinematicBody() × N  for every entity with a Mover
+initEnemyCharacters()      CharacterVirtual (+ kinematic inner body) per enemy — collided locomotion
 initPlayerCharacter()      CharacterVirtual capsule — AFTER level bodies, so it lands on ground
 OptimizeBroadPhase()
+buildNavGrid()             walkability grid from the (loaded or showcase) level geometry
 ```
 The geometry is still **hard-coded** (the descriptor list lives in C++), but it's already
 `.map`-loader-shaped: the [TrenchBroom plan](../plans/2026-07-03_trenchbroom_engine-loader.md)
@@ -132,11 +134,14 @@ stays the same. See [FACTORIES.md](FACTORIES.md) for the factory layer.
   the full 7-weapon loadout (fixed 7-slot inventory, keys 1-7 = weapon type; start with 2, collect
   the rest; each weapon draws from its own ammo pool), and a first-person weapon viewmodel
   (distinct procedural gun shape + colour per weapon, with bob/recoil/switch animation).
-- **Solid (enemies):** `monster_grunt` — kinematic body that blocks the player, shootable with
+- **Solid (enemies):** `monster_grunt` (melee) + `monster_ranged` (keeps distance, fires dodgeable
+  bolts) — a `CharacterVirtual` (with a kinematic inner body that blocks the player), shootable with
   hit-flash + hit/death sounds, and `aiSystem` behaviour (LoS sensing/aggro → **A\* pathfinding**
-  around walls/props via a `NavGrid` → melee attack). Steered by `MoveKinematic` before the physics
-  step, like movers.
-- **Missing:** menus/game-states, authored levels (TrenchBroom), richer AI (ranged, navmesh).
+  around walls/props via a `NavGrid`, driven with **collided locomotion** (`ExtendedUpdate`) so it
+  can't clip a wall on a corner-cut → melee **or** standoff+ranged attack). Projectiles are
+  faction-tagged, so there's no friendly-fire.
+- **Missing:** menus/game-states, navmesh (deferred — grid A\* is adequate at current scale),
+  enemies traversing lifts/doors.
   See the active [plans](../plans/README.md).
 - **Legacy/inert (don't be fooled):** `level/` `.qlvl` loader (unused), `physics/{collision,
   spatial_hash,aabb}` + legacy `raycast` triangle path, and `ecs/systems/archived/*` — all kept

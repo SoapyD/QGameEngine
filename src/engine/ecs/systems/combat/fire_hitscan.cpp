@@ -66,6 +66,15 @@ void fireHitscan
 					glm::vec3 knockDir = glm::normalize(direction);
 					registry.get<PendingKnockback>(entityHit->entity).impulse += knockDir * 1.0f;
 				}
+
+				// HUD hit/kill marker (a player shot landed on an enemy).
+				if (registry.any_of<AIState>(entityHit->entity))
+					if (HudSignals* hud = registry.ctx().find<HudSignals>())
+					{
+						hud->hitMarkerTimer = HudSignals::kMarkerTime;
+						const Health* h = registry.try_get<Health>(entityHit->entity);
+						if (h && h->current <= 0.0f) hud->killMarkerTimer = HudSignals::kMarkerTime;
+					}
 			}
 		}
 		else

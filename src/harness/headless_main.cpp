@@ -79,26 +79,24 @@ namespace
         reg.get<Position>(player).value = p;
     }
 
-    // Hard-teleport a kinematic body (enemy) + its ECS mirror.
-    void teleportKinematic(JoltWorld& jolt, entt::registry& reg, entt::entity e, glm::vec3 p)
+    // Hard-teleport an enemy (its CharacterVirtual + ECS mirror). SetPosition also
+    // moves the character's inner body, so the player still collides against it.
+    void teleportEnemy(entt::registry& reg, entt::entity e, glm::vec3 p)
     {
-        jolt.getBodyInterface().SetPosition(reg.get<JoltBody>(e).id,
-            JPH::RVec3(p.x, p.y, p.z), JPH::EActivation::Activate);
+        auto& ch = reg.get<JoltCharacter>(e).character;
+        ch->SetPosition(JPH::RVec3(p.x, p.y, p.z));
+        ch->SetLinearVelocity(JPH::Vec3::sZero());
         reg.get<Position>(e).value = p;
     }
 
-    // Remove all enemies (body + entity). Pure player-physics scenarios call this
-    // so aggroed grunts can't wander in and disturb the measurement.
-    void clearEnemies(JoltWorld& jolt, entt::registry& reg)
+    // Remove all enemies (entity + its CharacterVirtual, whose destructor drops the
+    // inner body). Pure player-physics scenarios call this so aggroed grunts can't
+    // wander in and disturb the measurement.
+    void clearEnemies(JoltWorld&, entt::registry& reg)
     {
-        auto& bi = jolt.getBodyInterface();
         std::vector<entt::entity> es;
         for (auto e : reg.view<AIState>()) es.push_back(e);
-        for (auto e : es)
-        {
-            if (auto* b = reg.try_get<JoltBody>(e)) { bi.RemoveBody(b->id); bi.DestroyBody(b->id); }
-            reg.destroy(e);
-        }
+        for (auto e : es) reg.destroy(e);
     }
 
     float playerVelY(entt::registry& reg, entt::entity player)
@@ -513,7 +511,8 @@ namespace
         entt::entity player = findPlayer(reg);
 
         entt::entity grunt = entt::null;
-        for (auto e : reg.view<AIState, Health, Position, AABBCollider>()) { grunt = e; break; }
+        for (auto e : reg.view<AIState, Health, Position, AABBCollider>())
+            { if (reg.any_of<RangedAttack>(e)) continue; grunt = e; break; }   // melee grunt only
         if (grunt == entt::null) return report("monster_grunt", false, "no monster_grunt spawned");
 
         glm::vec3 gpos = reg.get<Position>(grunt).value;
@@ -568,7 +567,7 @@ namespace
         // The front grunt (lowest z) is at a known spawn (13, .95, 8).
         entt::entity grunt = entt::null; float bestZ = 1e9f;
         for (auto [e, ai, pos] : reg.view<AIState, Position>().each())
-            if (pos.value.z < bestZ) { bestZ = pos.value.z; grunt = e; }
+            if (!reg.any_of<RangedAttack>(e) && pos.value.z < bestZ) { bestZ = pos.value.z; grunt = e; }  // melee grunt only
         if (grunt == entt::null) return report("monster_ai", false, "no grunt");
 
         glm::vec3 gpos = reg.get<Position>(grunt).value;
@@ -613,13 +612,13 @@ namespace
         entt::entity player = findPlayer(reg);
         entt::entity grunt = entt::null; float bestZ = 1e9f;
         for (auto [e, ai, pos] : reg.view<AIState, Position>().each())
-            if (pos.value.z < bestZ) { bestZ = pos.value.z; grunt = e; }
+            if (!reg.any_of<RangedAttack>(e) && pos.value.z < bestZ) { bestZ = pos.value.z; grunt = e; }  // melee grunt only
         if (grunt == entt::null) return report("monster_path", false, "no grunt");
 
         float halfY = reg.get<AABBCollider>(player).halfExtents.y;
 
         // Grunt just west of the shelf (shelf spans x[18,22] z[3,7]).
-        teleportKinematic(jolt, reg, grunt, glm::vec3(16.0f, 0.95f, 5.0f));
+        teleportEnemy(reg, grunt, glm::vec3(16.0f, 0.95f, 5.0f));
 
         // Aggro it with an open line of sight to the north.
         teleportPlayer(reg, player, glm::vec3(16.0f, halfY + 0.05f, 10.0f));
@@ -682,6 +681,180 @@ namespace
         return report("speed_cap", peak <= cap + 1.0f, buf);
     }
 
+    // Ranged enemy: aggros at distance, HOLDS standoff (doesn't rush to melee),
+    // telegraphs, then fires dodgeable bolts that damage the player.
+    bool scenario_monster_ranged(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+
+        // Isolate: drop the melee grunts so only the ranged enemy acts / blocks LoS.
+        std::vector<entt::entity> melee;
+        for (auto e : reg.view<AIState>()) if (!reg.any_of<RangedAttack>(e)) melee.push_back(e);
+        for (auto e : melee) reg.destroy(e);
+
+        entt::entity ranged = entt::null;
+        for (auto e : reg.view<AIState, RangedAttack, Position>()) { ranged = e; break; }
+        if (ranged == entt::null) return report("monster_ranged", false, "no ranged enemy");
+
+        float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+
+        // Face-off in the clear x=16 lane: enemy south, player 10 units north — inside
+        // range (16) but beyond standoffMin (7), so it should hold and shoot.
+        teleportEnemy(reg, ranged, glm::vec3(16.0f, 0.95f, 8.0f));
+        teleportPlayer(reg, player, glm::vec3(16.0f, halfY + 0.05f, 18.0f));
+
+        float hpStart = reg.get<Health>(player).current;
+        for (int i = 0; i < 40; i++) { applyInput(reg, player, Input{}); qengine::stepSimulation(reg, jolt, level, dt); }
+        bool aggroed = reg.valid(ranged) && reg.get<AIState>(ranged).target != entt::null;
+
+        bool sawAttack = false;
+        for (int i = 0; i < 400; i++)
+        {
+            applyInput(reg, player, Input{});
+            qengine::stepSimulation(reg, jolt, level, dt);
+            if (reg.valid(ranged) && reg.get<AIState>(ranged).state == AIStateKind::Attack) sawAttack = true;
+        }
+        float hpEnd    = reg.get<Health>(player).current;
+        bool  damaged  = hpEnd < hpStart;
+
+        float finalDist  = reg.valid(ranged)
+            ? glm::length(reg.get<Position>(ranged).value - reg.get<Position>(player).value) : 0.0f;
+        float standoffMin = reg.valid(ranged) ? reg.get<RangedAttack>(ranged).standoffMin : 0.0f;
+        bool  held        = finalDist > standoffMin;   // never closed to melee
+
+        char buf[240];
+        std::snprintf(buf, sizeof(buf),
+            "aggroed=%d attack=%d; player hp %.0f->%.0f dmg=%d; final dist=%.1f (standoffMin=%.1f) held=%d",
+            aggroed?1:0, sawAttack?1:0, hpStart, hpEnd, damaged?1:0, finalDist, standoffMin, held?1:0);
+        return report("monster_ranged", aggroed && sawAttack && damaged && held, buf);
+    }
+
+    // Friendly-fire guard: an Enemy-faction projectile must NOT damage an enemy,
+    // but a Player-faction one must. Tests updateProjectiles' faction check directly
+    // (independent of AI aim). Also: a Player projectile must not damage the player.
+    bool scenario_friendly_fire(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        teleportPlayer(reg, player, glm::vec3(10.0f, 0.85f, 15.0f));
+
+        // An INERT enemy-faction target (AIState marks the side) with no JoltCharacter
+        // /AIPath, so aiSystem never moves it — a still, deterministic dummy. Placed in
+        // the x=10 lane (walk_floor_seams confirms it's open floor, no wall to eat the
+        // test projectile before it reaches the target).
+        auto dummy = reg.create();
+        reg.emplace<Position>(dummy, glm::vec3(10.0f, 0.95f, 20.0f));
+        reg.emplace<AABBCollider>(dummy, glm::vec3(0.4f, 0.9f, 0.4f), false);
+        reg.emplace<Health>(dummy, 100.0f, 100.0f, 0.0f);
+        reg.emplace<AIState>(dummy);
+
+        // Spawn a projectile overlapping `target` and let it resolve.
+        auto fireAt = [&](entt::entity target, Faction faction) {
+            glm::vec3 tp = reg.get<Position>(target).value;
+            auto p = reg.create();
+            reg.emplace<Position>(p, tp - glm::vec3(0.0f, 0.0f, 0.3f));
+            reg.emplace<Velocity>(p, glm::vec3(0.0f, 0.0f, 2.0f));   // into the target
+            reg.emplace<AABBCollider>(p, glm::vec3(0.15f), false);
+            reg.emplace<Projectile>(p, 50.0f, 0.0f, 0.0f, entt::null, faction);
+            reg.emplace<Lifetime>(p, 1.0f);
+            for (int i = 0; i < 4; i++) { applyInput(reg, player, Input{}); qengine::stepSimulation(reg, jolt, level, dt); }
+        };
+
+        float dEnemyBefore = reg.get<Health>(dummy).current;
+        fireAt(dummy, Faction::Enemy);                       // same side → no damage
+        float dAfterEnemy  = reg.valid(dummy) ? reg.get<Health>(dummy).current : -1.0f;
+
+        fireAt(dummy, Faction::Player);                      // opposite side → damage
+        float dAfterPlayer = reg.valid(dummy) ? reg.get<Health>(dummy).current : -1.0f;
+
+        float pBefore = reg.get<Health>(player).current;
+        fireAt(player, Faction::Player);                     // own side → no self-damage
+        float pAfter  = reg.get<Health>(player).current;
+
+        bool enemyBoltSpared  = dAfterEnemy  == dEnemyBefore;   // enemy bolt didn't hurt enemy
+        bool playerBoltHit    = dAfterPlayer <  dAfterEnemy;    // player bolt hurt enemy
+        bool playerSelfSpared = pAfter       == pBefore;        // player bolt didn't hurt player
+
+        char buf[240];
+        std::snprintf(buf, sizeof(buf),
+            "dummy hp %.0f -(enemy bolt)-> %.0f -(player bolt)-> %.0f; player %.0f->%.0f; spared=%d hit=%d selfSpared=%d",
+            dEnemyBefore, dAfterEnemy, dAfterPlayer, pBefore, pAfter,
+            enemyBoltSpared?1:0, playerBoltHit?1:0, playerSelfSpared?1:0);
+        return report("friendly_fire", enemyBoltSpared && playerBoltHit && playerSelfSpared, buf);
+    }
+
+    // HUD signal state (ctx, testable headless): crosshair spread widens with
+    // movement + firing, low-ammo flag, hit/kill markers on shooting an enemy, and
+    // the damage-direction timer when the player is hit.
+    bool scenario_hud_signals(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        const HudSignals& hud = reg.ctx().get<HudSignals>();
+        float halfY = reg.get<AABBCollider>(player).halfExtents.y;
+        clearEnemies(jolt, reg);   // isolate crosshair/marker measurements
+
+        auto idle = [&]{ applyInput(reg, player, Input{}); qengine::stepSimulation(reg, jolt, level, dt); };
+
+        // Baseline gap (idle, settled) in the open x=10 lane.
+        teleportPlayer(reg, player, glm::vec3(10.0f, halfY, 15.0f));
+        for (int i = 0; i < 40; i++) idle();
+        float restGap = hud.crosshairGap;
+
+        // Movement widens the crosshair.
+        Input walk; walk.wishDir = glm::vec3(0, 0, 1); walk.lookDir = glm::vec3(0, 0, 1);
+        for (int i = 0; i < 25; i++) { applyInput(reg, player, walk); qengine::stepSimulation(reg, jolt, level, dt); }
+        float moveGap = hud.crosshairGap;
+        for (int i = 0; i < 40; i++) idle();   // settle
+
+        // Firing widens it (recoil kick), then it decays back.
+        Input fire; fire.fire = true; fire.lookDir = glm::vec3(0, 0, -1);
+        applyInput(reg, player, fire); qengine::stepSimulation(reg, jolt, level, dt);
+        float fireGap = hud.crosshairGap;
+        for (int i = 0; i < 40; i++) idle();
+
+        // Low-ammo flag flips at the threshold.
+        reg.get<Ammo>(player).shells = 2;  idle();  bool lowSet   = hud.lowAmmo;
+        reg.get<Ammo>(player).shells = 25; idle();  bool lowClear = !hud.lowAmmo;
+
+        // Hit + kill markers: shoot a stationary dummy enemy dead.
+        auto dummy = reg.create();
+        reg.emplace<Position>(dummy, glm::vec3(10.0f, 0.95f, 20.0f));
+        reg.emplace<AABBCollider>(dummy, glm::vec3(0.4f, 0.9f, 0.4f), false);
+        reg.emplace<Health>(dummy, 30.0f, 30.0f, 0.0f);
+        reg.emplace<AIState>(dummy);
+        teleportPlayer(reg, player, glm::vec3(10.0f, halfY, 15.0f));
+        glm::vec3 eye = glm::vec3(10.0f, halfY, 15.0f) + glm::vec3(0.0f, halfY * 0.7f, 0.0f);
+        glm::vec3 aim = glm::normalize(glm::vec3(10.0f, 0.95f, 20.0f) - eye);
+        bool sawHit = false, sawKill = false;
+        for (int shot = 0; shot < 8 && !sawKill; ++shot)
+        {
+            Input f; f.lookDir = aim; f.fire = true;
+            applyInput(reg, player, f); qengine::stepSimulation(reg, jolt, level, dt);
+            if (hud.hitMarkerTimer  > 0.0f) sawHit  = true;
+            if (hud.killMarkerTimer > 0.0f) sawKill = true;
+            for (int i = 0; i < 40 && reg.valid(dummy); i++)
+            { Input a; a.lookDir = aim; applyInput(reg, player, a); qengine::stepSimulation(reg, jolt, level, dt); }
+        }
+
+        // Damage-direction: an Enemy-faction bolt strikes the player.
+        glm::vec3 pp = reg.get<Position>(player).value;
+        auto bolt = reg.create();
+        reg.emplace<Position>(bolt, pp - glm::vec3(0.0f, 0.0f, 0.3f));
+        reg.emplace<Velocity>(bolt, glm::vec3(0.0f, 0.0f, 2.0f));
+        reg.emplace<AABBCollider>(bolt, glm::vec3(0.15f), false);
+        reg.emplace<Projectile>(bolt, 5.0f, 0.0f, 0.0f, entt::null, Faction::Enemy);
+        reg.emplace<Lifetime>(bolt, 1.0f);
+        for (int i = 0; i < 4; i++) idle();
+        bool dmgDir = hud.damageDirTimer > 0.0f;
+
+        bool pass = moveGap > restGap + 0.5f && fireGap > restGap + 1.0f
+                 && lowSet && lowClear && sawHit && sawKill && dmgDir;
+        char buf[260];
+        std::snprintf(buf, sizeof(buf),
+            "gap rest=%.1f move=%.1f fire=%.1f; low set=%d clear=%d; hit=%d kill=%d; dmgDir=%d",
+            restGap, moveGap, fireGap, lowSet?1:0, lowClear?1:0, sawHit?1:0, sawKill?1:0, dmgDir?1:0);
+        return report("hud_signals", pass, buf);
+    }
+
 }
 
 int main(int argc, char** argv)
@@ -720,6 +893,9 @@ int main(int argc, char** argv)
     else if (scenario == "monster_grunt")    pass = scenario_monster_grunt(registry, jolt, level, dt);
     else if (scenario == "monster_ai")       pass = scenario_monster_ai(registry, jolt, level, dt);
     else if (scenario == "monster_path")     pass = scenario_monster_path(registry, jolt, level, dt);
+    else if (scenario == "monster_ranged")   pass = scenario_monster_ranged(registry, jolt, level, dt);
+    else if (scenario == "friendly_fire")    pass = scenario_friendly_fire(registry, jolt, level, dt);
+    else if (scenario == "hud_signals")      pass = scenario_hud_signals(registry, jolt, level, dt);
     else if (scenario == "speed_cap")        pass = scenario_speed_cap(registry, jolt, level, dt);
     else if (scenario == "map_parse")        pass = mapscenarios::scenarioMapParse();
     else if (scenario == "map_file")         pass = mapscenarios::scenarioMapFile(mapArg);
