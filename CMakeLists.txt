@@ -114,6 +114,7 @@ add_library(qengine_lib STATIC
 	src/engine/level/spawn_scene.cpp
 	src/engine/level/showcase_descriptor.cpp
 	src/engine/level/map_loader.cpp
+	src/engine/level/brush_geometry.cpp
 	src/engine/level/map_to_level.cpp
 	src/engine/level/map_to_descriptors.cpp
 	src/engine/level/build_textured_meshes.cpp

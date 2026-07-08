@@ -1,6 +1,6 @@
 # Plan — Fix: mouse look drops motion while moving
 
-**Status:** Done (2026-07-04). Implemented in [`input_manager.cpp`](../../src/engine/core/input_manager.cpp) —
+**Status:** Done (2026-07-04). Implemented in [`input_manager.cpp`](../../../src/engine/core/input_manager.cpp) —
 delta now accumulates (`+=`) in `mouseCallback`, and raw mouse motion is enabled in `init` when
 supported. Built clean; all 15 headless scenarios still pass (harness can't exercise windowed input —
 needs the manual sweep below). **Small** (a one-line-ish fix + optional polish).
@@ -14,12 +14,12 @@ turns while you're holding a movement key.
 The per-frame mouse delta only ever holds the **last motion event**, not the sum of the frame's
 motion:
 
-- [`input_manager.cpp:59-60`](../../src/engine/core/input_manager.cpp#L59-L60) — `mouseCallback`
+- [`input_manager.cpp:59-60`](../../../src/engine/core/input_manager.cpp#L59-L60) — `mouseCallback`
   does `m_mouseXOffset = x - m_lastMouseX;` (**`=`**, overwrite) and updates `m_lastMouseX` each
   event.
-- [`input_manager.cpp:25-26`](../../src/engine/core/input_manager.cpp#L25-L26) — `update()` resets
+- [`input_manager.cpp:25-26`](../../../src/engine/core/input_manager.cpp#L25-L26) — `update()` resets
   the offsets to 0 at the start of each frame.
-- [`camera.cpp:38-49`](../../src/engine/renderer/camera.cpp#L38-L49) — `processMouse` applies that
+- [`camera.cpp:38-49`](../../../src/engine/renderer/camera.cpp#L38-L49) — `processMouse` applies that
   single frame offset to yaw/pitch.
 
 `glfwPollEvents()` dispatches **every** pending motion event per frame, each re-invoking the

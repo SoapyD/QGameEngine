@@ -9,13 +9,34 @@
 
 **Status (2026-07-05):** ✅ **Shipped at MVP fidelity** (commit `ff3db55`, branch `trenchbroom`).
 `smoke.map` loads and is playable (walk the room, walls collide). Steps 2.2–2.5 done via the
-**AABB box-fidelity** approach rather than the general plane∩plane∩plane algorithm originally
-sketched below — each brush → its axis-aligned bounding box → 6 quad surfaces. This is **lossless
-for axis-aligned box maps** (all `smoke.map` is) and reuses the engine's existing AABB-per-surface
-collision + nav-grid path. **Deferred:** general angled-brush geometry (true plane intersection +
-convex-hull collision), brush-entity movers/triggers exercised by a real map, texture-name→GL for
-non-preloaded textures, and deleting the showcase (kept as `buildWorld` fallback). Documented in
-tutorial Ch 26–28.
+**AABB box-fidelity** approach — each brush → its axis-aligned bounding box → 6 quad surfaces.
+Documented in tutorial Ch 26–28.
+
+**Update (2026-07-08): ✅ general geometry + convex-hull collision shipped.** The AABB approximation
+is replaced by true **plane∩plane∩plane** brush resolution: new `brush_geometry.{h,cpp}`
+(`buildBrushGeometry` → per-face convex polygons + corner vertices, in engine space; face planes
+oriented outward via an interior reference point, so it's independent of the `.map` winding
+convention). `map_to_level` emits each face polygon as engine `Surface`s (a 4-gon stays one quad —
+box maps are byte-for-byte unchanged, `map_scene` still 36 surfaces; an N-gon fans into
+triangle-surfaces) and accumulates each brush's corner vertices into `Level.collisionHulls`.
+`createLevelBodies` builds one Jolt `ConvexHullShape` per brush for `.map` levels (angled brushes
+collide by their real shape), keeping the AABB-per-surface path for the hull-less C++ showcase.
+Per-face textures (was majority-per-brush). New headless unit scenario `brush_geometry` (box → 6
+faces/8 verts; wedge → 5 faces/6 verts + a slanted normal; also loads the real `showcase.map` and
+asserts the authored ramp yields a slanted surface + convex hulls). **Deviations:** kept `Surface` as
+a quad (N-gons fan) to avoid rippling the render/hitscan/LoS/nav paths.
+
+**Remaining deferred work is now split into dated follow-on plans (2026-07-09):**
+- [2026-07-09_trenchbroom_brush-entities.md](2026-07-09_trenchbroom_brush-entities.md) — brush-entity
+  movers/triggers + collision from a real map *(HIGH — the playable-level unlock)*.
+- [2026-07-09_trenchbroom_textures.md](2026-07-09_trenchbroom_textures.md) — on-demand texture loading
+  + Quake-axis UV fidelity.
+- [2026-07-09_trenchbroom_collision-precision.md](2026-07-09_trenchbroom_collision-precision.md) —
+  ray-vs-polygon hitscan/LoS/nav.
+- [2026-07-09_trenchbroom_showcase-retirement.md](2026-07-09_trenchbroom_showcase-retirement.md) —
+  retire the C++ showcase + hot-reload *(LAST — re-bases the harness; high-risk)*.
+
+This plan stays active as the umbrella until that list is cleared, then archives.
 
 ---
 

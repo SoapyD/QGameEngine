@@ -140,10 +140,10 @@ int main(int argc, char** argv)
 		debugHudSystem(registry, window.getWidth(), window.getHeight(), currentFps);
 
 		window.swapBuffers();
-
 	}
-
 	audio.shutdown();
+	// Destroy entities before shutdown — enemy ~CharacterVirtual removes its inner Jolt body via joltWorld.
+	registry.clear();
 	joltWorld.shutdown();
 	resources.clear();
 	return 0;

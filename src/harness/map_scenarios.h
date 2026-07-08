@@ -24,4 +24,10 @@ namespace mapscenarios
     // (monster_grunt) is lifted from its authored feet-origin to a centre-origin,
     // so it stands ON the floor rather than sinking in by half its height.
     bool scenarioMapGroundPlacement(const std::string& path);
+
+    // General-geometry check (plane∩plane∩plane): build geometry from a hand-made
+    // axis-aligned box (→ 6 faces, 8 corners) and an angled wedge/triangular prism
+    // (→ 5 faces, 6 corners, with a genuinely slanted face normal — proving the
+    // loader resolves true brush shape, not a bounding box).
+    bool scenarioBrushGeometry();
 }

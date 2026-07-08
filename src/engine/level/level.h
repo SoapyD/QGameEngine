@@ -49,4 +49,10 @@ struct Level
 	// group. Kept alive here for the level's lifetime because ~Mesh frees the VAO
 	// the MeshRenderer components reference.
 	std::vector<std::unique_ptr<Mesh>> renderMeshes;
+
+	// Per-brush corner-vertex sets for convex-hull collision (the .map loader fills
+	// these; the C++ showcase leaves it empty and uses per-surface AABB colliders).
+	// When non-empty, createLevelBodies builds one Jolt ConvexHullShape per entry
+	// instead of AABB-per-surface — so angled brushes collide by their true shape.
+	std::vector<std::vector<glm::vec3>> collisionHulls;
 };

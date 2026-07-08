@@ -21,6 +21,9 @@ SIZE_RULES = [
     # Recursive-descent .map parser: a cohesive tokeniser + parser, longer than the
     # tight level free-fn cap by nature (like the factory/dispatch carve-outs above).
     ("**/map_loader.cpp", 250, "map parser (recursive descent)"),
+    # Plane∩plane∩plane brush resolver: one cohesive geometry algorithm, longer than
+    # the tight level cap by nature (like the map_loader carve-out above).
+    ("**/brush_geometry.cpp", 150, "brush geometry (plane intersection)"),
     ("src/engine/level/**/*.cpp", 100, "level free-fn"),
     ("src/engine/core/**/*.cpp", 200, "core class"),
     ("src/engine/renderer/**/*.cpp", 200, "renderer class"),
@@ -67,6 +70,8 @@ TYPE_LOCATION_ALLOWLIST = [
     # parser-internal token/error types (Tok/Token/ParseError) — impl detail that
     # lives with the parser, like the audio pimpl Impl struct above.
     "src/engine/level/map_loader.cpp",
+    # algorithm-internal Plane struct, lives with the brush-geometry resolver.
+    "src/engine/level/brush_geometry.cpp",
     "src/harness/**",                    # test scaffolding (wyrdwars skips tests too)
     "extern/**",
 ]

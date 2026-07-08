@@ -45,7 +45,7 @@ _Baseline: architecture docs through Chapter 15d. Last verified: 2026-06-14._
 | AI / enemies | ✅ | `monster_grunt` (melee) + `monster_ranged` (blue, keeps distance & fires dodgeable bolts): `CharacterVirtual` + kinematic inner body (blocks player), shootable (hit-flash + sounds), `aiSystem` LoS-aggro → A\* chase with **collided locomotion** (no corner-clip) → melee **or** standoff+ranged attack. Projectiles are faction-tagged (no friendly-fire). Navmesh deferred (grid A\* adequate) |
 | Crosshair / expanded HUD | ✅ | Health/armour bars, ammo (low-ammo red), weapon bar, pickup toast, damage flash. **Dynamic crosshair** (gap grows with weapon spread + movement + recoil), **hit/kill markers**, **damage-direction chevron**. Signals live in `HudSignals` (ctx, updated by `hudSignalSystem`) so the state is tested headless (`hud_signals`). Deferred: floating enemy health bar, debug-toggle key |
 | Networking | 🔴 | `src/engine/network/` empty (scaffold); see roadmap |
-| TrenchBroom level loading | 🔴 | levels hardcoded; setup planned (plan 03) |
+| TrenchBroom level loading | 🟡 | `.map` parser → **general brush geometry** (plane∩plane∩plane, angled brushes) → per-face polygons + **convex-hull collision** → entity dispatch → `buildWorld(mapPath)`; showcase kept as fallback. Pending: full Quake-UV texture fidelity, brush-entity movers/triggers from a real map, on-demand texture loading, hot-reload, retiring the C++ showcase |
 | BSP traversal | 🔴 | sectors built, no BSP walk |
 | Unit tests | 🔴 | `tests/` empty; only the headless harness exists (7 scenarios inc. `spawn_counts`) |
 

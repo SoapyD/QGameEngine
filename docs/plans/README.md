@@ -13,21 +13,23 @@ These are **planning documents** — they propose work, they don't perform it.
 
 ## Active plans
 
-### Fixes
-| Plan | Scope |
-|------|-------|
-| [2026-07-04_mouse-look-fix.md](2026-07-04_mouse-look-fix.md) | Mouse look drops motion while moving — `InputManager` overwrites the frame's mouse delta instead of accumulating it. ~2-line fix. |
-
 ### Level authoring — group `trenchbroom`
 | Plan | Scope |
 |------|-------|
-| [2026-07-03_trenchbroom_engine-loader.md](2026-07-03_trenchbroom_engine-loader.md) | `.map` parser → brush mesh → entity mapping → brush collision → wire `buildWorld`. |
+| [2026-07-03_trenchbroom_engine-loader.md](2026-07-03_trenchbroom_engine-loader.md) | `.map` parser → brush mesh → entity mapping → brush collision → wire `buildWorld`. ✅ MVP + **general geometry (plane∩plane∩plane) & convex-hull collision** shipped (2026-07-08). Deferred items split into the follow-on plans below. |
+| [2026-07-09_trenchbroom_brush-entities.md](2026-07-09_trenchbroom_brush-entities.md) | **HIGH** — `func_door`/`func_plat`/`trigger_*` authored as brush entities: geometry, mover/trigger behaviour, and collision from a real map. The biggest "playable level" unlock. |
+| [2026-07-09_trenchbroom_textures.md](2026-07-09_trenchbroom_textures.md) | **MED** — on-demand texture loading (any referenced texture) + Quake texture-axis UV projection (offset/rotation/scale) replacing stretched planar UVs. |
+| [2026-07-09_trenchbroom_collision-precision.md](2026-07-09_trenchbroom_collision-precision.md) | **LOW** — ray-vs-polygon/hull for hitscan/LoS/projectile/nav instead of per-surface AABB (matters once angled geometry is common). |
+| [2026-07-09_trenchbroom_showcase-retirement.md](2026-07-09_trenchbroom_showcase-retirement.md) | **LAST** — retire the C++ showcase (re-base the harness onto `showcase.map` behind a parity proof) + `.map` hot-reload. High-risk; do after the above. |
 
 *(The `docs` group — architecture-sync + engine-overview — has shipped; see below.)*
 
 ---
 
 ## Recently shipped & archived
+- [2026-07-04_mouse-look-fix.md](archive/2026-07-04_mouse-look-fix.md) — mouse look dropped motion
+  while moving (`InputManager` overwrote the frame's mouse delta instead of accumulating it). Fixed
+  in `input_manager.cpp`. Shipped 2026-07-04 (PR #33).
 - [2026-07-08_hud-crosshair-expansion.md](archive/2026-07-08_hud-crosshair-expansion.md) — dynamic
   crosshair (spread + movement + recoil), hit/kill markers, low-ammo cue, damage-direction chevron,
   and a debug/production split flag. HUD *state* lives in `HudSignals` (ctx) updated by
