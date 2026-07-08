@@ -1,52 +1,37 @@
 #include "engine/level/map_to_level.h"
 
-#include "engine/level/map_transform.h"
+#include "engine/level/brush_geometry.h"
 
-#include <algorithm>
 #include <limits>
-#include <string>
-#include <unordered_map>
 
 namespace
 {
-    // The texture used by most of a brush's faces. For single-texture box brushes
-    // (the smoke.map case) this is exact; for mixed-texture brushes the AABB
-    // representation can only carry one, so majority wins.
-    std::string majorityTexture(const qmap::MapBrush& brush)
+    // Emit a convex face polygon as engine Surfaces. Surface is a quad, so a 4-gon
+    // maps 1:1 (box maps are unchanged — smoke.map still yields 6 surfaces/brush),
+    // and an N-gon fans into (N-2) triangle-surfaces stored as degenerate quads
+    // (v0, vt, vt+1, vt+1). The renderer/AABB paths treat the repeated corner
+    // harmlessly.
+    void emitPolygon(Sector& sector, const qmap::BrushFacePolygon& face)
     {
-        std::unordered_map<std::string, int> counts;
-        for (const auto& f : brush.faces) counts[f.texture]++;
+        const auto& v = face.vertices;
+        if (v.size() < 3) return;
 
-        std::string best;
-        int bestN = -1;
-        for (const auto& [tex, n] : counts)
-            if (n > bestN) { bestN = n; best = tex; }
-        return best;
-    }
-
-    // Push the 6 axis-aligned faces of the box [mn,mx] into the sector, each wound
-    // CCW as seen from outside (GL_CCW front-face + GL_BACK cull) with an outward
-    // normal. The interior-facing face of a wall slab is what the player sees.
-    void addBoxSurfaces(Sector& sector, glm::vec3 mn, glm::vec3 mx, const std::string& tex)
-    {
-        const float x0 = mn.x, y0 = mn.y, z0 = mn.z;
-        const float x1 = mx.x, y1 = mx.y, z1 = mx.z;
-
-        auto push = [&](glm::vec3 a, glm::vec3 b, glm::vec3 c, glm::vec3 d, glm::vec3 n)
+        auto push = [&](glm::vec3 a, glm::vec3 b, glm::vec3 c, glm::vec3 d)
         {
             Surface s;
             s.vertices[0] = a; s.vertices[1] = b; s.vertices[2] = c; s.vertices[3] = d;
-            s.normal = n;
-            s.textureName = tex;
+            s.normal = face.normal;
+            s.textureName = face.texture;
             sector.surfaces.push_back(s);
         };
 
-        push({x1,y0,z1}, {x1,y0,z0}, {x1,y1,z0}, {x1,y1,z1}, { 1, 0, 0}); // +X
-        push({x0,y0,z0}, {x0,y0,z1}, {x0,y1,z1}, {x0,y1,z0}, {-1, 0, 0}); // -X
-        push({x0,y1,z1}, {x1,y1,z1}, {x1,y1,z0}, {x0,y1,z0}, { 0, 1, 0}); // +Y
-        push({x0,y0,z0}, {x1,y0,z0}, {x1,y0,z1}, {x0,y0,z1}, { 0,-1, 0}); // -Y
-        push({x0,y0,z1}, {x1,y0,z1}, {x1,y1,z1}, {x0,y1,z1}, { 0, 0, 1}); // +Z
-        push({x1,y0,z0}, {x0,y0,z0}, {x0,y1,z0}, {x1,y1,z0}, { 0, 0,-1}); // -Z
+        if (v.size() == 4)
+        {
+            push(v[0], v[1], v[2], v[3]);   // exact quad — the box-brush common case
+            return;
+        }
+        for (size_t t = 1; t + 1 < v.size(); ++t)   // fan from v[0]
+            push(v[0], v[t], v[t + 1], v[t + 1]);
     }
 }
 
@@ -66,23 +51,18 @@ Level mapWorldspawnToLevel(const qmap::MapData& map)
 
         for (const auto& brush : entity.brushes)
         {
-            // Brush AABB in ENGINE space (convert each face point, then min/max —
-            // the axis swap makes this cleaner than converting a map-space AABB).
-            glm::vec3 mn(std::numeric_limits<float>::max());
-            glm::vec3 mx(std::numeric_limits<float>::lowest());
-            for (const auto& face : brush.faces)
-                for (const auto& p : face.points)
-                {
-                    glm::vec3 e = qmap::mapPointToEngine(p);
-                    mn = glm::min(mn, e);
-                    mx = glm::max(mx, e);
-                }
+            qmap::BrushGeometry geo = qmap::buildBrushGeometry(brush);
+            if (geo.faces.empty()) continue;   // degenerate / unbounded — skip
 
-            if (mn.x > mx.x) continue;  // brush with no faces — skip
+            for (const auto& face : geo.faces)
+            {
+                emitPolygon(world, face);
+                for (const auto& p : face.vertices) { lvlMin = glm::min(lvlMin, p); lvlMax = glm::max(lvlMax, p); }
+            }
 
-            addBoxSurfaces(world, mn, mx, majorityTexture(brush));
-            lvlMin = glm::min(lvlMin, mn);
-            lvlMax = glm::max(lvlMax, mx);
+            // True convex hull for collision (angled brushes collide by their real
+            // shape, not a fattened AABB).
+            level.collisionHulls.push_back(std::move(geo.vertices));
         }
     }
 

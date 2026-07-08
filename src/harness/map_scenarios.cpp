@@ -4,6 +4,7 @@
 #include "engine/level/map_to_level.h"
 #include "engine/level/map_to_descriptors.h"
 #include "engine/level/map_transform.h"
+#include "engine/level/brush_geometry.h"
 #include "engine/level/level.h"
 
 #include <glm/glm.hpp>
@@ -221,5 +222,82 @@ namespace mapscenarios
             "grunts=%d, sunk/misplaced=%d, worst feet gap=%.3f (want ~0), err=\"%s\"",
             grunts, sunk, worstFeetGap, err.c_str());
         return report("map_ground", ok, buf);
+    }
+
+    namespace
+    {
+        // Count face/surface normals that are NOT axis-aligned (≥2 significant
+        // components) — i.e. genuinely slanted geometry (a ramp).
+        bool isSlanted(const glm::vec3& n)
+        {
+            int big = (std::fabs(n.x) > 0.3f) + (std::fabs(n.y) > 0.3f) + (std::fabs(n.z) > 0.3f);
+            return big >= 2;
+        }
+    }
+
+    bool scenarioBrushGeometry()
+    {
+        // A face from 3 points, wound so cross(p2-p0, p1-p0) points along `outward`
+        // (the Quake/TrenchBroom CW-from-front convention buildBrushGeometry expects).
+        auto face = [](glm::vec3 a, glm::vec3 b, glm::vec3 c, glm::vec3 outward)
+        {
+            if (glm::dot(glm::cross(c - a, b - a), outward) < 0.0f) std::swap(b, c);
+            qmap::MapFace f;
+            f.points[0] = a; f.points[1] = b; f.points[2] = c;
+            f.texture = "wall";
+            return f;
+        };
+
+        // ── Axis-aligned box, 0..64 map units → 6 faces, 8 corners ──
+        qmap::MapBrush box;
+        box.faces = {
+            face({ 0, 0, 0}, { 0,64, 0}, { 0, 0,64}, {-1, 0, 0}),
+            face({64, 0, 0}, {64,64, 0}, {64, 0,64}, { 1, 0, 0}),
+            face({ 0, 0, 0}, {64, 0, 0}, { 0, 0,64}, { 0,-1, 0}),
+            face({ 0,64, 0}, {64,64, 0}, { 0,64,64}, { 0, 1, 0}),
+            face({ 0, 0, 0}, {64, 0, 0}, { 0,64, 0}, { 0, 0,-1}),
+            face({ 0, 0,64}, {64, 0,64}, { 0,64,64}, { 0, 0, 1}),
+        };
+        qmap::BrushGeometry bg = qmap::buildBrushGeometry(box);
+
+        // ── Triangular prism (wedge) extruded along Y → 5 faces, 6 corners, one
+        //    slanted normal (the hypotenuse x+z=64). ──
+        qmap::MapBrush wedge;
+        wedge.faces = {
+            face({ 0, 0, 0}, {64, 0, 0}, { 0, 0,64}, { 0,-1, 0}),   // y=0 end
+            face({ 0,64, 0}, {64,64, 0}, { 0,64,64}, { 0, 1, 0}),   // y=64 end
+            face({ 0, 0, 0}, {64, 0, 0}, { 0,64, 0}, { 0, 0,-1}),   // z=0 bottom
+            face({ 0, 0, 0}, { 0,64, 0}, { 0, 0,64}, {-1, 0, 0}),   // x=0 side
+            face({64, 0, 0}, { 0, 0,64}, {64,64, 0}, { 1, 0, 1}),   // hypotenuse (slanted)
+        };
+        qmap::BrushGeometry wg = qmap::buildBrushGeometry(wedge);
+
+        int wedgeSlanted = 0;
+        for (const auto& f : wg.faces) if (isSlanted(f.normal)) ++wedgeSlanted;
+
+        bool boxOk   = bg.faces.size() == 6 && bg.vertices.size() == 8;
+        bool wedgeOk = wg.faces.size() == 5 && wg.vertices.size() == 6 && wedgeSlanted >= 1;
+
+        // ── Real data: the authored showcase.map contains a ramp brush. Load it and
+        //    assert the loader produces a slanted surface + convex hulls (the failure
+        //    mode the synthetic brushes above missed: real TrenchBroom faces are tiny
+        //    plane-defining triangles, so the winding convention — not a face-point
+        //    average — must drive the half-space test). ──
+        std::string err;
+        qmap::MapData realMap = qmap::loadMapFile("assets/maps/showcase.map", &err);
+        Level level = mapWorldspawnToLevel(realMap);
+        int slantedSurfaces = 0;
+        for (const auto& sec : level.sectors)
+            for (const auto& s : sec.surfaces) if (isSlanted(s.normal)) ++slantedSurfaces;
+        bool realOk = err.empty() && !level.sectors.empty()
+                   && !level.collisionHulls.empty() && slantedSurfaces > 0;
+
+        char buf[260];
+        std::snprintf(buf, sizeof(buf),
+            "box %zu/%zu (want 6/8); wedge %zu/%zu/%d slanted (want 5/6/>=1); showcase.map: "
+            "%zu hulls, %d slanted surfaces (want >0 each)",
+            bg.faces.size(), bg.vertices.size(), wg.faces.size(), wg.vertices.size(), wedgeSlanted,
+            level.collisionHulls.size(), slantedSurfaces);
+        return report("brush_geometry", boxOk && wedgeOk && realOk, buf);
     }
 }

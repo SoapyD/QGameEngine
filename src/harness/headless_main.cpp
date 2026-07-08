@@ -901,8 +901,13 @@ int main(int argc, char** argv)
     else if (scenario == "map_file")         pass = mapscenarios::scenarioMapFile(mapArg);
     else if (scenario == "map_scene")        pass = mapscenarios::scenarioMapScene();
     else if (scenario == "map_ground")       pass = mapscenarios::scenarioMapGroundPlacement(mapArg);
+    else if (scenario == "brush_geometry")   pass = mapscenarios::scenarioBrushGeometry();
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
+    // Destroy entities (and their components) BEFORE the physics system: enemy
+    // JoltCharacters remove their inner Jolt body in ~CharacterVirtual, which must
+    // run while jolt is still alive (else a use-after-free segfault at exit).
+    registry.clear();
     jolt.shutdown();
     resources.clear();
     return pass ? 0 : 1;
