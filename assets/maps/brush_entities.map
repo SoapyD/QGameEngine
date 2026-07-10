@@ -1,0 +1,77 @@
+// Game: QEngine
+// Format: Standard
+//
+// Purpose-built brush-entity regression fixture for the `map_brush_entities`
+// headless scenario. Small and STABLE (do not retexture/retarget) — the test
+// finds entities by component, but relies on: one func_door linked from one
+// trigger_multiple, and one trigger_hurt. All brushes are axis-aligned boxes
+// wound like smoke.map's brush 0 (outward normal = cross(p2-p0, p1-p0)).
+//
+// entity 0 — worldspawn floor slab (top at Z=0)
+{
+"classname" "worldspawn"
+// brush 0 — floor
+{
+( -256  256    0 ) ( -256 -256    0 ) ( -256  256  -16 ) grid_grey 0 0 0 1 1
+(  256 -256  -16 ) ( -256 -256  -16 ) (  256 -256    0 ) grid_grey 0 0 0 1 1
+(  256  256  -16 ) ( -256  256  -16 ) (  256 -256  -16 ) grid_grey 0 0 0 1 1
+(  256 -256    0 ) ( -256 -256    0 ) (  256  256    0 ) grid_grey 0 0 0 1 1
+(  256  256    0 ) ( -256  256    0 ) (  256  256  -16 ) grid_grey 0 0 0 1 1
+(  256 -256    0 ) (  256  256    0 ) (  256 -256  -16 ) grid_grey 0 0 0 1 1
+}
+}
+// entity 1 — player start (engine ~0,1,0)
+{
+"classname" "info_player_start"
+"origin" "0 0 32"
+"angle" "90"
+}
+// entity 2 — light so the room is lit in the windowed build
+{
+"classname" "light"
+"origin" "0 0 96"
+}
+// entity 3 — func_door: a wall box that slides up (endpos) when triggered
+{
+"classname" "func_door"
+"targetname" "door1"
+"endpos" "128 112 144"
+"texture" "grid_orange"
+// brush 0 — box X[96,160] Y[96,128] Z[0,96]
+{
+(  96  128   96 ) (  96   96   96 ) (  96  128    0 ) grid_orange 0 0 0 1 1
+( 160   96    0 ) (  96   96    0 ) ( 160   96   96 ) grid_orange 0 0 0 1 1
+( 160  128    0 ) (  96  128    0 ) ( 160   96    0 ) grid_orange 0 0 0 1 1
+( 160   96   96 ) (  96   96   96 ) ( 160  128   96 ) grid_orange 0 0 0 1 1
+( 160  128   96 ) (  96  128   96 ) ( 160  128    0 ) grid_orange 0 0 0 1 1
+( 160   96   96 ) ( 160  128   96 ) ( 160   96    0 ) grid_orange 0 0 0 1 1
+}
+}
+// entity 4 — trigger_multiple that opens door1
+{
+"classname" "trigger_multiple"
+"target" "door1"
+// brush 0 — box X[-32,32] Y[96,160] Z[0,64]
+{
+( -32  160   64 ) ( -32   96   64 ) ( -32  160    0 ) __TB_empty 0 0 0 1 1
+(  32   96    0 ) ( -32   96    0 ) (  32   96   64 ) __TB_empty 0 0 0 1 1
+(  32  160    0 ) ( -32  160    0 ) (  32   96    0 ) __TB_empty 0 0 0 1 1
+(  32   96   64 ) ( -32   96   64 ) (  32  160   64 ) __TB_empty 0 0 0 1 1
+(  32  160   64 ) ( -32  160   64 ) (  32  160    0 ) __TB_empty 0 0 0 1 1
+(  32   96   64 ) (  32  160   64 ) (  32   96    0 ) __TB_empty 0 0 0 1 1
+}
+}
+// entity 5 — trigger_hurt lava volume (dmg 25/sec)
+{
+"classname" "trigger_hurt"
+"dmg" "25"
+// brush 0 — box X[-160,-96] Y[-160,-96] Z[0,32]
+{
+( -160  -96   32 ) ( -160 -160   32 ) ( -160  -96    0 ) __TB_empty 0 0 0 1 1
+(  -96 -160    0 ) ( -160 -160    0 ) (  -96 -160   32 ) __TB_empty 0 0 0 1 1
+(  -96  -96    0 ) ( -160  -96    0 ) (  -96 -160    0 ) __TB_empty 0 0 0 1 1
+(  -96 -160   32 ) ( -160 -160   32 ) (  -96  -96   32 ) __TB_empty 0 0 0 1 1
+(  -96  -96   32 ) ( -160  -96   32 ) (  -96  -96    0 ) __TB_empty 0 0 0 1 1
+(  -96 -160   32 ) (  -96  -96   32 ) (  -96 -160    0 ) __TB_empty 0 0 0 1 1
+}
+}

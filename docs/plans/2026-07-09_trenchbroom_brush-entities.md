@@ -1,8 +1,37 @@
 # Plan — TrenchBroom: Brush Entities (movers, triggers, collision)
 
 **Group:** `trenchbroom` (follow-on to the shipped engine-loader + general-geometry work).
-**Status:** 📝 Proposed 2026-07-09. **Priority: HIGH** — the biggest remaining unlock; it's what makes
-a TrenchBroom-authored level actually *playable* (doors, lifts, hazards), not just walkable geometry.
+**Status:** ✅ Verified 2026-07-09 (box-approximation path). **Priority: HIGH** — the biggest remaining
+unlock; it's what makes a TrenchBroom-authored level actually *playable* (doors, lifts, hazards), not
+just walkable geometry.
+
+---
+
+## Reality check (2026-07-09) — the "Why" below was outdated
+The premise below ("a door drawn in TB is invisible and non-colliding") was already false by the time
+this plan was picked up: the **classname-dispatch** work (archived
+`2026-07-02_entity-factory-classname-dispatch.md`) routes `func_door`/`func_plat`/`trigger_*` through
+[classname_factory.cpp](../../src/engine/level/classname_factory.cpp), deriving each brush entity's
+origin+size from its brush AABB ([map_to_descriptors.cpp](../../src/engine/level/map_to_descriptors.cpp)).
+So brush entities already **work as box approximations**: movers get a `Mover` + a kinematic **box**
+body + a cube renderer, triggers get a sensor AABB + `TriggerVolume` with two-pass `target` linking.
+For the axis-aligned boxes in `showcase.map` the approximation is essentially exact.
+
+What was genuinely missing — and is now **closed** — was an **end-to-end proof**. Added:
+- `assets/maps/brush_entities.map` — a small, stable fixture: floor + `func_door` (+ linked
+  `trigger_multiple`) + `trigger_hurt` lava + player start. Deliberately **not** `showcase.map`, which
+  the showcase-retirement plan will re-base.
+- Headless scenario `map_brush_entities` ([headless_main.cpp](../../src/harness/headless_main.cpp)):
+  builds the world from that `.map`, finds entities by component, and asserts the door has a kinematic
+  collider (**blocks**), starts closed, and travels to `endPos` on trigger overlap (**opens**), and that
+  the lava volume damages the player. Result: `door body=1 closed=1 opened=1 (progress=1.00) hurt=1
+  (hp 100→75)`. `map_scene` (36) + `brush_geometry` stay green.
+
+**Still deferred (Tasks 1/2/5, geometry fidelity):** a non-cuboid/angled brush entity still renders as
+an enclosing cube and collides as an AABB rather than its true convex hull (unlike worldspawn, which got
+general-geometry hulls). No map currently authors such an entity, so this is lower value than the plan's
+original framing implied. Revisit if/when angled doors/lifts are authored — build the brush's render
+surfaces centre-relative and give movers a kinematic **hull** body instead of the AABB box.
 
 **Goal:** make **brush entities** authored in TrenchBroom — `func_door`, `func_plat`, `trigger_multiple`,
 `trigger_teleport`, `trigger_hurt` — fully work from a loaded `.map`: geometry, behaviour, **and**

@@ -855,6 +855,80 @@ namespace
         return report("hud_signals", pass, buf);
     }
 
+    // Brush entities loaded from a `.map` (assets/maps/brush_entities.map, built
+    // by main for this scenario). Proves the loader's brush-entity path end-to-
+    // end: a func_door drawn as a brush gets a Mover + a kinematic collider body
+    // (it blocks), the linked trigger_multiple opens it (it travels toward
+    // endPos), and a trigger_hurt lava brush damages the player. The scenario
+    // finds every entity by component, so it doesn't hard-code map coordinates.
+    bool scenario_map_brush_entities(entt::registry& reg, JoltWorld& jolt, const Level& level, float dt)
+    {
+        entt::entity player = findPlayer(reg);
+        if (player == entt::null) return report("map_brush_entities", false, "no player from map");
+
+        // The door mover + the trigger that activates it, and the hurt volume.
+        entt::entity door = entt::null, doorTrig = entt::null, hurtTrig = entt::null;
+        for (auto [e, tv] : reg.view<TriggerVolume>().each())
+        {
+            if (tv.action == TriggerAction::ActivateMover && tv.target != entt::null)
+                { doorTrig = e; door = tv.target; }
+            if (tv.action == TriggerAction::Damage) hurtTrig = e;
+        }
+        if (door == entt::null || doorTrig == entt::null)
+            return report("map_brush_entities", false, "no func_door + trigger link built from map");
+        if (hurtTrig == entt::null)
+            return report("map_brush_entities", false, "no trigger_hurt built from map");
+
+        // (collider) the door has a kinematic Jolt body — it blocks the player.
+        bool doorHasBody = reg.all_of<JoltBody>(door) && reg.all_of<Mover>(door);
+
+        // (blocks) before triggering, the door sits closed at its start position.
+        const Mover& m0 = reg.get<Mover>(door);
+        const glm::vec3 startPos = m0.startPos, endPos = m0.endPos;
+        const float distStartToEnd = glm::length(endPos - startPos);
+        bool closedAtStart = m0.state == MoverState::Idle
+            && glm::length(reg.get<Position>(door).value - startPos) < 0.01f;
+
+        // (opens) pin the player inside the door trigger; the mover should leave
+        // Idle and travel toward endPos.
+        const glm::vec3 trigCentre = reg.get<Position>(doorTrig).value;
+        bool leftIdle = false;
+        float bestProgress = 0.0f;
+        for (int i = 0; i < 180; i++)
+        {
+            teleportPlayer(reg, player, trigCentre);   // hold inside the trigger AABB
+            applyInput(reg, player, Input{});
+            qengine::stepSimulation(reg, jolt, level, dt);
+            const Mover& m = reg.get<Mover>(door);
+            if (m.state != MoverState::Idle) leftIdle = true;
+            bestProgress = std::max(bestProgress, m.progress);
+        }
+        const float distToEnd = glm::length(reg.get<Position>(door).value - endPos);
+        bool opened = leftIdle && bestProgress > 0.5f
+                   && distToEnd < distStartToEnd * 0.5f && distStartToEnd > 0.01f;
+
+        // (hurt) pin the player in the lava volume; health must drop.
+        const glm::vec3 hurtCentre = reg.get<Position>(hurtTrig).value;
+        reg.get<Health>(player).current = 100.0f;
+        const float hpBefore = reg.get<Health>(player).current;
+        for (int i = 0; i < 60; i++)
+        {
+            teleportPlayer(reg, player, hurtCentre);
+            applyInput(reg, player, Input{});
+            qengine::stepSimulation(reg, jolt, level, dt);
+        }
+        const float hpAfter = reg.get<Health>(player).current;
+        bool hurt = hpAfter < hpBefore;
+
+        bool pass = doorHasBody && closedAtStart && opened && hurt;
+        char buf[256];
+        std::snprintf(buf, sizeof(buf),
+            "door body=%d closed=%d; opened=%d (progress=%.2f distToEnd=%.2f/%.2f); hurt=%d (hp %.0f->%.0f)",
+            doorHasBody?1:0, closedAtStart?1:0, opened?1:0, bestProgress, distToEnd, distStartToEnd,
+            hurt?1:0, hpBefore, hpAfter);
+        return report("map_brush_entities", pass, buf);
+    }
+
 }
 
 int main(int argc, char** argv)
@@ -873,7 +947,12 @@ int main(int argc, char** argv)
     auto& jolt = registry.ctx().emplace<JoltWorld>();
     jolt.init(/*singleThreaded=*/true, cfg.gravity);   // deterministic
 
-    Level level = qengine::buildWorld(registry, resources, jolt, /*headless=*/true);
+    // Most scenarios run against the hard-coded showcase (empty path). The
+    // map-driven behavioural scenario builds its world from a dedicated fixture
+    // `.map` so it exercises the loader's brush-entity path, not the C++ scene.
+    std::string worldMap = (scenario == "map_brush_entities")
+        ? std::string("assets/maps/brush_entities.map") : std::string();
+    Level level = qengine::buildWorld(registry, resources, jolt, /*headless=*/true, worldMap);
     float dt = cfg.fixedDeltaTime;
 
     std::cout << "── headless scenario: " << scenario << " ──" << std::endl;
@@ -902,6 +981,7 @@ int main(int argc, char** argv)
     else if (scenario == "map_scene")        pass = mapscenarios::scenarioMapScene();
     else if (scenario == "map_ground")       pass = mapscenarios::scenarioMapGroundPlacement(mapArg);
     else if (scenario == "brush_geometry")   pass = mapscenarios::scenarioBrushGeometry();
+    else if (scenario == "map_brush_entities") pass = scenario_map_brush_entities(registry, jolt, level, dt);
     else { std::cerr << "unknown scenario: " << scenario << std::endl; pass = false; }
 
     // Destroy entities (and their components) BEFORE the physics system: enemy
